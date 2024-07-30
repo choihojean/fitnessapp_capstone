@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../database/db_helper.dart';
+import '../home_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,7 +22,12 @@ class _LoginPageState extends State<LoginPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('성공적으로 로그인 되었습니다')),
         );
-        Navigator.pushReplacementNamed(context, '/home'); // HomeScreen으로 이동
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(user: user), // 로그인 정보를 전달
+          ),
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Email이나 비밀번호가 잘못되었습니다')),

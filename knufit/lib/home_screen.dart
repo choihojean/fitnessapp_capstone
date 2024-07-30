@@ -5,7 +5,9 @@ import 'screen/screen_calendar.dart';
 import 'screen/screen_menu.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final Map<String, dynamic> user; // 로그인 정보를 받을 변수
+
+  const HomeScreen({required this.user, Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -31,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Demo'),
+        title: Text('안녕하세요, ${widget.user['name']}님'), // 로그인한 사용자의 이름 표시
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(

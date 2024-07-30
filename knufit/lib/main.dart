@@ -20,7 +20,6 @@ class FitnessApp extends StatelessWidget {
       routes: {
         '/signup': (context) => SignupPage(),
         '/login': (context) => LoginPage(),
-        '/home': (context) => HomeScreen(), // HomeScreen 경로 추가
       },
     );
   }
