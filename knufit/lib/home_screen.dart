@@ -16,12 +16,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _widgetOptions = <Widget>[
-    ScreenHome(),
-    ScreenTrainingList(),
-    ScreenCalendar(),
-    ScreenMenu(),
-  ];
+  late final List<Widget> _widgetOptions;
+
+  @override
+  void initState() {
+    super.initState();
+    _widgetOptions = <Widget>[
+      ScreenHome(),
+      ScreenTrainingList(),
+      ScreenCalendar(),
+      ScreenMenu(user: widget.user), // 로그인 정보를 전달
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
