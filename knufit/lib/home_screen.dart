@@ -38,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('안녕하세요, ${widget.user['name']}님'), // 로그인한 사용자의 이름 표시
-      ),
+      // appBar: AppBar(
+      //   title: Text('안녕하세요, ${widget.user['name']}님'), // 로그인한 사용자의 이름 표시
+      // ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
