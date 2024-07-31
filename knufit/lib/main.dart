@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signup/signup_page.dart';
 import 'login/login_page.dart';
-import 'home_screen.dart';
+//import 'home_screen.dart';
 
 void main() {
   runApp(FitnessApp());
