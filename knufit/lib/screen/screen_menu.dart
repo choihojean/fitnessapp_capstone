@@ -102,6 +102,9 @@ class _ScreenMenuState extends State<ScreenMenu> {
               _buildMenuOption(Icons.logout, '로그아웃', () {
                 AuthHelper.confirmLogout(context);
               }), //로그아웃 메뉴
+              _buildMenuOption(Icons.password, '비밀번호 변경', (){
+                AuthHelper.changePassword(context, user);
+              }) //비밀번호 변경
               // 다른 기능들을 추가할 공간
             ],
           ),

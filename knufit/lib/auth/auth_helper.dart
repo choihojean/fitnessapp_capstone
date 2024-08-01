@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
+import '../screen/change_password_page.dart';
 
 class AuthHelper {
   static void logout(BuildContext context) {
@@ -36,4 +37,13 @@ class AuthHelper {
       },
     );
   }
+  
+  static void changePassword(BuildContext context, Map<String, dynamic> user) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChangePasswordPage(user: user)),
+    );
+  }
 }
+
+
