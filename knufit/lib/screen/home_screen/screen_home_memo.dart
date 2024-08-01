@@ -47,21 +47,30 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
               itemCount: memos.length,
               itemBuilder: (context, index) {
                 final memo = memos[index];
-                return ListTile(
-                  title: Text(memo['title']),
-                  subtitle: Text(memo['content']),
-                  onTap: () async {
-                    bool? result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ScreenMemo(
-                          user: widget.user,
-                          memo: memo,
-                        ),
+                return Column(
+                  children: [
+                    ListTile(
+                      title: Text(memo['title']),
+                      subtitle: Text(
+                        memo['content'],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                    );
-                    if (result == true) _loadMemos(); // 수정 후 목록 갱신
-                  },
+                      onTap: () async {
+                        bool? result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ScreenMemo(
+                              user: widget.user,
+                              memo: memo,
+                            ),
+                          ),
+                        );
+                        if (result == true) _loadMemos(); // 수정 후 목록 갱신
+                      },
+                    ),
+                    Divider(), // 메모 간 구분선 추가
+                  ],
                 );
               },
             );
