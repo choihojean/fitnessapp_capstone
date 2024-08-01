@@ -3,6 +3,10 @@ import 'home_screen/screen_home_memo.dart';
 import 'home_screen/screen_routine.dart';
 
 class ScreenHome extends StatefulWidget {
+  final Map<String, dynamic> user; // 로그인 정보를 받을 변수
+
+  const ScreenHome({required this.user, Key? key}) : super(key: key);
+
   @override
   _ScreenHomeState createState() => _ScreenHomeState();
 }
@@ -10,23 +14,23 @@ class ScreenHome extends StatefulWidget {
 class _ScreenHomeState extends State<ScreenHome> {
   int _selectedTabIndex = 0;
 
-  final List<Widget> _screens = [
-    ScreenHomeMemo(),
-    ScreenRoutine(),
-  ];
-
-  void _onTabSelected(int index) {
-    setState(() {
-      _selectedTabIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    // 사용자 정보를 화면에 전달
+    final List<Widget> _screens = [
+      ScreenHomeMemo(user: widget.user), // 사용자 정보를 전달
+      ScreenRoutine(), // 사용자 정보를 전달
+    ];
+
+    void _onTabSelected(int index) {
+      setState(() {
+        _selectedTabIndex = index;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('KNU Fit'),
-        //backgroundColor: Color.fromARGB(255, 163, 163, 163), // 앱바 배경 색상 조정
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
           child: Row(

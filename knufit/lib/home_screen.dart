@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _widgetOptions = <Widget>[
-      ScreenHome(),
+      ScreenHome(user: widget.user), // 로그인 정보를 전달
       ScreenTrainingList(),
       ScreenCalendar(),
       ScreenMenu(user: widget.user), // 로그인 정보를 전달

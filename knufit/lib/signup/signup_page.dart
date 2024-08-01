@@ -31,7 +31,7 @@ class _SignupPageState extends State<SignupPage> {
           SnackBar(content: Text('회원가입을 환영합니다!')),
         );
 
-        Navigator.pop(context);
+        Navigator.pop(context); // Go back to login page
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('비밀번호가 동일하지 않습니다')),
