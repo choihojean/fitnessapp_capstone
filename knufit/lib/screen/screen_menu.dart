@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart'; // ProfilePage를 import
+import 'dart:io';
 
-class ScreenMenu extends StatelessWidget {
+class ScreenMenu extends StatefulWidget {
   final Map<String, dynamic> user; // 로그인 정보를 받을 변수
 
   const ScreenMenu({required this.user, Key? key}) : super(key: key);
+
+  @override
+  _ScreenMenuState createState() => _ScreenMenuState();
+}
+
+class _ScreenMenuState extends State<ScreenMenu> {
+  late Map<String, dynamic> user;
+
+  @override
+  void initState() {
+    super.initState();
+    user = widget.user;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +36,19 @@ class ScreenMenu extends StatelessWidget {
               ),
               SizedBox(height: 10),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
+                onTap: () async {
+                  final updatedUser = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfilePage(user: user),
+                      builder: (context) => ProfilePage(user: user), //현재 유저 정보를 ProfilePage로 전달
                     ),
                   );
+
+                  if (updatedUser != null) {
+                    setState(() {
+                      user = updatedUser; //null이 아닐 경우 유저 정보 갱신
+                    });
+                  }
                 },
                 child: Container(
                   padding: EdgeInsets.all(8.0), // 클릭 가능한 영역 확장
@@ -40,7 +60,9 @@ class ScreenMenu extends StatelessWidget {
                       CircleAvatar(
                         radius: 40,
                         backgroundColor: Colors.grey,
-                        backgroundImage: AssetImage('assets/profile_default.jpg'), // 기본 프로필 이미지 경로
+                        backgroundImage: user['profile_image'] != null
+                            ? FileImage(File(user['profile_image'])) as ImageProvider
+                            : AssetImage('assets/profile_default.jpg'),
                       ),
                       SizedBox(width: 20),
                       Column(

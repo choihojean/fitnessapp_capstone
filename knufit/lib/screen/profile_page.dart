@@ -20,9 +20,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = widget.user['name'];
+    _nameController.text = widget.user['name']; //초기 이름 설정
     if (widget.user['profile_image'] != null) {
-      _image = File(widget.user['profile_image']);
+      _image = File(widget.user['profile_image']); //초기 프로필 이미지 설정
     }
   }
 
@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     if (pickedFile != null) {
       setState(() {
-        _image = File(pickedFile.path);
+        _image = File(pickedFile.path); //선택된 이미지 설정
       });
     }
   }
@@ -40,24 +40,24 @@ class _ProfilePageState extends State<ProfilePage> {
     String name = _nameController.text;
 
     if (name.isNotEmpty) {
-      // 업데이트할 데이터를 설정합니다.
+      // 업데이트할 데이터 설정
       Map<String, dynamic> updatedUser = {
         'id': widget.user['id'],
         'name': name,
         'email': widget.user['email'],
         'password': widget.user['password'],
-        // 프로필 이미지를 파일 경로로 저장합니다.
+        // 프로필 이미지를 파일 경로로 저장
         'profile_image': _image?.path ?? widget.user['profile_image']
       };
 
-      // 데이터베이스 업데이트를 수행합니다.
+      // 데이터베이스 업데이트 수행
       await _dbHelper.updateUser(updatedUser);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('프로필이 업데이트되었습니다!')),
       );
 
-      // 프로필 업데이트 후 이전 화면으로 돌아갑니다.
+      // 프로필 업데이트 후 이전 화면으로 돌아갈 때 변경된 사용자 정보 반환
       Navigator.pop(context, updatedUser);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -74,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           IconButton(
             icon: Icon(Icons.save),
-            onPressed: _updateProfile,
+            onPressed: _updateProfile, //저장 버튼 누르면 프로필 업데이트
           ),
         ],
       ),
@@ -84,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-              onTap: _pickImage,
+              onTap: _pickImage, //이미지 선택기 호출
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.grey,
@@ -95,15 +95,15 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             TextField(
-              controller: _nameController,
+              controller: _nameController, //이름 입력 필드의 컨트롤러 설정
               decoration: InputDecoration(labelText: '이름'),
             ),
             SizedBox(height: 10),
             Text(
-              '이메일: ${widget.user['email']}',
+              '이메일: ${widget.user['email']}', //유저 이메일 표시
               style: TextStyle(fontSize: 16),
             ),
-            // 추가 정보들을 여기에 표시할 수 있습니다.
+            // 추가 정보들을 여기에 표시할 수 있음
           ],
         ),
       ),

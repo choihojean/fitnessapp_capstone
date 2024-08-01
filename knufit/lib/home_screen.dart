@@ -15,17 +15,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  late Map<String, dynamic> user;
 
-  late final List<Widget> _widgetOptions;
+  late List<Widget> _widgetOptions;
 
   @override
   void initState() {
     super.initState();
+    user = widget.user;
     _widgetOptions = <Widget>[
-      ScreenHome(user: widget.user), // 로그인 정보를 전달
+      ScreenHome(user: user), // 로그인 정보를 전달
       ScreenTrainingList(),
       ScreenCalendar(),
-      ScreenMenu(user: widget.user), // 로그인 정보를 전달
+      ScreenMenu(user: user), // 로그인 정보를 전달
     ];
   }
 
@@ -39,9 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
-      //   title: Text('안녕하세요, ${widget.user['name']}님'), // 로그인한 사용자의 이름 표시
+      //   title: Text('안녕하세요, ${user['name']}님'), // 로그인한 사용자의 이름 표시
       // ),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _widgetOptions,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
