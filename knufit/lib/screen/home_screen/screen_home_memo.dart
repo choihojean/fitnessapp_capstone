@@ -1,61 +1,76 @@
 import 'package:flutter/material.dart';
-import 'screen_memo.dart'; // 메모 입력 화면 경로
-import '../../database/db_helper.dart'; // DBHelper 경로 확인
+import '../../database/db_helper.dart';
+import 'screen_memo.dart';
 
-class ScreenHomeMemo extends StatelessWidget {
-  final Map<String, dynamic> user; // 로그인 정보를 받을 변수
+class ScreenHomeMemo extends StatefulWidget {
+  final Map<String, dynamic> user;
 
   const ScreenHomeMemo({required this.user, Key? key}) : super(key: key);
 
   @override
+  _ScreenHomeMemoState createState() => _ScreenHomeMemoState();
+}
+
+class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
+  late Future<List<Map<String, dynamic>>> _memos;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMemos();
+  }
+
+  void _loadMemos() {
+    setState(() {
+      _memos = DBHelper().getMemos(widget.user['id']);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('메모 리스트'),
+      // ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: DBHelper().getMemos(user['id']), // DBHelper를 통해 메모를 로드
+        future: _memos,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text('저장된 메모가 없습니다.'));
           } else {
             List<Map<String, dynamic>> memos = snapshot.data!;
             return ListView.builder(
               itemCount: memos.length,
               itemBuilder: (context, index) {
                 final memo = memos[index];
-                return ListTile(
-                  title: Text(memo['title']),
-                  subtitle: Text(memo['content']),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ScreenMemo(
-                                user: user,
-                                memo: memo, // 수정할 메모 정보를 전달
-                              ),
+                return Column(
+                  children: [
+                    ListTile(
+                      title: Text(memo['title']),
+                      subtitle: Text(
+                        memo['content'],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      onTap: () async {
+                        bool? result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ScreenMemo(
+                              user: widget.user,
+                              memo: memo,
                             ),
-                          );
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () async {
-                          await DBHelper().deleteMemo(memo['id']);
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text('메모가 삭제되었습니다.'),
-                          ));
-                          // 상태를 새로 고쳐서 변경 사항 반영
-                          (context as Element).markNeedsBuild();
-                        },
-                      ),
-                    ],
-                  ),
+                          ),
+                        );
+                        if (result == true) _loadMemos(); // 수정 후 목록 갱신
+                      },
+                    ),
+                    Divider(), // 메모 간 구분선 추가
+                  ],
                 );
               },
             );
@@ -63,13 +78,14 @@ class ScreenHomeMemo extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          bool? result = await Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ScreenMemo(user: user), // 새 메모 작성 화면으로 이동
+              builder: (context) => ScreenMemo(user: widget.user),
             ),
           );
+          if (result == true) _loadMemos(); // 추가 후 목록 갱신
         },
         child: Icon(Icons.add),
         tooltip: '새 메모 추가',
