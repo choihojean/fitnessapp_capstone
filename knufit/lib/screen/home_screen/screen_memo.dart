@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../database/db_helper.dart'; // DBHelper 경로 확인
+import '../../database/db_helper.dart';
 
 class ScreenMemo extends StatefulWidget {
-  final Map<String, dynamic> user; // 로그인 정보를 받을 변수
-  final Map<String, dynamic>? memo; // 수정할 메모 정보
+  final Map<String, dynamic> user;
+  final Map<String, dynamic>? memo;
 
   const ScreenMemo({required this.user, this.memo, Key? key}) : super(key: key);
 
@@ -27,36 +27,44 @@ class _ScreenMemoState extends State<ScreenMemo> {
   void _saveMemo() async {
     String title = _titleController.text;
     String content = _contentController.text;
-    int userId = widget.user['id'];
 
-    if (title.isNotEmpty && content.isNotEmpty) {
-      if (widget.memo != null) {
-        // 메모 수정
-        await DBHelper().updateMemo({
-          'id': widget.memo!['id'],
-          'userId': userId,
-          'title': title,
-          'content': content,
-        });
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('메모가 수정되었습니다.'),
-        ));
-      } else {
-        // 새로운 메모 저장
-        await DBHelper().insertMemo({
-          'userId': userId,
-          'title': title,
-          'content': content,
-        });
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('메모가 저장되었습니다.'),
-        ));
-      }
-      Navigator.pop(context);
+    if (title.isEmpty || content.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('제목과 내용을 모두 입력하세요.')),
+      );
+      return;
+    }
+
+    if (widget.memo == null) {
+      await DBHelper().insertMemo({
+        'userId': widget.user['id'],
+        'title': title,
+        'content': content,
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('메모가 저장되었습니다.')),
+      );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('제목과 내용을 입력하세요.'),
-      ));
+      await DBHelper().updateMemo({
+        'id': widget.memo!['id'],
+        'title': title,
+        'content': content,
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('메모가 수정되었습니다.')),
+      );
+    }
+
+    Navigator.pop(context, true); // 변경 사항이 생겼음을 알림
+  }
+
+  void _deleteMemo() async {
+    if (widget.memo != null) {
+      await DBHelper().deleteMemo(widget.memo!['id']);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('메모가 삭제되었습니다.')),
+      );
+      Navigator.pop(context, true); // 메모 삭제 후 변경 사항 알림
     }
   }
 
@@ -64,34 +72,36 @@ class _ScreenMemoState extends State<ScreenMemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.memo != null ? '메모 수정' : '새 메모'),
+        title: Text(widget.memo == null ? '새 메모' : '메모 수정'),
+        actions: [
+          if (widget.memo != null)
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: _deleteMemo,
+              tooltip: '메모 삭제',
+            ),
+        ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(
-                labelText: '제목',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              controller: _contentController,
-              decoration: InputDecoration(
-                labelText: '내용',
-                border: OutlineInputBorder(),
-              ),
-              maxLines: null,
-              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(labelText: '제목'),
             ),
             SizedBox(height: 20),
+            Expanded(
+              child: TextField(
+                controller: _contentController,
+                decoration: InputDecoration(labelText: '내용'),
+                maxLines: null,
+                expands: true,
+              ),
+            ),
             ElevatedButton(
               onPressed: _saveMemo,
-              child: Text(widget.memo != null ? '저장' : '저장'),
+              child: Text('저장'),
             ),
           ],
         ),
