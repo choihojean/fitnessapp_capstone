@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import '../utils/utils.dart';
 
 class DBHelper {
   static Database? _database;
@@ -38,6 +39,7 @@ class DBHelper {
 
   Future<void> insertUser(Map<String, dynamic> user) async {
     final db = await database;
+    user['password'] = hashPassword(user['password']); // 비밀번호 해시화
     await db.insert('users', user, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
@@ -45,10 +47,17 @@ class DBHelper {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query(
       'users',
-      where: 'email = ? AND password = ?',
-      whereArgs: [email, password],
+      where: 'email = ?',
+      whereArgs: [email],
     );
-    return maps.isNotEmpty ? maps.first : null;
+
+    if (maps.isNotEmpty) {
+      var user = maps.first;
+      if (verifyPassword(password, user['password'])) {
+        return user;
+      }
+    }
+    return null;
   }
 
   Future<void> insertMemo(Map<String, dynamic> memo) async {
