@@ -15,7 +15,7 @@ class DBHelper {
     final path = join(await getDatabasesPath(), 'app_database.db');
     return await openDatabase(
       path,
-      version: 1,
+      version: 2, //이미지 선택을 추가하기 위해서 버전 올렸습니다.
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE users (
@@ -23,6 +23,7 @@ class DBHelper {
             email TEXT,
             name TEXT,
             password TEXT
+            profile_image TEXT
           )
         ''');
         await db.execute('''
@@ -33,6 +34,11 @@ class DBHelper {
             content TEXT
           )
         ''');
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 2) {
+          await db.execute('ALTER TABLE users ADD COLUMN profile_image TEXT');
+        }
       },
     );
   }
@@ -58,6 +64,16 @@ class DBHelper {
       }
     }
     return null;
+  }
+
+  Future<int> updateUser(Map<String, dynamic> user) async {
+    Database db = await database;
+    return await db.update(
+      'users',
+      user,
+      where: 'id = ?',
+      whereArgs: [user['id']],
+    );
   }
 
   Future<void> insertMemo(Map<String, dynamic> memo) async {
