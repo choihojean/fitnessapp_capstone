@@ -31,6 +31,7 @@ class _ScreenHomeState extends State<ScreenHome> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('KNU Fit'),
+        automaticallyImplyLeading: false, //뒤로가기 버튼 제거
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
           child: Row(

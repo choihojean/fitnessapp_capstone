@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart'; // ProfilePage를 import
+import '../auth/auth_helper.dart';
 import 'dart:io';
 
 class ScreenMenu extends StatefulWidget {
@@ -20,9 +21,23 @@ class _ScreenMenuState extends State<ScreenMenu> {
     user = widget.user;
   }
 
+  //메뉴 옵션
+  Widget _buildMenuOption(IconData icon, String title, VoidCallback onTap) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.orange),
+      title: Text(title, style: TextStyle(color: Colors.orange)),
+      onTap: onTap,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('메뉴'),
+        automaticallyImplyLeading: false, //뒤로가기 버튼 제거
+      ),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -83,6 +98,10 @@ class _ScreenMenuState extends State<ScreenMenu> {
                 ),
               ),
               SizedBox(height: 20),
+              Divider(color: Colors.black),
+              _buildMenuOption(Icons.logout, '로그아웃', () {
+                AuthHelper.confirmLogout(context);
+              }), //로그아웃 메뉴
               // 다른 기능들을 추가할 공간
             ],
           ),
