@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../database/db_helper.dart';
 import '../home_screen.dart';
+import 'auth_helper.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class _LoginPageState extends State<LoginPage> {
     if (email.isNotEmpty && password.isNotEmpty) {
       var user = await _dbHelper.getUser(email, password);
       if (user != null) {
+        await AuthHelper.saveUserSession(user);
+        
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('성공적으로 로그인 되었습니다')),
         );
