@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'auth/signup_page.dart';
 import 'auth/login_page.dart';
-import 'auth/auth_helper.dart';
-import 'home_screen.dart';
+//import 'home_screen.dart';
 
 void main() {
   runApp(FitnessApp());
@@ -16,53 +15,12 @@ class FitnessApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: WelcomePage(),
       debugShowCheckedModeBanner: false,
       routes: {
         '/signup': (context) => SignupPage(),
         '/login': (context) => LoginPage(),
       },
-    );
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    _checkLoginStatus();
-  }
-
-  void _checkLoginStatus() async {
-    var user = await AuthHelper.getUserSession();
-    if (user != null) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(user: user),
-        ),
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => WelcomePage(),
-        ),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
     );
   }
 }

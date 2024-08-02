@@ -39,7 +39,6 @@ dependencies:
   path: ^1.8.1
   crypto: ^3.0.1
   image_picker: ^0.8.4+4
-  shared_preferences: ^2.0.6 #자동 로그인
 
 dev_dependencies:
   flutter_test:
