@@ -65,12 +65,6 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: _login,
               child: Text('로그인'),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-              child: Text('회원가입'),
-            ),
           ],
         ),
       ),
