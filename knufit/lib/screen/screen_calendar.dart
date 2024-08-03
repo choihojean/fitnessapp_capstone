@@ -25,7 +25,6 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
       context: context,
       builder: (context) {
         return Container(
-          color: Colors.black87,
           padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -33,20 +32,20 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
             children: [
               Text(
                 '${selectedDay.year}년 ${selectedDay.month}월 ${selectedDay.day}일',
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: TextStyle(fontSize: 20, color: Colors.orange),
               ),
               SizedBox(height: 10),
               ListTile(
-                leading: Icon(Icons.note_add, color: Colors.white),
-                title: Text('메모 작성', style: TextStyle(color: Colors.white)),
+                leading: Icon(Icons.note_add, color: Colors.orange),
+                title: Text('메모 작성', style: TextStyle(color: Colors.grey)),
                 onTap: () {
                   Navigator.pop(context);
                   // 메모 작성 페이지로 이동하는 코드 추가
                 },
               ),
               ListTile(
-                leading: Icon(Icons.fitness_center, color: Colors.white),
-                title: Text('운동 기록', style: TextStyle(color: Colors.white)),
+                leading: Icon(Icons.fitness_center, color: Colors.orange),
+                title: Text('운동 기록', style: TextStyle(color: Colors.grey)),
                 onTap: () {
                   Navigator.pop(context);
                   // 운동 기록 페이지로 이동하는 코드 추가
@@ -173,7 +172,7 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
           return Center(
             child: Text(
               _getWeekdayLabel(day.weekday),
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
             ),
           );
         }
