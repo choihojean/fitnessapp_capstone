@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'profile_page.dart'; // ProfilePage를 import
 import '../auth/auth_helper.dart';
+import '../theme_notifier.dart';
 import 'dart:io';
 
 class ScreenMenu extends StatefulWidget {
@@ -37,7 +39,6 @@ class _ScreenMenuState extends State<ScreenMenu> {
         title: Text('메뉴'),
         automaticallyImplyLeading: false, //뒤로가기 버튼 제거
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -104,7 +105,17 @@ class _ScreenMenuState extends State<ScreenMenu> {
               }), //로그아웃 메뉴
               _buildMenuOption(Icons.password, '비밀번호 변경', (){
                 AuthHelper.changePassword(context, user);
-              }) //비밀번호 변경
+              }), //비밀번호 변경
+              SwitchListTile(
+                title: Text("다크 모드", style: TextStyle(color: Colors.orange)),
+                value: Provider.of<ThemeNotifier>(context).isDarkMode,
+                onChanged: (value) {
+                  Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
+                },
+                secondary: Icon(Icons.brightness_6, color: Colors.orange),
+                activeColor: Colors.deepOrangeAccent,
+                activeTrackColor: Colors.orange,
+              ),
               // 다른 기능들을 추가할 공간
             ],
           ),

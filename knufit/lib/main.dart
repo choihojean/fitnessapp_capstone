@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:knufit/theme_notifier.dart';
+import 'package:provider/provider.dart';
 import 'auth/signup_page.dart';
 import 'auth/login_page.dart';
 import 'auth/auth_helper.dart';
 import 'home_screen.dart';
 
 void main() {
-  runApp(FitnessApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: FitnessApp(),
+    ),
+  );
 }
 
 class FitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fitness App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/signup': (context) => SignupPage(),
-        '/login': (context) => LoginPage(),
+    return Consumer<ThemeNotifier>(
+      builder: (context, themeNotifier, child) {
+        return MaterialApp(
+          title: 'Fitness App',
+          theme: themeNotifier.currentTheme,
+          home: SplashScreen(),
+          debugShowCheckedModeBanner: false,
+          routes: {
+            '/signup': (context) => SignupPage(),
+            '/login': (context) => LoginPage(),
+          },
+        );
       },
     );
   }
