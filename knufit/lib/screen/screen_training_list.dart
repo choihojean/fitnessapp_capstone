@@ -78,7 +78,7 @@ class ScreenTrainingList extends StatelessWidget {
             TextButton(
               child: Text('추가'),
               onPressed: () {
-                // 나중에 입력값을 처리할 기능을 추가할 수 있습니다.
+                // 나중에 입력값을 처리할 기능을 추가
                 Navigator.of(context).pop();
               },
             ),
