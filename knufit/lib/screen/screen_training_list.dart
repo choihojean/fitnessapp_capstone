@@ -47,6 +47,13 @@ class ScreenTrainingList extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'trainingList',
+        onPressed: () {
+          // 여기에 + 버튼 클릭 시 동작할 기능을 추가하세요
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
