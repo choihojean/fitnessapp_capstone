@@ -15,7 +15,7 @@ class DBHelper {
     final path = join(await getDatabasesPath(), 'app_database.db');
     return await openDatabase(
       path,
-      version: 2, //이미지 선택을 추가하기 위해서 버전 올렸습니다.
+      version: 3, //날짜 메모 테이블 추가
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE users (
@@ -34,10 +34,28 @@ class DBHelper {
             content TEXT
           )
         ''');
+        await db.execute('''
+          CREATE TABLE date_memos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT,
+            title TEXT,
+            content TEXT
+          )
+        ''');
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {
           await db.execute('ALTER TABLE users ADD COLUMN profile_image TEXT');
+        }
+        if (oldVersion < 3) {
+          await db.execute('''
+            CREATE TABLE date_memos (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              date TEXT,
+              title TEXT,
+              content TEXT
+            )
+          ''');
         }
       },
     );
@@ -104,6 +122,44 @@ class DBHelper {
     final db = await database;
     await db.delete(
       'memos',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<void> insertDateMemo(Map<String, dynamic> dateMemo) async {
+    final db = await database;
+    await db.insert('date_memos', dateMemo, conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  Future<List<Map<String, dynamic>>> getDateMemos(String date) async {
+    final db = await database;
+    return await db.query(
+      'date_memos',
+      where: 'date = ?',
+      whereArgs: [date],
+    );
+  }
+
+  Future<List<Map<String, dynamic>>> getAllMemos() async {
+    final db = await database;
+    return await db.query('date_memos');
+  }
+
+  Future<void> updateDateMemo(Map<String, dynamic> dateMemo) async {
+    final db = await database;
+    await db.update(
+      'date_memos',
+      dateMemo,
+      where: 'id = ?',
+      whereArgs: [dateMemo['id']],
+    );
+  }
+
+  Future<void> deleteDateMemo(int id) async {
+    final db = await database;
+    await db.delete(
+      'date_memos',
       where: 'id = ?',
       whereArgs: [id],
     );

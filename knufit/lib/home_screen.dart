@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _widgetOptions = <Widget>[
       ScreenHome(user: user), // 로그인 정보를 전달
       ScreenTrainingList(),
-      ScreenCalendar(),
+      ScreenCalendar(user: user),
       ScreenMenu(user: user), // 로그인 정보를 전달
     ];
   }

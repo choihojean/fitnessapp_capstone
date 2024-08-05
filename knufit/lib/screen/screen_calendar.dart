@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import '../database/db_helper.dart';
+import '../screen/calendar_screen/screen_date_memo.dart';
 
 class ScreenCalendar extends StatefulWidget {
   @override
   _ScreenCalendarState createState() => _ScreenCalendarState();
+
+  final Map<String, dynamic> user;
+  const ScreenCalendar({required this.user, Key? key}) : super(key:key);
 }
 
 class _ScreenCalendarState extends State<ScreenCalendar> {
@@ -14,10 +19,23 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
   DateTime _lastDay = DateTime(DateTime.now().year + 1, DateTime.now().month, DateTime.now().day);
   DateTime? _selectedDay;
 
+  List<Map<String, dynamic>> _memos = [];
+  final DBHelper _dbHelper = DBHelper();
+  
+
   @override
   void initState() {
     super.initState();
     initializeDateFormatting(); // Initialize date formatting for the locale
+
+    _loadAllMemos();
+  }
+
+  Future<void> _loadAllMemos() async {
+    final memos = await _dbHelper.getAllMemos(); // 모든 메모를 가져오는 함수 호출
+    setState(() {
+      _memos = memos;
+    });
   }
 
   void _showBottomSheet(BuildContext context, DateTime selectedDay) {
@@ -40,7 +58,14 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
                 title: Text('메모 작성', style: TextStyle(color: Colors.grey)),
                 onTap: () {
                   Navigator.pop(context);
-                  // 메모 작성 페이지로 이동하는 코드 추가
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DateMemoPage(date: selectedDay),
+                    ),
+                  ).then((_) {
+                    _loadAllMemos(); // 메모 작성 후 모든 메모 목록을 갱신합니다.
+                  });
                 },
               ),
               ListTile(
@@ -62,7 +87,7 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('달력'),
+        title: Text('캘린더'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -70,8 +95,71 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
           children: [
             _buildTableCalendar(),
             SizedBox(height: 20),
+            _buildMemoList(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildMemoList() {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: _memos.length,
+        itemBuilder: (context, index) {
+          final memo = _memos[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DateMemoPage(date: DateTime.parse(memo['date'])),
+                ),
+              ).then((_) {
+                _loadAllMemos(); // 메모 작성 후 모든 메모 목록을 갱신합니다.
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.orange[500]!, Colors.orange[300]!],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        memo['date'],
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white70,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Center(
+                        child: Text(
+                          memo['title'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
