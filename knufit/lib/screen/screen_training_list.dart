@@ -24,6 +24,7 @@ class ScreenTrainingList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Training List'),
+        automaticallyImplyLeading: false, //뒤로 가기 버튼 삭제
       ),
       body: ListView.builder(
         itemCount: items.length,
@@ -50,10 +51,44 @@ class ScreenTrainingList extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         heroTag: 'trainingList',
         onPressed: () {
-          // 여기에 + 버튼 클릭 시 동작할 기능을 추가하세요
+          _showInputDialog(context);
         },
         child: Icon(Icons.add),
       ),
+    );
+  }
+
+  void _showInputDialog(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('루틴 이름 입력'),
+          content: TextField(
+            controller: _controller,
+            decoration: InputDecoration(hintText: '루틴 이름'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('취소'),
+            ),
+            TextButton(
+              onPressed: () {
+                // 입력값 처리
+                String input = _controller.text;
+                // 이곳에 입력값을 처리하는 로직을 추가하세요
+                Navigator.of(context).pop();
+              },
+              child: Text('저장'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
