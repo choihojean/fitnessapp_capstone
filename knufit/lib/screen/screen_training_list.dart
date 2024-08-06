@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen/screen_routine.dart';
 
 class ScreenTrainingList extends StatelessWidget {
   final List<Map<String, String>> items = [
@@ -24,7 +25,7 @@ class ScreenTrainingList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Training List'),
-        automaticallyImplyLeading: false, //뒤로 가기 버튼 삭제
+        automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
       ),
       body: ListView.builder(
         itemCount: items.length,
@@ -81,8 +82,14 @@ class ScreenTrainingList extends StatelessWidget {
               onPressed: () {
                 // 입력값 처리
                 String input = _controller.text;
-                // 이곳에 입력값을 처리하는 로직을 추가하세요
+                // 입력값을 ScreenRoutine으로 전달
                 Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScreenRoutine(routineName: input),
+                  ),
+                );
               },
               child: Text('저장'),
             ),
