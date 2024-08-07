@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'home_screen/screen_routine.dart';
 import '../database/db_helper.dart'; // DBHelper 클래스를 import
 
 class ScreenTrainingList extends StatelessWidget {
@@ -25,7 +26,7 @@ class ScreenTrainingList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Training List'),
-        automaticallyImplyLeading: false, //뒤로 가기 버튼 삭제
+        automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
       ),
       body: ListView.builder(
         itemCount: items.length,
@@ -82,11 +83,24 @@ class ScreenTrainingList extends StatelessWidget {
               onPressed: () async {
                 String input = _controller.text;
                 if (input.isNotEmpty) {
-                  // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
-                  final dbHelper = DBHelper();
-                  await dbHelper.createRoutineTable(input);
+                  // 입력된 이름의 유효성을 검사
+                  if (_isValidTableName(input)) {
+                    // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
+                    final dbHelper = DBHelper();
+                    await dbHelper.createRoutineTable(input);
+                    Navigator.of(context).pop();
+                    // ScreenRoutine 화면으로 이동
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(builder: (context) => ScreenRoutine()),
+                    // );
+                  } else {
+                    // 유효하지 않은 이름인 경우 스낵바 표시
+                    Navigator.of(context).pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('루틴의 이름이 잘못 되었습니다')),
+                    );
+                  }
                 }
-                Navigator.of(context).pop();
               },
               child: Text('저장'),
             ),
@@ -95,10 +109,17 @@ class ScreenTrainingList extends StatelessWidget {
       },
     );
   }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: ScreenTrainingList(),
-  ));
+  // 테이블 이름 유효성 검사 함수
+  bool _isValidTableName(String tableName) {
+    // 테이블 이름이 숫자로 시작하면 안 됨
+    if (RegExp(r'^[0-9]').hasMatch(tableName)) {
+      return false;
+    }
+    // 유효한 문자만 포함해야 함 (문자, 숫자, 밑줄 등)
+    if (!RegExp(r'^[a-zA-Z0-9_]+$').hasMatch(tableName)) {
+      return false;
+    }
+    return true;
+  }
 }

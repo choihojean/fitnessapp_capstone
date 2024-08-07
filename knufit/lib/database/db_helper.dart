@@ -15,7 +15,7 @@ class DBHelper {
     final path = join(await getDatabasesPath(), 'app_database.db');
     return await openDatabase(
       path,
-      version: 3, // 날짜 메모 테이블 추가
+      version: 4, // created_tables 테이블 추가
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE users (
@@ -42,6 +42,12 @@ class DBHelper {
             content TEXT
           )
         ''');
+        await db.execute('''
+          CREATE TABLE created_tables (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            table_name TEXT
+          )
+        ''');
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {
@@ -54,6 +60,14 @@ class DBHelper {
               date TEXT,
               title TEXT,
               content TEXT
+            )
+          ''');
+        }
+        if (oldVersion < 4) {
+          await db.execute('''
+            CREATE TABLE created_tables (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              table_name TEXT
             )
           ''');
         }
@@ -71,6 +85,14 @@ class DBHelper {
         content TEXT
       )
     ''');
+    await db.insert('created_tables', {'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  // 생성된 루틴 테이블 목록을 가져오는 메소드 추가
+  Future<List<String>> getCreatedRoutineTables() async {
+    final db = await database;
+    List<Map<String, dynamic>> tables = await db.query('created_tables');
+    return tables.map((table) => table['table_name'] as String).toList();
   }
 
   Future<void> insertUser(Map<String, dynamic> user) async {
