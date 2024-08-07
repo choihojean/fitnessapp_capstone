@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../utils/utils.dart';
+import '../utils/utils.dart'; // hashPassword, verifyPassword 함수가 포함된 파일
 
 class DBHelper {
   static Database? _database;
@@ -15,14 +15,14 @@ class DBHelper {
     final path = join(await getDatabasesPath(), 'app_database.db');
     return await openDatabase(
       path,
-      version: 3, //날짜 메모 테이블 추가
+      version: 3, // 날짜 메모 테이블 추가
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             email TEXT,
             name TEXT,
-            password TEXT
+            password TEXT,
             profile_image TEXT
           )
         ''');
@@ -59,6 +59,18 @@ class DBHelper {
         }
       },
     );
+  }
+
+  // 새로운 루틴 테이블을 생성하는 메소드 추가
+  Future<void> createRoutineTable(String tableName) async {
+    final db = await database;
+    await db.execute('''
+      CREATE TABLE $tableName (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT,
+        content TEXT
+      )
+    ''');
   }
 
   Future<void> insertUser(Map<String, dynamic> user) async {

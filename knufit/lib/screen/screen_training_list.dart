@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../database/db_helper.dart'; // DBHelper 클래스를 import
 
 class ScreenTrainingList extends StatelessWidget {
   final List<Map<String, String>> items = [
@@ -78,10 +79,13 @@ class ScreenTrainingList extends StatelessWidget {
               child: Text('취소'),
             ),
             TextButton(
-              onPressed: () {
-                // 입력값 처리
+              onPressed: () async {
                 String input = _controller.text;
-                // 이곳에 입력값을 처리하는 로직을 추가하세요
+                if (input.isNotEmpty) {
+                  // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
+                  final dbHelper = DBHelper();
+                  await dbHelper.createRoutineTable(input);
+                }
                 Navigator.of(context).pop();
               },
               child: Text('저장'),
@@ -91,4 +95,10 @@ class ScreenTrainingList extends StatelessWidget {
       },
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: ScreenTrainingList(),
+  ));
 }
