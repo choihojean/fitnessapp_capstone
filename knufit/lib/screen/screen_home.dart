@@ -19,7 +19,7 @@ class _ScreenHomeState extends State<ScreenHome> {
     // 사용자 정보를 화면에 전달
     final List<Widget> _screens = [
       ScreenHomeMemo(user: widget.user), // 사용자 정보를 전달
-      ScreenRoutine(), // 사용자 정보를 전달
+      ScreenRoutine(user: widget.user), // 사용자 정보를 전달
     ];
 
     void _onTabSelected(int index) {

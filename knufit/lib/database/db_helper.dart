@@ -15,7 +15,7 @@ class DBHelper {
     final path = join(await getDatabasesPath(), 'app_database.db');
     return await openDatabase(
       path,
-      version: 4, // created_tables 테이블 추가
+      version: 5, // userId 추가된 created_tables 테이블
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE users (
@@ -45,6 +45,7 @@ class DBHelper {
         await db.execute('''
           CREATE TABLE created_tables (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            userId INTEGER,
             table_name TEXT
           )
         ''');
@@ -71,12 +72,17 @@ class DBHelper {
             )
           ''');
         }
+        if (oldVersion < 5) {
+          await db.execute('''
+            ALTER TABLE created_tables ADD COLUMN userId INTEGER
+          ''');
+        }
       },
     );
   }
 
   // 새로운 루틴 테이블을 생성하는 메소드 추가
-  Future<void> createRoutineTable(String tableName) async {
+  Future<void> createRoutineTable(int userId, String tableName) async {
     final db = await database;
     await db.execute('''
       CREATE TABLE $tableName (
@@ -85,21 +91,29 @@ class DBHelper {
         content TEXT
       )
     ''');
-    await db.insert('created_tables', {'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
+    await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   // 생성된 루틴 테이블 목록을 가져오는 메소드 추가
-  Future<List<String>> getCreatedRoutineTables() async {
+  Future<List<String>> getCreatedRoutineTables(int userId) async {
     final db = await database;
-    List<Map<String, dynamic>> tables = await db.query('created_tables');
+    List<Map<String, dynamic>> tables = await db.query(
+      'created_tables',
+      where: 'userId = ?',
+      whereArgs: [userId],
+    );
     return tables.map((table) => table['table_name'] as String).toList();
   }
 
   // 특정 루틴 테이블을 삭제하는 메소드 추가
-  Future<void> deleteRoutineTable(String tableName) async {
+  Future<void> deleteRoutineTable(int userId, String tableName) async {
     final db = await database;
     await db.execute('DROP TABLE IF EXISTS $tableName');
-    await db.delete('created_tables', where: 'table_name = ?', whereArgs: [tableName]);
+    await db.delete(
+      'created_tables',
+      where: 'userId = ? AND table_name = ?',
+      whereArgs: [userId, tableName],
+    );
   }
 
   Future<void> insertUser(Map<String, dynamic> user) async {

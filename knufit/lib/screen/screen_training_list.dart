@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import '../../database/db_helper.dart'; // DBHelper 클래스를 import
 
 class ScreenTrainingList extends StatelessWidget {
+  final Map<String, dynamic> user; // 사용자 정보를 받을 변수
+
+  ScreenTrainingList({required this.user, Key? key}) : super(key: key);
+
   final List<Map<String, String>> items = [
     {
       'title': 'Training 1',
@@ -86,7 +90,7 @@ class ScreenTrainingList extends StatelessWidget {
                   if (_isValidTableName(input)) {
                     // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
                     final dbHelper = DBHelper();
-                    await dbHelper.createRoutineTable(input);
+                    await dbHelper.createRoutineTable(user['id'], input); // 사용자 ID 포함
                     Navigator.of(context).pop();
                   } else {
                     // 유효하지 않은 이름인 경우 스낵바 표시
