@@ -23,6 +23,12 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
     });
   }
 
+  Future<void> _deleteTable(String tableName) async {
+    final dbHelper = DBHelper();
+    await dbHelper.deleteRoutineTable(tableName);
+    _loadTableNames(); // 테이블 목록을 다시 로드하여 업데이트
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +37,15 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(tableNames[index]),
+            trailing: IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () async {
+                await _deleteTable(tableNames[index]);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('${tableNames[index]} 삭제됨')),
+                );
+              },
+            ),
           );
         },
       ),

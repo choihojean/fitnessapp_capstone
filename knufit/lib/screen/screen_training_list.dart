@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'home_screen/screen_routine.dart';
-import '../database/db_helper.dart'; // DBHelper 클래스를 import
+import '../../database/db_helper.dart'; // DBHelper 클래스를 import
 
 class ScreenTrainingList extends StatelessWidget {
   final List<Map<String, String>> items = [
@@ -89,10 +88,6 @@ class ScreenTrainingList extends StatelessWidget {
                     final dbHelper = DBHelper();
                     await dbHelper.createRoutineTable(input);
                     Navigator.of(context).pop();
-                    // ScreenRoutine 화면으로 이동
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(builder: (context) => ScreenRoutine()),
-                    // );
                   } else {
                     // 유효하지 않은 이름인 경우 스낵바 표시
                     Navigator.of(context).pop();
@@ -116,8 +111,8 @@ class ScreenTrainingList extends StatelessWidget {
     if (RegExp(r'^[0-9]').hasMatch(tableName)) {
       return false;
     }
-    // 유효한 문자만 포함해야 함 (문자, 숫자, 밑줄 등)
-    if (!RegExp(r'^[a-zA-Z0-9_]+$').hasMatch(tableName)) {
+    // 유효한 문자만 포함해야 함 (문자, 숫자, 밑줄, 한글 등)
+    if (!RegExp(r'^[a-zA-Z0-9_\uac00-\ud7a3]+$').hasMatch(tableName)) {
       return false;
     }
     return true;

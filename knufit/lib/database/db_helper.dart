@@ -95,6 +95,13 @@ class DBHelper {
     return tables.map((table) => table['table_name'] as String).toList();
   }
 
+  // 특정 루틴 테이블을 삭제하는 메소드 추가
+  Future<void> deleteRoutineTable(String tableName) async {
+    final db = await database;
+    await db.execute('DROP TABLE IF EXISTS $tableName');
+    await db.delete('created_tables', where: 'table_name = ?', whereArgs: [tableName]);
+  }
+
   Future<void> insertUser(Map<String, dynamic> user) async {
     final db = await database;
     user['password'] = hashPassword(user['password']); // 비밀번호 해시화
