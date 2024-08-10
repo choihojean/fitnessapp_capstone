@@ -8,20 +8,112 @@ class ScreenTrainingList extends StatelessWidget {
 
   final List<Map<String, String>> items = [
     {
-      'title': 'Training 1',
-      'subtitle': 'Subtitle 1',
-      'image': 'assets/test.png',
+      'title': '랫 풀 다운',
+      'subtitle': '등, 이두',
+      'image': 'assets/lat-pulldown.png',
     },
     {
-      'title': 'Training 2',
-      'subtitle': 'Subtitle 2',
-      'image': 'assets/test.png',
+      'title': '원 암 랫 풀 다운',
+      'subtitle': '등, 이두',
+      'image': 'assets/one-arm-lat-pulldown.png',
     },
     {
-      'title': 'Training 3',
-      'subtitle': 'Subtitle 3',
-      'image': 'assets/test.png',
+      'title': '클로스 그립 랫 풀 다운',
+      'subtitle': '등, 어깨',
+      'image': 'assets/close-grip-lat-pulldown.png',
     },
+
+    {
+      'title': '케이블 스트레이트 암 풀 다운',
+      'subtitle': '등, 어깨',
+      'image': 'assets/cable-straight-arm-pulldown.png',
+    },
+
+    {
+      'title': '풀 업',
+      'subtitle': '등, 이두',
+      'image': 'assets/pull-up.png',
+    },
+    {
+      'title': '중량 풀업',
+      'subtitle': '등, 이두',
+      'image': 'assets/weighted-pull-up.png',
+    },
+    {
+      'title': '어시스티드 머신 풀업',
+      'subtitle': '등, 이두',
+      'image': 'assets/assisted-pull-up.png',
+    },
+    {
+      'title': '밴드 풀 업',
+      'subtitle': '등, 이두',
+      'image': 'assets/band-pull-up.png',
+    },
+
+    {
+      'title': '친 업',
+      'subtitle': '등, 전완',
+      'image': 'assets/chin-up.png',
+    },
+    {
+      'title': '중량 친 업',
+      'subtitle': '등, 전완',
+      'image': 'assets/weighted-chin-up.png',
+    },
+    {
+      'title': '밴드 친 업',
+      'subtitle': '등, 전완',
+      'image': 'assets/band-chin-up.png',
+    },
+
+    {
+      'title': '케이블 시티드 로우',
+      'subtitle': '등, 이두',
+      'image': 'assets/cable-seated-row.png',
+    },
+    {
+      'title': '바벨 로우(벤트 오버 바벨 로우)',
+      'subtitle': '등, 이두',
+      'image': 'assets/barbell-row.png',
+    },
+    {
+      'title': '펜들레이 로우',
+      'subtitle': '등',
+      'image': 'assets/pendlay-row.png',
+    },
+    {
+      'title': '티 바 로우',
+      'subtitle': '등, 이두',
+      'image': 'assets/t-bar-row.png',
+    },
+    {
+      'title': '인버티드 로우',
+      'subtitle': '등, 이두',
+      'image': 'assets/inverted-row.png',
+    },
+
+    {
+      'title': '덤벨 로우(벤트 오버 덤벨 로우)',
+      'subtitle': '등, 이두',
+      'image': 'assets/dumbbell-row.png',
+    },
+    {
+      'title': '원 암 덤벨 로우',
+      'subtitle': '등, 이두',
+      'image': 'assets/one-arm-dumbbell-row.png',
+    },
+    {
+      'title': '덤벨 리어 델트 로우',
+      'subtitle': '등, 어깨',
+      'image': 'assets/dumbbell-rear-delt-row.png',
+    },
+
+    {
+      'title': '백 익스텐션',
+      'subtitle': '등, 둔근',
+      'image': 'assets/back-extension.png',
+    },
+    
   ];
 
   @override
