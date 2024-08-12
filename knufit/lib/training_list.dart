@@ -241,5 +241,146 @@ final List<Map<String, String>> items = [
       'image': 'assets/chest/dumbbell-pullover.png',
       'category': '가슴',
     },
+
+    {
+      'title': '팩 덱 플라이(머신 플라이)',
+      'subtitle': '가슴',
+      'image': 'assets/chest/pec-deck-fly.png',
+      'category': '가슴',
+    },
+
+    {
+      'title': '체스트 딥스',
+      'subtitle': '가슴, 삼두',
+      'image': 'assets/chest/chest-dip.png',
+      'category': '가슴',
+    },
+    
+    //어깨
+    {
+      'title': '바벨 숄더 프레스(밀리터리 프레스, 오버헤드 프레스)',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/military-press.png',
+      'category': '어깨',
+    },
+    {
+      'title': '덤벨 프론트 레이즈',
+      'subtitle': '어깨',
+      'image': 'assets/shoulder/dumbbell-front-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 프론트 레이즈',
+      'subtitle': '어깨',
+      'image': 'assets/shoulder/cable-front-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '플레이트 프론트 레이즈',
+      'subtitle': '어깨',
+      'image': 'assets/shoulder/plate-front-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '아놀드 덤벨 프레스',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/arnold-press.png',
+      'category': '어깨',
+    },
+    {
+      'title': '시티드 덤벨 숄더 프레스',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/dumbbell-shoulder-press.png',
+      'category': '어깨',
+    },
+    {
+      'title': '머신 숄더 프레스',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/machine-shoulder-press.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 숄더 프레스',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/cable-shoulder-press.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 업라이트 로우',
+      'subtitle': '어깨, 이두',
+      'image': 'assets/shoulder/cable-upright-row.png',
+      'category': '어깨',
+    },
+    {
+      'title': '바벨 업라이트 로우',
+      'subtitle': '어깨, 승모',
+      'image': 'assets/shoulder/barbell-upright-row.png',
+      'category': '어깨',
+    },
+    
+
+    {
+      'title': '덤벨 레터럴 레이즈(사이드 레터럴 레이즈)',
+      'subtitle': '어깨',
+      'image': 'assets/shoulder/dumbbell-lateral-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '머신 레터럴 레이즈',
+      'subtitle': '어깨',
+      'image': 'assets/shoulder/machine-lateral-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 레터럴 레이즈',
+      'subtitle': '어깨, 전완',
+      'image': 'assets/shoulder/cable-lateral-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '덤벨 인클라인 Y 레이즈',
+      'subtitle': '어깨, 승모',
+      'image': 'assets/shoulder/dumbbell-incline-y-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 Y 레이즈',
+      'subtitle': '어깨, 삼두',
+      'image': 'assets/shoulder/cable-y-raise.png',
+      'category': '어깨',
+    },
+    
+
+    {
+      'title': '덤벨 리어 델트 레이즈(벤트 오버 레터럴 레이즈)',
+      'subtitle': '어깨, 등',
+      'image': 'assets/shoulder/dumbbell-rear-delt-raise.png',
+      'category': '어깨',
+    },
+    {
+      'title': '머신 리버스 플라이(팩 덱 리어 델트, 머신 리어 델트 플라이)',
+      'subtitle': '어깨, 등',
+      'image': 'assets/shoulder/machine-reverse-fly.png',
+      'category': '어깨',
+    },
+    {
+      'title': '케이블 페이스 풀',
+      'subtitle': '어깨, 이두',
+      'image': 'assets/shoulder/cable-face-pull.png',
+      'category': '어깨',
+    },
+    {
+      'title': '밴드 페이스 풀',
+      'subtitle': '어깨, 이두',
+      'image': 'assets/shoulder/banded-face-pull.png',
+      'category': '어깨',
+    },
+
+    {
+      'title': '클린 앤 저크',
+      'subtitle': '어깨, 대퇴사두',
+      'image': 'assets/shoulder/clean-and-jerk.png',
+      'category': '어깨',
+    },
     
   ];
