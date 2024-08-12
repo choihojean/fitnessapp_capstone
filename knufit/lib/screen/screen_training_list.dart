@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import '../../database/db_helper.dart'; // DBHelper 클래스를 import
 import '../training_list.dart';
 
-class ScreenTrainingList extends StatelessWidget {
+class ScreenTrainingList extends StatefulWidget {
   final Map<String, dynamic> user; // 사용자 정보를 받을 변수
 
   ScreenTrainingList({required this.user, Key? key}) : super(key: key);
-  
+
+  @override
+  _ScreenTrainingListState createState() => _ScreenTrainingListState();
+}
+
+class _ScreenTrainingListState extends State<ScreenTrainingList> {
+  String searchQuery = ''; // 검색어를 저장할 변수
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -15,6 +23,53 @@ class ScreenTrainingList extends StatelessWidget {
         appBar: AppBar(
           title: Text('Training List'),
           automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
+          actions: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+              child: Container(
+                width: 200,
+                child: TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    hintText: '운동 검색',
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: searchController.text.isNotEmpty
+                        ? IconButton(
+                            icon: Icon(Icons.cancel, color: Colors.grey),
+                            onPressed: () {
+                              setState(() {
+                                searchController.clear();
+                                searchQuery = '';
+                              });
+                            },
+                          )
+                        : null,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.orange), // 테두리 색상 설정
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.orange), // 포커스 시 테두리 색상 설정
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.orange), // 활성화된 상태의 테두리 색상 설정
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0), // 텍스트 위치 조정
+                    hintStyle: TextStyle(
+                      color: Colors.grey, // 힌트 텍스트 색상 설정
+                    ),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      searchQuery = value.toLowerCase(); // 검색어를 저장하고 소문자로 변환
+                    });
+                  },
+                ),
+              ),
+            ),
+          ],
           bottom: TabBar(
             tabs: [
               Tab(text: '전체'),
@@ -51,7 +106,12 @@ class ScreenTrainingList extends StatelessWidget {
       filteredItems = items.where((item) => item['category'] == category).toList();
     }
 
-    print('Filtered items for $category: ${filteredItems.length}'); // 필터링된 항목의 수를 출력
+    // 검색어가 있을 경우 필터링
+    if (searchQuery.isNotEmpty) {
+      filteredItems = filteredItems
+          .where((item) => item['title']!.toLowerCase().contains(searchQuery))
+          .toList();
+    }
 
     return ListView.builder(
       itemCount: filteredItems.length,
@@ -65,7 +125,12 @@ class ScreenTrainingList extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           title: Text(item['title']!),
-          subtitle: Text(item['subtitle']!),
+          subtitle: Text(
+            item['subtitle']!,
+            style: TextStyle(
+              color: Colors.grey.withOpacity(0.9), // subtitle의 투명도 설정
+            ),
+          ),
           trailing: IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
@@ -104,7 +169,7 @@ class ScreenTrainingList extends StatelessWidget {
                   if (_isValidTableName(input)) {
                     // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
                     final dbHelper = DBHelper();
-                    await dbHelper.createRoutineTable(user['id'], input); // 사용자 ID 포함
+                    await dbHelper.createRoutineTable(widget.user['id'], input); // 사용자 ID 포함
                     Navigator.of(context).pop();
                   } else {
                     // 유효하지 않은 이름인 경우 스낵바 표시
