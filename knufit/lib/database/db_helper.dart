@@ -89,6 +89,7 @@ class DBHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         content TEXT
+        category TEXT
       )
     ''');
     await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
