@@ -382,5 +382,133 @@ final List<Map<String, String>> items = [
       'image': 'assets/shoulder/clean-and-jerk.png',
       'category': '어깨',
     },
+
+    //삼두
+    {
+      'title': '클로즈 그립 벤치 프레스',
+      'subtitle': '삼두, 가슴',
+      'image': 'assets/triceps/close-grip-bench-press.png',
+      'category': '삼두',
+    },
+    {
+      'title': '클로즈 그립 덤벨 프레스',
+      'subtitle': '삼두, 가슴',
+      'image': 'assets/triceps/close-grip-dumbbell-press.png',
+      'category': '삼두',
+    },
+    {
+      'title': '덤벨 테이트 프레스',
+      'subtitle': '삼두, 가슴',
+      'image': 'assets/triceps/dumbbell-tate-press.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '딥스',
+      'subtitle': '삼두, 어깨',
+      'image': 'assets/triceps/tricep-dips.png',
+      'category': '삼두',
+    },
+    {
+      'title': '중량 딥스',
+      'subtitle': '삼두, 어깨',
+      'image': 'assets/triceps/weighted-dips.png',
+      'category': '삼두',
+    },
+    {
+      'title': '머신 어시스티드 딥스',
+      'subtitle': '삼두, 어깨',
+      'image': 'assets/triceps/machine-assisted-dips.png',
+      'category': '삼두',
+    },
+    {
+      'title': '벤치 딥스',
+      'subtitle': '삼두, 어깨',
+      'image': 'assets/triceps/bench-dips.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '덤벨 트라이셉 익스텐션',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/dumbbell-tricep-extension.png',
+      'category': '삼두',
+    },
+    {
+      'title': '원 암 트라이셉 익스텐션',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/one-arm-tricep-extension.png',
+      'category': '삼두',
+    },
+    {
+      'title': '덤벨 라잉 트라이셉 익스텐션',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/dumbbell-lying-tricep-extension.png',
+      'category': '삼두',
+    },
+    {
+      'title': '머신 트라이셉 익스텐션',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/machine-tricep-extension.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '바벨 라잉 트라이셉 익스텐션(스컬크러셔)',
+      'subtitle': '삼두, 전완',
+      'image': 'assets/triceps/barbell-lying-tricep-extension.png',
+      'category': '삼두',
+    },
+    {
+      'title': '바벨 인클라인 트라이셉 익스텐션(스컬크러셔)',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/barbell-incline-tricep-extension.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '케이블 오버헤드 트라이셉 익스텐션',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/cable-overhead-tricep-extension.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '케이블 트라이셉 푸시다운',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/cable-tricep-pushdown.png',
+      'category': '삼두',
+    },
+    {
+      'title': '케이블 로프 트라이셉 푸시다운',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/cable-rope-tricep-pushdown.png',
+      'category': '삼두',
+    },
+    {
+      'title': '케이블 리버스그립 트라이셉 푸시다운',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/cable-reverse-grip-pushdown.png',
+      'category': '삼두',
+    },
+    {
+      'title': '케이블 V바 트라이셉 푸시다운',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/v-bar-tricep-pushdown.png',
+      'category': '삼두',
+    },
+
+    {
+      'title': '덤벨 트라이셉 킥 백',
+      'subtitle': '삼두, 어깨',
+      'image': 'assets/triceps/dumbbell-tricep-kickback.png',
+      'category': '삼두',
+    },
+    {
+      'title': '케이블 트라이셉 킥 백',
+      'subtitle': '삼두',
+      'image': 'assets/triceps/cable-tricep-kickback.png',
+      'category': '삼두',
+    },
     
   ];

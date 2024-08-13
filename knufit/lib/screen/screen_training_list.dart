@@ -18,7 +18,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4, // 탭의 수
+      length: 5, // 탭의 수
       child: Scaffold(
         appBar: AppBar(
           title: Text('Training List'),
@@ -76,6 +76,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
               Tab(text: '가슴'),
               Tab(text: '등'),
               Tab(text: '어깨'),
+              Tab(text: '삼두'),
             ],
           ),
         ),
@@ -85,6 +86,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
             buildListView('가슴'),
             buildListView('등'),
             buildListView('어깨'),
+            buildListView('삼두'),
           ],
         ),
         floatingActionButton: FloatingActionButton(

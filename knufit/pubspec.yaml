@@ -72,6 +72,8 @@ flutter:
     - assets/back/
     - assets/chest/
     - assets/shoulder/
+    - assets/triceps/
+    - assets/biceps/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
