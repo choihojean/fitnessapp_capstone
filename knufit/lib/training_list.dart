@@ -511,4 +511,129 @@ final List<Map<String, String>> items = [
       'category': '삼두',
     },
     
+    //이두
+    {
+      'title': '컨센트레이션 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/concentration-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤벨 바이셉 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/dumbbell-biceps-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤벨 해머 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/hammer-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤벨 인클라인 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/dumbbell-incline-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤벨 인클라인 해머 컬',
+      'subtitle': '이두',
+      'image': 'assets/biceps/dumbbell-incline-hammer-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤벨 프리쳐 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/dumbbell-preacher-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '덤밸 조트맨 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/zottman-curl.png',
+      'category': '이두',
+    },
+
+    {
+      'title': '바벨 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/barbell-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '바벨 클로즈 그립 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/barbell-close-grip-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '바벨 리버스 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/barbell-reverse-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '바벨 프리쳐 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/barbell-preacher-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '바벨 드래그 컬',
+      'subtitle': '이두, 어깨',
+      'image': 'assets/biceps/drag-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '스파이더 바벨 컬',
+      'subtitle': '이두, 어깨',
+      'image': 'assets/biceps/spider-barbell-curl.png',
+      'category': '이두',
+    },
+
+    {
+      'title': '이지 바 바이셉 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/ez-bar-bicep-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '이지 바 리버스 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/ez-bar-reverse-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '이지 바 프리쳐 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/ez-bar-preacher-curl.png',
+      'category': '이두',
+    },
+
+    {
+      'title': '케이블 바이셉 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/cable-bicep-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '케이블 해머 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/cable-hammer-curl.png',
+      'category': '이두',
+    },
+    {
+      'title': '케이블 프리쳐 컬',
+      'subtitle': '이두, 전완',
+      'image': 'assets/biceps/cable-preacher-curl.png',
+      'category': '이두',
+    },
+
+    {
+      'title': '머신 바이셉 컬',
+      'subtitle': '이두',
+      'image': 'assets/biceps/machine-bicep-curl.png',
+      'category': '이두',
+    },
   ];

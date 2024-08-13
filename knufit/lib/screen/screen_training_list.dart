@@ -18,7 +18,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5, // 탭의 수
+      length: 6, // 탭의 수
       child: Scaffold(
         appBar: AppBar(
           title: Text('Training List'),
@@ -63,7 +63,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                   ),
                   onChanged: (value) {
                     setState(() {
-                      searchQuery = value.toLowerCase(); // 검색어를 저장하고 소문자로 변환
+                      searchQuery = value; // 검색어를 저장
                     });
                   },
                 ),
@@ -76,6 +76,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
               Tab(text: '가슴'),
               Tab(text: '등'),
               Tab(text: '어깨'),
+              Tab(text: '이두'),
               Tab(text: '삼두'),
             ],
           ),
@@ -86,6 +87,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
             buildListView('가슴'),
             buildListView('등'),
             buildListView('어깨'),
+            buildListView('이두'),
             buildListView('삼두'),
           ],
         ),
