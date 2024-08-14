@@ -674,4 +674,143 @@ final List<Map<String, String>> items = [
       'image': 'assets/forearm/behind-the-back-wrist-curl.png',
       'category': '전완',
     },
+
+    //복근
+    {
+      'title': '크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '디클라인 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/decline-crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '바이시클 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/bicycle-crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '보수 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/bosu-crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '리버스 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/reverse-crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '사이드 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/side-crunch.png',
+      'category': '복근',
+    },
+
+    {
+      'title': '싯 업(윗몸일으키기)',
+      'subtitle': '복근',
+      'image': 'assets/abs/sit-up.png',
+      'category': '복근',
+    },
+    {
+      'title': '디클라인 싯 업',
+      'subtitle': '복근',
+      'image': 'assets/abs/decline-sit-up.png',
+      'category': '복근',
+    },
+    {
+      'title': '버터플라이 싯 업',
+      'subtitle': '복근',
+      'image': 'assets/abs/butterfly-sit-up.png',
+      'category': '복근',
+    },
+    {
+      'title': '엘보우 투 니 싯 업',
+      'subtitle': '복근',
+      'image': 'assets/abs/elbow-to-knee-sit-up.png',
+      'category': '복근',
+    },
+    {
+      'title': '레이즈드 싯 업',
+      'subtitle': '복근',
+      'image': 'assets/abs/raised-sit-up.png',
+      'category': '복근',
+    },
+    {
+      'title': 'V 싯 업',
+      'subtitle': '복근',
+      'image': 'assets/abs/v-sit-up.png',
+      'category': '복근',
+    },
+
+    {
+      'title': '케이블 시티드 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/cable-seated-crunch.png',
+      'category': '복근',
+    },
+    {
+      'title': '케이블 스탠딩 크런치',
+      'subtitle': '복근',
+      'image': 'assets/abs/cable-standing-crunch.png',
+      'category': '복근',
+    },
+    
+    {
+      'title': '중량 러시안 트위스트',
+      'subtitle': '복근',
+      'image': 'assets/abs/weighted-russian-twist.png',
+      'category': '복근',
+    },
+    {
+      'title': '케이블 트위스트',
+      'subtitle': '복근',
+      'image': 'assets/abs/cable-twist.png',
+      'category': '복근',
+    },
+
+    {
+      'title': '레그 레이즈',
+      'subtitle': '복근',
+      'image': 'assets/abs/leg-raise.png',
+      'category': '복근',
+    },
+    {
+      'title': '행잉 레그 레이즈',
+      'subtitle': '복근',
+      'image': 'assets/abs/hanging-leg-raise.png',
+      'category': '복근',
+    },
+    {
+      'title': '캡틴 체어 니 레이즈',
+      'subtitle': '복근, 삼두',
+      'image': 'assets/abs/captains-chair-knee-raise.png',
+      'category': '복근',
+    },
+    {
+      'title': '토즈 투 바',
+      'subtitle': '복근, 어깨',
+      'image': 'assets/abs/toes-to-bar.png',
+      'category': '복근',
+    },
+
+    {
+      'title': '플랭크',
+      'subtitle': '복근',
+      'image': 'assets/abs/plank.png',
+      'category': '복근',
+    },
+    {
+      'title': '사이드 플랭크',
+      'subtitle': '복근, 둔근',
+      'image': 'assets/abs/side-plank.png',
+      'category': '복근',
+    },
   ];

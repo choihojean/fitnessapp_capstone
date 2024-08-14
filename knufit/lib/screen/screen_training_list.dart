@@ -14,14 +14,14 @@ class ScreenTrainingList extends StatefulWidget {
 class _ScreenTrainingListState extends State<ScreenTrainingList> {
   String searchQuery = ''; // 검색어를 저장할 변수
   TextEditingController searchController = TextEditingController();
-
+  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 7, // 탭의 수
+      length: 8, // 탭의 수
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Training List'),
+          title: Text('운동 목록'),
           automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
           actions: [
             Padding(
@@ -71,6 +71,8 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
             ),
           ],
           bottom: TabBar(
+            isScrollable: true,
+            physics: BouncingScrollPhysics(),
             tabs: [
               Tab(text: '전체'),
               Tab(text: '가슴'),
@@ -79,6 +81,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
               Tab(text: '이두'),
               Tab(text: '삼두'),
               Tab(text: '전완'),
+              Tab(text: '복근'),
             ],
           ),
         ),
@@ -90,7 +93,8 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
             buildListView('어깨'),
             buildListView('이두'),
             buildListView('삼두'),
-            buildListView('전완')
+            buildListView('전완'),
+            buildListView('복근')
           ],
         ),
         floatingActionButton: FloatingActionButton(
