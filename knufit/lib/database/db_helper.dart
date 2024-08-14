@@ -81,21 +81,34 @@ class DBHelper {
     );
   }
 
-  // 새로운 루틴 테이블을 생성하는 메소드 추가
+  // 새로운 루틴 테이블을 생성하는 메소드
   Future<void> createRoutineTable(int userId, String tableName) async {
     final db = await database;
     await db.execute('''
       CREATE TABLE $tableName (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
-        content TEXT
+        content TEXT,
+        image TEXT,
         category TEXT
       )
     ''');
     await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  // 생성된 루틴 테이블 목록을 가져오는 메소드 추가
+  // 특정 루틴 테이블에 데이터를 삽입하는 메소드 추가
+  Future<void> insertRoutineData(String tableName, Map<String, dynamic> data) async {
+    final db = await database;
+    await db.insert(tableName, data, conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  // 특정 루틴 테이블의 데이터를 가져오는 메소드 추가
+  Future<List<Map<String, dynamic>>> getRoutineTableData(int userId, String tableName) async {
+    final db = await database;
+    return await db.query(tableName);
+  }
+
+  // 생성된 루틴 테이블 목록을 가져오는 메소드
   Future<List<String>> getCreatedRoutineTables(int userId) async {
     final db = await database;
     List<Map<String, dynamic>> tables = await db.query(
@@ -106,7 +119,7 @@ class DBHelper {
     return tables.map((table) => table['table_name'] as String).toList();
   }
 
-  // 특정 루틴 테이블을 삭제하는 메소드 추가
+  // 특정 루틴 테이블을 삭제하는 메소드
   Future<void> deleteRoutineTable(int userId, String tableName) async {
     final db = await database;
     await db.execute('DROP TABLE IF EXISTS $tableName');

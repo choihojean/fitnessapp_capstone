@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screen_routine_table.dart'; // 새로 만든 파일 import
 import '../../database/db_helper.dart'; // DBHelper 클래스를 import
 
 class ScreenRoutine extends StatefulWidget {
@@ -27,12 +28,6 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
     });
   }
 
-  Future<void> _deleteTable(String tableName) async {
-    final dbHelper = DBHelper();
-    await dbHelper.deleteRoutineTable(widget.user['id'], tableName);
-    _loadTableNames(); // 테이블 목록을 다시 로드하여 업데이트
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,15 +36,17 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(tableNames[index]),
-            trailing: IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () async {
-                await _deleteTable(tableNames[index]);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('${tableNames[index]} 삭제됨')),
-                );
-              },
-            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScreenRoutineTable(
+                    tableName: tableNames[index],
+                    user: widget.user,
+                  ),
+                ),
+              );
+            },
           );
         },
       ),

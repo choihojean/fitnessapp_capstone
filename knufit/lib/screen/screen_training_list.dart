@@ -172,7 +172,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
           trailing: IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              _showBottomSheet(context); // 바텀 시트를 띄우는 메소드 호출
+              _showBottomSheet(context, item); // 선택된 운동 데이터를 함께 전달
             },
           ),
         );
@@ -180,7 +180,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     );
   }
 
-  void _showBottomSheet(BuildContext context) {
+  void _showBottomSheet(BuildContext context, Map<String, String> selectedExercise) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -214,12 +214,11 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                         itemBuilder: (context, index) {
                           return ListTile(
                             title: Text(tableNames[index]),
-                            trailing: IconButton(
-                              icon: Icon(Icons.add),
-                              onPressed: () {
-                                // 이곳에 + 아이콘 클릭 시의 기능을 추가할 수 있습니다.
-                              },
-                            ),
+                            onTap: () async {
+                              // 선택된 루틴 테이블에 운동 데이터를 저장
+                              await _saveExerciseToRoutine(tableNames[index], selectedExercise);
+                              Navigator.pop(context); // 바텀 시트를 닫기
+                            },
                           );
                         },
                       ),
@@ -232,6 +231,16 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
         );
       },
     );
+  }
+
+  Future<void> _saveExerciseToRoutine(String tableName, Map<String, String> exerciseData) async {
+    final dbHelper = DBHelper();
+    await dbHelper.insertRoutineData(tableName, {
+      'title': exerciseData['title'],
+      'content': exerciseData['subtitle'],
+      'image': exerciseData['image'],
+      'category': exerciseData['category'],
+    });
   }
 
   Future<List<String>> _loadRoutineTables() async {
