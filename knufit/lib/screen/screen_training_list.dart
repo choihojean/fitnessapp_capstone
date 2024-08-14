@@ -138,12 +138,71 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
           trailing: IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              // 여기에 아이콘 버튼 클릭 시 동작할 기능을 추가하세요
+              _showBottomSheet(context); // 바텀 시트를 띄우는 메소드 호출
             },
           ),
         );
       },
     );
+  }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FutureBuilder<List<String>>(
+          future: _loadRoutineTables(), // 데이터베이스에서 루틴 테이블을 불러옴
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return Center(child: Text('저장된 루틴 테이블이 없습니다.'));
+            } else {
+              List<String> tableNames = snapshot.data!;
+              return Container(
+                height: MediaQuery.of(context).size.height * 0.5, // 바텀 시트 높이 설정
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        '루틴에 운동 추가 하기', // 바텀 시트 상단에 추가할 텍스트
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: tableNames.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(tableNames[index]),
+                            trailing: IconButton(
+                              icon: Icon(Icons.add),
+                              onPressed: () {
+                                // 이곳에 + 아이콘 클릭 시의 기능을 추가할 수 있습니다.
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+          },
+        );
+      },
+    );
+  }
+
+  Future<List<String>> _loadRoutineTables() async {
+    final dbHelper = DBHelper();
+    return await dbHelper.getCreatedRoutineTables(widget.user['id']);
   }
 
   void _showInputDialog(BuildContext context) {
@@ -205,4 +264,3 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     return true;
   }
 }
-
