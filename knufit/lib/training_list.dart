@@ -636,4 +636,42 @@ final List<Map<String, String>> items = [
       'image': 'assets/biceps/machine-bicep-curl.png',
       'category': '이두',
     },
+
+    //전완
+    {
+      'title': '덤벨 리스트 컬',
+      'subtitle': '전완',
+      'image': 'assets/forearm/dumbbell-wrist-curl.png',
+      'category': '전완',
+    },
+    {
+      'title': '덤벨 리버스 리스트 컬',
+      'subtitle': '전완',
+      'image': 'assets/forearm/dumbbell-reverse-wrist-curl.png',
+      'category': '전완',
+    },
+    {
+      'title': '바벨 리스트 컬',
+      'subtitle': '전완',
+      'image': 'assets/forearm/barbell-wrist-curl.png',
+      'category': '전완',
+    },
+    {
+      'title': '바벨 리버스 리스트 컬',
+      'subtitle': '전완',
+      'image': 'assets/forearm/barbell-reverse-wrist-curl.png',
+      'category': '전완',
+    },
+    {
+      'title': '리스트 롤러',
+      'subtitle': '전완, 어깨',
+      'image': 'assets/forearm/wrist-roller.png',
+      'category': '전완',
+    },
+    {
+      'title': '비하인드 백 리스트 컬',
+      'subtitle': '전완',
+      'image': 'assets/forearm/behind-the-back-wrist-curl.png',
+      'category': '전완',
+    },
   ];
