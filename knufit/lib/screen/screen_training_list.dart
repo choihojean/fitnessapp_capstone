@@ -14,96 +14,124 @@ class ScreenTrainingList extends StatefulWidget {
 class _ScreenTrainingListState extends State<ScreenTrainingList> {
   String searchQuery = ''; // 검색어를 저장할 변수
   TextEditingController searchController = TextEditingController();
-  
+  int selectedTabIndex = 0; // 선택된 탭의 인덱스를 저장
+
+  final List<String> categories = [
+    '전체',
+    '가슴',
+    '등',
+    '어깨',
+    '이두',
+    '삼두',
+    '전완',
+    '복근'
+  ]; // 탭에 표시할 카테고리 목록
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 8, // 탭의 수
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('운동 목록'),
-          automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-              child: Container(
-                width: 200,
-                child: TextField(
-                  controller: searchController,
-                  decoration: InputDecoration(
-                    hintText: '운동 검색',
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon: searchController.text.isNotEmpty
-                        ? IconButton(
-                            icon: Icon(Icons.cancel, color: Colors.grey),
-                            onPressed: () {
-                              setState(() {
-                                searchController.clear();
-                                searchQuery = '';
-                              });
-                            },
-                          )
-                        : null,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.orange), // 테두리 색상 설정
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.orange), // 포커스 시 테두리 색상 설정
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.orange), // 활성화된 상태의 테두리 색상 설정
-                    ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0), // 텍스트 위치 조정
-                    hintStyle: TextStyle(
-                      color: Colors.grey, // 힌트 텍스트 색상 설정
-                    ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('운동 목록'),
+        automaticallyImplyLeading: false, // 뒤로 가기 버튼 삭제
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Container(
+              width: 200,
+              child: TextField(
+                controller: searchController,
+                decoration: InputDecoration(
+                  hintText: '운동 검색',
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: searchController.text.isNotEmpty
+                      ? IconButton(
+                          icon: Icon(Icons.cancel, color: Colors.grey),
+                          onPressed: () {
+                            setState(() {
+                              searchController.clear();
+                              searchQuery = '';
+                            });
+                          },
+                        )
+                      : null,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Colors.orange), // 테두리 색상 설정
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      searchQuery = value; // 검색어를 저장
-                    });
-                  },
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Colors.orange), // 포커스 시 테두리 색상 설정
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Colors.orange), // 활성화된 상태의 테두리 색상 설정
+                  ),
+                  contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0), // 텍스트 위치 조정
+                  hintStyle: TextStyle(
+                    color: Colors.grey, // 힌트 텍스트 색상 설정
+                  ),
                 ),
+                onChanged: (value) {
+                  setState(() {
+                    searchQuery = value; // 검색어를 저장
+                  });
+                },
               ),
             ),
-          ],
-          bottom: TabBar(
-            isScrollable: true,
-            physics: BouncingScrollPhysics(),
-            tabs: [
-              Tab(text: '전체'),
-              Tab(text: '가슴'),
-              Tab(text: '등'),
-              Tab(text: '어깨'),
-              Tab(text: '이두'),
-              Tab(text: '삼두'),
-              Tab(text: '전완'),
-              Tab(text: '복근'),
-            ],
           ),
-        ),
-        body: TabBarView(
-          children: [
-            buildListView('전체'),
-            buildListView('가슴'),
-            buildListView('등'),
-            buildListView('어깨'),
-            buildListView('이두'),
-            buildListView('삼두'),
-            buildListView('전완'),
-            buildListView('복근')
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          heroTag: 'trainingList',
-          onPressed: () {
-            _showInputDialog(context);
-          },
-          child: Icon(Icons.add),
-        ),
+        ],
+      ),
+      body: Column(
+        children: [
+          // 탭을 보여줄 부분
+          SizedBox(
+            height: 50,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: categories.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedTabIndex = index;
+                    });
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    margin: EdgeInsets.symmetric(horizontal: 4.0),
+                    decoration: BoxDecoration(
+                      color: selectedTabIndex == index
+                          ? Colors.orange
+                          : Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      categories[index],
+                      style: TextStyle(
+                        color: selectedTabIndex == index
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          // 선택된 탭에 따른 콘텐츠를 보여줄 부분
+          Expanded(
+            child: buildListView(categories[selectedTabIndex]),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'trainingList',
+        onPressed: () {
+          _showInputDialog(context);
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
