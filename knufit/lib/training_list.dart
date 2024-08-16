@@ -813,4 +813,87 @@ final List<Map<String, String>> items = [
       'image': 'assets/abs/side-plank.png',
       'category': '복근',
     },
+
+    //둔근
+    {
+      'title': '스테퍼',
+      'subtitle': '둔근, 대퇴사두',
+      'image': 'assets/glutes/stepper.png',
+      'category': '둔근',
+    },
+    {
+      'title': '스텝 업',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/step-up.png',
+      'category': '둔근',
+    },
+
+    {
+      'title': '케이블 킥 백',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/cable-kickback.png',
+      'category': '둔근',
+    },
+    {
+      'title': '힙 쓰러스트',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/hip-thrust.png',
+      'category': '둔근',
+    },
+    {
+      'title': '싱글 레그 힙 쓰러스트',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/single-leg-hip-thrust.png',
+      'category': '둔근',
+    },
+    {
+      'title': '바벨 힙 쓰러스트',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/barbell-hip-thrust.png',
+      'category': '둔근',
+    },
+    {
+      'title': '엘리베이트 힙 쓰러스트',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/elevated-hip-thrust.png',
+      'category': '둔근',
+    },
+    {
+      'title': '케이블 풀 쓰루',
+      'subtitle': '둔근, 등',
+      'image': 'assets/glutes/cable-pull-through.png',
+      'category': '둔근',
+    },
+    
+    {
+      'title': '힙 브릿지',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/hip-bridge.png',
+      'category': '둔근',
+    },
+    {
+      'title': '밴드 힙 어브덕션',
+      'subtitle': '둔근, 대퇴사두',
+      'image': 'assets/glutes/band-hip-abduction.png',
+      'category': '둔근',
+    },
+    {
+      'title': '프로그 펌프',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/frog-pump.png',
+      'category': '둔근',
+    },
+    {
+      'title': '머신 힙 어브덕션(아웃 싸이)',
+      'subtitle': '둔근, 햄스트링',
+      'image': 'assets/glutes/hip-abduction-machine.png',
+      'category': '둔근',
+    },
+    {
+      'title': '리버스 디피싯 런지',
+      'subtitle': '둔근, 대퇴사두',
+      'image': 'assets/glutes/reverse-deficit-lunge.png',
+      'category': '둔근',
+    },
+
   ];
