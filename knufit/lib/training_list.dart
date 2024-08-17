@@ -896,4 +896,160 @@ final List<Map<String, String>> items = [
       'category': '둔근',
     },
 
+    //대퇴사두
+    {
+      'title': '스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '스플릿 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/split-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '바벨 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '바벨 프론트 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-front-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '바벨 핵 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-hack-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '바벨 스플릿 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-split-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '바벨 스모 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-sumo-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '덤벨 고블릿 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/dumbbell-goblet-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '불가리안 스플릿 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/bulgarian-split-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '싸이클리스트 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/cyclist-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '머신 핵 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/machine-hack-squat.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '피스톨 스쿼트',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/pistol-squat.png',
+      'category': '대퇴사두',
+    },
+
+    {
+      'title': '레그 익스텐션',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/leg-extension.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '레그 프레스',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/leg-press.png',
+      'category': '대퇴사두',
+    },
+
+    {
+      'title': '런지',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/lunge.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '스미스 머신 런지',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/smith-machine-lunge.png',
+      'category': '대퇴사두',
+    },
+
+    {
+      'title': '바벨 스내치',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-snatch.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '케틀벨 스내치',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/barbell-split-squat.png',
+      'category': '대퇴사두',
+    },
+    
+    {
+      'title': '버피',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/burpee.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '스쿼트 버피',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/squat-burpee.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '싸이클',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/cycle.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '일립티컬 머신',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/elliptical-machine.png',
+      'category': '대퇴사두',
+    },
+
+    {
+      'title': '트레드밀',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/treadmill-running.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '인클라인 트레드밀',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/incline-treadmill.png',
+      'category': '대퇴사두',
+    },
+    {
+      'title': '스텝 업',
+      'subtitle': '대퇴사두, 둔근',
+      'image': 'assets/quadriceps/weighted-step-up.png',
+      'category': '대퇴사두',
+    },
   ];

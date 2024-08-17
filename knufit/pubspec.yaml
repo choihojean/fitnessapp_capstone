@@ -77,6 +77,8 @@ flutter:
     - assets/forearm/
     - assets/abs/
     - assets/glutes/
+    - assets/quadriceps/
+    - assets/hamstring/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
