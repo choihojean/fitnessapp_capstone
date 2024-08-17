@@ -899,13 +899,13 @@ final List<Map<String, String>> items = [
     //대퇴사두
     {
       'title': '스쿼트',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/squat.png',
       'category': '대퇴사두',
     },
     {
       'title': '스플릿 스쿼트',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/split-squat.png',
       'category': '대퇴사두',
     },
@@ -923,13 +923,13 @@ final List<Map<String, String>> items = [
     },
     {
       'title': '바벨 핵 스쿼트',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-hack-squat.png',
       'category': '대퇴사두',
     },
     {
       'title': '바벨 스플릿 스쿼트',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-split-squat.png',
       'category': '대퇴사두',
     },
@@ -941,7 +941,7 @@ final List<Map<String, String>> items = [
     },
     {
       'title': '덤벨 고블릿 스쿼트',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/dumbbell-goblet-squat.png',
       'category': '대퇴사두',
     },
@@ -972,13 +972,13 @@ final List<Map<String, String>> items = [
 
     {
       'title': '레그 익스텐션',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두',
       'image': 'assets/quadriceps/leg-extension.png',
       'category': '대퇴사두',
     },
     {
       'title': '레그 프레스',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 종아리',
       'image': 'assets/quadriceps/leg-press.png',
       'category': '대퇴사두',
     },
@@ -998,26 +998,26 @@ final List<Map<String, String>> items = [
 
     {
       'title': '바벨 스내치',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-snatch.png',
       'category': '대퇴사두',
     },
     {
       'title': '케틀벨 스내치',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 어깨',
       'image': 'assets/quadriceps/barbell-split-squat.png',
       'category': '대퇴사두',
     },
     
     {
       'title': '버피',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 전신',
       'image': 'assets/quadriceps/burpee.png',
       'category': '대퇴사두',
     },
     {
       'title': '스쿼트 버피',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 전신',
       'image': 'assets/quadriceps/squat-burpee.png',
       'category': '대퇴사두',
     },
@@ -1042,7 +1042,7 @@ final List<Map<String, String>> items = [
     },
     {
       'title': '인클라인 트레드밀',
-      'subtitle': '대퇴사두, 둔근',
+      'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/incline-treadmill.png',
       'category': '대퇴사두',
     },
@@ -1051,5 +1051,107 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/weighted-step-up.png',
       'category': '대퇴사두',
+    },
+
+    //햄스트링
+    {
+      'title': '데드리프트(바벨 데드리프트)',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/barbell-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '바벨 굿모닝',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/barbell-good-morning.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '바벨 루마니안 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/barbell-romanian-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '디피싯 데드리프트',
+      'subtitle': '햄스트링, 대퇴사두',
+      'image': 'assets/hamstring/deficit-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '덤벨 루마니안 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/dumbbell-romanian-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '케틀벨 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/kettlebell-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '스미스 머신 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/smith-machine-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '스티프 레그 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/stiff-leg-deadlift.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '스모 데드리프트',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/sumo-deadlift.png',
+      'category': '햄스트링',
+    },
+
+    {
+      'title': '레그 컬',
+      'subtitle': '햄스트링, 등',
+      'image': 'assets/hamstring/leg-curl.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '라잉 레그 컬',
+      'subtitle': '햄스트링, 종아리',
+      'image': 'assets/hamstring/lying-leg-curl.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '시티드 레그 컬',
+      'subtitle': '햄스트링, 종아리',
+      'image': 'assets/hamstring/seated-leg-curl.png',
+      'category': '햄스트링',
+    },
+    {
+      'title': '글루트 햄 레이즈',
+      'subtitle': '햄스트링, 둔근',
+      'image': 'assets/hamstring/glute-ham-raise.png',
+      'category': '햄스트링',
+    },
+
+    {
+      'title': '로잉 머신',
+      'subtitle': '햄스트링, 대퇴사두',
+      'image': 'assets/hamstring/rowing-machine.png',
+      'category': '햄스트링',
+    },
+
+    {
+      'title': '케틀벨 스윙',
+      'subtitle': '햄스트링, 둔근',
+      'image': 'assets/hamstring/kettlebell-swing.png',
+      'category': '햄스트링',
+    },
+
+    {
+      'title': '박스 점프',
+      'subtitle': '햄스트링, 둔근',
+      'image': 'assets/hamstring/box-jump.png',
+      'category': '햄스트링',
     },
   ];
