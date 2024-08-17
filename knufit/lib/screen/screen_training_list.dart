@@ -27,7 +27,9 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     '복근',
     '둔근',
     '대퇴사두',
-    '햄스트링'
+    '햄스트링',
+    '승모',
+    '종아리'
   ]; // 탭에 표시할 카테고리 목록
 
   @override

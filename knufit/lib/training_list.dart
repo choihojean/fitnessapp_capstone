@@ -1154,4 +1154,96 @@ final List<Map<String, String>> items = [
       'image': 'assets/hamstring/box-jump.png',
       'category': '햄스트링',
     },
+
+    //승모
+    {
+      'title': '바벨 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/barbell-shrug.png',
+      'category': '승모',
+    },
+    {
+      'title': '바벨 비하인드 백 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/behind-back-shrug.png',
+      'category': '승모',
+    },
+    {
+      'title': '바벨 오버헤드 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/overhead-shrug.png',
+      'category': '승모',
+    },
+
+    {
+      'title': '덤벨 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/dumbbell-shrug.png',
+      'category': '승모',
+    },
+
+    {
+      'title': '랫 풀 다운 리버스 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/lat-pulldown-reverse-shrug.png',
+      'category': '승모',
+    },
+
+    {
+      'title': '케이블 슈러그',
+      'subtitle': '승모',
+      'image': 'assets/trapezius/cable-shrug.png',
+      'category': '승모',
+    },
+
+    //종아리
+    {
+      'title': '카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '스탠딩 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/standing-calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '덤벨 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/dumbbell-calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '덤벨 시티드 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/dumbbell-seated-calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '레그 프레스 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/leg-press-calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '시티드 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/seated-calf-raise.png',
+      'category': '종아리',
+    },
+    {
+      'title': '스미스 머신 카프 레이즈',
+      'subtitle': '종아리',
+      'image': 'assets/calf/smith-machine-calf-raise.png',
+      'category': '종아리',
+    },
+
+    {
+      'title': '줄넘기',
+      'subtitle': '종아리, 이두',
+      'image': 'assets/calf/jump-rope.png',
+      'category': '종아리',
+    },
   ];
