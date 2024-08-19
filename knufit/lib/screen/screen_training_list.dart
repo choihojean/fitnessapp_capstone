@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:knufit/screen/training_screen/training_detail.dart';
 import '../../database/db_helper.dart'; // DBHelper 클래스를 import
-import '../training_list.dart';
+import 'training_screen/training_list.dart';
 
 class ScreenTrainingList extends StatefulWidget {
   final Map<String, dynamic> user; // 사용자 정보를 받을 변수
@@ -180,6 +181,15 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
               _showBottomSheet(context, item); // 선택된 운동 데이터를 함께 전달
             },
           ),
+          onTap: () {
+          // 운동 항목 클릭 시 상세 페이지로 이동
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TrainingDetail(exercise: item),
+              ),
+            );
+          },
         );
       },
     );
