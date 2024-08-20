@@ -288,10 +288,19 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                 if (input.isNotEmpty) {
                   // 입력된 이름의 유효성을 검사
                   if (_isValidTableName(input)) {
-                    // DBHelper 인스턴스를 생성하여 새로운 테이블을 생성하는 메소드 호출
                     final dbHelper = DBHelper();
-                    await dbHelper.createRoutineTable(widget.user['id'], input); // 사용자 ID 포함
-                    Navigator.of(context).pop();
+
+                    // 이미 존재하는 테이블 이름인지 확인
+                    bool exists = await dbHelper.routineTableExists(widget.user['id'], input);
+                    if (exists) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('이미 존재하는 루틴 이름입니다')),
+                      );
+                    } else {
+                      await dbHelper.createRoutineTable(widget.user['id'], input);
+                      Navigator.of(context).pop();
+                      // 필요한 경우, 새로 추가된 루틴을 화면에 반영하는 로직 추가 가능
+                    }
                   } else {
                     // 유효하지 않은 이름인 경우 스낵바 표시
                     Navigator.of(context).pop();

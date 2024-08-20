@@ -83,7 +83,6 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
         itemCount: data.length,
         itemBuilder: (context, index) {
           final item = data[index];
-          final TextEditingController _textController = TextEditingController();
 
           return Column(
             children: [
@@ -100,22 +99,6 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
                   style: TextStyle(
                     color: Colors.grey.withOpacity(0.9), // subtitle의 투명도 설정
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                child: TextField(
-                  controller: _textController,
-                  decoration: InputDecoration(
-                    hintText: '추가할 내용을 입력하세요',
-                    border: OutlineInputBorder(),
-                  ),
-                  onSubmitted: (value) {
-                    if (value.isNotEmpty) {
-                      _addRoutine(item['title']!, value);
-                      _textController.clear();
-                    }
-                  },
                 ),
               ),
             ],

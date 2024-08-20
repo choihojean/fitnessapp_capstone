@@ -81,9 +81,27 @@ class DBHelper {
     );
   }
 
+  // 루틴 테이블을 생성하기 전에 동일한 이름의 테이블이 존재하는지 확인하는 메소드
+  Future<bool> routineTableExists(int userId, String tableName) async {
+    final db = await database;
+    final result = await db.query(
+      'created_tables',
+      where: 'userId = ? AND table_name = ?',
+      whereArgs: [userId, tableName],
+    );
+    return result.isNotEmpty;
+  }
+
   // 새로운 루틴 테이블을 생성하는 메소드
   Future<void> createRoutineTable(int userId, String tableName) async {
     final db = await database;
+
+    // 동일한 이름의 테이블이 있는지 확인
+    bool exists = await routineTableExists(userId, tableName);
+    if (exists) {
+      throw Exception('The routine table with the same name already exists.');
+    }
+
     await db.execute('''
       CREATE TABLE $tableName (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
