@@ -28,7 +28,7 @@ class _YoutubeSearchWidgetState extends State<YoutubeSearchWidget> {
       uri,
       mode: LaunchMode.externalApplication, // 외부 브라우저에서 열기
     )) {
-      throw 'Could not launch $url';
+      throw '$url 을 열 수 없음';
     }
   }
 

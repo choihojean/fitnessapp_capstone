@@ -11,11 +11,10 @@ class TrainingDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     String exerciseTitle = exercise['title']!;
     String exerciseSubtitle = exercise['subtitle']!;
-    String exerciseGif = exercise['image']!;
+    String exerciseGif = exercise['gif']!;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(exerciseTitle),
       ),
       body: SingleChildScrollView(
         child: Padding(
