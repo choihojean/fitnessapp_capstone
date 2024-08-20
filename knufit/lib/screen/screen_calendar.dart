@@ -88,6 +88,7 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('캘린더'),
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
