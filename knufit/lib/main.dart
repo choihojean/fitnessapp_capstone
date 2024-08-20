@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:knufit/theme_notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'auth/signup_page.dart';
 import 'auth/login_page.dart';
 import 'auth/auth_helper.dart';
 import 'home_screen.dart';
 
-void main() {
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeNotifier(),

@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class YoutubeSearchService {
-  final String apiKey = 'AIzaSyAIJ81HGPPKpflKf8SX_fsn9BdG7nPgTuY'; // 유튜브 API 키
+  final apiKey = dotenv.env['API_KEY']; // 유튜브 API 키
 
   Future<List<YoutubeVideo>> fetchYoutubeVideos(String query) async {
     final url = Uri.parse(
