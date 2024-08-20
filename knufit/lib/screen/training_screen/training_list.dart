@@ -5,6 +5,13 @@ final List<Map<String, String>> items = [
       'subtitle': '등, 이두',
       'image': 'assets/back/lat-pulldown.png',
       'gif':'assets/back/lat-pulldown.gif',
+      'tip': """랫 풀 다운은 등 상부 근육에 집중적으로 작용하여 세밀한 근육 발달을 위해 효과적입니다. 자세 교정과 근력 향상에 도움이 됩니다.""",
+      'description': """랫 풀 다운 머신 앞에 앉아 손잡이에 손을 넓게 잡아주세요.
+몸을 뒤로 젖혀 앉고, 발은 바닥에 고정하세요.
+팔을 완전히 뻗은 상태에서 시작합니다.""",
+      'precautions': """적절한 중량을 선택하세요. 
+운동 중 불편함을 느끼면 즉시 중단하세요. 
+상체를 고정하고 팔만 움직이세요.""",
       'category': '등',
     },
     {
