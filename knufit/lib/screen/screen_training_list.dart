@@ -255,6 +255,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
       'content': exerciseData['subtitle'],
       'image': exerciseData['image'],
       'category': exerciseData['category'],
+      'memo': exerciseData['title'],
     });
   }
 

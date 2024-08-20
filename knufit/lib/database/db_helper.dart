@@ -108,7 +108,8 @@ class DBHelper {
         title TEXT,
         content TEXT,
         image TEXT,
-        category TEXT
+        category TEXT,
+        memo TEXT
       )
     ''');
     await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
