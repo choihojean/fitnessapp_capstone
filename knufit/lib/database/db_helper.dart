@@ -115,6 +115,16 @@ class DBHelper {
     await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
+  Future<void> updateRoutineMemo(String tableName, int id, String newMemo) async {
+  final db = await database;
+  await db.update(
+    tableName,
+    {'memo': newMemo},
+    where: 'id = ?',
+    whereArgs: [id],
+  );
+}
+
   // 특정 루틴 테이블에 데이터를 삽입하는 메소드 추가
   Future<void> insertRoutineData(String tableName, Map<String, dynamic> data) async {
     final db = await database;
