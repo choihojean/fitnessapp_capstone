@@ -109,10 +109,22 @@ class DBHelper {
         content TEXT,
         image TEXT,
         category TEXT,
-        memo TEXT
+        memo TEXT,
+        item_order INTEGER
       )
     ''');
-    await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
+     await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+  
+  // 루틴 항목의 순서를 업데이트하는 메서드
+  Future<void> updateRoutineOrder(String tableName, int id, int newOrder) async {
+    final db = await database;
+    await db.update(
+      tableName,
+      {'item_order': newOrder},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<void> updateRoutineMemo(String tableName, int id, String newMemo) async {
@@ -132,9 +144,13 @@ class DBHelper {
   }
 
   // 특정 루틴 테이블의 데이터를 가져오는 메소드 추가
+  // 데이터를 불러올 때 순서대로 불러오도록 수정
   Future<List<Map<String, dynamic>>> getRoutineTableData(int userId, String tableName) async {
     final db = await database;
-    return await db.query(tableName);
+    return await db.query(
+      tableName,
+      orderBy: 'item_order ASC',  // item_order 필드 기준으로 정렬
+    );
   }
 
   // 생성된 루틴 테이블 목록을 가져오는 메소드

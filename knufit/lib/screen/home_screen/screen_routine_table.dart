@@ -38,6 +38,12 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
     await dbHelper.updateRoutineMemo(widget.tableName, data[index]['id'], newMemo);
   }
 
+  Future<void> _updateOrder() async {
+    for (int i = 0; i < data.length; i++) {
+      await dbHelper.updateRoutineOrder(widget.tableName, data[i]['id'], i);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +57,9 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
               for (int i = 0; i < data.length; i++) {
                 await _updateMemo(i, data[i]['memo']);
               }
+              await _updateOrder();  // 변경된 순서 저장
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('변경된 메모가 저장되었습니다.')),
+                SnackBar(content: Text('변경된 메모와 순서가 저장되었습니다.')),
               );
             },
           ),
@@ -88,13 +95,23 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
           ),
         ],
       ),
-      body: ListView.builder(
+      body: ReorderableListView.builder(
         itemCount: data.length,
+        onReorder: (int oldIndex, int newIndex) {
+          setState(() {
+            if (newIndex > oldIndex) {
+              newIndex -= 1;
+            }
+            final item = data.removeAt(oldIndex);
+            data.insert(newIndex, item);
+          });
+        },
         itemBuilder: (context, index) {
           final item = data[index];
           final TextEditingController memoController = TextEditingController(text: item['memo']);
 
           return Column(
+            key: ValueKey(item['id']),
             children: [
               ListTile(
                 leading: Image.asset(
