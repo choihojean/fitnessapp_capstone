@@ -66,7 +66,6 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
           IconButton(
             icon: Icon(Icons.delete),
             onPressed: () async {
-              // 삭제 확인 다이얼로그
               bool? confirmed = await showDialog(
                 context: context,
                 builder: (context) {
@@ -88,8 +87,9 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
               );
 
               if (confirmed == true) {
-                await dbHelper.deleteRoutineTable(widget.user['id'], widget.tableName);
-                Navigator.of(context).pop(); // 삭제 후 이전 화면으로 돌아가기
+                await dbHelper.deleteRoutineTable(
+                    widget.user['id'], widget.tableName);
+                Navigator.of(context).pop(true); // 삭제 후 true 반환
               }
             },
           ),
