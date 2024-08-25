@@ -115,6 +115,16 @@ class DBHelper {
     ''');
      await db.insert('created_tables', {'userId': userId, 'table_name': tableName}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
+
+  //루틴 테이블에서 데이터 삭제
+  Future<void> deleteRoutineItem(String tableName, int id) async {
+  final db = await database;
+  await db.delete(
+    tableName,
+    where: 'id = ?',
+    whereArgs: [id],
+  );
+}
   
   // 루틴 항목의 순서를 업데이트하는 메서드
   Future<void> updateRoutineOrder(String tableName, int id, int newOrder) async {

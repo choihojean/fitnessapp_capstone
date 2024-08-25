@@ -29,6 +29,11 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
     });
   }
 
+  Future<void> _deleteRoutineItem(int id) async {
+    await dbHelper.deleteRoutineItem(widget.tableName, id);
+    _loadRoutineTableData(); // 삭제 후 목록 갱신
+  }
+
   Future<void> _updateMemo(int index, String newMemo) async {
     setState(() {
       data[index]['memo'] = newMemo;
@@ -110,41 +115,77 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
           final item = data[index];
           final TextEditingController memoController = TextEditingController(text: item['memo']);
 
-          return Column(
+          return Stack(
             key: ValueKey(item['id']),
             children: [
-              ListTile(
-                leading: Image.asset(
-                  item['image']!,
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.contain,
-                ),
-                title: Text(item['title']!),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item['content']!,
-                      style: TextStyle(
-                        color: Colors.grey.withOpacity(0.9), // subtitle의 투명도 설정
-                      ),
+              Column(
+                children: [
+                  ListTile(
+                    leading: Image.asset(
+                      item['image']!,
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
                     ),
-                    SizedBox(height: 5),
-                    TextField(
-                      controller: memoController,
-                      decoration: InputDecoration(
-                        hintText: '메모를 입력하세요',
-                        border: OutlineInputBorder(),
-                      ),
-                      onChanged: (newValue) {
-                        data[index]['memo'] = newValue;
+                    title: Text(item['title']!),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item['content']!,
+                          style: TextStyle(
+                            color: Colors.grey.withOpacity(0.9), // subtitle의 투명도 설정
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: memoController,
+                          decoration: InputDecoration(
+                            hintText: '메모를 입력하세요',
+                            border: OutlineInputBorder(),
+                          ),
+                          onChanged: (newValue) {
+                            data[index]['memo'] = newValue;
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(), // 항목 간의 구분선을 추가
+                ],
+              ),
+              Positioned(
+                right: 8,
+                top: 8,
+                child: IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () async {
+                    bool? confirmed = await showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('운동 삭제'),
+                          content: Text('이 운동을 정말 삭제하시겠습니까?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text('취소'),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(true),
+                              child: Text('삭제'),
+                            ),
+                          ],
+                        );
                       },
-                    ),
-                  ],
+                    );
+
+                    if (confirmed == true) {
+                      await _deleteRoutineItem(item['id']);
+                    }
+                  },
                 ),
               ),
-              Divider(), // 항목 간의 구분선을 추가
             ],
           );
         },

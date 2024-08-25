@@ -34,24 +34,29 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
       body: ListView.builder(
         itemCount: tableNames.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(tableNames[index]),
-            onTap: () async {
-              // ScreenRoutineTable로 이동 시 변경 사항 반영
-              bool? result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScreenRoutineTable(
-                    tableName: tableNames[index],
-                    user: widget.user,
-                  ),
-                ),
-              );
+          return Column(
+            children: [
+              ListTile(
+                title: Text(tableNames[index]),
+                onTap: () async {
+                  // ScreenRoutineTable로 이동 시 변경 사항 반영
+                  bool? result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ScreenRoutineTable(
+                        tableName: tableNames[index],
+                        user: widget.user,
+                      ),
+                    ),
+                  );
 
-              if (result == true) {
-                _loadTableNames(); // 루틴 목록 갱신
-              }
-            },
+                  if (result == true) {
+                    _loadTableNames(); // 루틴 목록 갱신
+                  }
+                },
+              ),
+              Divider(), // 구분선 추가
+            ],
           );
         },
       ),
