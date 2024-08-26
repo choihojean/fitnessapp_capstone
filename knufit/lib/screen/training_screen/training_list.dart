@@ -2434,11 +2434,14 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/calf-raise.png',
       'gif': 'assets/calf/calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""매끈한 종아리를 만들기 위한 운동이에요""",
+      'preparation':"""밟고 올라갈 수 있는 물체를 준비해주세요
+물체 위에 두 발을 앞꿈치로 올라서 주세요
+어깨너비로 다리를 벌려주세요""",
+      'movement':"""최대한 높이 발뒤꿈치를 올려 종아리 근육을 수축해 주세요
+무게 저항을 버티며 발뒤꿈치가 땅에 닿지 않게 멈춰주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""중심을 잡기 어려울 때는 벽이나 물체를 손으로 짚어주세요""",
       'category': '종아리',
     },
     {
@@ -2446,11 +2449,12 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/standing-calf-raise.png',
       'gif': 'assets/calf/standing-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""내려갔다가 올라올때 중간에서 한번 멈췄다가 끝까지 올려보세요""",
+      'preparation':"""어깨 위에 무게를 위치시키고, 양손으로 머신을 잡고 받침대 위에 서세요""",
+      'movement':"""종아리의 힘을 이용하여 몸 전체를 위로 들어올리세요
+종아리의 자극을 유지하면서 천천히 몸을 내려 시작 자세로 돌아오세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
       'category': '종아리',
     },
     {
@@ -2458,11 +2462,15 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/dumbbell-calf-raise.png',
       'gif': 'assets/calf/dumbbell-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""움직임을 서두르지 마세요
+      천천히 발뒤꿈치를 땅에서 들어올리면서 종아리를 위쪽으로 조이세요
+      그런 다음 발뒤꿈치를 천천히 아래로 내리세요""",
+      'preparation':"""발을 어깨 너비로 벌리고 발가락을 곧게 펴거나 약간 바깥쪽으로 놓으세요""",
+      'movement':"""숨을 내쉬면서 양쪽 발의 볼을 아래로 밀어내며 복부 근육이 수축되고 등이 곧게 펴지도록 하여 발뒤꿈치를 바닥에서 천천히 들어 올리세요
+종아리가 완전히 수축되고 발의 공으로 균형을 잡을 때 잠시 멈추세요
+숨을 들이쉬면서 점차적으로 발뒤꿈치를 바닥에 내려 시작 위치로 낮추어 동작 전반에 걸쳐 제어력을 유지시키세요""",
+      'breathing':"""다리를 밀 때 숨을 내쉬고, 다리를 당길 때 숨을 들이쉬세요""",
+      'precautions':"""흔들리거나 앞으로 기대지 마세요""",
       'category': '종아리',
     },
     {
@@ -2470,11 +2478,14 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/dumbbell-seated-calf-raise.png',
       'gif': 'assets/calf/dumbbell-seated-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발뒤꿈치를 최대한 높이 들어 발의 볼을 밀어내세요""",
+      'preparation':"""등을 곧게 펴고 덤벨이 무릎에서 미끄러지지 않도록 단단히 잡으세요""",
+      'movement':"""두 발의 볼을 아래로 눌러 발뒤꿈치를 바닥에서 천천히 들어올리면서 덤벨이 흔들리지 않게 유지하세요
+종아리가 최대한 높아졌을 때 잠시 멈췄다가 천천히 발뒤꿈치를 낮추어 시작 위치로 돌아갑니다
+원하는 반복 횟수만큼 이 동작을 반복하여 운동 전반에 걸쳐 덤벨과 균형을 제어할 수 있도록 하세요""",
+      'breathing':"""다리를 밀 때 숨을 내쉬고, 다리를 당길 때 숨을 들이쉬세요""",
+      'precautions':""" 동작의 가장 아래쪽에서 발뒤꿈치를 바닥에서 튕겨내면 근력보다는 운동량을 사용하게 되어 운동의 효과를 감소시킬수 있으니 주의하세요 
+      항상 발뒤꿈치를 천천히 그리고 통제된 방식으로 낮추세요""",
       'category': '종아리',
     },
     {
@@ -2482,11 +2493,15 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/leg-press-calf-raise.png',
       'gif': 'assets/calf/leg-press-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""카프 레이즈를 할 때 가능한 다리를 곧게 하세요""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 발판 하단에 발을 올려주세요
+다다리는 어깨너비보다 좁게 벌려주세요
+가슴을 펴고, 허리는 살짝 아치를 만들어 주세요""",
+      'movement':"""발뒤꿈치를 밀어 종아리 근육을 수축해 주세요.
+무게 저항을 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""다리를 밀 때 숨을 내쉬고, 다리를 당길 때 숨을 들이쉬세요""",
+      'precautions':"""무릎이 벌어지지 않게 조심해 주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
       'category': '종아리',
     },
     {
@@ -2494,11 +2509,16 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/seated-calf-raise.png',
       'gif': 'assets/calf/seated-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바닥에 뒷꿈치가 닿으면 근육의 긴장이 풀어지므로 주의하세요""",
+      'preparation':"""머신에 앉아서 앞쪽에 솟아있는 손잡이를 양손으로 잡고, 등을 아치형으로 유지하세요
+      발의 간격은 엉덩이 너비 정도로 벌리고, 무릎을 패드밑에 밀착시킨 상태로 발바닥의 앞부분만 발판에 걸치세요
+      호흡을 내쉬며 뒤꿈치를 가능한 한 높이 올린후 호흡을 들이쉬며 뒷꿈치가 바닥에 닿기 직전까지 충분히 내려주세요""",
+      'movement':"""발 받침대 위에 양발을 올리고 머신에 앉으세요
+발 뒷꿈치를 최대한의 높이로 천천히 올려주세요 이때 종아리 근육을 쥐어짠다는 느낌으로 잠깐 멈춰주세요
+천천히 발 뒷꿈치를 내려 시작 자세로 돌아오세요""",
+      'breathing':"""다리를 밀 때 숨을 내쉬고, 다리를 당길 때 숨을 들이쉬세요""",
+      'precautions':"""무릎이 벌어지지 않게 조심해 주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
       'category': '종아리',
     },
     {
@@ -2506,11 +2526,15 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리',
       'image': 'assets/calf/smith-machine-calf-raise.png',
       'gif': 'assets/calf/smith-machine-calf-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""카프 레이즈를 할 때 가능한 다리를 곧게 하세요""",
+      'preparation':"""스텝 박스 위에 두 발을 앞꿈치로 올라서 주세요
+어깨너비보다 넓게 바벨을 잡고, 승모근에 올려주세요
+어깨너비로 다리를 벌려주세요""",
+      'movement':"""최대한 높이 발뒤꿈치를 올려 종아리 근육을 수축해 주세요
+무게 저항을 버티며 발뒤꿈치가 땅에 닿지 않게 멈춰주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""발뒤꿈치를 많이 내려 중심이 흔들리지 않도록 조심해 주세요
+상체가 흔들리지 않도록 코어에 힘을 주세요""",
       'category': '종아리',
     },
 
@@ -2519,11 +2543,13 @@ final List<Map<String, String>> items = [
       'subtitle': '종아리, 이두',
       'image': 'assets/calf/jump-rope.png',
       'gif': 'assets/calf/jump-rope.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸을 똑바로 세우고 일정한 속도로 점프하세요""",
+      'preparation':"""양발을 함께 모으고 줄을 뒤에 둔 채로""",
+      'movement':"""발을 고정하고 손잡이를 잡은 상태로 앉으세요
+다리를 쭉 펴면서 손잡이를 몸쪽으로 당기세요
+팔이 완전히 펴지지 않도록 조절하고 복부 힘을 유지하세요""",
+      'breathing':"""일정하게 숨을 들이마시고 내쉰다""",
+      'precautions':"""뛰는 동안 발목에 무리가 가지 않도록 부드럽게 착지하세요""",
       'category': '종아리',
     },
   ];
