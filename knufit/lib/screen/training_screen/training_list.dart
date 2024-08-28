@@ -1048,11 +1048,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 가슴',
       'image': 'assets/triceps/close-grip-bench-press.png',
       'gif': 'assets/triceps/close-grip-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손을 가슴 바로 위에 위치시키고 팔꿈치가 바깥으로 벌어지지 않도록 해주세요""",
+      'preparation':"""벤치에 등을 대고 눕습니다
+바벨을 어깨너비보다 좁은 그립으로 잡고 가슴 위에 위치시킵니다
+발은 바닥에 고정하고 몸을 안정시킵니다""",
+      'movement':"""팔꿈치를 몸 가까이 유지하며 바벨을 천천히 가슴 쪽으로 내립니다
+가슴에 닿기 직전에 멈춘 후, 팔을 펴면서 바벨을 밀어올립니다
+팔꿈치를 잠그지 않도록 하며 삼두근에 자극을 집중하세요""",
+      'breathing':"""바벨을 내릴 때 숨을 들이쉬고, 바벨을 밀어올릴 때 숨을 내쉬세요""",
+      'precautions':"""팔꿈치가 너무 바깥으로 벌어지지 않도록 주의하세요
+너무 무거운 무게를 사용하지 말고 정확한 폼으로 운동을 진행하세요""",
       'category': '삼두',
     },
     {
@@ -1060,11 +1065,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 가슴',
       'image': 'assets/triceps/close-grip-dumbbell-press.png',
       'gif': 'assets/triceps/close-grip-dumbbell-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨이 서로 붙어있도록 유지하고 삼두근에 집중하세요""",
+      'preparation':"""벤치에 등을 대고 눕습니다
+양손에 덤벨을 쥐고 가슴 위에서 덤벨이 서로 붙어있도록 합니다
+팔꿈치를 몸 가까이 두고 덤벨을 고정한 상태로 준비합니다""",
+      'movement':"""팔꿈치를 구부리며 덤벨을 천천히 가슴 쪽으로 내립니다
+가슴에 닿기 직전에 멈추고, 덤벨을 밀어올리며 팔을 펴줍니다
+팔을 끝까지 펴지 않고 삼두근에 긴장을 유지합니다""",
+      'breathing':"""덤벨을 내릴 때 숨을 들이쉬고, 덤벨을 밀어올릴 때 숨을 내쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의하세요
+너무 무거운 무게를 사용하지 않고, 삼두근에 자극이 느껴지도록 적절한 무게를 선택하세요""",
       'category': '삼두',
     },
     {
@@ -1072,11 +1082,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 가슴',
       'image': 'assets/triceps/dumbbell-tate-press.png',
       'gif': 'assets/triceps/dumbbell-tate-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 고정하고 삼두근을 사용하여 덤벨을 밀어올리세요""",
+      'preparation':"""벤치에 등을 대고 눕습니다
+양손에 덤벨을 쥐고 팔꿈치를 몸 쪽으로 가까이 유지한 채 가슴 위에서 덤벨을 고정합니다
+덤벨은 세로로 위치하며 팔꿈치를 몸쪽으로 구부려 준비 자세를 갖춥니다""",
+      'movement':"""팔꿈치를 고정한 상태에서 덤벨을 아래로 내린 후, 삼두근을 사용해 덤벨을 밀어 올립니다
+덤벨을 밀어올리면서 팔을 거의 곧게 펴고, 삼두근에 집중합니다
+다시 천천히 덤벨을 가슴 쪽으로 내려줍니다""",
+      'breathing':"""덤벨을 내릴 때 숨을 들이쉬고, 덤벨을 밀어올릴 때 숨을 내쉬세요""",
+      'precautions':"""팔꿈치를 고정하여 어깨에 부담이 가지 않도록 하세요
+정확한 자세로 삼두근을 사용하는 데 집중하며, 너무 무거운 덤벨은 피하세요""",
       'category': '삼두',
     },
 
@@ -1085,11 +1100,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 어깨',
       'image': 'assets/triceps/tricep-dips.png',
       'gif': 'assets/triceps/tricep-dips.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""맨몸 가슴운동으로 무게중심에 따라 아랫가슴과 삼두에 자극을 줄 수 있어요. 부상위험이 높기 때문에 보조가 되는 머신이나 밴드 이용을 추천해 드려요""",
+      'preparation':"""두 손으로 그립을 잡아 몸을 띄워 주세요
+어깨가 으쓱하지 않도록 아래로 내려 고정해주세요
+다리는 자연스럽게 꼬아 뒤로 보내줍니다""",
+      'movement':"""어깨가 아래로 고정된 채로 천천히 내려가 주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 조금씩 가동 범위를 늘려 주세요
+코어에 힘을 준 채로 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""몸무게가 많이 나가는 분은 어깨에 무리가 갈 수 있으니 다른 운동으로 대체해주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 주의해주세요""",
       'category': '삼두',
     },
     {
@@ -1097,11 +1117,17 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 어깨',
       'image': 'assets/triceps/weighted-dips.png',
       'gif': 'assets/triceps/weighted-dips.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""가방이나 플레이트를 통해 중량을 더할 수 있어요. 다만 팔꿈치 부상 위험을 조심해 주세요""",
+      'preparation':"""본인에게 맞는 중량을 허리에 고정해줍니다
+두 손으로 그립을 잡아 몸을 띄워 주세요
+어깨가 으쓱하지 않도록 아래로 내려 고정해주세요
+다리는 자연스럽게 꼬아 뒤로 보내줍니다""",
+      'movement':"""어깨가 아래로 고정된 채로 천천히 내려가 주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 조금씩 가동 범위를 늘려 주세요
+코어에 힘을 준 채로 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""매우 고난도의 운동이니 딥스가 너무 쉬울 때 시도해주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 주의해주세요""",
       'category': '삼두',
     },
     {
@@ -1109,11 +1135,15 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 어깨',
       'image': 'assets/triceps/machine-assisted-dips.png',
       'gif': 'assets/triceps/machine-assisted-dips.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""머신의 도움을 받기 때문에 맨 몸으로 하는 딥스보다 쉽게 자극을 느끼실 수 있는 운동이에요""",
+      'preparation':"""패드에 무릎을 대고 두 손으로 그립을 잡아주세요
+어깨가 으쓱하지 않도록 아래로 내려 고정해주세요
+몸을 너무 앞으로 내밀지 않도록, 바로 선 자세를 유지해주세요""",
+      'movement':"""어깨가 아래로 고정된 채로 천천히 내려가 주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 조금씩 가동 범위를 늘려 주세요
+코어에 힘을 준 채로 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""너무 많이 내려가면 어깨가 다칠 수 있으니 주의해주세요""",
       'category': '삼두',
     },
     {
@@ -1121,11 +1151,14 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 어깨',
       'image': 'assets/triceps/bench-dips.png',
       'gif': 'assets/triceps/bench-dips.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""벤치뿐만 아니라 바닥, 의자, 탁자 등에서 진행할 수 있는 아주 간단한 운동이에요""",
+      'preparation':"""양손을 어깨너비보다 넓게 벌리고, 벤치의 끝을 잡아주세요
+손은 어깨보다 뒤에 위치할 수 있도록 앞으로 살짝 나와 발을 고정해 주세요""",
+      'movement':"""팔꿈치가 직각이 될 때까지 내려가 주세요
+팔을 밀며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""상체를 내릴 때 숨을 들이쉬고, 상체를 올릴 때 숨을 내쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+승모근이 올라가지 않도록 주의해주세요""",
       'category': '삼두',
     },
 
@@ -1134,11 +1167,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/dumbbell-tricep-extension.png',
       'gif': 'assets/triceps/dumbbell-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨을 머리 위로 들어 올려 삼두 근육을 수축하는 운동이에요. 운동 중에 팔꿈치가 움직이지 않도록 주의해 주세요""",
+      'preparation':"""다리는 어깨너비로 벌려주세요
+양손으로 덤벨을 잡고, 머리 뒤로 넘겨주세요
+코어에 힘을 주고, 팔꿈치는 머리 옆에 고정해 주세요""",
+      'movement':"""팔을 머리 위로 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+덤벨과 머리 사이가 멀어지지 않도록 주의해 주세요""",
       'category': '삼두',
     },
     {
@@ -1146,11 +1184,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/one-arm-tricep-extension.png',
       'gif': 'assets/triceps/one-arm-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨을 한쪽씩 머리 위로 들어 올려 삼두 근육을 수축하는 운동이에요. 팔꿈치가 움직이지 않도록 주의해 주세요""",
+      'preparation':"""벤치에 앉아서 한 손으로 덤벨을 잡고, 머리 뒤로 넘겨주세요
+덤벨을 든 팔의 팔꿈치는 머리 옆에 고정해 주세요
+반대쪽 손은 옆구리를 잡아 몸이 흔들리지 않게 해주세요""",
+      'movement':"""팔을 머리 위로 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+그립과 머리 사이가 멀어지지 않도록 주의해 주세요""",
       'category': '삼두',
     },
     {
@@ -1158,11 +1201,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/dumbbell-lying-tricep-extension.png',
       'gif': 'assets/triceps/dumbbell-lying-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""누운채로 삼두 근육을 수축하는 운동으로 덤벨을 들어 올려 삼두에 강한 자극을 주는 운동이에요. 효과적으로 굵고 매끈한 팔을 갖게 해주는 운동이에요""",
+      'preparation':"""벤치에 누워서 날개뼈를 모으고, 가슴을 펴주세요
+허리는 아치 모양을 만들고, 발을 지면에 단단히 고정해 주세요
+덤벨을 들어 올려서 이마 라인에 위치시키고, 팔꿈치는 수직으로 만들어 주세요""",
+      'movement':"""팔꿈치를 고정한 상태에서 팔을 위로 밀어 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+손목이 꺾이지 않게 주의해 주세요""",
       'category': '삼두',
     },
     {
@@ -1170,11 +1218,14 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/machine-tricep-extension.png',
       'gif': 'assets/triceps/machine-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""머신을 이용하기 때문에 안전하게 삼두를 키워줄 수 있는 운동으로 천천히 저항을 느끼며 올라오는 것을 추천해 드려요""",
+      'preparation':"""무릎이 직각이 될 수 있는 높이로 머신을 세팅해 주세요
+손잡이를 잡고, 엉덩이와 등을 밀착시켜 주세요""",
+      'movement':"""팔뚝(전완)이 지면과 평행할 때까지 팔을 내려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 내릴 때 숨을 내쉬고, 팔을 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요""",
       'category': '삼두',
     },
 
@@ -1183,11 +1234,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 전완',
       'image': 'assets/triceps/barbell-lying-tricep-extension.png',
       'gif': 'assets/triceps/barbell-lying-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""누운채로 삼두 근육을 수축하는 운동이에요. 바벨을 들어 올려 삼두에 강한 자극을 줄 수 있는 운동이에요. 가장 효과적으로 굵은 팔을 갖게 해주는 운동이니 큰 팔을 갖고 싶다면 꼭 해주세요""",
+      'preparation':"""벤치에 누워서 날개뼈를 모으고, 가슴을 펴주세요
+허리는 아치 모양을 만들고, 발을 지면에 단단히 고정해 주세요
+바벨은 어깨너비보다 한 뼘 정도 좁게 잡고, 들어 올려서 이마 라인에 위치시켜 주세요""",
+      'movement':"""팔꿈치를 고정한 상태에서 팔을 위로 밀어 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+손목이 꺾이지 않게 주의해 주세요""",
       'category': '삼두',
     },
     {
@@ -1195,11 +1251,17 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/barbell-incline-tricep-extension.png',
       'gif': 'assets/triceps/barbell-incline-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""누운채로 삼두 근육을 수축하는 운동이에요. 바벨을 들어 올려 삼두에 강한 자극을 줄 수 있는 운동이에요""",
+      'preparation':"""인클라인 벤치의 각도를 40~60도로 맞춰주세요
+벤치에 누워서 날개뼈를 모으고, 가슴을 펴주세요
+허리는 아치 모양을 만들고, 발을 지면에 단단히 고정해 주세요
+바벨은 어깨너비보다 한 뼘 정도 좁게 잡고, 들어 올려서 이마 라인에 위치시켜 주세요""",
+      'movement':"""팔꿈치를 고정한 상태에서 팔을 위로 밀어 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+손목이 꺾이지 않게 주의해 주세요""",
       'category': '삼두',
     },
 
@@ -1208,11 +1270,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/cable-overhead-tricep-extension.png',
       'gif': 'assets/triceps/cable-overhead-tricep-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""그립을 들어 올리는 동작으로 삼두에 강한 자극을 주는 운동이에요. 가장 효과적으로 굵은 팔을 갖게 해주는 운동이니 큰 팔을 갖고 싶다면 꼭 해주세요""",
+      'preparation':"""케이블의 높이를 가장 아래에 위치시켜 주세요
+그립을 잡고, 머리 위로 올리면서 케이블을 등지고 서주세요
+팔꿈치는 머리 옆에 고정해 주세요""",
+      'movement':"""팔을 머리 위로 펴주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요
+그립과 머리 사이가 멀어지지 않도록 주의해 주세요""",
       'category': '삼두',
     },
 
@@ -1221,11 +1288,15 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/cable-tricep-pushdown.png',
       'gif': 'assets/triceps/cable-tricep-pushdown.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""그립을 잡고 밑으로 내려 삼두근을 수축하는 운동이에요. 가장 효과적으로 굵은 팔을 갖게 해주는 운동이니 큰 팔을 갖고 싶다면 꼭 해야해요""",
+      'preparation':"""턱이 있는 선상에 케이블을 위치시켜 주세요
+무릎을 살짝 굽히고, 엉덩이를 뒤로 살짝 빼주세요
+팔꿈치를 옆구리에 붙이고, 움직이지 않도록 고정해 주세요""",
+      'movement':"""팔이 완전히 펴지기 전까지 아래로 내려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""팔을 내릴 때 숨을 내쉬고, 팔을 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 주의해주세요
+팔을 과도하게 펴지 않도록 주의해주세요""",
       'category': '삼두',
     },
     {
@@ -1233,11 +1304,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/cable-rope-tricep-pushdown.png',
       'gif': 'assets/triceps/cable-rope-tricep-pushdown.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목을 바깥쪽으로 돌리며 삼두근을 수축해주세요""",
+      'preparation':"""케이블 머신에 로프 손잡이를 부착하고, 핸들을 얼굴 높이 정도로 설정합니다
+양손으로 로프를 잡고 팔꿈치를 몸 가까이 유지한 채로 준비 자세를 취합니다
+발은 어깨 너비로 벌리고 상체는 약간 앞으로 기울입니다""",
+      'movement':"""로프를 아래로 당기며 팔을 펴고, 팔꿈치는 고정한 채로 삼두근을 수축시킵니다
+로프가 허리 아래에 도달하면 손목을 바깥쪽으로 돌리며 삼두근에 더 큰 자극을 줍니다
+천천히 로프를 시작 위치로 되돌리며 반복합니다""",
+      'breathing':"""로프를 당길 때 숨을 내쉬고, 로프를 천천히 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 몸에서 떨어지지 않도록 주의하세요.
+어깨와 허리가 흔들리지 않도록 몸을 고정한 채로 동작을 수행하세요""",
       'category': '삼두',
     },
     {
@@ -1245,11 +1321,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/cable-reverse-grip-pushdown.png',
       'gif': 'assets/triceps/cable-reverse-grip-pushdown.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손바닥이 위를 향하게 하여 팔꿈치를 고정하고 삼두근에 집중하세요""",
+      'preparation':"""케이블 머신에 스트레이트 바를 부착하고, 핸들을 얼굴 높이 정도로 설정합니다
+양손을 언더핸드(리버스 그립)로 바를 잡고 팔꿈치를 몸 가까이 유지한 채로 준비합니다
+발을 어깨 너비로 벌리고 상체는 약간 앞으로 기울입니다""",
+      'movement':"""바를 아래로 당기며 팔을 펴고, 팔꿈치를 고정하여 삼두근을 수축합니다.
+천천히 바를 시작 위치로 되돌리며 반복합니다.
+팔꿈치가 몸에서 멀어지지 않도록 주의하세요""",
+      'breathing':"""바를 아래로 당길 때 숨을 내쉬고, 바를 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""리버스 그립으로 수행 시 손목에 무리가 가지 않도록 신경 쓰세요
+팔꿈치가 몸에서 떨어지지 않도록 고정하여 삼두근에 집중하세요""",
       'category': '삼두',
     },
     {
@@ -1257,11 +1338,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/v-bar-tricep-pushdown.png',
       'gif': 'assets/triceps/v-bar-tricep-pushdown.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 고정하고 V바를 아래로 밀어 삼두근을 자극하세요""",
+      'preparation':"""케이블 머신에 V바를 부착하고, 핸들을 얼굴 높이 정도로 설정합니다
+양손으로 V바를 잡고 팔꿈치를 몸 가까이 유지한 채로 준비합니다
+발을 어깨 너비로 벌리고 상체를 약간 앞으로 기울입니다""",
+      'movement':"""팔꿈치를 고정한 상태에서 V바를 아래로 밀어 삼두근을 수축합니다
+팔이 완전히 펴지면 천천히 V바를 원래 위치로 되돌립니다
+팔꿈치를 고정하여 삼두근에 자극이 집중되도록 합니다""",
+      'breathing':"""V바를 아래로 당길 때 숨을 내쉬고, V바를 천천히 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 몸에서 떨어지지 않도록 주의하세요
+과도한 무게를 피하고, 삼두근에 자극이 집중되도록 운동을 천천히 수행하세요""",
       'category': '삼두',
     },
 
@@ -1270,11 +1356,13 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두, 어깨',
       'image': 'assets/triceps/dumbbell-tricep-kickback.png',
       'gif': 'assets/triceps/dumbbell-tricep-kickback.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨을 들고 뒤쪽으로 들어올려 삼두근을 수축해주세요""",
+      'preparation':"""덤벨을 들고 몸을 앞으로 숙입니다""",
+      'movement':"""팔을 펴며 덤벨을 뒤로 밀어 삼두근을 수축시킵니다
+천천히 팔을 원래 위치로 돌아옵니다""",
+      'breathing':"""숨을 들이마시며 팔을 펴고 내쉬며 원래 위치로 돌아옵니다""",
+      'precautions':"""상체를 곧게 유지하세요
+팔꿈치가 움직이지 않도록 주의해주세요""",
       'category': '삼두',
     },
     {
@@ -1282,11 +1370,16 @@ final List<Map<String, String>> items = [
       'subtitle': '삼두',
       'image': 'assets/triceps/cable-tricep-kickback.png',
       'gif': 'assets/triceps/cable-tricep-kickback.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 고정하고 삼두근을 완전히 수축시켜 팔을 뒤로 밀어주세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치에 설정하고, 한쪽 손으로 핸들을 잡습니다
+상체를 앞으로 기울이고 무릎을 약간 굽힙니다
+팔꿈치를 몸 옆에 고정하고, 팔이 몸과 평행이 되도록 준비 자세를 취합니다""",
+      'movement':"""팔꿈치를 고정한 상태에서 핸들을 뒤로 밀어 팔을 펴줍니다
+삼두근이 완전히 수축될 때까지 팔을 펴고, 그 후 천천히 원래 위치로 돌아옵니다
+팔꿈치의 위치가 고정된 상태에서 동작을 수행하며, 삼두근에 자극을 느낍니다""",
+      'breathing':"""팔을 뒤로 밀어낼 때 숨을 내쉬고, 팔을 천천히 굽힐 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 움직이지 않도록 고정하고, 어깨나 다른 근육에 부담이 가지 않도록 주의하세요
+무리한 무게를 사용하지 않고 정확한 폼으로 삼두근에 집중하세요""",
       'category': '삼두',
     },
     
@@ -1296,11 +1389,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/concentration-curl.png',
       'gif': 'assets/biceps/concentration-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔을 올리는 동작에 집중한다는 뜻으로 이름이 붙여졌어요. 이두근의 안쪽과 상부를 자극해 주는 운동이에요. 팔의 반동과 어깨 관절의 움직임을 최소화시킬 수 있는 운동이에요""",
+      'preparation':"""벤치에 자연스럽게 앉아주세요
+한쪽 손에 덤벨을 잡고, 상체를 숙여 팔꿈치를 같은 쪽 무릎 안쪽에 고정해주세요""",
+      'movement':"""벤치에 앉아 다리를 벌리고 허리를 숙여서 팔꿈치를 무릎 안쪽에 고정해 줍니다
+팔을 늘어뜨려 이완시킨 상태에서 반대쪽 어깨를 향해 이두근의 힘을 사용해서 덤벨을 들어 올리세요
+최대 높이에서 손등을 몸쪽으로 돌려 강하게 수축합니다
+팔꿈치와 어깨는 움직이지 않고 덤벨의 저항을 느끼며 천천히 내려줍니다
+팔을 끝까지 펴지 말고 살짝 구부려주며 이완을 최대로 합니다""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 흔들리지 않도록 고정하고, 천천히 무게를 올리세요""",
       'category': '이두',
     },
     {
@@ -1308,11 +1406,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/dumbbell-biceps-curl.png',
       'gif': 'assets/biceps/dumbbell-biceps-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨로 진행하는 것에 비해 이두 근육의 선명도를 높일 수 있는 운동이에요. 팔이 올라올 때, 손목을 바깥쪽으로 돌려주면서 더 큰 자극을 얻을 수 있어요""",
+      'preparation':"""어깨너비로 서주세요
+손바닥이 앞을 향하도록 덤벨을 잡고 허벅지 옆에 위치시켜 주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""팔꿈치와 어깨를 고정한 채 덤벨을 들어 올려주세요
+최대로 올린 지점에서 손목을 살짝 바깥쪽으로 틀어 이두가 최대로 수축하게 해주세요
+천천히 시작 자세로 돌아오세요
+덤벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""양쪽을 한 번에 진행해도 무방하지만, 한 쪽씩 진행한다면 더 집중된 수축감을 느낄 수 있습니다""",
       'category': '이두',
     },
     {
@@ -1320,11 +1423,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/hammer-curl.png',
       'gif': 'assets/biceps/hammer-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""이두 근육의 볼륨감을 만들어주는 운동이에요. 이두의 바깥쪽 근육과 전완근까지 발달시킬 수 있는 운동이에요""",
+      'preparation':"""어깨너비로 서주세요
+손바닥이 몸을 향하도록 덤벨을 잡고 허벅지 옆에 위치시켜 주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""팔꿈치와 어깨를 고정한 채 덤벨을 들어 올려주세요
+손목을 틀지 않고 그대로 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+덤벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""양쪽을 한 번에 진행해도 무방하지만, 한 쪽씩 진행한다면 더 집중된 수축감을 느낄 수 있습니다""",
       'category': '이두',
     },
     {
@@ -1332,11 +1440,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/dumbbell-incline-curl.png',
       'gif': 'assets/biceps/dumbbell-incline-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""인클라인 벤치에 누워서 진행할 경우, 팔이 움직일 수 있는 범위가 더 길어지기 때문에 근육의 개입도가 커지게 돼요. 이두근의 길이를 늘이는 데 효과적인 운동이에요""",
+      'preparation':"""클라인 벤치의 각도를 45도 정도로 조정해주세요
+인클라인 벤치에 앉아 상체를 기대고, 손바닥이 앞을 향하도록 덤벨을 잡아주세요""",
+      'movement':"""인클라인 벤치를 40~60도 정도로 세워 줍니다
+인클라인 벤치에 앉아서 손바닥이 앞을 향하도록 덤벨을 잡습니다
+팔꿈치를 수직 방향으로 고정한 후 이두근의 힘으로만 팔꿈치를 접습니다
+최대로 올린 지점에서 손목을 바깥쪽으로 틀어줍니다
+팔꿈치 고정한 상태로 덤벨의 저항을 느끼면서 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""상체를 고정하고, 덤벨을 천천히 올리고 내리세요""",
       'category': '이두',
     },
     {
@@ -1344,11 +1457,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두',
       'image': 'assets/biceps/dumbbell-incline-hammer-curl.png',
       'gif': 'assets/biceps/dumbbell-incline-hammer-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""인클라인 벤치에 누워서 진행할 경우, 팔이 움직일 수 있는 범위가 더 길어지기 때문에 근육의 개입도가 커지게 돼요. 이두근의 길이를 늘이는 데 효과적인 운동이에요""",
+      'preparation':"""인클라인 벤치의 각도를 45도 정도로 조정해주세요
+인클라인 벤치에 앉아 상체를 기대고, 손바닥이 몸을 향하도록 덤벨을 잡아주세요""",
+      'movement':"""인클라인 벤치를 4560도 정도로 세워 줍니다
+인클라인 벤치에 앉아서 손바닥이 몸을 향하도록 덤벨을 잡습니다
+팔꿈치를 수직 방향으로 고정한 후 이두근의 힘으로만 팔꿈치를 접습니다
+최대로 올린 지점에서 손목을 바깥쪽으로 틀어줍니다
+팔꿈치 고정한 상태로 덤벨의 저항을 느끼면서 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치를 고정하고, 덤벨을 천천히 올리고 내리세요""",
       'category': '이두',
     },
     {
@@ -1356,10 +1474,13 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/dumbbell-preacher-curl.png',
       'gif': 'assets/biceps/dumbbell-preacher-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
+      'tip':"""프리쳐 벤치에 앉아 덤벨을 이용해 이두근육을 키우는 운동이에요. 팔꿈치가 거의 움직이지 않아 팔의 힘만으로 무게를 들어 올리게 되어 순수한 이두근 자극에 집중할 수 있죠. 덤벨로 운동하기 때문에 더 강한 수축을 가져갈 수 있어요""",
+      'preparation':"""프리쳐 벤치에 앉아 상체와 팔을 패드에 완전히 밀착시켜 주세요
+손바닥이 하늘을 향하도록 덤벨을 잡아주세요""",
+      'movement':"""어깨와 팔꿈치를 고정한 채 덤벨을 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+덤벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
       'precautions':"""   """,
       'category': '이두',
     },
@@ -1368,11 +1489,13 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/zottman-curl.png',
       'gif': 'assets/biceps/zottman-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨을 사용해 조트맨 컬을 수행합니다""",
+      'preparation':"""덤벨을 잡고 손바닥이 앞을 향하도록 서세요""",
+      'movement':"""덤벨을 양손에 들고 손바닥이 아래를 향하게 듭니다
+팔을 굽혀 덤벨을 들어 올리고 손목을 돌립니다
+천천히 덤벨을 원래 위치로 내립니다""",
+      'breathing':"""숨을 들이마시며 덤벨을 들어 올리고 내쉬며 원래 위치로 돌아옵니다""",
+      'precautions':"""손목을 곧게 유지하세요""",
       'category': '이두',
     },
 
@@ -1381,11 +1504,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/barbell-curl.png',
       'gif': 'assets/biceps/barbell-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨로 진행하는 것 보다 무거운 무게를 다룰 수 있어요. 바벨을 좁게 잡으면 삼두근육의 안쪽이 더 많이 자극되고 넓게 잡으면 삼두근육의 바깥쪽이 자극된다는 꿀팁도 알고 계세요""",
+      'preparation':"""어깨너비로 서주세요
+팔을 자연스럽게 아래로 내려 바벨을 잡아주세요. 바벨은 허벅지 바로 앞에 위치해야 합니다
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""팔꿈치와 어깨를 고정한 채 바벨을 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+바벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 불편하다면 바벨을 너무 좁게 잡은 것이 이유일 수 있습니다. 그립을 조금 더 넓게 잡아보세요
+그래도 손목이 불편하다면 이지바를 사용해주세요""",
       'category': '이두',
     },
     {
@@ -1393,11 +1521,17 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/barbell-close-grip-curl.png',
       'gif': 'assets/biceps/barbell-close-grip-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목이 꺾이지 않도록 주의하며 이두근에 집중하세요""",
+      'preparation':"""바벨을 어깨 너비보다 좁게 잡고, 손바닥이 위를 향하도록 언더핸드 그립으로 바벨을 잡습니다
+발은 어깨 너비로 벌리고 무릎을 약간 굽힌 상태로 바벨을 허벅지 앞에 위치시킵니다
+상체는 곧게 세우고, 팔꿈치를 몸 가까이에 고정하여 준비 자세를 취합니다""",
+      'movement':"""팔꿈치를 고정한 상태에서 바벨을 어깨 쪽으로 들어 올리며 이두근을 수축시킵니다
+정점에서 이두근을 최대한 수축한 후, 천천히 바벨을 원래 위치로 내려줍니다
+팔꿈치는 고정된 상태로, 팔의 움직임에만 집중하며 운동을 반복합니다""",
+      'breathing':"""바벨을 들어올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치를 고정하여 어깨나 상체의 흔들림을 최소화하세요
+과도한 무게를 사용하지 않고 이두근의 자극에 집중하세요
+손목이 지나치게 꺾이지 않도록 주의하며, 바벨을 천천히 컨트롤하세요""",
       'category': '이두',
     },
     {
@@ -1405,10 +1539,14 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/barbell-reverse-curl.png',
       'gif': 'assets/biceps/barbell-reverse-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
+      'tip':"""바벨 컬에서 손바닥 방향만 반대로 바꿔준 운동으로 손목과 전완근을 단련할 수 있는 운동이에요. 지속적인 운동해준다면 당기는 운동을 할 때, 전완근이 먼저 지치는 경우를 보완할 수 있어요""",
+      'preparation':"""어깨너비로 서주세요
+팔을 자연스럽게 아래로 내려 손바닥이 몸을 향하게 바벨을 잡아주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""팔꿈치와 어깨를 고정한 채 바벨을 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+바벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
       'precautions':"""   """,
       'category': '이두',
     },
@@ -1417,11 +1555,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/barbell-preacher-curl.png',
       'gif': 'assets/biceps/barbell-preacher-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""프리쳐 벤치에 앉아 바벨을 이용해 이두근육을 키우는 운동이에요. 이두근의 힘만으로 무게를 들어 올리기 때문에 이두근 자극에 집중할 있어요""",
+      'preparation':"""프리쳐 벤치에 앉아 상체와 팔을 패드에 완전히 밀착시켜 주세요
+손바닥이 하늘을 향하도록 바벨을 잡아주세요""",
+      'movement':"""겨드랑이를 패드에 밀착시킵니다
+손바닥이 하늘을 향하도록 어깨너비만큼 바벨을 잡습니다
+몸과 어깨의 반동 없이 이두근 힘만으로 바벨을 들어 올리세요.
+어깨와 팔꿈치는 고정한 상태에서 무게의 저항을 느끼며 바벨을 천천히 내립니다
+팔을 끝까지 펴지 말고 살짝 구부려주며 이완을 최대로 합니다""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치를 패드에 고정하고, 무게를 천천히 조절하세요""",
       'category': '이두',
     },
     {
@@ -1429,11 +1572,13 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 어깨',
       'image': 'assets/biceps/drag-curl.png',
       'gif': 'assets/biceps/drag-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 들어 드래그 컬을 수행합니다""",
+      'preparation':"""서서 바벨을 잡습니다""",
+      'movement':"""바벨을 잡고 팔을 펴며 내려놓습니다
+팔꿈치를 고정하고 바벨을 몸쪽으로 들어 올립니다
+천천히 바벨을 원래 위치로 내립니다""",
+      'breathing':"""숨을 들이마시며 팔을 당기고 내쉬며 원래 위치로 돌아옵니다""",
+      'precautions':"""팔꿈치를 몸에 가깝게 유지하면서 천천히 컬하세요""",
       'category': '이두',
     },
     {
@@ -1441,11 +1586,17 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 어깨',
       'image': 'assets/biceps/spider-barbell-curl.png',
       'gif': 'assets/biceps/spider-barbell-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 고정하고 이두근을 최대한 수축시키세요""",
+      'preparation':"""인클라인 벤치를 약 45도 각도로 설정하고, 가슴을 벤치에 대고 엎드립니다
+양손으로 바벨을 언더핸드 그립으로 잡고, 팔꿈치를 몸 앞쪽으로 내리면서 팔이 벤치와 평행이 되도록 위치시킵니다
+어깨는 고정하고 이두근이 늘어나는 느낌을 받으며 준비 자세를 취합니다""",
+      'movement':"""팔꿈치를 고정한 상태에서 바벨을 어깨 쪽으로 들어 올리며 이두근을 수축시킵니다
+정점에서 이두근을 최대한 수축한 후, 천천히 바벨을 원래 위치로 내려줍니다
+팔꿈치는 고정된 상태로, 팔의 움직임에만 집중하며 반복합니다""",
+      'breathing':"""바벨을 들어올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 움직이지 않도록 고정하고, 어깨에 부담이 가지 않도록 주의하세요
+무리한 중량을 피하고, 이두근에 자극이 집중되도록 정확한 폼을 유지하세요
+동작을 빠르게 하지 말고, 천천히 컨트롤하며 수행하세요""",
       'category': '이두',
     },
 
@@ -1454,11 +1605,15 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/ez-bar-bicep-curl.png',
       'gif': 'assets/biceps/ez-bar-bicep-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 몸에 고정하고 이두근에 집중하세요""",
+      'preparation':"""이지바를 양손으로 오버핸드 그립으로 잡습니다. 팔꿈치는 몸 옆에 고정한 상태로, 바벨을 허벅지 앞에 위치시킵니다
+발은 어깨 너비로 벌리고, 상체는 곧게 세워 준비합니다""",
+      'movement':"""팔꿈치를 고정한 채로 이지바를 어깨 쪽으로 들어 올리며 이두근을 수축합니다
+정점에서 이두근을 완전히 수축한 후, 천천히 이지바를 시작 위치로 되돌립니다
+팔꿈치는 고정된 상태로 유지하며 이두근에 집중합니다""",
+      'breathing':"""이지바를 들어올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 움직이지 않도록 고정하고, 상체의 흔들림을 피하세요.
+너무 빠른 속도로 운동하지 말고 이두근의 긴장을 유지하며 천천히 수행하세요""",
       'category': '이두',
     },
     {
@@ -1466,11 +1621,15 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/ez-bar-reverse-curl.png',
       'gif': 'assets/biceps/ez-bar-reverse-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 고정하고, 전완근과 이두근을 사용하여 천천히 바를 들어 올리세요""",
+      'preparation':"""이지바를 양손으로 언더핸드(리버스) 그립으로 잡습니다. 팔꿈치는 몸 옆에 고정한 상태로, 바벨을 허벅지 앞에 위치시킵니다
+발은 어깨 너비로 벌리고 상체는 곧게 세워 준비합니다""",
+      'movement':"""팔꿈치를 고정한 상태로 이지바를 어깨 쪽으로 들어 올리며 이두근과 전완근을 사용합니다
+정점에서 잠시 멈춘 후, 천천히 이지바를 시작 위치로 되돌립니다
+팔꿈치는 고정된 상태로 유지하며 반복합니다""",
+      'breathing':"""이지바를 들어올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치를 고정하여 어깨에 부담이 가지 않도록 하고, 손목이 과도하게 꺾이지 않도록 주의하세요
+무게를 너무 많이 올리지 말고 전완근과 이두근의 자극에 집중하세요""",
       'category': '이두',
     },
     {
@@ -1478,11 +1637,15 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/ez-bar-preacher-curl.png',
       'gif': 'assets/biceps/ez-bar-preacher-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 패드에 고정하고, 이두근을 완전히 수축시키세요""",
+      'preparation':"""프리쳐 컬 벤치에 팔을 올려놓고 이지바를 양손으로 오버핸드 그립으로 잡습니다
+팔꿈치를 패드에 고정한 상태에서 준비합니다""",
+      'movement':"""팔꿈치를 고정한 채로 이지바를 어깨 쪽으로 들어 올리며 이두근을 수축합니다
+정점에서 이두근을 최대한 수축한 후, 천천히 바를 원래 위치로 내려줍니다
+동작 내내 팔꿈치는 고정된 상태를 유지합니다""",
+      'breathing':"""이지바를 들어올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 패드에서 벗어나지 않도록 주의하고, 상체를 움직이지 말고 이두근에 집중하세요
+과도한 무게를 사용하지 말고, 정확한 폼으로 운동을 진행하세요""",
       'category': '이두',
     },
 
@@ -1491,11 +1654,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/cable-bicep-curl.png',
       'gif': 'assets/biceps/cable-bicep-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""상체가 흔들리지 않도록 주의하며 지속적인 저항을 느끼면서 운동해주세요""",
+      'preparation':"""어깨너비로 서주세요
+그립을 잡아 허벅지 바로 앞에 위치하게 해주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""팔꿈치와 어깨를 고정한 채 무게를 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+무게를 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 불편하다면 바벨을 너무 좁게 잡은 것이 이유일 수 있습니다. 그립을 조금 더 넓게 잡아보세요
+그래도 손목이 불편하다면 이지바를 사용해주세요""",
       'category': '이두',
     },
     {
@@ -1503,11 +1671,16 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/cable-hammer-curl.png',
       'gif': 'assets/biceps/cable-hammer-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""이두 근육의 볼륨감을 만들어주는 운동이에요. 이두의 바깥쪽 근육과 전완근까지 발달시킬 수 있는 운동이에요""",
+      'preparation':"""어깨너비로 서주세요
+그립을 잡아 허벅지 바로 앞에 위치하게 해주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""다리를 골반 너비로 벌려주고, 손바닥이 몸을 향하도록 케이블을 잡습니다
+팔꿈치는 지면과 수직 방향으로 옆구리에 고정한후 케이블이 어깨선까지 올라오도록 팔을 접습니다
+팔꿈치와 어깨는 움직이지 않고 케이블의 저항을 느끼며 천천히 내려줍니다
+팔을 끝까지 펴지 말고 살짝 구부려주며 이완을 최대로 합니다""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목을 과도하게 움직이지 않도록 주의하고, 팔꿈치를 고정하세요""",
       'category': '이두',
     },
     {
@@ -1515,10 +1688,13 @@ final List<Map<String, String>> items = [
       'subtitle': '이두, 전완',
       'image': 'assets/biceps/cable-preacher-curl.png',
       'gif': 'assets/biceps/cable-preacher-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
+      'tip':"""프리쳐 벤치에 앉아 케이블을 이용해 이두근육을 키우는 운동이에요. 이두근의 힘만으로 무게를 들어 올리기 때문에 이두근 자극에 집중할 있어요""",
+      'preparation':"""프리쳐 벤치에 앉아 상체와 팔을 패드에 완전히 밀착시켜 주세요
+손바닥이 하늘을 향하도록 바벨을 잡아주세요""",
+      'movement':"""어깨와 팔꿈치를 고정한 채 바벨을 들어 올려주세요
+천천히 시작 자세로 돌아오세요
+바벨을 내릴 때는 완전히 내리지 않고 이두에 힘이 풀리지 않을 정도로 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
       'precautions':"""   """,
       'category': '이두',
     },
@@ -1528,11 +1704,13 @@ final List<Map<String, String>> items = [
       'subtitle': '이두',
       'image': 'assets/biceps/machine-bicep-curl.png',
       'gif': 'assets/biceps/machine-bicep-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""기계에서 이두근을 강화하는 운동을 합니다""",
+      'preparation':"""머신에 앉아 손잡이를 잡고 팔을 완전히 펴세요""",
+      'movement':"""암 컬 머신에 앉아 손잡이를 잡습니다
+팔꿈치를 고정하고 손잡이를 당겨 이두근을 수축시킵니다
+천천히 시작 위치로 돌아갑니다""",
+      'breathing':"""숨을 들이마시며 손잡이를 당기고 내쉬며 원래 위치로 돌아옵니다""",
+      'precautions':"""암 컬 머신을 사용할 때 팔꿈치를 고정하세요""",
       'category': '이두',
     },
 
@@ -1542,11 +1720,15 @@ final List<Map<String, String>> items = [
       'subtitle': '전완',
       'image': 'assets/forearm/dumbbell-wrist-curl.png',
       'gif': 'assets/forearm/dumbbell-wrist-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목을 굽히는 동작으로 전완근을 강화할 수 있는 운동이에요. 무거운 무게보다는 저중량 고반복의 운동이 더욱 효과적이에요""",
+      'preparation':"""한 손에 덤벨을 들고, 벤치에 앉아주세요
+손바닥이 하늘을 향하도록 덤벨을 잡고, 팔꿈치를 무릎 위에 올려 주세요
+이때, 팔뚝(전완)은 지면과 평행으로 만들고, 손목을 바닥 쪽으로 구부려주세요""",
+      'movement':"""손목을 몸쪽으로 들어 올려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""손목을 올릴 때 숨을 내쉬고, 손목을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 꺾이지 않도록 주의해주세요
+팔이 흔들리지 않도록 다리에 힘을 주세요""",
       'category': '전완',
     },
     {
@@ -1554,11 +1736,15 @@ final List<Map<String, String>> items = [
       'subtitle': '전완',
       'image': 'assets/forearm/dumbbell-reverse-wrist-curl.png',
       'gif': 'assets/forearm/dumbbell-reverse-wrist-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목을 굽히는 동작으로 전완근을 강화할 수 있는 운동이에요. 무거운 무게보다는 저중량 고반복의 운동이 더욱 효과적이에요""",
+      'preparation':"""한 손에 덤벨을 들고, 벤치에 앉아주세요
+손바닥이 바닥을 향하도록 덤벨을 잡고, 팔꿈치를 무릎 위에 올려 주세요
+이때, 팔뚝(전완)은 지면과 평행으로 만들고, 손목을 바닥 쪽으로 구부려주세요""",
+      'movement':"""손목을 몸쪽으로 들어 올려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""손목을 올릴 때 숨을 내쉬고, 손목을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 꺾이지 않도록 주의해주세요
+팔이 흔들리지 않도록 다리에 힘을 주세요""",
       'category': '전완',
     },
     {
@@ -1566,11 +1752,15 @@ final List<Map<String, String>> items = [
       'subtitle': '전완',
       'image': 'assets/forearm/barbell-wrist-curl.png',
       'gif': 'assets/forearm/barbell-wrist-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목을 굽히는 동작으로 전완근을 강화할 수 있는 운동이에요. 무거운 무게보다는 저중량 고반복의 운동이 더욱 효과적이에요""",
+      'preparation':"""바벨을 들고, 벤치에 앉아주세요
+손바닥이 하늘을 향하도록 바벨을 잡고, 팔꿈치를 벤치 끝에 올려 주세요
+이때, 팔뚝(전완)은 지면과 평행으로 만들고, 손목을 바닥 쪽으로 구부려주세요""",
+      'movement':"""손목을 몸쪽으로 들어 올려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""손목을 올릴 때 숨을 내쉬고, 손목을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 꺾이지 않도록 주의해주세요
+팔이 흔들리지 않도록 다리에 힘을 주세요""",
       'category': '전완',
     },
     {
@@ -1578,11 +1768,15 @@ final List<Map<String, String>> items = [
       'subtitle': '전완',
       'image': 'assets/forearm/barbell-reverse-wrist-curl.png',
       'gif': 'assets/forearm/barbell-reverse-wrist-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목을 굽히는 동작으로 전완근을 강화할 수 있는 운동이에요. 무거운 무게보다는 저중량 고반복의 운동이 더욱 효과적이에요""",
+      'preparation':"""바벨을 들고, 벤치에 앉아주세요
+손바닥이 바닥을 향하도록 바벨을 잡고, 팔꿈치를 허벅지 위에 올려 주세요
+이때, 손목이 무릎 끝에 오도록 하고, 손목을 바닥 쪽으로 구부려주세요""",
+      'movement':"""손목을 몸쪽으로 들어 올려주세요
+무게를 버티며 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""손목을 올릴 때 숨을 내쉬고, 손목을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 꺾이지 않도록 주의해주세요
+팔이 흔들리지 않도록 다리에 힘을 주세요""",
       'category': '전완',
     },
     {
@@ -1590,11 +1784,16 @@ final List<Map<String, String>> items = [
       'subtitle': '전완, 어깨',
       'image': 'assets/forearm/wrist-roller.png',
       'gif': 'assets/forearm/wrist-roller.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""전완근 운동이에요. 단단하고 두꺼운 팔뚝을 갖기 위한 필수 운동이에요""",
+      'preparation':"""리스트 롤러에 연결된 로프에 적절한 무게를 매달아 준비합니다
+양손으로 롤러를 어깨 너비로 잡고, 팔을 앞으로 뻗은 상태에서 손목의 움직임으로 무게를 들어 올릴 준비를 합니다
+발은 어깨 너비로 벌리고, 상체는 안정된 자세를 유지합니다""",
+      'movement':"""손목을 이용하여 롤러를 돌리며 로프에 매달린 무게를 천천히 들어 올립니다
+롤링을 반복하여 무게가 위로 올라갈 때까지 손목을 회전시킵니다
+무게가 완전히 올라가면, 반대 방향으로 롤링하여 무게를 천천히 바닥으로 내립니다""",
+      'breathing':"""무게를 들어올릴 때 천천히 숨을 내쉬고, 무게를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 움직이지 않도록 주의하고, 전완근의 긴장을 유지하세요
+무게가 너무 무겁지 않도록 설정하여 부상을 예방하세요""",
       'category': '전완',
     },
     {
@@ -1602,11 +1801,16 @@ final List<Map<String, String>> items = [
       'subtitle': '전완',
       'image': 'assets/forearm/behind-the-back-wrist-curl.png',
       'gif': 'assets/forearm/behind-the-back-wrist-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손목의 움직임에 집중하여 전완근을 수축하세요""",
+      'preparation':"""바벨을 사용해 두 손으로 바벨을 오버핸드 그립으로 잡고, 바벨을 엉덩이 뒤쪽에 위치시킵니다
+팔을 엉덩이 뒤로 놓고, 팔꿈치는 고정된 상태에서 손목이 자유롭게 움직일 수 있도록 준비합니다
+발은 어깨 너비로 벌리고 서서 바벨을 잡은 상태를 유지합니다""",
+      'movement':"""손목의 힘으로 바벨을 들어 올리며, 전완근을 수축합니다
+바벨이 가능한 높이까지 올라가면 잠시 멈췄다가 천천히 바벨을 원래 위치로 내립니다
+팔은 고정하고 손목만으로 바벨을 들어 올리며, 동작을 반복합니다""",
+      'breathing':"""손목을 들어올릴 때 숨을 내쉬고, 손목을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""손목이 과도하게 꺾이지 않도록 주의하고, 전완근의 긴장을 유지하며 운동을 수행하세요
+무리한 중량을 피하고, 손목에 무리가 가지 않도록 적절한 무게로 수행하세요""",
       'category': '전완',
     },
 
@@ -1616,11 +1820,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/crunch.png',
       'gif': 'assets/abs/crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""윗복근을 만들기 위한 최고의 운동이에요. 윗몸 일으키기와는 다른 운동이고, 허리가 뜨지 않도록 주의해 주세요""",
+      'preparation':"""바닥에 바로 누워 무릎을 세워주세요
+등 윗부분과 머리가 바닥에 닿지 않도록 들어주세요""",
+      'movement':"""허리가 굽지 않는 자세로 상체 윗부분을 들어 올려주세요
+시작 자세로 천천히 돌아오세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""상체를 과도하게 들어 올리면 허리에 무리가 갈 수 있으니 허리가 뜨지 않게 상체를 들어 올려주세요
+목이 아프다면 손으로 머리를 받쳐 목에 힘을 풀고 진행해주세요""",
       'category': '복근',
     },
     {
@@ -1628,11 +1835,13 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/decline-crunch.png',
       'gif': 'assets/abs/decline-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""벤치의 각도를 높여서 더 큰 자극을 줄 수 있는 복근 운동에요""",
+      'preparation':"""디클라인 벤치에 누워 무릎을 굽힌 채로 패드에 발을 고정해주세요""",
+      'movement':"""허리가 굽지 않는 자세로 상체 윗부분을 들어 올려주세요
+시작 자세로 천천히 돌아오세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""상체를 과도하게 들어 올리면 허리에 무리가 갈 수 있으니 허리가 뜨지 않게 상체를 들어 올려주세요
+목이 아프다면 손으로 머리를 받쳐 목에 힘을 풀고 진행해주세요""",
       'category': '복근',
     },
     {
@@ -1640,11 +1849,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/bicycle-crunch.png',
       'gif': 'assets/abs/bicycle-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""무릎을 번갈아 팔꿈치에 찍으며 복근을 자극하는 운동이에요""",
+      'preparation':"""바닥에 편하게 누워 주세요
+무릎을 구부리고, 허벅지가 지면과 수평이 되게 다리를 들어 주세요""",
+      'movement':"""한쪽 팔꿈치가 다른 쪽 무릎에 닿게 상체를 들어 올려주세요
+다시 천천히 시작 자세로 돌아오세요
+반대쪽 팔꿈치가 다른 쪽 무릎에 닿게 상체를 들어 올려주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""복부에 긴장감을 유지하고, 목에 무리를 주지 않도록 주의하세요""",
       'category': '복근',
     },
     {
@@ -1652,11 +1865,16 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/bosu-crunch.png',
       'gif': 'assets/abs/bosu-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""보수 볼 위에서 균형을 유지하며 천천히 복근을 수축하세요""",
+      'preparation':"""보수 볼 위에 등을 대고 눕습니다. 보수 볼은 허리 아래쪽에 위치시키고, 다리는 바닥에 고정합니다
+양손은 머리 뒤에 가볍게 두거나 가슴 앞에서 교차시킵니다
+복근을 당기면서 몸을 살짝 들어올릴 준비를 합니다""",
+      'movement':"""복근을 사용하여 상체를 천천히 들어올리며 크런치 동작을 수행합니다
+복근을 완전히 수축한 후, 천천히 시작 자세로 돌아갑니다
+동작을 반복하면서 복근에 집중합니다""",
+      'breathing':"""몸을 들어올릴 때 숨을 내쉬고, 몸을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""목에 무리를 주지 않도록 주의하고, 상체를 과도하게 들어올리지 않도록 하세요
+천천히 동작을 수행하여 복근에 집중하며, 균형을 유지하세요""",
       'category': '복근',
     },
     {
@@ -1664,11 +1882,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/reverse-crunch.png',
       'gif': 'assets/abs/reverse-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""상부 복근을 자극하기 위한 운동이에요. 허리나 목이 아닌 배의 힘으로 다리를 올려줘야해요. 몸의 반동을 사용하지 않도록 주의해 주세요""",
+      'preparation':"""바닥에 편하게 누워주세요
+무릎을 접어 허벅지가 바닥과 수직이 되도록 다리를 들어주세요
+양손은 넓게 펼쳐 몸이 흔들리지 않게 바닥을 지탱해주세요""",
+      'movement':"""바닥에 누운 상태에서 무릎이 지면과 수직이 되도록 굽혀 줍니다
+무릎이 가슴에 닿는다는 느낌으로 복근에 힘을 주고 엉덩이를 말아 올려줍니다
+이 상태에서 1초 정도 버티다가 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 바닥에서 과도하게 들리지 않도록 주의하고, 복부에 힘을 집중하세요""",
       'category': '복근',
     },
     {
@@ -1676,11 +1898,16 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/side-crunch.png',
       'gif': 'assets/abs/side-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""복사근에 집중하면서 몸통을 비틀어 측면 복근을 자극하세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 무릎을 구부리고 발은 바닥에 고정합니다
+한쪽 손은 머리 뒤에 가볍게 두고, 반대쪽 손은 허벅지에 둡니다
+준비 자세에서 몸을 한쪽으로 비틀며 복사근에 자극을 줄 준비를 합니다""",
+      'movement':"""복사근을 사용하여 몸을 비틀면서 한쪽 어깨를 들어올립니다
+상체를 비틀며 한쪽 무릎을 향해 크런치 동작을 수행합니다
+복사근을 수축한 후, 천천히 시작 위치로 돌아갑니다. 양쪽을 번갈아 가며 반복합니다""",
+      'breathing':"""몸을 들어올릴 때 숨을 내쉬고, 몸을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""상체를 비틀 때 허리에 무리가 가지 않도록 주의하세요
+천천히 동작을 수행하며 복사근의 긴장을 유지하고, 목에 힘이 들어가지 않도록 합니다""",
       'category': '복근',
     },
 
@@ -1689,11 +1916,13 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/sit-up.png',
       'gif': 'assets/abs/sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""코어 전체에 효과적인 운동이에요. 하지만 잘못된 동작으로 할 경우에는 허리에 부상을 줄 수 있으니 허벅지로 강하게 고정한 후 정확한 자세로 수행해 주세요""",
+      'preparation':"""무릎을 세워 바닥에 누워주세요
+두 손은 이마 앞에 두거나, 머리를 감싸 지탱해줍니다""",
+      'movement':"""앉은 자세가 될 수 있게 상체를 들어 올려주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 좋지 않은 분은 싯 업을 피해주시고, 크런치로 대체해주세요""",
       'category': '복근',
     },
     {
@@ -1701,11 +1930,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/decline-sit-up.png',
       'gif': 'assets/abs/decline-sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""복근을 사용해 상체를 천천히 들어올리세요""",
+      'preparation':"""디클라인 벤치에 다리를 고정하고 눕습니다. 손은 가슴 앞에 교차하거나 머리 뒤에 둡니다
+복근을 당기며 몸을 준비 자세로 조절합니다""",
+      'movement':"""복근을 수축하며 상체를 들어올려 무릎 쪽으로 접근합니다
+정점에서 복근을 최대한 수축한 후, 천천히 시작 자세로 돌아옵니다""",
+      'breathing':"""상체를 들어올릴 때 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""목에 힘이 들어가지 않도록 하고, 복근의 긴장을 유지하면서 천천히 동작을 수행하세요
+허리가 과도하게 꺾이지 않도록 주의하세요""",
       'category': '복근',
     },
     {
@@ -1713,11 +1945,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/butterfly-sit-up.png',
       'gif': 'assets/abs/butterfly-sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""복근에 집중하여 상체를 천천히 들어올리세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 발바닥을 맞대고 무릎을 옆으로 벌린 상태로 준비합니다
+양손은 머리 뒤나 가슴 앞에 위치시킵니다""",
+      'movement':"""복근을 사용하여 상체를 들어 올리면서 상체가 허벅지 쪽으로 가도록 합니다
+정점에서 복근을 수축한 후, 천천히 시작 위치로 돌아옵니다""",
+      'breathing':"""상체를 들어올릴 때 숨을 내쉬고, 몸을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""복근의 긴장을 유지하고, 목이나 허리에 무리가 가지 않도록 주의하세요
+상체를 과도하게 들어올리지 않고 복근에 집중하세요""",
       'category': '복근',
     },
     {
@@ -1725,11 +1960,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/elbow-to-knee-sit-up.png',
       'gif': 'assets/abs/elbow-to-knee-sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸을 비틀며 복사근과 복근을 모두 자극하세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 양손은 머리 뒤에 가볍게 두고, 무릎을 구부려 발을 바닥에 고정합니다
+몸을 준비하며 복사근에 자극을 줄 준비를 합니다""",
+      'movement':"""몸을 비틀며 상체를 들어올리면서 왼쪽 팔꿈치를 오른쪽 무릎에 가져갑니다
+다시 몸을 비틀어 오른쪽 팔꿈치를 왼쪽 무릎에 가져갑니다
+양쪽을 번갈아 가며 반복합니다""",
+      'breathing':"""상체를 들어올리며 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""허리에 무리가 가지 않도록 주의하고, 상체를 천천히 비틀어 복사근과 복근을 자극하세요
+복근을 사용해 상체를 들어올리며 목에 힘이 들어가지 않도록 하세요""",
       'category': '복근',
     },
     {
@@ -1737,11 +1976,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/raised-sit-up.png',
       'gif': 'assets/abs/raised-sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발을 고정한 상태에서 복근을 사용해 상체를 들어올리세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 발을 벤치나 높이를 둔 고정된 곳에 올려놓습니다
+양손은 머리 뒤에 두거나 가슴 앞에 교차시킵니다""",
+      'movement':"""복근을 사용해 상체를 들어올리며 무릎 쪽으로 접근합니다
+상체를 천천히 내리며 복근의 긴장을 유지합니다""",
+      'breathing':"""상체를 들어올릴 때 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""목에 무리가 가지 않도록 주의하고, 복근의 긴장을 유지하면서 동작을 천천히 수행하세요.
+허리를 과도하게 꺾지 않도록 주의하세요""",
       'category': '복근',
     },
     {
@@ -1749,11 +1991,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/v-sit-up.png',
       'gif': 'assets/abs/v-sit-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""복근을 수축하며 상체와 하체를 동시에 들어올려 V자 모양을 만드세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 다리와 팔은 곧게 뻗은 상태로 준비합니다
+팔은 머리 위로 곧게 뻗어 바닥에 놓고, 상체를 준비합니다""",
+      'movement':"""복근을 사용해 상체와 하체를 동시에 들어올려 몸을 V자 모양으로 만듭니다
+손이 발을 향해 닿도록 접근한 후, 천천히 원래 위치로 돌아갑니다""",
+      'breathing':"""몸을 들어올릴 때 숨을 내쉬고, 몸을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""몸의 균형을 유지하며 복근과 하체에 집중하세요
+허리가 과도하게 꺾이지 않도록 주의하고, 목에 무리 가지 않도록 합니다""",
       'category': '복근',
     },
 
@@ -1762,11 +2007,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/cable-seated-crunch.png',
       'gif': 'assets/abs/cable-seated-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블을 이용해 윗복근을 만드는 운동이에요. 케이블로 무게를 다룰 수 있으니 맨몸 크런치보다 더 큰 부하를 줄 수 있어요""",
+      'preparation':"""케이블 앞에서 무릎을 꿇고 앉아주세요
+두 손으로 로프를 잡고, 양손을 귀 앞에 위치해 주세요""",
+      'movement':"""복근이 수축할 수 있게 상체 위쪽을 구부려주세요
+팔꿈치가 허벅지에 닿는다고 상상해주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""상체를 내릴 때 숨을 내쉬고, 상체를 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""너무 무거운 무게를 선택하면 컨트롤이 어려운 운동이므로 적절한 무게를 선택해주세요""",
       'category': '복근',
     },
     {
@@ -1774,11 +2022,16 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/cable-standing-crunch.png',
       'gif': 'assets/abs/cable-standing-crunch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸을 구부리며 복근에 집중해 동작을 천천히 수행하세요""",
+      'preparation':"""케이블 머신에 로프 핸들을 상단에 부착하고, 양손으로 로프를 잡습니다
+발은 어깨 너비로 벌리고, 케이블 머신 앞에서 서서 상체를 살짝 앞으로 기울입니다
+로프를 잡은 상태에서 복근에 긴장을 유지하며 준비합니다""",
+      'movement':"""복근을 수축하며 상체를 아래로 구부리면서 크런치 동작을 수행합니다
+상체가 바닥 쪽으로 구부러질 때 복근에 최대한의 자극을 주고, 천천히 원래 자세로 돌아옵니다
+동작 내내 복근의 긴장을 유지하며 반복합니다""",
+      'breathing':"""몸을 구부릴 때 숨을 내쉬고, 원래 자세로 돌아올 때 숨을 들이쉬세요""",
+      'precautions':"""허리를 과도하게 굽히지 않도록 주의하고, 목에 무리가 가지 않도록 합니다
+복근의 긴장을 유지하며 상체를 천천히 구부리고, 케이블의 무게를 조절하여 부상을 방지하세요""",
       'category': '복근',
     },
     
@@ -1787,11 +2040,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/weighted-russian-twist.png',
       'gif': 'assets/abs/weighted-russian-twist.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""러시아에서 군인들을 대상으로 코어근력 강화를 위해 훈련한 것에서 유래된 운동이라고 해요. 동작이 익숙하지 않거나 균형이 무너진다면 다리를 바닥에 붙여서 진행하셔도 괜찮아요""",
+      'preparation':"""무릎을 세우고 바닥에 앉아주세요.
+코어에 힘이 들어갈 수 있게 상체를 살짝 뒤로 보내주세요.
+두 손은 모아 가슴 위에 올려두세요""",
+      'movement':"""릎을 세우고 앉은 상태에서 상체를 뒤로 살짝 젖혀 줍니다
+가슴에 두손을 모아준 뒤 팔꿈치가 허벅지에 닿는다는 느낌으로 상체를 돌려줍니다
+복부의 긴장을 놓치지 않은 상태에서 동작을 반복합니다""",
+      'breathing':"""숨을 들이마시며 몸을 돌리고 내쉬며 원래 위치로 돌아옵니다""",
+      'precautions':"""몸을 비틀 때 무릎을 고정하고, 허리를 과도하게 비틀지 않도록 주의하세요""",
       'category': '복근',
     },
     {
@@ -1799,11 +2056,19 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/cable-twist.png',
       'gif': 'assets/abs/cable-twist.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸통을 회전할 때 복사근에 집중하며 천천히 동작을 수행하세요""",
+      'preparation':"""케벤치에 앉아 케이블 머신에 한 손으로 핸들을 잡습니다
+반대쪽 손은 자신의 팔꿈치를 받치며 몸을 안정시킵니다
+양발은 바닥에 고정하고 상체는 곧게 세웁니다
+케이블 머신의 핸들은 가슴 높이에 맞춰 설정합니다""",
+      'movement':"""복사근을 사용해 몸통을 반대 방향으로 천천히 회전시킵니다
+핸들을 잡은 팔을 사용해 케이블을 몸통과 함께 회전시키고, 반대 손은 팔꿈치를 받쳐 안정성을 유지합니다
+회전이 끝나면 천천히 원래 자세로 돌아옵니다
+동작을 반복한 후, 반대 손으로 교체해 동일한 방식으로 수행합니다""",
+      'breathing':"""몸을 회전할 때 숨을 내쉬고, 원래 자세로 돌아올 때 숨을 들이쉬세요""",
+      'precautions':"""허리나 어깨에 부담이 가지 않도록 복사근에 집중해 회전하세요
+너무 빠르게 동작을 수행하지 말고, 천천히 코어를 안정시키며 진행하세요
+무리한 중량을 사용하지 말고, 균형과 자극에 집중하세요""",
       'category': '복근',
     },
 
@@ -1812,11 +2077,13 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/leg-raise.png',
       'gif': 'assets/abs/leg-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""아랫복근을 만들기 위한 최고의 운동이에요. 허리가 뜨거나 아플때는 엉덩이 밑에 손을 넣고 진행하면 수월하게 진행할 수 있어요""",
+      'preparation':"""바닥에 바로 누워 주세요
+몸이 흔들리지 않게 양손으로 바닥을 짚어주세요""",
+      'movement':"""무릎을 살짝 구부린 채 다리가 바닥과 수직이 되게 들어 올려주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""만약 허리가 아프다면 허리가 뜨지 않도록 엉덩이 아래 손을 넣어주셔도 됩니다""",
       'category': '복근',
     },
     {
@@ -1824,11 +2091,12 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/hanging-leg-raise.png',
       'gif': 'assets/abs/hanging-leg-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""매달려서 다리를 드는 운동으로 복근 전체를 자극할 수 있어요. 앞뒤로 흔들리는 몸까지 잡아줘야하기 때문에 아랫복근뿐만 아니라 전신의 근육을 사용해야 해요""",
+      'preparation':"""두 손으로 철봉을 잡고 매달려 주세요""",
+      'movement':"""다리를 편 채로 허리까지 다리를 들어 올려주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""난이도가 높은 운동이므로, 어렵다면 레그 레이즈로 대체해주세요""",
       'category': '복근',
     },
     {
@@ -1836,11 +2104,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근, 삼두',
       'image': 'assets/abs/captains-chair-knee-raise.png',
       'gif': 'assets/abs/captains-chair-knee-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸통을 안정시킨 후, 하복부 근육에 집중해 무릎을 들어올리세요""",
+      'preparation':"""캡틴 체어에 서서 팔꿈치를 팔걸이에 고정하고 상체를 안정시킵니다
+다리는 곧게 펴고, 복근에 긴장을 유지하면서 준비 자세를 갖춥니다""",
+      'movement':"""무릎을 구부리며 복근을 수축하여 다리를 천천히 가슴 쪽으로 들어올립니다
+무릎이 허리 높이 또는 가슴에 닿도록 들어올린 후, 천천히 다리를 원래 위치로 되돌립니다
+복근의 긴장을 유지하며 동작을 반복합니다""",
+      'breathing':"""무릎을 들어올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 휘지 않도록 주의하고, 상체를 안정시킨 상태에서 복근에 집중하세요
+다리를 천천히 내려 복근의 긴장을 유지하며 반동을 사용하지 않도록 합니다""",
       'category': '복근',
     },
     {
@@ -1848,11 +2120,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근, 어깨',
       'image': 'assets/abs/toes-to-bar.png',
       'gif': 'assets/abs/toes-to-bar.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""코어 근육을 사용해 다리를 들어올려 발끝이 바에 닿도록 하세요""",
+      'preparation':"""풀업 바를 양손으로 오버핸드 그립으로 잡고, 몸을 매달린 상태로 준비합니다
+팔과 다리는 곧게 펴고 복근에 긴장을 유지합니다""",
+      'movement':"""복근을 수축하면서 다리를 들어올려 발끝이 바에 닿도록 합니다
+다리를 들어올리는 동안 몸의 균형을 유지하고, 천천히 다리를 원래 위치로 내립니다
+반동을 사용하지 않고 복근의 힘으로 동작을 수행합니다""",
+      'breathing':"""다리를 들어올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""반동을 사용하지 않도록 하고, 복근과 코어 근육을 사용해 천천히 동작을 수행하세요
+허리가 과도하게 휘지 않도록 주의하고, 상체의 긴장을 유지합니다""",
       'category': '복근',
     },
 
@@ -1861,11 +2137,14 @@ final List<Map<String, String>> items = [
       'subtitle': '복근',
       'image': 'assets/abs/plank.png',
       'gif': 'assets/abs/plank.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""플랭크는 코어 운동의 대표라고 할 수 있어요. 우리 몸의 중심 근육인 코어를 단련함에 있어 최고의 운동이죠""",
+      'preparation':"""양팔을 어깨너비로 벌리고 무릎은 편 상태로 엎드려주세요
+몸이 일직선이 되도록 엉덩이와 코어에 힘을 주세요""",
+      'movement':"""양팔을 어깨너비로 벌리고 무릎은 편 상태로 발 앞꿈치로 몸을 지지하며 엎드린 자세를 취합니다
+머리부터 발까지 일직선이 될 수 있도록 엉덩이를 올려줍니다
+허리가 아래로 내려가지 않도록 배꼽을 위로 당기며 동작을 실시합니다""",
+      'breathing':"""숨을 깊게 들이마시고 천천히 내쉽니다""",
+      'precautions':"""등이 굽지 않도록, 몸이 일직선을 유지해야 하며, 복부에 힘을 주고 버티세요""",
       'category': '복근',
     },
     {
@@ -1873,11 +2152,15 @@ final List<Map<String, String>> items = [
       'subtitle': '복근, 둔근',
       'image': 'assets/abs/side-plank.png',
       'gif': 'assets/abs/side-plank.png',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""매끈한 옆라인을 만들기 위한 최고의 운동이에요. 허리가 굽지 않게 펴서 동작해 주시는 것이 중요해요""",
+      'preparation':"""다리를 쭉 편 채 옆으로 누워주세요
+바닥에 있는 쪽 팔로 바닥을 짚어주세요
+반대쪽 손은 편하게 다리 위에 올려주세요""",
+      'movement':"""옆으로 누워서 팔꿈치를 어깨 밑에 위치 시킵니다
+두 다리를 붙여주고 위에서 봤을 때 머리부터 다리까지 일직선이 되도록 복부와 엉덩이에 힘을 줍니다
+주어진 시간 동안 복부에 긴장을 놓치 않고 버텨주며 반대쪽도 똑같이 진행해 줍니다""",
+      'breathing':"""숨을 들이마시고 내쉬며 몸을 들어 올립니다""",
+      'precautions':"""옆으로 플랭크를 할 때 허리가 휘지 않도록, 몸이 일직선을 유지하세요""",
       'category': '복근',
     },
 
@@ -1887,11 +2170,14 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 대퇴사두',
       'image': 'assets/glutes/stepper.png',
       'gif': 'assets/glutes/stepper.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""리듬을 유지하며 다리 근육과 유산소 운동을 효과적으로 결합하세요""",
+      'preparation':"""스텝퍼 머신에 올라서고 손잡이를 가볍게 잡습니다
+발을 페달에 고정하고, 준비 자세를 갖춥니다""",
+      'movement':"""양발로 번갈아 가며 페달을 밟으며 올라가고 내려가면서 리드미컬하게 동작을 반복합니다
+다리의 근육을 사용하여 페달을 밀어주고, 리듬을 유지하며 지속적으로 운동합니다""",
+      'breathing':"""리듬을 유지하며 자연스럽게 호흡하세요""",
+      'precautions':"""무리한 속도를 내지 말고 안정적인 자세를 유지하세요
+무릎과 발목에 부담이 가지 않도록 가볍게 움직이세요""",
       'category': '둔근',
     },
     {
@@ -1899,11 +2185,13 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/step-up.png',
       'gif': 'assets/glutes/step-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발을 계단이나 박스에 올리고 몸을 들어 올리세요""",
+      'preparation':"""서서 팔을 옆으로 벌리고 박스 앞에 섭니다""",
+      'movement':"""한 발을 계단이나 박스에 올리고 무릎을 90도 이상 굽히세요
+힘을 주어 몸을 들어 올리고 다른 발을 계단에 올리세요
+천천히 내려와 처음 위치로 돌아가세요""",
+      'breathing':"""발을 올릴 때 숨을 들이쉬고, 내릴 때 숨을 내쉬세요""",
+      'precautions':"""계단을 오를 때 무릎이 발끝을 넘지 않도록 주의하세요""",
       'category': '둔근',
     },
 
@@ -1912,11 +2200,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/cable-kickback.png',
       'gif': 'assets/glutes/cable-kickback.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이에 집중하며 다리를 천천히 뒤로 밀어내세요""",
+      'preparation':"""케이블 머신에 앵클 스트랩을 발목에 부착하고, 케이블을 낮은 위치로 설정합니다
+몸을 살짝 앞으로 기울여 손으로 기댈 수 있는 곳을 잡고 한쪽 다리를 뒤로 준비합니다""",
+      'movement':"""엉덩이 근육을 사용하여 다리를 뒤로 차듯이 밀어냅니다
+다리를 최대로 들어 올린 후, 천천히 시작 위치로 되돌립니다
+반복한 후, 반대쪽 다리로도 동일한 동작을 수행합니다""",
+      'breathing':"""다리를 뒤로 찰 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 휘지 않도록 주의하고, 천천히 동작을 수행하여 근육에 집중하세요
+너무 무거운 무게를 피하고, 엉덩이에 자극이 가도록 정확한 자세를 유지하세요""",
       'category': '둔근',
     },
     {
@@ -1924,11 +2216,13 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/hip-thrust.png',
       'gif': 'assets/glutes/hip-thrust.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이 근육을 자극하는 최고의 운동이에요""",
+      'preparation':"""하늘을 보고 엎드린 후 팔은 펴서 엉덩이 옆에 두고 무릎을 세워주세요
+가슴을 펴고, 허리는 아치를 만들어 주세요""",
+      'movement':"""엉덩이를 들어 올려 허리와 허벅지를 일직선으로 만들어주세요
+엉덩이를 내리면서 시작 자세로 천천히 돌아와 주세요""",
+      'breathing':"""올라갈 때 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 꺾이지 않도록 주의해 주세요""",
       'category': '둔근',
     },
     {
@@ -1936,11 +2230,14 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/single-leg-hip-thrust.png',
       'gif': 'assets/glutes/single-leg-hip-thrust.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이를 한 쪽씩 집중적으로 운동해서 자극을 주는 운동이에요""",
+      'preparation':"""무릎이 벌어지지 않게 조심해 주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
+      'movement':"""허리와 다리가 일직선이 될 때까지 엉덩이를 올려주세요
+천천히 시작 자세로 돌아와 주세요
+한 다리씩 혹은 번갈아 가면서 진행해 주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 꺾이지 않도록 주의해 주세요""",
       'category': '둔근',
     },
     {
@@ -1948,11 +2245,16 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/barbell-hip-thrust.png',
       'gif': 'assets/glutes/barbell-hip-thrust.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이 근육을 효과적으로 키울 수 있는 운동이에요""",
+      'preparation':"""벤치에 등을 기대고, 골반에 바벨을 올려주세요
+발은 무릎보다 앞쪽에 두고, 다리는 어깨너비로 벌려주세요""",
+      'movement':"""정강이가 수직이 되고, 몸이 지면과 수평이 될 때까지 골반을 올려주세요
+무게 저항을 버티며 시작 자세로 돌아와 주세요""",
+      'breathing':"""올라갈 때 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""바벨을 그냥 올리면 아플 수 있으니 스쿼트 패드, 수건 등으로 바벨을 감싸주세요
+무릎이 모이지 않도록 주의해 주세요
+머리가 뒤로 젖혀지지 않도록 주의해 주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
       'category': '둔근',
     },
     {
@@ -1960,11 +2262,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/elevated-hip-thrust.png',
       'gif': 'assets/glutes/elevated-hip-thrust.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이를 최대한 높이 들어올리며 엉덩이 근육을 수축하세요""",
+      'preparation':"""벤치에 등을 대고 어깨를 지지합니다. 발은 바닥에 고정하고, 무릎을 굽혀 준비합니다
+엉덩이를 바닥 가까이에 내린 상태로 준비합니다""",
+      'movement':"""엉덩이와 하체 근육을 사용해 엉덩이를 천장 쪽으로 들어올립니다
+정점에서 엉덩이 근육을 최대한 수축한 후, 천천히 엉덩이를 원래 위치로 내립니다
+동작을 반복하면서 근육에 자극을 집중합니다""",
+      'breathing':"""엉덩이를 들어올릴 때 숨을 내쉬고, 엉덩이를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 휘지 않도록 주의하고, 엉덩이 근육에 집중하여 천천히 동작을 수행하세요
+과도한 무게를 사용하지 말고, 정확한 자세로 운동을 진행하세요""",
       'category': '둔근',
     },
     {
@@ -1972,11 +2278,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 등',
       'image': 'assets/glutes/cable-pull-through.png',
       'gif': 'assets/glutes/cable-pull-through.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이를 뒤로 밀며 코어와 엉덩이에 집중하세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치에 설정하고, 양손으로 핸들을 잡습니다
+발은 어깨 너비로 벌리고, 무릎을 약간 굽힌 상태에서 몸을 앞으로 기울입니다""",
+      'movement':"""엉덩이를 뒤로 밀어내면서 상체를 약간 숙이고, 케이블을 다리 사이로 당깁니다
+엉덩이와 허리를 사용해 상체를 세우면서 케이블을 앞으로 밀어냅니다
+동작을 반복하면서 엉덩이 근육과 코어를 사용합니다""",
+      'breathing':"""상체를 세울 때 숨을 내쉬고, 상체를 숙일 때 숨을 들이쉬세요""",
+      'precautions':"""허리를 과도하게 굽히지 않도록 주의하고, 엉덩이와 코어 근육에 집중하여 동작을 천천히 수행하세요
+너무 무거운 무게를 사용하지 말고, 허리에 무리가 가지 않도록 합니다""",
       'category': '둔근',
     },
     
@@ -1985,11 +2295,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/hip-bridge.png',
       'gif': 'assets/glutes/hip-bridge.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이를 최대한 높이 들어올리며 엉덩이와 하체에 자극을 주세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 무릎을 구부리고 발을 바닥에 고정합니다
+양손은 바닥에 놓고, 엉덩이를 낮춘 상태로 준비합니다""",
+      'movement':"""엉덩이 근육을 사용해 엉덩이를 천장으로 들어올립니다
+정점에서 엉덩이 근육을 최대한 수축한 후, 천천히 엉덩이를 원래 위치로 내립니다
+동작을 반복하면서 근육에 자극을 집중합니다""",
+      'breathing':"""엉덩이를 들어올릴 때 숨을 내쉬고, 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""허리가 과도하게 휘지 않도록 주의하고, 엉덩이 근육에 집중하세요
+발이 바닥에서 떨어지지 않도록 안정적으로 고정하세요""",
       'category': '둔근',
     },
     {
@@ -1997,11 +2311,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 대퇴사두',
       'image': 'assets/glutes/band-hip-abduction.png',
       'gif': 'assets/glutes/band-hip-abduction.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""밴드를 사용해 다리를 옆으로 들어 엉덩이 근육을 운동합니다""",
+      'preparation':"""벤치에 앉아서 무릎에 밴드를 끼워주세요
+다리는 어깨너비로 벌려주세요""",
+      'movement':"""밴드를 발목에 감고 다리를 엉덩이 높이까지 들어 올립니다
+엉덩이 근육을 수축시키며 다리를 옆으로 밀어냅니다
+천천히 다리를 원래 위치로 돌아갑니다""",
+      'breathing':"""다리를 벌릴 때 숨을 내쉬고, 다리를 모을 때 숨을 들이쉬세요""",
+      'precautions':"""다리를 과도하게 펴지 않도록 주의해 주세요
+무릎이 닿지 않도록 주의해 주세요""",
       'category': '둔근',
     },
     {
@@ -2009,11 +2327,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/frog-pump.png',
       'gif': 'assets/glutes/frog-pump.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발바닥을 맞대고 엉덩이를 들어올리며 엉덩이 근육을 최대한 수축하세요""",
+      'preparation':"""바닥에 등을 대고 눕습니다. 무릎을 구부리고 발바닥을 맞대어 다리를 옆으로 벌립니다
+팔은 몸 옆에 두고, 엉덩이를 낮춘 상태로 준비합니다""",
+      'movement':"""엉덩이 근육을 사용해 엉덩이를 천장으로 들어올립니다
+정점에서 엉덩이 근육을 최대한 수축한 후, 천천히 엉덩이를 원래 위치로 내립니다
+동작을 반복하며 근육에 자극을 집중합니다""",
+      'breathing':"""엉덩이를 들어올릴 때 숨을 내쉬고, 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""엉덩이에 집중하여 동작을 수행하며, 허리가 과도하게 휘지 않도록 주의하세요
+천천히 동작을 진행하며 엉덩이 근육의 수축에 집중하세요""",
       'category': '둔근',
     },
     {
@@ -2021,11 +2343,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 햄스트링',
       'image': 'assets/glutes/hip-abduction-machine.png',
       'gif': 'assets/glutes/hip-abduction-machine.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지 바깥쪽 근육을 발달시키는 운동으로 중둔근을 단련하기에 좋은 운동이에요""",
+      'preparation':"""패드를 제일 안쪽으로 맞춰주세요
+엉덩이와 등을 밀착시켜 앉아주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""바깥쪽 엉덩이에 힘을 주면서 밀어주세요
+무게 저항을 버티며 시작 자세로 돌아와 주세요""",
+      'breathing':"""다리를 벌릴 때 숨을 내쉬고, 다리를 모을 때 숨을 들이쉬세요""",
+      'precautions':"""다리를 과도하게 펴지 않도록 주의해 주세요
+무릎이 닿지 않도록 주의해 주세요""",
       'category': '둔근',
     },
     {
@@ -2033,11 +2359,15 @@ final List<Map<String, String>> items = [
       'subtitle': '둔근, 대퇴사두',
       'image': 'assets/glutes/reverse-deficit-lunge.png',
       'gif': 'assets/glutes/reverse-deficit-lunge.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발을 뒤로 내딛으며 엉덩이와 하체 근육에 집중하세요""",
+      'preparation':"""플랫폼이나 높이가 있는 발판에 서서 양손은 가볍게 옆에 둡니다
+발 하나를 뒤로 내딛을 준비를 합니다""",
+      'movement':"""한쪽 다리를 뒤로 내딛으며 무릎을 굽혀 런지 자세를 만듭니다
+엉덩이 근육과 다리의 힘을 사용해 몸을 다시 원래 위치로 돌아옵니다
+양쪽 다리를 번갈아 가며 반복합니다""",
+      'breathing':"""몸을 내릴 때 숨을 들이쉬고, 몸을 일으킬 때 숨을 내쉬세요""",
+      'precautions':"""무릎이 발끝을 넘어가지 않도록 주의하고, 천천히 동작을 수행하여 균형을 유지하세요
+엉덩이와 하체 근육에 집중하며 반동을 사용하지 않도록 합니다""",
       'category': '둔근',
     },
 
