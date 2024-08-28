@@ -357,11 +357,19 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/barbell-bench-press.png',
       'gif': 'assets/chest/barbell-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""가슴 운동중 가장 많이 하는 운동이에요. 벤치프레스만 잘해도 크고 넓은 가슴을 가질 수 있어요""",
+      'preparation':"""벤치에 누워 두 발을 바닥에 고정해주세요
+어깨를 뒤로 당긴 후 고정하여 어깨가 가슴보다 뒤에 위치하게 합니다
+허리는 자연스러운 아치 모양이 되게 해주세요
+어깨너비보다 조금 넓게 바벨을 두 손으로 잡아주세요
+허리와 어깨를 고정한 채로 바벨을 들어 바벨을 가슴 위에 위치하게 합니다""",
+      'movement':"""가슴 아래쪽에 바벨이 닿도록 천천히 바벨을 내려주세요
+이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다
+천천히 바벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""바벨이 가슴에 닿지 않으면 무리하지 않고 가능한 만큼만 내려주세요
+어깨가 가슴보다 앞으로 오게 되면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이가 벤치에서 떨어지지 않도록 주의해주세요""",
       'category': '가슴',
     },
     {
@@ -369,11 +377,20 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/barbell-incline-bench-press.png',
       'gif': 'assets/chest/barbell-incline-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""볼륨감 있는 윗가슴을 만들기 위한 최고의 운동이에요. 반동없이 정확한 자세로 자극을 느끼면서 밀어주세요""",
+      'preparation':"""벤치를 15~30도 정도로 조절해주세요
+벤치에 누워 두 발을 바닥에 고정해주세요
+어깨를 뒤로 당긴 후 고정하여 어깨가 가슴보다 뒤에 위치하게 합니다
+허리는 자연스러운 아치 모양이 되게 해주세요
+어깨너비보다 조금 넓게 바벨을 두 손으로 잡아주세요
+허리와 어깨를 고정한 채로 바벨을 들어 바벨을 가슴 위에 위치하게 합니다""",
+      'movement':"""가슴 위쪽에 바벨이 닿도록 천천히 바벨을 내려주세요. 일반적인 벤치프레스보다 윗 쪽에 바벨이 닿아야 합니다
+이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다
+천천히 바벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""바벨이 가슴에 닿지 않으면 무리하지 않고 가능한 만큼만 내려주세요
+어깨가 가슴보다 앞으로 오게 되면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이가 벤치에서 떨어지지 않도록 주의해주세요""",
       'category': '가슴',
     },
     {
@@ -381,11 +398,20 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/barbell-decline-bench-press.png',
       'gif': 'assets/chest/barbell-decline-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""아랫가슴을 운동하기에 최고의 운동이에요. 자세가 어려워 부상 위험이 있으니 숙련자 분들께 추천해요""",
+      'preparation':"""벤치에 누워 두 발을 바닥에 고정해주세요
+어깨를 뒤로 당긴 후 고정하여 어깨가 가슴보다 뒤에 위치하게 합니다
+허리는 자연스러운 아치 모양이 되게 해주세요
+어깨너비보다 조금 넓게 바벨을 두 손으로 잡아주세요
+허리와 어깨를 고정한 채로 바벨을 들어 바벨을 가슴 위에 위치하게 합니다""",
+      'movement':"""가슴에 바벨이 닿도록 천천히 바벨을 내려주세요. 일반적인 벤치프레스보다 아래쪽에 바벨이 닿아야 합니다
+이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다
+천천히 바벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""안압이 높은 분은 다른 운동으로 대체해주세요
+바벨이 가슴에 닿지 않으면 무리하지 않고 가능한 만큼만 내려주세요
+어깨가 가슴보다 앞으로 오게 되면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이가 벤치에서 떨어지지 않도록 주의해주세요""",
       'category': '가슴',
     },
 
@@ -394,11 +420,17 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/dumbbell-bench-press.png',
       'gif': 'assets/chest/dumbbell-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,      
+      'tip':"""덤벨로 하는 벤치 프레스이기 때문에 바벨보다 손이 움직이는 범위가 더욱 커요. 밀면서 덤벨을 모으게 되면 가슴 안쪽까지 자극을 줄 수 있어요""",
+      'preparation':"""덤벨을 두 손에 든 채로 벤치에 누워 두 발을 바닥에 고정해주세요
+어깨를 뒤로 당긴 후 고정하여 어깨가 가슴보다 뒤에 위치하게 합니다
+허리는 자연스러운 아치 모양이 되게 해주세요""",
+      'movement':"""가슴 옆에 덤벨이 오도록 천천히 덤벨을 내려주세요
+이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다
+천천히 덤벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""덤벨을 가슴 높이까지 내릴 수 없다면 무리하지 않고 가능한 만큼만 내려주세요
+어깨가 가슴보다 앞으로 오게 되면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이가 벤치에서 떨어지지 않도록 주의해주세요""",      
       'category': '가슴',
     },
     {
@@ -406,11 +438,17 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/dumbbell-incline-bench-press.png',
       'gif': 'assets/chest/dumbbell-incline-bench-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨로는 힘들었던 움직임의 범위를 덤벨을 통해 보완할 수 있어요. 더 세밀한 자극을 위해 덤벨로도 운동을 해봐요""",
+      'preparation':"""덤벨을 두 손에 든 채로 벤치에 누워 두 발을 바닥에 고정해주세요
+어깨를 뒤로 당긴 후 고정하여 어깨가 가슴보다 뒤에 위치하게 합니다
+허리는 자연스러운 아치 모양이 되게 해주세요""",
+      'movement':"""가슴 옆에 덤벨이 오도록 천천히 덤벨을 내려주세요
+이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다
+천천히 덤벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""덤벨을 가슴 높이까지 내릴 수 없다면 무리하지 않고 가능한 만큼만 내려주세요
+어깨가 가슴보다 앞으로 오게 되면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이가 벤치에서 떨어지지 않도록 주의해주세요""",
       'category': '가슴',
     },
 
@@ -419,11 +457,14 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/machine-chest-press.png',
       'gif': 'assets/chest/machine-chest-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨, 덤벨을 사용한 벤치프레스가 어려웠다면 머신으로 쉽게 자극을 줄 수 있는 운동이에요. 팔 힘은 보조일뿐 가슴 근육을 최대한 써주세요""",
+      'preparation':"""가슴을 펴고 허리를 세워 의자에 앉아 주세요
+두 손으로 그립을 잡아주세요
+허리를 약간 띄워 자연스러운 아치를 만들어주세요""",
+      'movement':"""손잡이를 힘껏 밀어주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 밀 때 숨을 내쉬고, 팔을 구부릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치를 완전히 펴면 무리가 갈 수 있으니 끝까지 펴지 않습니다""",
       'category': '가슴',
     },
     {
@@ -431,11 +472,14 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/landmine-chest-press.png',
       'gif': 'assets/chest/landmine-chest-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""윗 가슴과 전면 어깨를 발달시킬 수 있는 효과적인 운동이에요""",
+      'preparation':"""바벨의 한쪽 끝을 고정시킵니다
+다리를 어깨너비만큼 벌린 상태로 바벨의 끝부분을 양손으로 잡습니다""",
+      'movement':"""손목이 꺾이지 않도록 유의하면서 바벨을 밀어올립니다
+천천히 바벨을 내려 시작 자세로 돌아옵니다""",
+      'breathing':"""바벨을 올릴 때 숨을 내쉬고, 바벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""윗 가슴 운동이 목적이라면 가슴을 내밀고, 전면 어깨가 목적이라면 웅크려주세요
+가슴을 내밀 때 너무 과신장되지 않도록 주의해주세요""",
       'category': '가슴',
     },
     {
@@ -443,11 +487,17 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/dumbbell-hex-press.png',
       'gif': 'assets/chest/dumbbell-hex-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨이 항상 붙어있도록 유지해주세요""",
+      'preparation':"""벤치에 등을 대고 눕습니다
+양 손에 덤벨을 쥐고 덤벨을 가슴 위에 붙여줍니다
+덤벨을 가슴 바로 위에 수평으로 위치시키고, 덤벨끼리 맞닿게 합니다
+팔꿈치는 약간 굽힌 상태로 시작합니다""",
+      'movement':"""덤벨을 유지하면서 팔을 천천히 위로 밀어 올립니다
+덤벨을 가슴 위에서 수직으로 올리고, 이때 덤벨은 계속 맞닿아 있어야 합니다
+정점에서 가슴 근육에 긴장을 느끼며 잠시 멈춘 후, 덤벨을 천천히 내려 시작 자세로 돌아옵니다""",
+      'breathing':"""덤벨을 밀어 올릴 때 숨을 내쉬고, 덤벨을 내릴 때 숨을 들이쉽니다""",
+      'precautions':"""팔꿈치가 벌어지지 않도록 신경 써주세요
+손목이 중립이 되도록 해주세요""",
       'category': '가슴',
     },
     {
@@ -455,11 +505,17 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/svend-press.png',
       'gif': 'assets/chest/svend-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""두 손으로 무게를 강하게 누르며 가슴 근육에 집중하세요""",
+      'preparation':"""가벼운 플레이트를 양손으로 가슴 앞에서 잡습니다
+플레이트는 가슴 중앙에 위치하고, 손바닥을 사용해 플레이트를 강하게 눌러 고정합니다
+발은 어깨 너비로 벌리고, 몸은 곧게 세운 상태로 준비합니다""",
+      'movement':"""플레이트를 가슴에서 앞으로 천천히 밀어냅니다. 이때 플레이트가 떨어지지 않도록 계속 강하게 누르세요
+팔을 완전히 펴기 직전에서 잠시 멈추고, 가슴 근육에 긴장을 느낍니다
+그 후 천천히 플레이트를 가슴 쪽으로 다시 당겨옵니다""",
+      'breathing':"""플레이트를 밀어낼 때 숨을 내쉬고, 플레이트를 당길 때 숨을 들이쉬세요""",
+      'precautions':"""무게를 지나치게 무겁게 설정하지 말고, 가슴 근육에 집중하세요
+팔꿈치가 너무 바깥쪽으로 벌어지지 않도록 신경 쓰세요
+어깨에 부담이 가지 않도록 적절한 무게를 선택하세요""",
       'category': '가슴',
     },
 
@@ -468,11 +524,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/cable-fly.png',
       'gif': 'assets/chest/cable-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""가슴 근육의 수축을 느끼며 천천히 움직이세요""",
+      'preparation':"""케이블 머신의 양쪽 핸들을 잡고, 케이블이 어깨 높이에 오도록 설정합니다
+중앙으로 한 발 앞으로 나가거나 발을 어깨 너비로 벌려 안정된 자세를 취합니다
+양 팔을 약간 굽히고 손을 앞으로 뻗은 상태에서 시작합니다""",
+      'movement':"""가슴을 모으는 느낌으로 팔을 앞으로 가져오며 핸들이 서로 만나도록 합니다
+가슴 근육이 충분히 수축될 때까지 밀어주고, 그 후 천천히 원래 자세로 돌아갑니다
+반복 시 팔꿈치 각도를 일정하게 유지하며 천천히 수행합니다""",
+      'breathing':"""팔을 앞으로 모을 때 숨을 내쉬고, 팔을 벌리며 원위치할 때 숨을 들이쉬세요""",
+      'precautions':"""과도한 무게를 사용하지 말고 가슴 근육에 집중하세요
+팔꿈치 각도가 지나치게 변하지 않도록 주의하세요""",
       'category': '가슴',
     },
     {
@@ -480,11 +541,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/cable-high-fly.png',
       'gif': 'assets/chest/cable-high-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손이 아래쪽에서 만나도록 하여 상부 가슴 근육을 타겟팅하세요""",
+      'preparation':"""케이블 머신의 핸들을 높은 위치로 설정합니다
+양손으로 핸들을 잡고, 한 발을 앞으로 내밀어 안정된 자세를 취합니다
+팔은 약간 굽힌 상태에서 양손이 어깨 높이 이상에서 시작되도록 설정합니다""",
+      'movement':"""팔을 아래쪽으로 내리며, 양 손이 몸 중앙에서 만나도록 합니다
+상부 가슴 근육을 수축시키며 천천히 움직이세요
+그 후 천천히 원래 자세로 돌아갑니다""",
+      'breathing':"""팔을 아래로 내릴 때 숨을 내쉬고, 팔을 위로 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""무리한 무게를 사용하지 말고, 어깨 관절에 부담이 가지 않도록 주의하세요
+팔꿈치 각도를 유지하며 움직임을 천천히 컨트롤하세요""",
       'category': '가슴',
     },
     {
@@ -492,11 +558,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/cable-low-fly.png',
       'gif': 'assets/chest/cable-low-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손이 위로 올라가며 하부 가슴 근육에 집중하세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치로 설정합니다
+양손으로 핸들을 잡고, 한 발을 앞으로 내밀어 안정된 자세를 취합니다
+팔은 약간 굽힌 상태에서 양손이 허리 아래에서 시작되도록 설정합니다""",
+      'movement':"""팔을 위로 올리며, 양 손이 가슴 위쪽에서 만나도록 합니다
+하부 가슴 근육을 수축시키며 천천히 움직이세요
+그 후 천천히 원래 자세로 돌아갑니다""",
+      'breathing':"""팔을 위로 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""과도한 무게를 피하고 가슴 근육에 집중하세요
+팔꿈치 각도를 일정하게 유지하며 부드럽게 움직이세요""",
       'category': '가슴',
     },
     {
@@ -504,11 +575,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/incline-cable-fly.png',
       'gif': 'assets/chest/incline-cable-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블을 이용한 플라이 운동이에요. 덤벨을 올리는 위치에 따라 가슴 근육의 위, 중간, 아래 모두 자극을 줄 수 있어요""",
+      'preparation':"""벤치를 15~30도 정도로 조절해주세요
+그립을 두 손으로 잡고 벤치에 누워 두 발을 바닥에 고정해주세요
+손바닥이 마주 보게 하고, 손이 가슴 위로 오게 들어주세요""",
+      'movement':"""팔을 살짝 구부린 채로 손을 가슴 높이까지 내려 주세요
+천천히 손을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 모을 때 숨을 내쉬고, 팔을 펼 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 무리가 갈 수 있는 운동이므로 가벼운 무게로 해주세요
+어깨에 통증이 있다면 중단하시고, 다른 운동으로 대체해주세요
+팔이 완전히 펴지지 않게 주의해주세요""",
       'category': '가슴',
     },
     {
@@ -516,11 +592,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨',
       'image': 'assets/chest/decline-cable-fly.png',
       'gif': 'assets/chest/decline-cable-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""가슴 하부에 집중하며 동작을 천천히 수행하세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치에 설정합니다
+디클라인 벤치에 누워 양손으로 핸들을 잡습니다
+팔을 약간 굽힌 상태로 가슴 하부가 자극될 수 있도록 양팔을 몸 옆으로 넓게 펼쳐 준비 자세를 갖춥니다""",
+      'movement':"""양팔을 몸 앞으로 모으며 가슴 하부 근육을 수축시킵니다
+손이 가슴 앞에서 만나도록 한 후, 천천히 시작 자세로 돌아옵니다
+팔꿈치는 고정된 각도를 유지하고, 운동 내내 가슴 하부에 자극이 가도록 합니다""",
+      'breathing':"""팔을 앞으로 모을 때 숨을 내쉬고, 팔을 벌릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치 각도를 일정하게 유지하여 어깨 관절에 무리가 가지 않도록 하세요
+과도한 무게를 피하고 가슴 하부에 자극이 집중되도록 동작을 천천히 수행하세요""",
       'category': '가슴',
     },
 
@@ -529,11 +610,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨, 삼두',
       'image': 'assets/chest/push-up.png',
       'gif': 'assets/chest/push-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸을 일직선으로 유지하고, 가슴 근육에 집중하세요""",
+      'preparation':"""바닥에 엎드려 양 손을 어깨 너비로 벌리고 손바닥을 바닥에 댑니다
+발가락을 바닥에 대고 몸을 들어올려 팔을 곧게 펴서 플랭크 자세를 만듭니다
+몸은 머리부터 발끝까지 일직선을 유지해야 합니다""",
+      'movement':"""팔꿈치를 굽혀 몸을 천천히 바닥으로 내립니다
+가슴이 바닥에 거의 닿기 직전까지 내려간 후, 팔을 펴면서 몸을 다시 밀어 올립니다
+가슴 근육을 수축하며 동작을 반복합니다""",
+      'breathing':"""몸을 내릴 때 숨을 들이쉬고, 몸을 밀어올릴 때 숨을 내쉬세요""",
+      'precautions':"""허리가 과도하게 내려가지 않도록 주의하세요
+팔꿈치가 몸에 너무 가까워지지 않도록 하여 어깨와 팔꿈치의 부담을 줄이세요""",
       'category': '가슴',
     },
     {
@@ -541,11 +627,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 어깨, 삼두',
       'image': 'assets/chest/weighted-push-up.png',
       'gif': 'assets/chest/weighted-push-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""가슴 근육에 집중하면서 무게를 잘 분배하세요""",
+      'preparation':"""푸쉬 업 자세를 취한 후, 등 위에 중량판이나 웨이트를 올립니다
+중량이 안정적으로 위치하도록 조정한 뒤 몸을 일직선으로 유지하며 플랭크 자세를 만듭니다""",
+      'movement':"""중량을 유지한 상태에서 팔꿈치를 굽혀 몸을 천천히 바닥으로 내립니다
+가슴이 바닥에 거의 닿기 직전까지 내려간 후, 팔을 펴서 몸을 다시 밀어 올립니다
+가슴 근육을 수축하며 동작을 반복합니다""",
+      'breathing':"""몸을 내릴 때 숨을 들이쉬고, 몸을 밀어올릴 때 숨을 내쉬세요""",
+      'precautions':"""중량이 등이 아닌 다른 부위에 집중되지 않도록 주의하세요
+허리가 과도하게 내려가지 않도록 안정된 자세를 유지하세요
+과도한 중량을 사용하지 말고 무게를 천천히 증가시키세요""",
       'category': '가슴',
     },
 
@@ -554,11 +645,14 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 등',
       'image': 'assets/chest/barbell-pullover.png',
       'gif': 'assets/chest/barbell-pullover.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""풀오버는 상체전반을 타겟하기 좋은 운동이에요. 어깨너비로 바벨을 잡고 진행하기 때문에 가슴근육의 바깥쪽을 타겟할 수 있어요""",
+      'preparation':"""바벨을 잡은 채로 벤치에 누워, 두 발을 바닥에 고정해주세요
+바벨을 얼굴 위에 위치해주세요""",
+      'movement':"""천천히 바벨을 정수리 위로 내려주세요
+이때, 가슴과 등이 충분히 늘어나야 합니다
+천천히 바벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 내릴 때 숨을 들이쉬고, 팔을 올릴 때 숨을 내쉬세요""",
+      'precautions':"""바벨을 정수리 위까지 내릴 수 없다면 무리하지 않고 가능한 만큼만 내려주세요""",
       'category': '가슴',
     },
     {
@@ -566,11 +660,15 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/dumbbell-pullover.png',
       'gif': 'assets/chest/dumbbell-pullover.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""풀오버 동작은 상체 전반의 근육을 발달시키는 운동이에요. 가슴, 광배, 삼두 근육까지 자극을 줄 수 있어요""",
+      'preparation':"""덤벨을 두 손으로 잡은 채로 등 윗부분을 벤치에 고정하고, 두 발을 바닥에 고정해주세요
+엉덩이에 힘을 주어 허리를 펴 줍니다
+덤벨을 얼굴 위에 위치해주세요""",
+      'movement':"""천천히 덤벨을 정수리 위로 내려주세요
+이때, 가슴과 등이 충분히 늘어나야 합니다
+천천히 덤벨을 들어 올려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 내릴 때 숨을 들이쉬고, 팔을 올릴 때 숨을 내쉬세요""",
+      'precautions':"""덤벨을 정수리 위까지 내릴 수 없다면 무리하지 않고 가능한 만큼만 내려주세요""",
       'category': '가슴',
     },
 
@@ -579,11 +677,17 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴',
       'image': 'assets/chest/pec-deck-fly.png',
       'gif': 'assets/chest/pec-deck-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""초보자도 어려움없이 실시할 수 있는 플라이 운동이에요. 강한 수축과 이완을 느낄수 있고, 엄청 큰 통나무를 안는다고 생각하면 더욱 쉬워요""",
+      'preparation':"""가슴을 펴고 허리를 세워 의자에 앉아 주세요
+손잡이와 가슴이 일직선상 있도록 의자를 조절해 주세요
+두 손으로 자연스럽게 그립을 잡아주세요
+그립을 잡기 어렵다면 한 쪽씩 차례로 잡아주세요""",
+      'movement':"""팔을 살짝 구부린 채로 가슴 근육을 사용하여 손을 모아주세요
+천천히 다시 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 모을 때 숨을 내쉬고, 팔을 펼 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 무리가 갈 수 있는 운동이므로 가벼운 무게로 해주세요
+어깨에 통증이 있다면 중단하시고, 다른 운동으로 대체해주세요
+팔이 완전히 펴지지 않게 주의해주세요""",
       'category': '가슴',
     },
 
@@ -592,11 +696,16 @@ final List<Map<String, String>> items = [
       'subtitle': '가슴, 삼두',
       'image': 'assets/chest/chest-dip.png',
       'gif': 'assets/chest/chest-dip.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""맨몸 가슴운동으로 무게중심에 따라 아랫가슴과 삼두에 자극을 줄 수 있어요. 부상위험이 높기 때문에 보조가 되는 머신이나 밴드 이용을 추천해 드려요""",
+      'preparation':"""두 손으로 그립을 잡아 몸을 띄워 주세요
+어깨가 으쓱하지 않도록 아래로 내려 고정해주세요
+다리는 자연스럽게 꼬아 뒤로 보내줍니다""",
+      'movement':"""어깨가 아래로 고정된 채로 천천히 내려가 주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 조금씩 가동 범위를 늘려 주세요
+코어에 힘을 준 채로 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요""",
+      'precautions':"""몸무게가 많이 나가는 분은 어깨에 무리가 갈 수 있으니 다른 운동으로 대체해주세요
+너무 많이 내려가면 어깨가 다칠 수 있으니 주의해주세요""",
       'category': '가슴',
     },
     
@@ -606,11 +715,17 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/military-press.png',
       'gif': 'assets/shoulder/military-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""어깨 앞쪽 근육을 주로 쓰며 머리 위로 번쩍 들었을 때는 바벨과 몸이 일직선이 돼야 해요""",
+      'preparation':"""바벨이 쇄골 바로 위에 위치하게 해주세요
+팔꿈치는 뒤로 빠지는 게 아니라 바벨보다 앞에 위치해야 합니다
+가슴을 펴고 엉덩이에 힘을 주어 머리부터 발바닥까지 바로 선 자세를 유지해주세요
+발 너비는 어깨너비로 유지합니다""",
+      'movement':"""바벨을 머리 위로 들어 올리세요. 내 몸 앞이 아닌, 머리 위로 들어 올려주세요
+엉덩이와 코어에 힘을 준 채로 바벨을 천천히 내려 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""바벨을 너무 넓게 잡으면 어깨에 무리가 갈 수 있으니 주의해주세요
+엉덩이와 코어에 힘이 풀리면 허리에 무리가 갈 수 있으니 주의해주세요
+동작 내내 상체 전체가 단단하게 유지되어야 합니다""",
       'category': '어깨',
     },
     {
@@ -618,11 +733,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨',
       'image': 'assets/shoulder/dumbbell-front-raise.png',
       'gif': 'assets/shoulder/dumbbell-front-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""전면 어깨의 볼륨감을 위한 필수 운동이에요. 전면 어깨의 자극을 느끼면서 운동을 진행해 주세요""",
+      'preparation':"""양손에 덤벨을 들고 어깨너비로 서주세요
+덤벨은 허벅지 앞에 위치하게 합니다
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 덤벨을 어깨높이까지 천천히 들어 올려주세요
+손바닥의 방향은 바닥을 향하게 해주세요
+덤벨을 천천히 내려 시작 자세로 돌아오세요
+단, 덤벨을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 덤벨을 높게 들지 않도록 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -630,11 +750,15 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨',
       'image': 'assets/shoulder/cable-front-raise.png',
       'gif': 'assets/shoulder/cable-front-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블로 할 수 있는 어깨 앞면 운동이에요. 케이블 운동은 지속적인 자극을 느낄 수 있어요""",
+      'preparation':"""양손으로 그립을 잡고 어깨너비로 서주세요
+손은 허벅지 앞에 위치하게 합니다
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 손을 어깨높이까지 천천히 들어 올려주세요
+손을 천천히 내려 시작 자세로 돌아오세요
+단, 손을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 손을 높게 들지 않도록 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -642,11 +766,15 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨',
       'image': 'assets/shoulder/plate-front-raise.png',
       'gif': 'assets/shoulder/plate-front-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""플레이트는 덤벨보다 조금 더 무거운 무게를 들 수 있기 때문에 더 큰 자극을 줄 수 있어요""",
+      'preparation':"""양손으로 플레이트를 잡고 어깨너비로 서주세요
+손은 허벅지 앞에 위치하게 합니다
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 손을 어깨높이까지 천천히 들어 올려주세요
+손을 천천히 내려 시작 자세로 돌아오세요
+단, 손을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 손을 높게 들지 않도록 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -654,11 +782,17 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/arnold-press.png',
       'gif': 'assets/shoulder/arnold-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""아놀드라는 사람이 만든 운동이고, 어깨 근육을 전체적으로 발달시킬 수 있는 운동이에요""",
+      'preparation':"""벤치에 앉아 가슴을 펴고 허리를 세워 주세요
+등받이가 있다면 90도가 아닌 70~80도 정도로 조절해주세요
+덤벨을 양손에 들고 몸 앞에 위치시켜 주세요
+손바닥의 방향이 몸을 향해야 합니다""",
+      'movement':"""손바닥이 앞을 보도록 덤벨을 회전하며 들어 올려 주세요
+덤벨을 가운데로 모으지 않고, 그대로 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""일반적인 숄더 프레스보다 전면 삼각근을 더 많이 사용하는 운동입니다
+회전근개가 안좋은 분들은 일반적인 숄더프레스보다 아놀드프레스를 추천해 드려요""",
       'category': '어깨',
     },
     {
@@ -666,11 +800,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/dumbbell-shoulder-press.png',
       'gif': 'assets/shoulder/dumbbell-shoulder-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨 운동의 경우 움직일 수 있는 범위가 넓어 앞뒤로 움직이는 어깨와 양옆으로 움직이는 팔을 잡아줘야 하기 때문에 어깨 균형 발달에 도움이 돼요. 중심을 잡아야 하므로 머신보다 더 효과적인 운동이 될 수 있어요""",
+      'preparation':"""벤치에 앉아 가슴을 펴고 허리를 세워 주세요
+등받이가 있다면 90도가 아닌 70~80도 정도로 조절해주세요
+덤벨을 양손에 들고 귀 옆에 위치시켜 주세요
+팔꿈치는 완전히 몸 옆이 아닌 살짝 앞에 위치시켜 주세요""",
+      'movement':"""덤벨을 수직으로 들어 올려 주세요
+덤벨을 가운데로 모으지 않고, 그대로 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 통증이 있거나 소리가 난다면, 팔꿈치를 몸 옆이 아닌 앞으로 위치시켜 주세요""",
       'category': '어깨',
     },
     {
@@ -678,11 +817,13 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/machine-shoulder-press.png',
       'gif': 'assets/shoulder/machine-shoulder-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""전면과 측면의 어깨 근육을 발달시킬 수 있는 운동이에요. 머신은 운동방향이 동일하여 초보자분들도 쉽게 자세를 잡을 수 있어요""",
+      'preparation':"""기구에 앉아 가슴을 펴고 허리를 세워 주세요
+그립을 단단히 잡아주세요""",
+      'movement':"""무게를 수직으로 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 통증이 있거나 소리가 난다면, 팔꿈치가 몸 앞에 위치하도록 그립을 바꿔주세요""",
       'category': '어깨',
     },
     {
@@ -690,11 +831,15 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/cable-shoulder-press.png',
       'gif': 'assets/shoulder/cable-shoulder-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블을 이용한 어깨 전면 운동이에요. 케이블로 운동할 땐 흔들리지 않도록 더욱 주의해주세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치에 설정합니다
+양손으로 핸들을 잡고, 팔꿈치를 굽힌 채로 어깨 높이까지 들어올립니다
+발을 어깨 너비로 벌리고, 안정된 자세를 취합니다""",
+      'movement':"""핸들을 위로 밀어내며 팔을 곧게 펴줍니다. 이때 어깨 근육을 수축시키며 동작을 천천히 수행하세요
+팔꿈치를 완전히 펴기 직전에서 잠시 멈추고, 다시 천천히 시작 자세로 돌아옵니다""",
+      'breathing':"""핸들을 밀어올릴 때 숨을 내쉬고, 핸들을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""무리한 무게를 사용하지 말고 어깨 관절의 안정성을 유지하세요
+허리가 과도하게 뒤로 젖혀지지 않도록 주의하세요""",
       'category': '어깨',
     },
     {
@@ -702,11 +847,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 이두',
       'image': 'assets/shoulder/cable-upright-row.png',
       'gif': 'assets/shoulder/cable-upright-row.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔꿈치를 들어 올리며 승모근과 어깨 근육에 집중하세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치에 설정합니다
+양손으로 핸들을 잡고, 바벨이나 손잡이가 몸 앞에 오도록 설정합니다
+발을 어깨 너비로 벌리고, 몸을 안정된 자세로 준비합니다""",
+      'movement':"""핸들을 턱 아래로 끌어올리며 팔꿈치를 바깥쪽으로 들어 올립니다
+팔꿈치는 어깨 높이 이상으로 올라가야 하며, 승모근과 어깨 근육에 자극을 느끼도록 합니다
+핸들을 천천히 원래 자세로 되돌립니다""",
+      'breathing':"""핸들을 들어 올릴 때 숨을 내쉬고, 핸들을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 과도한 부담을 주지 않도록 무리한 중량을 사용하지 마세요
+팔꿈치가 지나치게 뒤로 넘어가지 않도록 주의하세요""",
       'category': '어깨',
     },
     {
@@ -714,11 +864,14 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 승모',
       'image': 'assets/shoulder/barbell-upright-row.png',
       'gif': 'assets/shoulder/barbell-upright-row.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""측면 어깨를 자극하는 운동이에요. 팔꿈치를 먼저 들어주고, 손이 따라오게 해주세요""",
+      'preparation':"""어깨너비로 서주세요
+바벨을 어깨너비보다 조금 넓게 잡고, 바벨을 허벅지 앞에 위치하게 합니다
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""바벨을 몸과 가까이 한 채로 어깨높이까지 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨에 무리가 갈 수 있는 운동이니 어깨에서 소리가 나거나 통증이 있다면 다른 운동으로 대체해주세요""",
       'category': '어깨',
     },
     
@@ -728,11 +881,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨',
       'image': 'assets/shoulder/dumbbell-lateral-raise.png',
       'gif': 'assets/shoulder/dumbbell-lateral-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""측면 어깨를 타겟으로 하는 운동이에요. 측면 어깨 운동은 미적인 아름다움을 만들어주는 대표적인 어깨 운동이에요""",
+      'preparation':"""양손에 덤벨을 들고 어깨너비로 서주세요
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 덤벨을 어깨높이까지 천천히 들어 올려주세요
+손바닥의 방향은 바닥 혹은 몸 앞쪽을 향하게 해주세요
+덤벨을 천천히 내려 시작 자세로 돌아오세요
+단, 덤벨을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 덤벨을 높게 들지 않도록 주의해주세요
+손바닥이 몸 뒤를 향하면 어깨가 아플 수 있으니 바닥 혹은 몸 앞을 향하게 해주세요""",
       'category': '어깨',
     },
     {
@@ -740,11 +898,14 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨',
       'image': 'assets/shoulder/machine-lateral-raise.png',
       'gif': 'assets/shoulder/machine-lateral-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""머신을 사용해서 측면 어깨를 운동하는 운동이에요. 머신을 사용하면 초보자분들도 쉽게 자세를 잡을 수 있어요""",
+      'preparation':"""기구에 앉아 가슴을 펴고 허리를 세워 주세요
+패드에 팔뚝(전완)을 고정하고, 그립을 잡아주세요""",
+      'movement':"""팔꿈치를 구부린 채로 기구를 어깨높이까지 천천히 들어 올려주세요
+천천히 내려 시작 자세로 돌아오세요
+단, 기구를 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 기구를 높게 들지 않도록 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -752,11 +913,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 전완',
       'image': 'assets/shoulder/cable-lateral-raise.png',
       'gif': 'assets/shoulder/cable-lateral-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블로 할 수 있는 측면 어깨 운동이에요. 케이블 운동은 지속적인 자극을 느낄 수 있어요""",
+      'preparation':"""한 손으로 그립을 잡고 어깨너비로 서주세요
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 손을 어깨높이까지 천천히 들어 올려주세요
+손바닥의 방향은 바닥 혹은 몸 앞쪽을 향하게 해주세요
+손을 천천히 내려 시작 자세로 돌아오세요
+단, 손을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 손을 높게 들지 않도록 주의해주세요
+손바닥이 몸 뒤를 향하면 어깨가 아플 수 있으니 바닥 혹은 몸 앞을 향하게 해주세요""",
       'category': '어깨',
     },
     {
@@ -764,11 +930,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 승모',
       'image': 'assets/shoulder/dumbbell-incline-y-raise.png',
       'gif': 'assets/shoulder/dumbbell-incline-y-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""팔을 Y 모양으로 들어올리면서 어깨와 승모근에 집중하세요""",
+      'preparation':"""인클라인 벤치를 약 30도 각도로 설정합니다.
+가벼운 덤벨을 양손에 쥐고 벤치에 가슴을 대고 눕습니다.
+팔을 약간 굽힌 상태로 덤벨을 바닥을 향해 내려트립니다""",
+      'movement':"""팔을 Y 모양으로 위쪽으로 들어올리며 어깨 근육을 수축시킵니다
+정점에서 잠시 멈춘 후, 천천히 덤벨을 원래 자세로 내려줍니다
+팔은 어깨 넓이보다 조금 넓게 벌리고, 어깨가 수축되는 느낌을 받으며 운동을 진행합니다""",
+      'breathing':"""팔을 들어올릴 때 숨을 내쉬고, 덤벨을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""무리한 무게를 사용하지 말고, 정확한 폼으로 어깨와 승모근에 자극을 집중하세요
+허리를 과도하게 아치형으로 만들지 않도록 주의하세요""",
       'category': '어깨',
     },
     {
@@ -776,11 +947,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 삼두',
       'image': 'assets/shoulder/cable-y-raise.png',
       'gif': 'assets/shoulder/cable-y-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블을 잡고 Y 모양으로 천천히 들어 올리며 어깨 근육에 집중하세요""",
+      'preparation':"""케이블 머신의 핸들을 낮은 위치로 설정합니다
+양손으로 케이블을 잡고, 몸을 앞으로 기울인 상태로 서서 양팔이 바닥을 향하도록 합니다
+팔꿈치는 약간 굽힌 상태로 준비합니다""",
+      'movement':"""팔을 Y 모양으로 위쪽으로 들어올리며 어깨 근육을 수축시킵니다
+양 팔이 어깨보다 높이 올라가지 않도록 조절하고, 정점에서 잠시 멈춥니다
+천천히 케이블을 원래 위치로 되돌리며 동작을 반복합니다""",
+      'breathing':"""팔을 들어올릴 때 숨을 내쉬고, 케이블을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨 관절에 무리가 가지 않도록 무리한 중량을 피하고, 정확한 자세로 수행하세요
+팔꿈치를 지나치게 굽히지 말고, 어깨와 승모근을 사용하는 데 집중하세요""",
       'category': '어깨',
     },
     
@@ -790,11 +966,14 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 등',
       'image': 'assets/shoulder/dumbbell-rear-delt-raise.png',
       'gif': 'assets/shoulder/dumbbell-rear-delt-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""어깨 후면을 자극하는 운동이에요. 어깨 후면 운동 중 가장 대표적인 운동이에요""",
+      'preparation':"""양손에 덤벨을 들고 어깨너비로 서주세요
+엉덩이를 뒤로 빼면서 상체를 앞으로 굽혀줍니다""",
+      'movement':"""팔꿈치를 살짝 구부린 채로 덤벨을 어깨높이까지 천천히 들어 올려주세요
+덤벨을 천천히 내려 시작 자세로 돌아오세요
+단, 덤벨을 완전히 내리지 않고, 어깨에 힘이 풀리기 전까지만 내려주세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨높이보다 덤벨을 높게 들지 않도록 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -802,11 +981,13 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 등',
       'image': 'assets/shoulder/machine-reverse-fly.png',
       'gif': 'assets/shoulder/machine-reverse-fly.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""어깨 후면을 자극하는 운동이에요. 앞으로 쭉 어깨를 빼서 운동하고, 어깨 운동이기 때문에 등이 움직이면 안돼요""",
+      'preparation':"""배를 기구에 대고 앉아 상체를 고정해주세요
+그립이 어깨높이에 오게 잡습니다""",
+      'movement':"""팔을 편 채로 기구를 당겨주세요
+다시 천천히 시작 자세로 돌아가세요""",
+      'breathing':"""팔을 벌릴 때 숨을 내쉬고, 팔을 모을 때 숨을 들이쉬세요""",
+      'precautions':"""날개뼈를 과도하게 접으면 후면 어깨가 아닌 승모근이 사용되므로 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -814,11 +995,14 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 이두',
       'image': 'assets/shoulder/cable-face-pull.png',
       'gif': 'assets/shoulder/cable-face-pull.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""얼굴쪽으로 당겨 페이스풀이라는 이름이 붙었어요. 어깨 후면을 자극하는 운동이고, 어깨를 펴주는 효과도 있기 때문에 라운드 숄더가 있는 사람에게도 좋은 운동이에요""",
+      'preparation':"""케이블이 얼굴 앞에 오도록 조정해주세요
+그립을 두 손으로 잡고, 팔을 쭉 펴서 얼굴 앞에 위치시킵니다""",
+      'movement':"""귀 위쪽으로 그립을 당겨주세요
+당길 때, 날개뼈가 과도하게 접히지 않게 해주세요
+다시 천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 당길 때 숨을 내쉬고, 팔을 펼 때 숨을 들이쉬세요""",
+      'precautions':"""날개뼈를 과도하게 접으면 후면 어깨가 아닌 승모근이 사용되므로 주의해주세요""",
       'category': '어깨',
     },
     {
@@ -826,11 +1010,16 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 이두',
       'image': 'assets/shoulder/banded-face-pull.png',
       'gif': 'assets/shoulder/banded-face-pull.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""후면 삼각근과 승모근에 집중하며 밴드를 천천히 당기세요""",
+      'preparation':"""밴드를 고정된 지점에 머리 높이 정도로 묶습니다
+양손으로 밴드의 양 끝을 잡고, 밴드가 팽팽해질 때까지 뒤로 물러납니다
+서서 팔을 앞쪽으로 뻗어 준비 자세를 취합니다""",
+      'movement':"""팔꿈치를 뒤로 당기면서 밴드를 얼굴 쪽으로 끌어옵니다
+팔꿈치는 어깨와 같은 높이로 들어 올리며 후면 삼각근과 승모근을 수축합니다
+밴드를 천천히 원래 위치로 되돌리며 반복합니다""",
+      'breathing':"""밴드를 당길 때 숨을 내쉬고, 밴드를 풀어줄 때 숨을 들이쉬세요""",
+      'precautions':"""팔꿈치가 너무 아래로 내려가지 않도록 주의하고, 어깨와 팔이 일직선이 되도록 유지하세요
+너무 빠르게 당기지 말고 근육에 집중하며 천천히 동작을 수행하세요""",
       'category': '어깨',
     },
 
@@ -839,11 +1028,17 @@ final List<Map<String, String>> items = [
       'subtitle': '어깨, 대퇴사두',
       'image': 'assets/shoulder/clean-and-jerk.png',
       'gif': 'assets/shoulder/clean-and-jerk.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""폭발적인 힘을 사용하여 바벨을 일관되게 들어 올리세요""",
+      'preparation':"""바벨을 바닥에 두고 발을 어깨 너비로 벌려 서서 바벨을 양손으로 잡습니다
+팔은 어깨 너비보다 조금 넓게 벌리고, 허리를 펴서 준비 자세를 취합니다
+가슴을 내밀고 등을 곧게 유지하면서 바벨을 준비합니다""",
+      'movement':"""클린: 다리와 엉덩이의 힘을 사용해 바벨을 위로 들어올리며, 동시에 팔꿈치를 앞으로 돌려 어깨 위에 바벨을 받칩니다
+저크: 바벨을 어깨 위에서 폭발적으로 위로 밀어 올려 팔을 완전히 펴고, 다리로 살짝 반동을 주어 바벨을 머리 위로 밀어올립니다
+바벨을 천천히 내리며 동작을 반복합니다""",
+      'breathing':"""클린 단계에서 바벨을 들어올릴 때 숨을 내쉬고, 저크 단계에서 바벨을 밀어 올릴 때 숨을 내쉬세요. 바벨을 내릴 때는 숨을 들이쉬세요""",
+      'precautions':"""무게를 들 때 허리가 둥글게 말리지 않도록 주의하세요
+어깨와 허리에 무리한 부담이 가지 않도록 적절한 무게를 선택하세요
+기술적인 동작이므로 천천히 연습하고 부드럽게 연결하세요""",
       'category': '어깨',
     },
 
@@ -2485,7 +2680,7 @@ final List<Map<String, String>> items = [
 원하는 반복 횟수만큼 이 동작을 반복하여 운동 전반에 걸쳐 덤벨과 균형을 제어할 수 있도록 하세요""",
       'breathing':"""다리를 밀 때 숨을 내쉬고, 다리를 당길 때 숨을 들이쉬세요""",
       'precautions':""" 동작의 가장 아래쪽에서 발뒤꿈치를 바닥에서 튕겨내면 근력보다는 운동량을 사용하게 되어 운동의 효과를 감소시킬수 있으니 주의하세요 
-      항상 발뒤꿈치를 천천히 그리고 통제된 방식으로 낮추세요""",
+항상 발뒤꿈치를 천천히 그리고 통제된 방식으로 낮추세요""",
       'category': '종아리',
     },
     {
@@ -2495,7 +2690,7 @@ final List<Map<String, String>> items = [
       'gif': 'assets/calf/leg-press-calf-raise.gif',
       'tip':"""카프 레이즈를 할 때 가능한 다리를 곧게 하세요""",
       'preparation':"""몸을 머신 중앙에 위치시키고, 발판 하단에 발을 올려주세요
-다다리는 어깨너비보다 좁게 벌려주세요
+다리는 어깨너비보다 좁게 벌려주세요
 가슴을 펴고, 허리는 살짝 아치를 만들어 주세요""",
       'movement':"""발뒤꿈치를 밀어 종아리 근육을 수축해 주세요.
 무게 저항을 버티며 천천히 시작 자세로 돌아와 주세요""",
