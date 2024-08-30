@@ -2377,11 +2377,21 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/squat.png',
       'gif': 'assets/quadriceps/squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지와 코어 등 많은 부위의 근육을 활성화시킬 수 있어요
+      다른 스쿼트를 진행하기 전 자세를 바로잡기에 적합한 운동이에요""",
+      'preparation':"""다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2389,11 +2399,16 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/split-squat.png',
       'gif': 'assets/quadriceps/split-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""다리를 나누어 스쿼트를 합니다""",
+      'preparation':"""다리를 골반 너비로 벌린 후에 앞뒤로 다리를 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""한 발을 앞에 두고 다른 발을 뒤로 뻗습니다
+무릎을 굽히며 뒤쪽 무릎이 바닥에 가깝게 내립니다
+앞다리를 밀어 원래 위치로 돌아갑니다""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""상체가 앞으로 기울어지지 않게 주의해 주세요
+무릎을 굽힐 때 앞으로 내디딘 발의 무릎이 발보다 앞으로 나오지 않도록 주의해 주세요
+무게중심이 지나치게 앞으로 쏠리지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2401,11 +2416,22 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/barbell-squat.png',
       'gif': 'assets/quadriceps/barbell-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""하체 운동중 가장 대표적인 운동이에요. 하체를 기반으로 전신을 사용해서 운동해주세요""",
+      'preparation':"""바벨을 어깨높이에 거치해 주세요
+바벨을 어깨너비보다 넓게 잡고, 승모근에 올려주세요
+다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2413,11 +2439,22 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/barbell-front-squat.png',
       'gif': 'assets/quadriceps/barbell-front-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 전면 어깨 위에 두고 수행하는 스쿼트로 허벅지 앞쪽근육에 강한 자극을 줄 수 있는 운동이에요""",
+      'preparation':"""바벨을 어깨높이에 거치해 주세요
+바벨을 어깨 위에 올리고, 양손을 교차해서 바벨을 잡아주세요
+다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2425,11 +2462,21 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-hack-squat.png',
       'gif': 'assets/quadriceps/barbell-hack-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 엉덩이 뒤로 잡은 채로 진행하는 스쿼트로 상체와 팔의 힘이 많이 사용되는 스쿼트에요""",
+      'preparation':"""바벨을 등 뒤로 들어주세요
+다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2437,11 +2484,16 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-split-squat.png',
       'gif': 'assets/quadriceps/barbell-split-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 들고 다리를 나누어 스쿼트를 합니다""",
+      'preparation':"""다리를 골반 너비로 벌린 후에 앞뒤로 다리를 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""양손으로 바벨을 들고 한 발을 앞에 둡니다.
+무릎을 굽혀 뒤쪽 무릎이 바닥에 가깝게 내립니다
+앞다리를 밀어 원래 위치로 돌아갑니다""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""상체가 앞으로 기울어지지 않게 주의해 주세요
+무릎을 굽힐 때 앞으로 내디딘 발의 무릎이 발보다 앞으로 나오지 않도록 주의해 주세요
+무게중심이 지나치게 앞으로 쏠리지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2449,11 +2501,22 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/barbell-sumo-squat.png',
       'gif': 'assets/quadriceps/barbell-sumo-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""일반적인 스쿼트보다 다리의 폭을 더 넓혀 수행하는 스쿼트에요. 허벅지 안쪽에 새로운 자극을 느낄 수 있는 운동이에요""",
+      'preparation':"""바벨을 어깨높이에 거치해 주세요
+바벨을 어깨너비보다 넓게 잡고, 승모근에 올려주세요
+다리는 어깨너비보다 한 발짝 넓게 벌리고, 발끝은 40~50도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2461,11 +2524,21 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/dumbbell-goblet-squat.png',
       'gif': 'assets/quadriceps/dumbbell-goblet-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨을 가슴 앞에 두고 수행하는 스쿼트로 바벨 스쿼트보다 스쿼트 자세를 익히는데 용이한 운동이에요""",
+      'preparation':"""덤벨을 몸 앞에 위치시키고, 양손으로 들어주세요
+다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2473,11 +2546,23 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/bulgarian-split-squat.png',
       'gif': 'assets/quadriceps/bulgarian-split-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""한 다리를 올린 상태에서 런지 동작을 수행하는 운동이에요
+      발을 올릴 수 있는 곳이 있다면 어디든 괜찮아요, 한 다리에 집중하기 때문에 안정성과 균형감각 및 밸런스 향상에 유리해요""",
+      'preparation':"""다리는 어깨너비로 벌리고, 발끝은 20~30도 벌려주세요
+한쪽 다리는 발바닥이 하늘을 향하도록 무릎을 접어 벤치 위에 올려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요
+모든 횟수를 마치고, 반대쪽도 똑같이 진행해 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2485,11 +2570,20 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/cyclist-squat.png',
       'gif': 'assets/quadriceps/cyclist-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지와 코어 등 많은 부위의 근육을 활성화시킬 수 있어요""",
+      'preparation':"""다리는 어깨너비로 벌리고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 지면과 수평이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2497,11 +2591,21 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/machine-hack-squat.png',
       'gif': 'assets/quadriceps/machine-hack-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""신을 이용하여 전반적인 하체근육을 대부분 단련시킬 수 있는 운동이에요 머신으로 스쿼트를 진행하니 안정적인 자세도 가능하죠""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 발판 중앙보다 조금 앞쪽에 발을 올려주세요
+다리는 어깨너비로 벌려주시고, 발끝은 20~30도 정도 벌려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""복부를 조이고, 허리를 단단히 세운 상태에서 고관절부터 접어서 엉덩이가 밑으로 내려가게 해주세요
+자연스럽게 무릎이 접히면서 허벅지가 내 몸과 수직이 될 때까지 내려가 주세요
+발바닥 중앙으로 강하게 밀면서 일어나 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2509,11 +2613,19 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/pistol-squat.png',
       'gif': 'assets/quadriceps/pistol-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""한 발로 앉아 모든 몸의 균형을 유지해야 하는 운동이에요""",
+      'preparation':"""어깨너비만큼 다리를 벌려 주세요
+한쪽 다리를 지면에서 떼어 주세요""",
+      'movement':"""지면에서 뗀 다리를 바닥과 수평을 만들 때까지 내려가 주세요
+엉덩이가 올라가면서 무릎과 고관절을 차례로 펴고, 시작 자세로 돌아와 주세요
+한 쪽씩 혹은 번갈아 가면서 진행해 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""과도하게 상체를 앞으로 숙이지 않도록 주의해주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+허리를 세운다고 과도하게 꺾지 마세요
+엉덩이를 너무 뒤로 빼지 말아 주세요
+발이 지면에서 떨어지지 않도록 해주세요
+일어날 때 무릎이 안으로 모이지 않도록 해주세요""",
       'category': '대퇴사두',
     },
 
@@ -2522,11 +2634,19 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두',
       'image': 'assets/quadriceps/leg-extension.png',
       'gif': 'assets/quadriceps/leg-extension.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지 앞쪽 근육을 집중적으로 단련시킬 수 있는 운동이에요
+      엉덩이가 떨어지지 않도록 주의하고 허벅지 근육의 긴장이 풀리지 않도록 집중 또 집중해요""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 무릎 뒤쪽이 패드 끝부분에 닿도록 조절해서 앉아주세요
+발목 패드가 발목보다 위쪽에 닿도록 설정해 주세요
+발목이 90도가 될 수 있도록 몸쪽으로 발을 당겨주세요
+손잡이를 잡고 엉덩이와 등을 떼지 않도록 머신과 몸을 밀착시켜 주세요""",
+      'movement':"""무릎이 완전히 펴지기 전까지 올려주세요
+무릎과 가까운 허벅지 앞쪽부터 고관절 쪽의 허벅지 위쪽까지 수축해 주세요
+무게의 저항을 버티면서 무릎의 각도가 90도 되기 전까지 천천히 내려주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내 쉬고, 다리를 내릴 때 숨을 들이 쉬세요""",
+      'precautions':"""무릎이 다칠 수 있으니 반동을 주지 마세요
+무릎을 완전히 굽히거나 펴지 않도록 주의해 주세요
+엉덩이와 등이 떨어지지 않도록 주의해 주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2534,11 +2654,18 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 종아리',
       'image': 'assets/quadriceps/leg-press.png',
       'gif': 'assets/quadriceps/leg-press.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""무게를 가장 많이 다룰 수 있는 운동이며 발판에 놓는 발의 위치에 따라 자극점이 달라져요""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 발판 중앙에 발을 올려주세요
+다리는 어깨너비로 벌려주시고, 발끝은 20~30도 벌려주세요
+발판 중앙보다 위쪽에 발을 위치시키면 허벅지 뒤쪽에 더욱 자극이 옵니다
+발판 중앙보다 아래쪽에 발을 위치시키면 허벅지 앞쪽에 더욱 자극이 옵니다
+가슴을 펴고, 허리는 살짝 아치를 만들어 주세요""",
+      'movement':"""복부를 조인 상태에서 고관절부터 무릎 순서로 굽혀 주세요
+허벅지가 내 몸과 수직이 될 때까지 내려가 주세요
+고관절을 펴면서 무릎이 살짝 굽혀진 상태까지만 밀어주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""무릎이 완전히 펴지지 않도록 주의해 주세요
+무릎이 벌어지지 않도록 주의해 주세요""",
       'category': '대퇴사두',
     },
 
@@ -2547,11 +2674,17 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/lunge.png',
       'gif': 'assets/quadriceps/lunge.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""하체근육의 협응력을 기르는데 탁월하고, 엉덩이 근육을 키우는데 좋은 운동이에요""",
+      'preparation':"""다리는 골반 너비로 벌려주시고, 양쪽 허리에 각각 손을 올려주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""한쪽 발을 앞으로 내디디면서, 반대쪽 발의 뒤꿈치를 세워주세요
+양쪽 무릎의 각도가 90도가 될 때까지 내려가 주세요
+가슴을 펴고, 허리를 세운 상태를 유지하며 시작 자세로 돌아와 주세요
+반대쪽 다리도 똑같이 진행해 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""상체가 앞으로 기울어지지 않게 주의해 주세요
+무릎을 굽힐 때 앞으로 내디딘 발의 무릎이 발보다 앞으로 나오지 않도록 주의해 주세요
+무게중심이 지나치게 앞으로 쏠리지 않도록 해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2559,11 +2692,19 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/smith-machine-lunge.png',
       'gif': 'assets/quadriceps/smith-machine-lunge.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""엉덩이 근육 자체에 자극을 집중시키고 싶을때, 스미스 머신 런지로 좀 더 고립된 자극을 느껴보세요""",
+      'preparation':"""바벨을 어깨높이에 거치해 주세요
+바벨을 어깨너비보다 넓게 잡고, 승모근에 올려주세요
+다리는 골반 너비로 벌려주세요
+가슴을 펴고, 허리를 세워주세요
+한쪽 발은 앞으로 내딛고, 반대쪽 발은 뒤로 내디뎌 뒤꿈치를 세워주세요""",
+      'movement':"""양쪽 무릎의 각도가 90도가 될 때까지 내려가 주세요
+가슴을 펴고, 허리를 세운 상태를 유지하며 시작 자세로 돌아와 주세요
+한쪽 다리의 횟수를 채우고 반대쪽을 진행해 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""상체가 앞으로 기울어지지 않게 주의해 주세요
+무릎을 굽힐 때 앞으로 내디딘 발의 무릎이 발보다 앞으로 나오지 않도록 주의해 주세요
+무게중심이 지나치게 앞으로 쏠리지 않도록 해주세요""",
       'category': '대퇴사두',
     },
 
@@ -2572,11 +2713,17 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/barbell-snatch.png',
       'gif': 'assets/quadriceps/barbell-snatch.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 중간 동작없이 자신의 머리 위까지 단번에 끌어올리는 운동이에요""",
+      'preparation':"""골반과 무릎은 약간 굽히고 등은 곧게 편 상태로 양손을 어깨너비로 벌리고 오버핸드 그립으로 바벨을 잡아 주세요
+양발을 바닥 쪽으로 밀면서 바벨을 당겨 올려 무릎 바로 위로 오도록 하세요""",
+      'movement':"""무릎을 펴고 골반을 밀면서 바벨을 천장 쪽으로 힘껏 들어 올리세요
+      어깨를 움츠리면서 순간적인 힘을 사용하여 바벨을 들어올리세요
+      반을 내려 바를 몸 위로 올리면서 팔을 머리 위로 뻗고 팔꿈치를 고정하세요
+      양발을 바닥쪽으로 밀고 골반을 펴고 섭니다. 동작을 바꿔 처음 자세로 돌아오세요""",
+      'breathing':"""올라갈 때 숨을 내쉬세요""",
+      'precautions':"""골반 힘을 이용하여 바벨을 올리면서 동작을 시작하세요
+팔힘으로 바를 당기지 마세요
+바벨은 처음부터 끝까지 수직으로 움직여 주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2584,11 +2731,13 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 어깨',
       'image': 'assets/quadriceps/barbell-split-squat.png',
       'gif': 'assets/quadriceps/barbell-split-squat.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케틀벨을 양손으로 들어 올리고 빠르게 위로 던지세요""",
+      'preparation':"""서서 케틀벨을 양에 들고 다리를 어깨 너비로 벌립니다""",
+      'movement':""" 케틀벨을 잡고 다리 사이에 두세요
+빠르게 몸을 일으키며 케틀벨을 위로 던지세요
+팔을 뻗으며 케틀벨을 머리 위로 들어 올리세요""",
+      'breathing':"""케틀벨을 들어 올릴 때 숨을 들이쉬고, 내릴 때 숨을 내쉬세요""",
+      'precautions':"""팔을 머리 위로 들어올릴 때 어깨에 무리가 가지 않도록 주의하세요""",
       'category': '대퇴사두',
     },
     
@@ -2597,11 +2746,15 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 전신',
       'image': 'assets/quadriceps/burpee.png',
       'gif': 'assets/quadriceps/burpee.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""칼로리를 소모시키기 위한 최고의 운동이에요
+      정말 힘들지만 그만큼 효과도 좋은 운동이에요""",
+      'preparation':"""서서 발을 어깨 너비로 벌립니다""",
+      'movement':"""곧게 선 자세에서 앉아 발 앞쪽을 두 손을 짚습니다
+다리를 뒤로 쭉 뻗어 몸을 일직선으로 만들어주세요
+다시 다리를 앞으로 모아 1번 자세로 돌아가주세요
+다리 힘으로 일어나며 두 손을 높이 들고 점프해주세요""",
+      'breathing':"""숨을 들이마시며 몸을 들어 올리고 내쉬며 몸을 내립니다""",
+      'precautions':"""허리를 곧게 유지하고, 무릎에 충격이 가지 않도록 천천히 움직이세요""",
       'category': '대퇴사두',
     },
     {
@@ -2609,11 +2762,16 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 전신',
       'image': 'assets/quadriceps/squat-burpee.png',
       'gif': 'assets/quadriceps/squat-burpee.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""스쿼트와 버피가 합쳐진 최고의 맨몸 유산소 운동이에요
+속도와 정확한 자세를 명심하면서 끝까지 포기하지 말고 운동해주세요""",
+      'preparation':"""서서 발을 어깨 너비로 벌립니다""",
+      'movement':"""양팔을 앞으로 뻗으며 무릎 높이 까지 뒤로 앉아줍니다
+그 상태로 발 앞쪽을 두 손을 짚습니다
+한 다리씩 뒤로 쭉 뻗어 몸을 일직선으로 만들어줍니다
+다시 다리를 앞으로 모아 2번 자세로 돌아갑니다
+양팔을 앞으로 뻗고 다리 힘으로 일어납니다""",
+      'breathing':"""숨을 들이마시며 스쿼트를 하고 내쉬며 점프합니다""",
+      'precautions':"""허리를 곧게 유지하고, 무릎에 충격이 가지 않도록 주의하세요""",
       'category': '대퇴사두',
     },
     {
@@ -2621,11 +2779,14 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/cycle.png',
       'gif': 'assets/quadriceps/cycle.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""대표적인 유산소 운동이에요. 숨이 지속적으로 차오를 수 있게 운동을 진행해 주세요""",
+      'preparation':"""안장의 높이는 페달을 누른 다리가 완전히 펴지지 않고, 살짝 구부려질 수 있도록 조절해 주세요
+어깨는 힘을 빼고, 허리는 일직선으로 곧게 유지한 상태에서 무게중심을 엉덩이에 두세요""",
+      'movement':"""안장의 높이는 페달을 누른 다리가 완전히 펴지지 않고 살짝 구부려질 수 있도록 조절합니다2. 어깨는 힘을 빼고 허리는 일직선으로 곧게 유지한 상태에서 무게중심을 뒤로 줍니다
+페달을 밟을 때 무릎의 방향은 항상 일직선으로 하며 바깥쪽으로 벗어나지 않게 주의합니다
+허벅지 근육을 키우기 위해서는 수직으로 내리는 힘에 집중하고 매끈한 다리를 위해서는 페달이 제일 밑에 가기 전에 당기는 힘을 줘 페달을 움직여야 합니다""",
+      'breathing':"""페달을 밟을 때 숨을 들이쉬고, 내릴 때 숨을 내쉬세요""",
+      'precautions':"""무릎이 벌어지거나 모이지 않도록 주의해주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2633,11 +2794,15 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/elliptical-machine.png',
       'gif': 'assets/quadriceps/elliptical-machine.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""러닝 머신에 비해 몸에 오는 충격이 적기 때문에 허리나 무릎이 아픈 분들에게 추천해드려요""",
+      'preparation':"""정면을 바라보며 허리와 머리를 곧게 세워주세요
+어깨는 굽지 않도록 가슴을 펴고, 손잡이를 잡아주세요""",
+      'movement':"""정면을 바라보며 허리와 머리를 곧게 세웁니다
+어깨는 굽지 않도록 가슴을 펴고 손잡이를 살짝 잡습니다
+무릎이 발끝을 넘어가지 않도록 주의합니다""",
+      'breathing':"""숨을 깊게 들이마시고 천천히 내쉽니다""",
+      'precautions':"""허리가 구부러지지 않도록 주의해주세요
+몸의 좌우 균형이 한쪽으로 쏠리지 않도록 주의해주세요""",
       'category': '대퇴사두',
     },
 
@@ -2646,11 +2811,13 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/treadmill-running.png',
       'gif': 'assets/quadriceps/treadmill-running.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""런닝 머신이에요. 일정 시간마다 속도에 변화를 주면 운동 효과를 극대화 할 수 있어요""",
+      'preparation':"""허리는 곧게 펴고, 시선은 정면을 향해주세요""",
+      'movement':"""트레드밀에서 속도와 경사를 조절하고 손잡이를 잡고 천천히 시작하세요
+원하는 속도에 도달하면 팔을 자연스럽게 흔들며 달리세요
+운동이 끝날 때는 속도를 줄이고, 트레드밀이 완전히 멈추면 내려옵니다""",
+      'breathing':"""숨을 들이마시며 달리기 시작하고 내쉬며 유지합니다.""",
+      'precautions':"""무릎이 좋지 않다면 각도를 높이지 말고, 손잡이를 잡고 천천히 걸어주세요""",
       'category': '대퇴사두',
     },
     {
@@ -2658,11 +2825,14 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 햄스트링',
       'image': 'assets/quadriceps/incline-treadmill.png',
       'gif': 'assets/quadriceps/incline-treadmill.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""경사를 높여 트레드밀을 진행하게 되면 무릎과 인대가 아닌 근육에 더 큰 부하를 줄 수 있어요
+      몸에 부담을 줄이고 칼로리 소모도 훨씬 증가하게 돼요""",
+      'preparation':"""경사 트레드밀 위에 서서 시작한다""",
+      'movement':"""트레드밀 경사를 설정하고 벨트에 서세요
+가볍게 뛰면서 팔을 자연스럽게 흔드세요
+일정한 속도로 뛰며 무릎과 발목을 잘 사용하세요""",
+      'breathing':"""일정하게 숨을 들이마시고 내쉰다""",
+      'precautions':"""기울기를 높일 때 몸의 중심이 뒤로 기울지 않도록 주의하세요""",
       'category': '대퇴사두',
     },
     {
@@ -2670,11 +2840,13 @@ final List<Map<String, String>> items = [
       'subtitle': '대퇴사두, 둔근',
       'image': 'assets/quadriceps/weighted-step-up.png',
       'gif': 'assets/quadriceps/weighted-step-up.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발을 계단이나 박스에 올리고 몸을 들어 올리세요""",
+      'preparation':"""서서 팔을 옆으로 벌리고 박스 앞에 섭니다""",
+      'movement':"""한 발을 계단이나 박스에 올리고 무릎을 90도 이상 굽히세요
+힘을 주어 몸을 들어 올리고 다른 발을 계단에 올리세요
+천천히 내려와 처음 위치로 돌아가세요""",
+      'breathing':"""발을 올릴 때 숨을 들이쉬고, 내릴 때 숨을 내쉬세요""",
+      'precautions':"""계단을 오를 때 무릎이 발끝을 넘지 않도록 주의하세요""",
       'category': '대퇴사두',
     },
 
@@ -2684,11 +2856,19 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/barbell-deadlift.png',
       'gif': 'assets/hamstring/barbell-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""몸 뒤쪽 근육들이 중량을 버티는 데에 많은 관여를 하기 때문에 등 근육 발달에 좋은 운동이에요
+      완벽한 등근육을 가지고 싶다면 필수 운동""",
+      'preparation':"""바벨과 3cm 떨어진 곳에 정강이를 위치시켜 주세요
+다리는 어깨너비만큼 벌려 주세요
+무릎과 고관절을 굽혀 바벨을 어깨너비로 잡아주세요
+가슴을 펴고 등과 하체에 긴장감을 유지해 주세요""",
+      'movement':"""뒤로 빠져있는 엉덩이가 앞으로 이동하면서 바벨을 들어 올려 주세요
+바닥을 밀면서 발바닥 중심에 힘을 줍니다
+완전히 일어났을 때 가슴을 펴면서 신체 후면 전체를 수축해 주세요
+다시 엉덩이부터 뒤로 빼고 무릎을 굽히면서 시작 자세로 돌아와 주세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨가 앞으로 굽지 않도록 가슴을 계속 펴주세요
+허리가 말리지 않도록 코어에 힘을 주세요""",
       'category': '햄스트링',
     },
     {
@@ -2696,11 +2876,16 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/barbell-good-morning.png',
       'gif': 'assets/hamstring/barbell-good-morning.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""기립근과 코어 강화에 있어 대표적인 운동이에요 낮은 무게부터 천천히 증량해서 진행해주세요""",
+      'preparation':"""바벨을 어깨 위에 위치시켜주세요
+가슴을 펴고 허리를 세워주세요""",
+      'movement':"""엉덩이를 뒤로 빼면서 고관절을 접어 상체를 숙여주세요
+자연스럽게 무릎은 굽혔다가 펴주세요
+무릎부터 펴고 엉덩이를 앞으로 넣으면서 서주세요""",
+      'breathing':"""상체를 내릴 때 숨을 들이쉬고, 상체를 올릴 때 숨을 내쉬세요""",
+      'precautions':""" 운동하는 내내 코어에 힘이 풀리지 않도록 주의해 주세요
+허리가 말리지 않도록 가슴을 펴주세요
+허리에 무리가 갈 수 있으므로 가벼운 무게로 운동해주세요""",
       'category': '햄스트링',
     },
     {
@@ -2708,11 +2893,18 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/barbell-romanian-deadlift.png',
       'gif': 'assets/hamstring/barbell-romanian-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""루마니안 데드리프트는 땅에 닿지 않고 운동을 진행한다는 점에서 컨벤셔널 데드리프트와 차이가 있어요
+      섹시한 등 라인을 위한 최고의 운동이에요""",
+      'preparation':"""리를 어깨너비만큼 벌려주세요
+바벨을 어깨너비로 잡아주세요
+바벨을 들고 가슴을 편 상태로 서 주세요""",
+      'movement':"""바벨을 몸에 붙인 상태로 무릎 아래까지 수직으로 내려줍니다
+내려갈 때는 엉덩이가 먼저 뒤로 빠지고 자연스럽게 무릎을 굽혀 주세요
+올라올 때는 무릎을 먼저 펴고 엉덩이를 앞으로 넣어 주세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""바벨이 몸과 떨어지지 않도록 주의해 주세요
+팔꿈치가 굽히지 않게 팔을 쭉 펴주세요
+허리가 말리지 않도록 코어에 힘을 주세요""",
       'category': '햄스트링',
     },
     {
@@ -2720,11 +2912,11 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 대퇴사두',
       'image': 'assets/hamstring/deficit-deadlift.png',
       'gif': 'assets/hamstring/deficit-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""발 밑에 플레이트 같은 물체를 두고 더 높은 위치에 올라가 낮은 위치에 있는 바벨을 들어 올리는 데드리프트입니다""",
+      'preparation':"""바벨플레이트 및 스텝박스를 세팅해놓고 역시 바벨과 중량도 세팅해놓습니다""",
+      'movement':"""플레이트 혹은 스텝박스 위에 양어깨넗이를 벌려놓고 숨을 내쉬면서 데드리프트하듯이 중량을 들어올립니다""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""데드리프트보다 더 낮은 위치에서 시작하기 떄문에 허리에 부담이 올수 있으니 주의하세요""",
       'category': '햄스트링',
     },
     {
@@ -2732,11 +2924,15 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/dumbbell-romanian-deadlift.png',
       'gif': 'assets/hamstring/dumbbell-romanian-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""데드리프트는 대게 무거운 중량을 가지고 실시하는 등운동이지만, 근력이 약해 고중량을 사용할 수 없거나, 저중량으로 하는 고반복 트레이닝을 원하는 사람이라면 덤벨을 통해 운동해주세요""",
+      'preparation':"""양손에 덤벨을 들고 어깨너비로 서주세요
+가슴을 펴고 등과 하체에 긴장감을 유지해 주세요""",
+      'movement':"""엉덩이를 먼저 뒤로 빼면서 자연스럽게 무릎을 굽혀 내려가 주세요
+올라올 때는 발바닥 중심에 힘을 준 상태로 무릎을 먼저 펴고 엉덩이를 앞으로 넣어주세요
+완전히 일어났을 때 가슴을 펴면서 신체 후면 전체를 수축해 주세요""",
+      'breathing':"""상체를 내릴 때 숨을 들이쉬고, 상체를 올릴 때 숨을 내쉬세요""",
+      'precautions':"""어깨가 앞으로 굽지 않도록 가슴을 계속 펴주세요
+허리가 말리지 않도록 코어에 힘을 주세요""",
       'category': '햄스트링',
     },
     {
@@ -2744,11 +2940,16 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/kettlebell-deadlift.png',
       'gif': 'assets/hamstring/kettlebell-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케틀벨 데드리프트는 바벨이 익숙하지 않은 사람들에게 도움이 될 수 있는 운동입니다
+      골반은 접는다는 생각을 계속하시면서 허리 굽혀지지 않도록 아치형태를 유지해주세요""",
+      'preparation':"""양손으로 케틀벨을 들고 어깨너비로 서주세요
+가슴을 펴고 등과 하체에 긴장감을 유지해 주세요""",
+      'movement':"""엉덩이를 먼저 뒤로 빼면서 자연스럽게 무릎을 굽혀 내려가 주세요
+올라올 때는 발바닥 중심에 힘을 준 상태로 무릎을 먼저 펴고 엉덩이를 앞으로 넣어주세요
+완전히 일어났을 때 가슴을 펴면서 신체 후면 전체를 수축해 주세요""",
+      'breathing':"""상체를 올릴 때 숨을 내쉬고, 상체를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""어깨가 앞으로 굽지 않도록 가슴을 계속 펴주세요
+허리가 말리지 않도록 코어에 힘을 주세요""",
       'category': '햄스트링',
     },
     {
@@ -2756,11 +2957,13 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/smith-machine-deadlift.png',
       'gif': 'assets/hamstring/smith-machine-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""스미스 머신을 이용해 데드리프트를 수행합니다""",
+      'preparation':"""발을 어깨 너비로 벌리고 스미스 머신 앞에 서서 바벨을 잡습니다""",
+      'movement':"""스미스 머신 바를 잡고 발을 어깨 너비로 벌립니다
+엉덩이를 뒤로 빼며 상체를 숙여 바를 내립니다
+다리를 펴며 원래 위치로 돌아옵니다""",
+      'breathing':"""숨을 들이마시며 내려가고 내쉬며 올라옵니다""",
+      'precautions':"""허리를 곧게 유지하고, 무릎을 과도하게 굽히지 마세요""",
       'category': '햄스트링',
     },
     {
@@ -2768,11 +2971,18 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/stiff-leg-deadlift.png',
       'gif': 'assets/hamstring/stiff-leg-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지 뒤쪽 부위 운동에 집중을 하고싶을 때 딱 좋은 운동은 스티프 레그 데드리프트 운동이에요""",
+      'preparation':"""다리를 골반 너비로 벌려주세요
+바벨은 어깨너비로 잡아주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""무릎 관절은 펴진 상태로 고정하고, 천천히 허리를 숙여주세요
+내려갈 때는 바벨을 몸과 붙어서 내려주세요
+시선은 약간 앞쪽을 바라봐 주세요
+허리를 펴면서 천천히 시작 자세로 돌아와 주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""시선이 바닥을 향하지 않도록 주의해 주세요
+무릎을 과도하게 굽히지 않도록 주의해 주세요
+허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요""",
       'category': '햄스트링',
     },
     {
@@ -2780,11 +2990,20 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/sumo-deadlift.png',
       'gif': 'assets/hamstring/sumo-deadlift.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""하체근육을 사용하는 비중이 컨벤셔널 데드리프트 보다 높아 데드리프트 중 가장 무거운 중량을 다루기 용이한 운동이에요""",
+      'preparation':"""바벨과 3cm 떨어진 곳에 정강이를 위치시켜 주세요
+다리는 어깨너비보다 한 발짝 넓게 벌리고, 발끝은 40~50도 벌려주세요
+무릎과 고관절을 굽혀 정강이를 수직으로 만들고, 바벨을 어깨너비로 잡아주세요
+가슴을 펴고 등과 하체에 긴장감을 유지해 주세요""",
+      'movement':""" 뒤로 빠져있는 엉덩이가 앞으로 이동하면서 바벨을 들어 올려 주세요
+바닥을 밀면서 발바닥 중심에 힘을 줍니다
+완전히 일어났을 때 가슴을 펴면서 신체 후면 전체를 수축해 주세요
+다시 엉덩이부터 뒤로 빼고 무릎을 굽히면서 시작 자세로 돌아와 주세요""",
+      'breathing':"""올라갈 때 숨을 내쉬고, 내려갈 때 숨을 들이쉬세요""",
+      'precautions':"""어깨가 앞으로 굽지 않도록 가슴을 계속 펴주세요
+허리가 말리지 않도록 코어에 힘을 주세요
+일어날 때 무릎이 안으로 모이지 않도록 주의해 주세요
+허리를 세운다고 과도하게 꺾지 마세요""",
       'category': '햄스트링',
     },
 
@@ -2793,11 +3012,15 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 등',
       'image': 'assets/hamstring/leg-curl.png',
       'gif': 'assets/hamstring/leg-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지의 뒷면인 햄스트링을 단련시킬 수 있는 운동이에요""",
+      'preparation':"""무릎을 꿇고, 상체가 바닥과 평행이 되도록 팔로 지지해 주세요
+가슴을 펴고, 허리를 세워주세요""",
+      'movement':"""한쪽 다리를 뒤로 쭉 뻗어 머리 위치까지 들어 올려주세요.
+천천히 시작 자세로 돌아와 주세요
+한 쪽씩 혹은 번갈아 가면서 진행해 주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""무릎이 완전히 펴지지 않도록 주의해주세요
+상체가 들리지 않도록 주의해주세요""",
       'category': '햄스트링',
     },
     {
@@ -2805,11 +3028,16 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 종아리',
       'image': 'assets/hamstring/lying-leg-curl.png',
       'gif': 'assets/hamstring/lying-leg-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지의 뒷면인 햄스트링을 단련시킬 수 있는 운동이에요""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 무릎이 패드 끝부분에 닿도록 엎드려주세요
+발목 패드가 아킬레스건 위쪽에 닿도록 설정해 주세요
+발목이 90도가 될 수 있도록 몸쪽으로 발을 당겨주세요
+손잡이를 잡고 머신과 몸을 밀착시켜 주세요""",
+      'movement':"""허벅지 뒤쪽과 엉덩이에 힘을 주고, 발목 패드를 엉덩이까지 올려주세요
+무게의 저항을 받으면서 무릎이 완전히 펴지기 전까지만 내려주세요""",
+      'breathing':"""다리를 올릴 때 숨을 내쉬고, 다리를 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""무릎이 완전히 펴지지 않도록 주의해주세요
+상체가 들리지 않도록 주의해주세요""",
       'category': '햄스트링',
     },
     {
@@ -2817,11 +3045,17 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 종아리',
       'image': 'assets/hamstring/seated-leg-curl.png',
       'gif': 'assets/hamstring/seated-leg-curl.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""기계에 앉아 다리 뒤쪽을 강화합니다""",
+      'preparation':"""몸을 머신 중앙에 위치시키고, 무릎 뒤쪽이 패드 끝부분에 닿도록 앉아주세요
+발목 패드가 아킬레스건 위쪽에 닿도록 설정해 주세요
+발목이 90도가 될 수 있도록 몸쪽으로 발을 당겨주세요
+손잡이를 잡고 엉덩이와 등을 밀착시켜 주세요""",
+      'movement':"""기계에 앉아 다리를 패드 아래에 둡니다
+발뒤꿈치를 엉덩이 쪽으로 당기며 다리를 구부립니다
+천천히 시작 위치로 돌아갑니다""",
+      'breathing':"""다리를 내릴 때 숨을 내쉬고, 다리를 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""무릎이 완전히 펴지지 않도록 주의해주세요
+엉덩이와 등이 들리지 않도록 주의해주세요""",
       'category': '햄스트링',
     },
     {
@@ -2829,11 +3063,14 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 둔근',
       'image': 'assets/hamstring/glute-ham-raise.png',
       'gif': 'assets/hamstring/glute-ham-raise.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""허벅지 뒤쪽과 코어 힘이 대단히 필요한 운동이에요 내려갈 때, 올라올 때 절대 힘과 긴장을 풀어서는 안돼요""",
+      'preparation':"""정강이가 지면과 수직이게 머신을 조절해 주세요.
+패드 위에 무릎을 대고, 발목은 몸쪽으로 당겨 수직을 유지해 주세요""",
+      'movement':"""허벅지 뒤와 엉덩이 근육을 사용하여 상체가 바닥과 평행이 되기 전까지 내려가 주세요
+코어를 단단히 고정한 상태로 상체를 다시 세워주세요""",
+      'breathing':"""내려갈 때 숨을 들이쉬고, 올라갈 때 숨을 내쉬세요""",
+      'precautions':"""허리가 꺾이지 않도록 가슴을 펴고, 코어에 힘을 주세요
+코어의 힘이 부족할 경우 무리해서 운동을 진행하지 마세요""",
       'category': '햄스트링',
     },
 
@@ -2842,11 +3079,13 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 대퇴사두',
       'image': 'assets/hamstring/rowing-machine.png',
       'gif': 'assets/hamstring/rowing-machine.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""손잡이를 잡고 다리를 함께 밀고 당기세요""",
+      'preparation':"""발을 고정하고 손잡이를 잡은 채로 앉는다""",
+      'movement':"""발을 고정하고 손잡이를 잡고 앉으세요
+다리를 펴면서 몸을 뒤로 기울이고 손잡이를 당기세요
+팔꿈치를 몸 옆으로 당기며 복부 힘을 유지하세요""",
+      'breathing':"""당길 때 숨을 들이마시고 밀 때 숨을 내쉰다""",
+      'precautions':"""등을 곧게 펴고, 다리를 과도하게 뻗지 않도록 주의하세요""",
       'category': '햄스트링',
     },
 
@@ -2855,11 +3094,19 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 둔근',
       'image': 'assets/hamstring/kettlebell-swing.png',
       'gif': 'assets/hamstring/kettlebell-swing.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케틀벨을 앞뒤로 움직이는 동작의 운동으로 고관절의 움직임이 핵심이에요
+      코어 강화와 더불어 유산소 운동 효과, 체력증진 효과까지 있어요""",
+      'preparation':"""어깨너비로 서 주세요
+케틀벨을 든 채로 엉덩이를 뒤로 빼 상체를 숙여주세요
+가슴을 펴고 허리가 굽지 않게 세워주세요
+케틀벨은 양다리 사이에 위치해야 합니다""",
+      'movement':""" 케틀벨을 양손으로 잡고 발끝은 바깥을 향한 상태에서 어깨너비보다 넓게 벌려줍니다
+케틀벨을 어깨선까지 올렸다가 자연스럽게 엉덩이를 뒤로 빼고 무릎을 굽혀 케틀벨을 다리 사이로 넣어줍니다
+순간적으로 엉덩이를 수축함과 동시에 무릎을 펴면서 케틀벨을 다시 어깨선까지 올려줍니다
+팔을 일직선을 유지한채 동작을 반복해 줍니다""",
+      'breathing':"""숨을 들이마시며 케틀벨을 내리고 내쉬며 케틀벨을 올립니다""",
+      'precautions':"""엉덩이와 코어의 역할이 상당히 중요한 운동입니다
+코어에 힘을 준 채로 엉덩이를 앞뒤로 잘 움직여주기만 해도 동작이 자연스러워질 수 있습니다""",
       'category': '햄스트링',
     },
 
@@ -2868,11 +3115,14 @@ final List<Map<String, String>> items = [
       'subtitle': '햄스트링, 둔근',
       'image': 'assets/hamstring/box-jump.png',
       'gif': 'assets/hamstring/box-jump.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""박스 높이까지 양발로 힘차게 점프해 주세요. 전신을 사용하게 되어 생각보다 힘든 운동이에요""",
+      'preparation':"""뛰어 올라갈 수 있는 물체를 준비해 주세요
+다리는 어깨너비로 벌려주세요""",
+      'movement':"""두 발을 동시에 점프해서 박스에 올라서 주세요
+다시 두 발로 동시에 내려와 시작 자세로 돌아가 주세요""",
+      'breathing':"""점프하기 전에 숨을 들이마시고 점프 후에 내쉬세요""",
+      'precautions':"""착지할 때 한 발씩 닿지 않도록 주의해 주세요
+점프할 때 발목 부상에 유의해 주세요""",
       'category': '햄스트링',
     },
 
@@ -2882,11 +3132,14 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/barbell-shrug.png',
       'gif': 'assets/trapezius/barbell-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""승모근에 자극을 주는 운동이에요""",
+      'preparation':"""어깨너비로 서주세요
+바벨을 허벅지 앞에 위치시켜 주세요""",
+      'movement':"""어깨를 으쓱하며 바벨을 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""바벨을 내릴 때 툭 내려놓는 것이 아니라 천천히 내려야 합니다
+목이 과도하게 앞으로 빠지지 않게 해주세요""",
       'category': '승모',
     },
     {
@@ -2894,11 +3147,14 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/behind-back-shrug.png',
       'gif': 'assets/trapezius/behind-back-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""바벨을 뒤로 하고 승모에 자극을 주는 운동이에요""",
+      'preparation':"""두 발을 어깨 너비로 벌리고 무릎을 약간 굽혀 똑바른 자세로 서세요
+등을 곧게 펴지 말고 자연스런 아치형을 유지하세요""",
+      'movement':"""어깨를 뒤로 당기고 가슴을 편 상태로 오버핸드 그립을 이용해 등 뒤로 바벨을 잡고 들어올리세요
+호흡을 참고 팔을 편 상태에서 최대한 높이 어깨를 들어 올리세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""바벨을 내릴 때 툭 내려놓는 것이 아니라 천천히 내려야 합니다""",
       'category': '승모',
     },
     {
@@ -2906,11 +3162,13 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/overhead-shrug.png',
       'gif': 'assets/trapezius/overhead-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""오버헤드 바벨 슈러그는 승모근 중에서도 상부 승모근을 가장 주된 타겟으로 하는 근력 훈련 방법 입니다""",
+      'preparation':"""바벨을 어깨보다 두배정도 넓게 오버 핸드 그립으로 잡으세요""",
+      'movement':"""팔을 쭉 뻗어 머리 위로 들도록 합니다
+어깨를 최대한 높이 들어 올리도록 합니다
+고점에서 잠시 멈추었다가, 시작자세로 천천히 내려 오도록 하며, 반복 수행을 합니다""",
+      'breathing':"""팔을 올릴 때 숨을 내쉬고, 팔을 내릴 때 숨을 들이쉬세요""",
+      'precautions':"""팔은 일직선으로 쭉 편 상태를 유지하세요""",
       'category': '승모',
     },
 
@@ -2919,11 +3177,15 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/dumbbell-shrug.png',
       'gif': 'assets/trapezius/dumbbell-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""덤벨로 하는 승모근 운동이에요. 어깨를 귀쪽으로 당겨서 승모근을 수축시켜 주세요""",
+      'preparation':""" 어깨너비로 서주세요
+덤벨을 허벅지 옆에 위치시켜 주세요
+가슴을 열고 허리를 세워 주세요""",
+      'movement':"""어깨를 으쓱하며 바벨을 들어 올려 주세요
+천천히 시작 자세로 돌아오세요""",
+      'breathing':"""덤벨을 내릴 때 숨을 들이쉬고, 덤벨을 올릴 때 숨을 내쉬세요""",
+      'precautions':"""바벨을 내릴 때 툭 내려놓는 것이 아니라 천천히 내려야 합니다
+목이 과도하게 앞으로 빠지지 않게 해주세요""",
       'category': '승모',
     },
 
@@ -2932,11 +3194,12 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/lat-pulldown-reverse-shrug.png',
       'gif': 'assets/trapezius/lat-pulldown-reverse-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""랫 풀 다운 머신을 이용한 하부 승모 운동이에요""",
+      'preparation':"""랫 풀 다운 시작 자세와 같이 머신을 잡아주세요""",
+      'movement':"""팔꿈치는 살짝 안으로 넣어 주세요
+      어깨를 아래로 내려준다는 느낌으로 움직이세요""",
+      'breathing':"""팔을 당길 때 숨을 내쉬고, 팔을 올릴 때 숨을 들이쉬세요""",
+      'precautions':"""목이 과도하게 앞으로 빠지지 않게 해주세요""",
       'category': '승모',
     },
 
@@ -2945,11 +3208,12 @@ final List<Map<String, String>> items = [
       'subtitle': '승모',
       'image': 'assets/trapezius/cable-shrug.png',
       'gif': 'assets/trapezius/cable-shrug.gif',
-      'tip':"""   """,
-      'preparation':"""   """,
-      'movement':"""   """,
-      'breathing':"""  """,
-      'precautions':"""   """,
+      'tip':"""케이블 슈러그의 목적은 목과 등 위쪽에 위치한 승모근을 강화하는 운동이에요""",
+      'preparation':"""발을 어깨 너비로 벌린 상태에서, 양손으로 케이블의 손잡이를 잡습니다""",
+      'movement':"""어깨를 귀에 붙인다는 느낌으로 최대한 어깨를 끌어올립니다
+승모근에 저항감을 느끼면서 어깨를 천천히 내리고 시작 자세로 돌아갑니다""",
+      'breathing':"""케이블을 당길 때 숨을 내쉬세요""",
+      'precautions':"""어깨를 으쓱하는 동작으로 귀 쪽으로 천천히 들어 올리고, 최고 지점에서 잠시 유지한 후 천천히 다시 아래로 내립니다""",
       'category': '승모',
     },
 
