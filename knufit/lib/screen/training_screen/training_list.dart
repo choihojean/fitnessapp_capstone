@@ -2729,8 +2729,8 @@ final List<Map<String, String>> items = [
     {
       'title': '케틀벨 스내치',
       'subtitle': '대퇴사두, 어깨',
-      'image': 'assets/quadriceps/barbell-split-squat.png',
-      'gif': 'assets/quadriceps/barbell-split-squat.gif',
+      'image': 'assets/quadriceps/kettlebell-snatch.png',
+      'gif': 'assets/quadriceps/kettlebell-snatch.gif',
       'tip':"""케틀벨을 양손으로 들어 올리고 빠르게 위로 던지세요""",
       'preparation':"""서서 케틀벨을 양에 들고 다리를 어깨 너비로 벌립니다""",
       'movement':""" 케틀벨을 잡고 다리 사이에 두세요
