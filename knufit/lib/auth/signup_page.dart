@@ -42,6 +42,15 @@ class _SignupPageState extends State<SignupPage> {
         return;
       }
 
+      // 이메일 중복 확인 로직 추가
+      var existingUser = await _dbHelper.getUserByEmail(email);
+      if (existingUser != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('이미 가입된 이메일 주소입니다.')),
+        );
+        return;
+      }
+
       if (password == confirmPassword) {
         await _dbHelper.insertUser({
           'email': email,

@@ -185,6 +185,20 @@ class DBHelper {
     );
   }
 
+  // 이메일로 사용자 조회하는 메서드 추가
+  Future<Map<String, dynamic>?> getUserByEmail(String email) async {
+    final db = await database;
+    final List<Map<String, dynamic>> result = await db.query(
+      'users',
+      where: 'email = ?',
+      whereArgs: [email],
+    );
+    if (result.isNotEmpty) {
+      return result.first;
+    }
+    return null;
+  }
+
   Future<void> insertUser(Map<String, dynamic> user) async {
     final db = await database;
     user['password'] = hashPassword(user['password']); // 비밀번호 해시화
