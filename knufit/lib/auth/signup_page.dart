@@ -97,6 +97,7 @@ class _SignupPageState extends State<SignupPage> {
           children: [
             TextField(
               controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(labelText: '이메일'),
             ),
             TextField(
