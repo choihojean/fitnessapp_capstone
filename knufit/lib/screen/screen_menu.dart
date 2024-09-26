@@ -23,7 +23,7 @@ class _ScreenMenuState extends State<ScreenMenu> {
     user = widget.user;
   }
 
-  //메뉴 옵션
+  // 메뉴 옵션
   Widget _buildMenuOption(IconData icon, String title, VoidCallback onTap) {
     return ListTile(
       leading: Icon(icon, color: Colors.orange),
@@ -37,7 +37,7 @@ class _ScreenMenuState extends State<ScreenMenu> {
     return Scaffold(
       appBar: AppBar(
         title: Text('메뉴'),
-        automaticallyImplyLeading: false, //뒤로가기 버튼 제거
+        automaticallyImplyLeading: false, // 뒤로가기 버튼 제거
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -51,18 +51,19 @@ class _ScreenMenuState extends State<ScreenMenu> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
+              // 이미지 클릭해도 변경되지 않고, ProfilePage로 이동하여 정보만 수정
               GestureDetector(
                 onTap: () async {
                   final updatedUser = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfilePage(user: user), //현재 유저 정보를 ProfilePage로 전달
+                      builder: (context) => ProfilePage(user: user), // 현재 유저 정보를 ProfilePage로 전달
                     ),
                   );
 
                   if (updatedUser != null) {
                     setState(() {
-                      user = updatedUser; //null이 아닐 경우 유저 정보 갱신
+                      user = updatedUser; // 반환된 유저 정보로 업데이트
                     });
                   }
                 },
@@ -76,7 +77,7 @@ class _ScreenMenuState extends State<ScreenMenu> {
                       CircleAvatar(
                         radius: 40,
                         backgroundColor: Colors.grey,
-                        backgroundImage: user['profile_image'] != null
+                        backgroundImage: user['profile_image'] != null && File(user['profile_image']).existsSync()
                             ? FileImage(File(user['profile_image'])) as ImageProvider
                             : AssetImage('assets/profile_default.jpg'),
                       ),
@@ -102,10 +103,10 @@ class _ScreenMenuState extends State<ScreenMenu> {
               Divider(color: Colors.black),
               _buildMenuOption(Icons.logout, '로그아웃', () {
                 AuthHelper.confirmLogout(context);
-              }), //로그아웃 메뉴
-              _buildMenuOption(Icons.password, '비밀번호 변경', (){
+              }), // 로그아웃 메뉴
+              _buildMenuOption(Icons.password, '비밀번호 변경', () {
                 AuthHelper.changePassword(context, user);
-              }), //비밀번호 변경
+              }), // 비밀번호 변경
               SwitchListTile(
                 title: Text("다크 모드", style: TextStyle(color: Colors.orange)),
                 value: Provider.of<ThemeNotifier>(context).isDarkMode,

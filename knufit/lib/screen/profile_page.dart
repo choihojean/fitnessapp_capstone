@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import '../database/db_helper.dart';
+import '../database/db_helper.dart'; // DBHelper를 통해 데이터베이스 접근
 
 class ProfilePage extends StatefulWidget {
   final Map<String, dynamic> user;
@@ -13,29 +13,36 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final TextEditingController _nameController = TextEditingController();
-  final DBHelper _dbHelper = DBHelper();
-  File? _image;
+  late Map<String, dynamic> user;
+  final TextEditingController _nameController = TextEditingController(); // 이름 입력 필드의 컨트롤러
+  final ImagePicker _picker = ImagePicker(); // 이미지 선택을 위한 ImagePicker
+  File? _profileImage; // 선택한 프로필 이미지를 저장할 변수
+  final DBHelper _dbHelper = DBHelper(); // DBHelper 인스턴스 생성
+  File? _image; // 선택한 이미지 파일
 
   @override
-  void initState() {
-    super.initState();
-    _nameController.text = widget.user['name']; //초기 이름 설정
-    if (widget.user['profile_image'] != null) {
-      _image = File(widget.user['profile_image']); //초기 프로필 이미지 설정
-    }
+void initState() {
+  super.initState();
+  user = Map<String, dynamic>.from(widget.user); // 수정 가능한 Map으로 복사
+  _nameController.text = user['name']; // 초기 이름 설정
+  if (user['profile_image'] != null) {
+    _image = File(user['profile_image']); // 초기 프로필 이미지 설정
   }
+}
 
+  // 이미지 선택 함수
   Future<void> _pickImage() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
       setState(() {
-        _image = File(pickedFile.path); //선택된 이미지 설정
+        _profileImage = File(image.path);
+        _image = _profileImage; // 선택한 이미지를 업데이트
+        user['profile_image'] = image.path; // 이미지 경로를 유저 정보에 저장
       });
     }
   }
 
+  // 프로필 업데이트 함수
   void _updateProfile() async {
     String name = _nameController.text;
 
@@ -44,10 +51,9 @@ class _ProfilePageState extends State<ProfilePage> {
       Map<String, dynamic> updatedUser = {
         'id': widget.user['id'],
         'name': name,
-        'email': widget.user['email'],
+        'email': widget.user['email'], // 이메일은 수정 불가, 기존 값 유지
         'password': widget.user['password'],
-        // 프로필 이미지를 파일 경로로 저장
-        'profile_image': _image?.path ?? widget.user['profile_image']
+        'profile_image': _image?.path ?? widget.user['profile_image'], // 프로필 이미지 경로 저장
       };
 
       // 데이터베이스 업데이트 수행
@@ -57,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
         SnackBar(content: Text('프로필이 업데이트되었습니다!')),
       );
 
-      // 프로필 업데이트 후 이전 화면으로 돌아갈 때 변경된 사용자 정보 반환
+      // 업데이트된 유저 정보를 반환하고 이전 화면으로 돌아감
       Navigator.pop(context, updatedUser);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -74,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           IconButton(
             icon: Icon(Icons.save),
-            onPressed: _updateProfile, //저장 버튼 누르면 프로필 업데이트
+            onPressed: _updateProfile, // 저장 버튼을 눌렀을 때 프로필 업데이트
           ),
         ],
       ),
@@ -84,26 +90,25 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-              onTap: _pickImage, //이미지 선택기 호출
+              onTap: _pickImage, // 프로필 사진을 클릭하면 이미지 선택
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.grey,
-                backgroundImage: _image != null
+                backgroundImage: _image != null && File(_image!.path).existsSync()
                     ? FileImage(_image!)
                     : AssetImage('assets/profile_default.jpg') as ImageProvider,
               ),
             ),
             SizedBox(height: 20),
             TextField(
-              controller: _nameController, //이름 입력 필드의 컨트롤러 설정
+              controller: _nameController, // 이름 입력 필드 컨트롤러
               decoration: InputDecoration(labelText: '이름'),
             ),
             SizedBox(height: 10),
             Text(
-              '이메일: ${widget.user['email']}', //유저 이메일 표시
+              '이메일: ${widget.user['email']}', // 이메일은 텍스트로만 표시
               style: TextStyle(fontSize: 16),
             ),
-            // 추가 정보들을 여기에 표시할 수 있음
           ],
         ),
       ),

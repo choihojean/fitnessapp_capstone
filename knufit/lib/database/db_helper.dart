@@ -194,15 +194,29 @@ class DBHelper {
       whereArgs: [email],
     );
     if (result.isNotEmpty) {
-      return result.first;
-    }
-    return null;
+    var user = result.first;
+    
+    // null 값이 포함된 필드가 있는지 확인하고 처리
+    return {
+      'id': user['id'],
+      'email': user['email'] ?? '', // null이면 빈 문자열로 처리
+      'name': user['name'] ?? '',
+      'password': user['password'] ?? '',
+      'profile_image': user['profile_image'] ?? '', // null 값 처리
+    };
+  }
+  
+  return null;
   }
 
   Future<void> insertUser(Map<String, dynamic> user) async {
     final db = await database;
-    user['password'] = hashPassword(user['password']); // 비밀번호 해시화
-    await db.insert('users', user, conflictAlgorithm: ConflictAlgorithm.replace);
+    await db.insert('users', {
+      'email': user['email'] ?? '',
+      'name': user['name'] ?? '',
+      'password': hashPassword(user['password'] ?? ''), // 비밀번호는 해시화
+      'profile_image': user['profile_image'] ?? '',
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<Map<String, dynamic>?> getUser(String email, String password) async {
@@ -215,21 +229,26 @@ class DBHelper {
 
     if (maps.isNotEmpty) {
       var user = maps.first;
-      if (verifyPassword(password, user['password'])) {
-        return user;
-      }
+      if (user['password'] != null && verifyPassword(password, user['password'])) {
+      return user;
     }
+  }
     return null;
   }
 
   Future<int> updateUser(Map<String, dynamic> user) async {
     Database db = await database;
     return await db.update(
-      'users',
-      user,
-      where: 'id = ?',
-      whereArgs: [user['id']],
-    );
+    'users',
+    {
+      'name': user['name'] ?? '', // null 값이면 빈 문자열 처리
+      'email': user['email'] ?? '',
+      'password': user['password'] ?? '',
+      'profile_image': user['profile_image'] ?? '',
+    },
+    where: 'id = ?',
+    whereArgs: [user['id']],
+  );
   }
 
   Future<void> insertMemo(Map<String, dynamic> memo) async {

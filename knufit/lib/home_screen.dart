@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knufit/screen/ai_screen/screen_ai.dart';
 import 'screen/screen_home.dart';
 import 'screen/screen_training_list.dart';
 import 'screen/screen_calendar.dart';
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     user = widget.user;
     _widgetOptions = <Widget>[
       ScreenHome(user: user), // 로그인 정보를 전달
+      ScreenAI(),
       ScreenTrainingList(user: user),
       ScreenCalendar(user: user),
       ScreenMenu(user: user), // 로그인 정보를 전달
@@ -54,6 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.star_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: 'Training',
           ),
@@ -67,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue, // 선택된 아이템 색상 설정
+        selectedItemColor: Colors.orange, // 선택된 아이템 색상 설정
         unselectedItemColor: Colors.grey, // 선택되지 않은 아이템 색상 설정
         onTap: _onItemTapped,
       ),
