@@ -321,4 +321,31 @@ class DBHelper {
       whereArgs: [id],
     );
   }
+
+  // 특정 사용자의 프로필 이미지 경로만 업데이트하는 메서드 추가
+  Future<void> updateProfileImage(int userId, String imagePath) async {
+    final db = await database;
+    await db.update(
+      'users',
+      {'profile_image': imagePath},
+      where: 'id = ?',
+      whereArgs: [userId],
+    );
+  }
+
+  // 사용자 ID로 프로필 이미지 경로를 가져오는 메서드 추가
+  Future<String?> getProfileImage(int userId) async {
+    final db = await database;
+    final List<Map<String, dynamic>> result = await db.query(
+      'users',
+      columns: ['profile_image'],
+      where: 'id = ?',
+      whereArgs: [userId],
+    );
+  
+    if (result.isNotEmpty) {
+      return result.first['profile_image'] as String?;
+    }
+    return null;
+  }
 }

@@ -21,14 +21,14 @@ class _ProfilePageState extends State<ProfilePage> {
   File? _image; // 선택한 이미지 파일
 
   @override
-void initState() {
-  super.initState();
-  user = Map<String, dynamic>.from(widget.user); // 수정 가능한 Map으로 복사
-  _nameController.text = user['name']; // 초기 이름 설정
-  if (user['profile_image'] != null) {
-    _image = File(user['profile_image']); // 초기 프로필 이미지 설정
+  void initState() {
+    super.initState();
+    user = Map<String, dynamic>.from(widget.user); // 수정 가능한 Map으로 복사
+    _nameController.text = user['name']; // 초기 이름 설정
+    if (user['profile_image'] != null) {
+      _image = File(user['profile_image']); // 초기 프로필 이미지 설정
+    }
   }
-}
 
   // 이미지 선택 함수
   Future<void> _pickImage() async {
@@ -39,6 +39,9 @@ void initState() {
         _image = _profileImage; // 선택한 이미지를 업데이트
         user['profile_image'] = image.path; // 이미지 경로를 유저 정보에 저장
       });
+
+      // 데이터베이스에 이미지 경로를 저장
+      await _dbHelper.updateProfileImage(user['id'], image.path);
     }
   }
 

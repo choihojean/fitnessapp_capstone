@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'profile_page.dart'; // ProfilePage를 import
 import '../auth/auth_helper.dart';
 import '../theme_notifier.dart';
+import '../database/db_helper.dart'; // DBHelper를 통해 데이터베이스 접근
 import 'dart:io';
 
 class ScreenMenu extends StatefulWidget {
@@ -16,11 +17,21 @@ class ScreenMenu extends StatefulWidget {
 
 class _ScreenMenuState extends State<ScreenMenu> {
   late Map<String, dynamic> user;
+  final DBHelper _dbHelper = DBHelper(); // DBHelper 인스턴스 생성
 
   @override
   void initState() {
     super.initState();
     user = widget.user;
+
+    // 앱 시작 시 데이터베이스에서 프로필 이미지를 불러옴
+    _dbHelper.getProfileImage(user['id']).then((imagePath) {
+      if (imagePath != null) {
+        setState(() {
+          user['profile_image'] = imagePath;
+        });
+      }
+    });
   }
 
   // 메뉴 옵션
@@ -51,7 +62,6 @@ class _ScreenMenuState extends State<ScreenMenu> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
-              // 이미지 클릭해도 변경되지 않고, ProfilePage로 이동하여 정보만 수정
               GestureDetector(
                 onTap: () async {
                   final updatedUser = await Navigator.push(
@@ -117,7 +127,6 @@ class _ScreenMenuState extends State<ScreenMenu> {
                 activeColor: Colors.deepOrangeAccent,
                 activeTrackColor: Colors.orange,
               ),
-              // 다른 기능들을 추가할 공간
             ],
           ),
         ),
