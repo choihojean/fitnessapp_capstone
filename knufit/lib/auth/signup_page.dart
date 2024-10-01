@@ -140,11 +140,11 @@ class _SignupPageState extends State<SignupPage> {
         Row(
           children: [
             _buildCriteriaRow('영문', _hasUppercase),
-            SizedBox(width: 10),
+            SizedBox(width: 8),
             _buildCriteriaRow('숫자', _hasDigits),
-            SizedBox(width: 10),
+            SizedBox(width: 8),
             _buildCriteriaRow('특수문자', _hasSpecialCharacters),
-            SizedBox(width: 10),
+            SizedBox(width: 8),
             _buildCriteriaRow('6-20자 이내', _hasValidLength),
           ],
         ),

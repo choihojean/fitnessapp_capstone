@@ -63,7 +63,8 @@ class _ScreenAIState extends State<ScreenAI> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('사용자 정보 입력'),
-          content: Form(
+          content: SingleChildScrollView( // 여기 추가
+          child: Form(
             key: _formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -91,6 +92,7 @@ class _ScreenAIState extends State<ScreenAI> {
               ],
             ),
           ),
+        ),
           actions: [
             TextButton(
               onPressed: () {
