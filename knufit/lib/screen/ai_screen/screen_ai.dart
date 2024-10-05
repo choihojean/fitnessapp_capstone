@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenAI extends StatefulWidget {
   @override
@@ -12,6 +13,29 @@ class _ScreenAIState extends State<ScreenAI> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age, targetArea, goal;
   List<String> routines = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedRoutines();
+  }
+
+  // SharedPreferences에서 저장된 루틴을 불러오는 메서드
+  Future<void> _loadSavedRoutines() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? savedRoutines = prefs.getStringList('saved_routines');
+    if (savedRoutines != null) {
+      setState(() {
+        routines = savedRoutines;
+      });
+    }
+  }
+
+  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
+  Future<void> _saveRoutinesToPrefs(List<String> routines) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('saved_routines', routines);
+  }
 
   // OpenAI API 호출 메서드
   Future<void> _sendDataToGPTAPI() async {
@@ -51,6 +75,7 @@ class _ScreenAIState extends State<ScreenAI> {
       setState(() {
         routines = workoutRoutines;
       });
+      _saveRoutinesToPrefs(workoutRoutines); // 추천받은 루틴을 저장
     } else {
       print('추천 실패: ${response.body}');
     }
@@ -115,10 +140,6 @@ class _ScreenAIState extends State<ScreenAI> {
       ),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: _showUserInfoInputDialog,
-            child: Text('사용자 정보 입력'),
-          ),
           Expanded(
             child: ListView.builder(
               itemCount: routines.length,
@@ -131,6 +152,13 @@ class _ScreenAIState extends State<ScreenAI> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: _showUserInfoInputDialog,
+          child: Text('사용자 정보 입력'),
+        ),
       ),
     );
   }

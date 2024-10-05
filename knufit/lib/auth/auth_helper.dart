@@ -8,8 +8,11 @@ class AuthHelper {
   static Future<void> logout(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
-    // 모든 사용자 정보 삭제
-    await prefs.clear(); // clear()로 모든 SharedPreferences 데이터 제거
+    // 사용자 인증 정보만 삭제
+    await prefs.remove('user_id');
+    await prefs.remove('user_email');
+    await prefs.remove('user_name');
+    await prefs.remove('user_profile_image');
     
     // 로그아웃 후 초기 화면으로 이동
     Navigator.pushReplacement(
