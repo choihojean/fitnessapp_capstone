@@ -13,7 +13,7 @@ class WorkoutScreen extends StatefulWidget {
 class _WorkoutScreenState extends State<WorkoutScreen> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age, targetArea, goal;
-  List<String> routines = [];
+  List<List<String>> routines = [];
 
   @override
   void initState() {
@@ -27,15 +27,16 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     List<String>? savedRoutines = prefs.getStringList('saved_routines');
     if (savedRoutines != null) {
       setState(() {
-        routines = savedRoutines;
+        routines = savedRoutines.map((routine) => routine.split(', ')).toList();
       });
     }
   }
 
   // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
-  Future<void> _saveRoutinesToPrefs(List<String> routines) async {
+  Future<void> _saveRoutinesToPrefs(List<List<String>> routines) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('saved_routines', routines);
+    List<String> routinesAsString = routines.map((routine) => routine.join(', ')).toList();
+    await prefs.setStringList('saved_routines', routinesAsString);
   }
 
   // 타겟 부위에 맞는 운동 리스트를 가져오는 메서드
@@ -44,21 +45,22 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       return [];
     }
     return items
-      .where((item) => item['category'] == targetArea)
-      .map((item) => item['title']!)
-      .toList();
+        .where((item) => item['category'] == targetArea)
+        .map((item) => item['title']!)
+        .toList();
   }
 
   // OpenAI API 호출 메서드
   Future<void> _sendDataToGPTAPI() async {
-    if (height == null || weight == null || age == null || targetArea == null || goal == null) {
-      print('모든 필드를 입력해주세요.');
-      return;
-    }
     final apiKey = dotenv.env['OPENAI_API_KEY'];
 
     if (apiKey == null || apiKey.isEmpty) {
       print('API 키가 없습니다.');
+      return;
+    }
+
+    if (height == null || weight == null || age == null || targetArea == null || goal == null) {
+      print('모든 필드를 입력해주세요.');
       return;
     }
 
@@ -77,12 +79,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         'messages': [
           {
             'role': 'system',
-            'content': 'You are a fitness expert. Please create 3 complete workout routines for $targetArea. Each routine should include multiple exercises, and for each exercise, specify the number of sets and repetitions. Separate each routine with "---". Here is the list of exercises to include: $exerciseString.',
+            'content': 'You are a fitness expert. Please create 3 workout routines in the following JSON format: [{"routine": 1, "exercises": [{"name": "exercise1", "sets": "3", "reps": "12"}, {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}]. Here is the list of exercises to include: $exerciseString.',
           },
           {
             'role': 'user',
             'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다. '
-                '운동 부위는 $targetArea이며, 목표는 $goal입니다. 각 루틴에 여러 운동을 포함한 하루 운동 루틴을 3개 추천해주세요.',
+                '운동 부위는 $targetArea이며, 목표는 $goal입니다. 3개의 루틴을 JSON 형태로 추천해주세요.',
           },
         ],
       }),
@@ -90,15 +92,21 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
-      // 각 루틴에 여러 운동이 포함된 구조로 처리
-      final workoutRoutines = (data['choices'][0]['message']['content'] as String).split('---').map((routine) {
-        return routine.trim(); // 루틴을 깔끔하게 다듬어줍니다.
-      }).toList();
+      if (data != null) {
+        List<dynamic> routinesData = jsonDecode(data['choices'][0]['message']['content']);
+        List<List<String>> workoutRoutines = routinesData.map((routine) {
+          return (routine['exercises'] as List<dynamic>).map((exercise) {
+            return '${exercise['name']}: ${exercise['sets']} sets of ${exercise['reps']} reps';
+          }).toList();
+        }).toList();
 
-      setState(() {
-        routines = workoutRoutines;
-      });
-      _saveRoutinesToPrefs(workoutRoutines); // 추천받은 루틴을 저장
+        setState(() {
+          routines = workoutRoutines;
+        });
+        _saveRoutinesToPrefs(workoutRoutines);
+      } else {
+        print('응답 데이터가 비어 있습니다.');
+      }
     } else {
       print('추천 실패: ${response.body}');
     }
@@ -141,7 +149,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () async{
+              onPressed: () async {
                 Navigator.of(context).pop();
                 await _sendDataToGPTAPI();
               },
@@ -154,13 +162,16 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   }
 
   // 루틴의 상세 내용을 다이얼로그로 표시
-  void _showWorkoutRoutineDetail(String workoutRoutine) {
+  void _showWorkoutRoutineDetail(List<String> workoutRoutine) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('루틴 상세 정보'),
-          content: Text(workoutRoutine), // 선택된 운동 루틴의 상세 정보를 표시
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: workoutRoutine.map((exercise) => Text(exercise)).toList(),
+          ),
           actions: [
             TextButton(
               onPressed: () {
@@ -187,8 +198,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               itemCount: routines.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text('루틴 ${index + 1}'),
-                  onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                  title: Text('루틴 ${index + 1}'), // 제목만 표시
+                  onTap: () => _showWorkoutRoutineDetail(routines[index]), // 제목 클릭 시 상세 정보를 다이얼로그로 표시
                 );
               },
             ),
