@@ -3,13 +3,14 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../training_screen/training_list.dart';
 
-class ScreenAI extends StatefulWidget {
+class WorkoutScreen extends StatefulWidget {
   @override
-  _ScreenAIState createState() => _ScreenAIState();
+  _WorkoutScreenState createState() => _WorkoutScreenState();
 }
 
-class _ScreenAIState extends State<ScreenAI> {
+class _WorkoutScreenState extends State<WorkoutScreen> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age, targetArea, goal;
   List<String> routines = [];
@@ -37,8 +38,23 @@ class _ScreenAIState extends State<ScreenAI> {
     await prefs.setStringList('saved_routines', routines);
   }
 
+  // 타겟 부위에 맞는 운동 리스트를 가져오는 메서드
+  List<String> _getExercisesForTargetArea(String targetArea) {
+    if (targetArea.isEmpty) {
+      return [];
+    }
+    return items
+      .where((item) => item['category'] == targetArea)
+      .map((item) => item['title']!)
+      .toList();
+  }
+
   // OpenAI API 호출 메서드
   Future<void> _sendDataToGPTAPI() async {
+    if (height == null || weight == null || age == null || targetArea == null || goal == null) {
+      print('모든 필드를 입력해주세요.');
+      return;
+    }
     final apiKey = dotenv.env['OPENAI_API_KEY'];
 
     if (apiKey == null || apiKey.isEmpty) {
@@ -47,6 +63,9 @@ class _ScreenAIState extends State<ScreenAI> {
     }
 
     final url = Uri.parse('https://api.openai.com/v1/chat/completions');
+    List<String> exercisesForTargetArea = _getExercisesForTargetArea(targetArea ?? '');
+    String exerciseString = exercisesForTargetArea.join(", ");
+
     final response = await http.post(
       url,
       headers: {
@@ -58,12 +77,12 @@ class _ScreenAIState extends State<ScreenAI> {
         'messages': [
           {
             'role': 'system',
-            'content': '당신은 피트니스 전문가입니다.',
+            'content': 'You are a fitness expert. Please create 3 complete workout routines for $targetArea. Each routine should include multiple exercises, and for each exercise, specify the number of sets and repetitions. Separate each routine with "---". Here is the list of exercises to include: $exerciseString.',
           },
           {
             'role': 'user',
             'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다. '
-                '운동 부위는 $targetArea이며, 목표는 $goal입니다. 각 루틴에 여러 운동이 포함된 3가지 운동 루틴을 추천해 주세요.',
+                '운동 부위는 $targetArea이며, 목표는 $goal입니다. 각 루틴에 여러 운동을 포함한 하루 운동 루틴을 3개 추천해주세요.',
           },
         ],
       }),
@@ -71,7 +90,11 @@ class _ScreenAIState extends State<ScreenAI> {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
-      final workoutRoutines = data['choices'][0]['message']['content'].split('\n\n\n');
+      // 각 루틴에 여러 운동이 포함된 구조로 처리
+      final workoutRoutines = (data['choices'][0]['message']['content'] as String).split('---').map((routine) {
+        return routine.trim(); // 루틴을 깔끔하게 다듬어줍니다.
+      }).toList();
+
       setState(() {
         routines = workoutRoutines;
       });
@@ -88,8 +111,7 @@ class _ScreenAIState extends State<ScreenAI> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('사용자 정보 입력'),
-          content: SingleChildScrollView( // 여기 추가
-          child: Form(
+          content: Form(
             key: _formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -117,14 +139,34 @@ class _ScreenAIState extends State<ScreenAI> {
               ],
             ),
           ),
-        ),
+          actions: [
+            TextButton(
+              onPressed: () async{
+                Navigator.of(context).pop();
+                await _sendDataToGPTAPI();
+              },
+              child: Text('추천 받기'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // 루틴의 상세 내용을 다이얼로그로 표시
+  void _showWorkoutRoutineDetail(String workoutRoutine) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('루틴 상세 정보'),
+          content: Text(workoutRoutine), // 선택된 운동 루틴의 상세 정보를 표시
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                _sendDataToGPTAPI();
               },
-              child: Text('추천 받기'),
+              child: Text('확인'),
             ),
           ],
         );
@@ -160,27 +202,6 @@ class _ScreenAIState extends State<ScreenAI> {
           child: Text('사용자 정보 입력'),
         ),
       ),
-    );
-  }
-
-  // 루틴의 상세 내용을 다이얼로그로 표시
-  void _showWorkoutRoutineDetail(String workoutRoutine) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('루틴 상세 정보'),
-          content: Text(workoutRoutine),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('확인'),
-            ),
-          ],
-        );
-      },
     );
   }
 }
