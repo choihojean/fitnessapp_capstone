@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../database/db_helper.dart';
 import '../utils/utils.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 
 class SignupPage extends StatefulWidget {
   @override
@@ -26,11 +29,12 @@ class _SignupPageState extends State<SignupPage> {
     String name = _nameController.text;
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
+    final FastAPI = dotenv.env['SERVER_IP'];
 
     if (email.isNotEmpty && name.isNotEmpty && password.isNotEmpty && confirmPassword.isNotEmpty) {
       if (!isValidEmail(email)) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('유효한 이메일 주소를 입력하세요.')),
+          SnackBar(content: Text('유효한 이메일 주소를 입력하세요.')), // 이메일 검사는 여기서 할 필요가 없음
         );
         return;
       }
@@ -52,13 +56,33 @@ class _SignupPageState extends State<SignupPage> {
       }
 
       if (password == confirmPassword) {
-        await _dbHelper.insertUser({
-          'email': email,
-          'name': name,
-          'password':password,
-        });
+        // await _dbHelper.insertUser({
+        //   'email': email,
+        //   'name': name,
+        //   'password':password,
+        // });
+        final url = Uri.parse('${FastAPI}/user/register');
+        try {
+          final res = await http.post(
+            url,
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode({
+              'email': email,
+              'name': name,
+              'password':password
+            }));
+            if (res.statusCode == 200) {
+              final responseData = jsonDecode(res.body);
+              print('응답 데이터: $responseData');
+            } else {
+              print('요청 실패: ${res.statusCode}');
+              print('응답 내용: ${res.body}');
+            }
+        } catch (e) {
+          print('에러 발생: $e');
+        }
 
-        ScaffoldMessenger.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar( //에러 발생했을 때 다음을 실행하지 않게 하기 ex) 위의 if문 안에 넣어버리기
           SnackBar(content: Text('회원가입을 환영합니다!')),
         );
 
