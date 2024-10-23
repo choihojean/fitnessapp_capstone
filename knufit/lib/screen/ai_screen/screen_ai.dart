@@ -128,65 +128,67 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('사용자 정보 입력'),
-          content: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: '키 (cm)'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '키를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => height = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '몸무게 (kg)'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '몸무게를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => weight = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '나이'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '나이를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => age = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '운동 부위 (예: 하체, 상체)'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '운동 부위를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => targetArea = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '목표 (예: 근력 증가, 다이어트)'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '목표를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => goal = value,
-                ),
-              ],
+          content: SingleChildScrollView( // 스크롤 가능하게 변경
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '키 (cm)'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '키를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => height = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '몸무게 (kg)'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '몸무게를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => weight = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '나이'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '나이를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => age = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '운동 부위 (예: 하체, 상체)'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '운동 부위를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => targetArea = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '목표 (예: 근력 증가, 다이어트)'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '목표를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => goal = value,
+                  ),
+                ],
+              ),
             ),
           ),
           actions: [
