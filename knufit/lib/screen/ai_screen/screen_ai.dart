@@ -14,6 +14,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age, targetArea, goal;
   List<List<String>> routines = [];
+  bool _isLoading = false; // 로딩 상태 추가
 
   @override
   void initState() {
@@ -68,6 +69,10 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     List<String> exercisesForTargetArea = _getExercisesForTargetArea(targetArea ?? '');
     String exerciseString = exercisesForTargetArea.join(", ");
 
+    setState(() {
+      _isLoading = true;
+    });
+
     final response = await http.post(
       url,
       headers: {
@@ -89,6 +94,10 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         ],
       }),
     );
+
+    setState(() {
+      _isLoading = false;
+    });
 
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
@@ -126,22 +135,55 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(labelText: '키 (cm)'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '키를 입력해주세요';
+                    }
+                    return null;
+                  },
                   onChanged: (value) => height = value,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: '몸무게 (kg)'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '몸무게를 입력해주세요';
+                    }
+                    return null;
+                  },
                   onChanged: (value) => weight = value,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: '나이'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '나이를 입력해주세요';
+                    }
+                    return null;
+                  },
                   onChanged: (value) => age = value,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: '운동 부위 (예: 하체, 상체)'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '운동 부위를 입력해주세요';
+                    }
+                    return null;
+                  },
                   onChanged: (value) => targetArea = value,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: '목표 (예: 근력 증가, 다이어트)'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '목표를 입력해주세요';
+                    }
+                    return null;
+                  },
                   onChanged: (value) => goal = value,
                 ),
               ],
@@ -150,8 +192,10 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           actions: [
             TextButton(
               onPressed: () async {
-                Navigator.of(context).pop();
-                await _sendDataToGPTAPI();
+                if (_formKey.currentState!.validate()) {
+                  Navigator.of(context).pop();
+                  await _sendDataToGPTAPI();
+                }
               },
               child: Text('추천 받기'),
             ),
@@ -191,21 +235,23 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       appBar: AppBar(
         title: Text('AI 운동 추천'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: routines.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('루틴 ${index + 1}'), // 제목만 표시
-                  onTap: () => _showWorkoutRoutineDetail(routines[index]), // 제목 클릭 시 상세 정보를 다이얼로그로 표시
-                );
-              },
+      body: _isLoading
+          ? Center(child: CircularProgressIndicator()) // 로딩 중일 때 표시할 인디케이터
+          : Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: routines.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text('루틴 ${index + 1}'),
+                        onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
