@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../database/db_helper.dart';
+//import '../database/db_helper.dart';
 import '../home_screen.dart';
 import 'auth_helper.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,15 +14,37 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final DBHelper _dbHelper = DBHelper();
+  //final DBHelper _dbHelper = DBHelper();
 
   void _login() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    final FastAPI = dotenv.env['SERVER_IP'];
+    var user;
 
     if (email.isNotEmpty && password.isNotEmpty) {
-      var user = await _dbHelper.getUser(email, password);
-      if (user != null) {
+      // var user = await _dbHelper.getUser(email, password);
+      final url = Uri.parse('${FastAPI}/user/login');
+        try {
+          final res = await http.post(
+            url,
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode({
+              'email': email,
+              'password':password
+            }));
+            if (res.statusCode == 200) {
+              final responseData = jsonDecode(res.body);
+              print('응답 데이터: $responseData');
+              user = responseData;
+            } else {
+              print('요청 실패: ${res.statusCode}');
+              print('응답 내용: ${res.body}');
+            }
+        } catch (e) {
+          print('에러 발생: $e');
+        }
+      if (user != null) { // user 정보를 어떻게 넘겨서 화면을 바꿀건지??
         await AuthHelper.saveUserSession(user);
         
         ScaffoldMessenger.of(context).showSnackBar(

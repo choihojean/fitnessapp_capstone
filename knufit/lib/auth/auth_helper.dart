@@ -9,10 +9,8 @@ class AuthHelper {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
     // 사용자 인증 정보만 삭제
-    await prefs.remove('user_id');
     await prefs.remove('user_email');
-    await prefs.remove('user_name');
-    await prefs.remove('user_profile_image');
+    await prefs.remove('user_password');
     
     // 로그아웃 후 초기 화면으로 이동
     Navigator.pushReplacement(
@@ -26,15 +24,14 @@ class AuthHelper {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
     // 사용자 정보 저장
-    await prefs.setInt('user_id', user['id']);
     await prefs.setString('user_email', user['email']);
-    await prefs.setString('user_name', user['name']);
+    await prefs.setString('user_password', user['password']);
     
-    if (user['profile_image'] != null && user['profile_image']!.isNotEmpty) {
-      await prefs.setString('user_profile_image', user['profile_image']);
-    } else {
-      await prefs.remove('user_profile_image'); // 프로필 이미지가 없으면 삭제
-    }
+    // if (user['profile_image'] != null && user['profile_image']!.isNotEmpty) {
+    //   await prefs.setString('user_profile_image', user['profile_image']);
+    // } else {
+    //   await prefs.remove('user_profile_image'); // 프로필 이미지가 없으면 삭제
+    // }
   }
 
   // 사용자 세션 조회
@@ -47,10 +44,11 @@ class AuthHelper {
 
     // 각 필드가 null이면 기본값 설정
     return {
-      'id': prefs.getInt('user_id'),
+      // 'id': prefs.getInt('user_id'),
       'email': prefs.getString('user_email') ?? '',
-      'name': prefs.getString('user_name') ?? '',
-      'profile_image': prefs.getString('user_profile_image') ?? '',
+      'password':prefs.getString('user_password') ?? '',
+      // 'name': prefs.getString('user_name') ?? '',
+      // 'profile_image': prefs.getString('user_profile_image') ?? '',
     };
   }
 
