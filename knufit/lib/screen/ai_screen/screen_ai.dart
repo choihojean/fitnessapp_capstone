@@ -57,45 +57,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     return filteredItems;
   }
 
-  // 운동 부위 선택을 위한 다중 선택 다이얼로그
-  Future<void> _showTargetAreaSelectionDialog() async {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("운동 부위 선택"),
-          content: SingleChildScrollView(
-            child: Column(
-              children: _allTargetAreas.map((area) {
-                return CheckboxListTile(
-                  title: Text(area),
-                  value: targetAreas.contains(area),
-                  onChanged: (isChecked) {
-                    setState(() {
-                      if (isChecked ?? false) {
-                        targetAreas.add(area);
-                      } else {
-                        targetAreas.remove(area);
-                      }
-                    });
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("확인"),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   // OpenAI API 호출 메서드
   Future<void> _sendDataToGPTAPI() async {
     final apiKey = dotenv.env['OPENAI_API_KEY'];
@@ -189,88 +150,142 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   }
 
   // 사용자 정보 입력 다이얼로그
-  void _showUserInfoInputDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('사용자 정보 입력'),
-          content: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(labelText: '키 (cm)'),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return '키를 입력해주세요';
-                      }
-                      return null;
-                    },
-                    onChanged: (value) => height = value,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(labelText: '몸무게 (kg)'),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return '몸무게를 입력해주세요';
-                      }
-                      return null;
-                    },
-                    onChanged: (value) => weight = value,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(labelText: '나이'),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return '나이를 입력해주세요';
-                      }
-                      return null;
-                    },
-                    onChanged: (value) => age = value,
-                  ),
-                  ElevatedButton(
-                    onPressed: _showTargetAreaSelectionDialog,
-                    child: Text(targetAreas.isEmpty ? '운동 부위 선택' : '선택된 부위: ${targetAreas.join(", ")}'),
-                  ),
-                  DropdownButtonFormField<String>(
-                    value: goal,
-                    items: _goals.map((goalItem) {
-                      return DropdownMenuItem(
-                        value: goalItem,
-                        child: Text(goalItem),
-                      );
-                    }).toList(),
-                    decoration: InputDecoration(labelText: '목표'),
-                    onChanged: (value) {
-                      goal = value;
-                    },
-                    validator: (value) => value == null ? '목표를 선택해주세요' : null,
-                  ),
-                ],
-              ),
+void _showUserInfoInputDialog() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('사용자 정보 입력'),
+        content: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(labelText: '키 (cm)'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '키를 입력해주세요';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) => height = value,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: '몸무게 (kg)'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '몸무게를 입력해주세요';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) => weight = value,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: '나이'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '나이를 입력해주세요';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) => age = value,
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    await _showTargetAreaSelectionDialog();
+                    Navigator.of(context).pop(); // 기존 다이얼로그 닫기
+                    _showUserInfoInputDialog();  // 변경된 내용으로 다이얼로그 다시 열기
+                  },
+                  child: Text(targetAreas.isEmpty ? '운동 부위 선택' : '선택된 부위: ${targetAreas.join(", ")}'),
+                ),
+                DropdownButtonFormField<String>(
+                  value: goal,
+                  items: _goals.map((goalItem) {
+                    return DropdownMenuItem(
+                      value: goalItem,
+                      child: Text(goalItem),
+                    );
+                  }).toList(),
+                  decoration: InputDecoration(labelText: '목표'),
+                  onChanged: (value) {
+                    goal = value;
+                  },
+                  validator: (value) => value == null ? '목표를 선택해주세요' : null,
+                ),
+              ],
             ),
           ),
-          actions: [
-            TextButton(
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  Navigator.of(context).pop();
-                  await _sendDataToGPTAPI();
-                }
-              },
-              child: Text('추천 받기'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                Navigator.of(context).pop();
+                await _sendDataToGPTAPI();
+              }
+            },
+            child: Text('추천 받기'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+// 운동 부위 선택을 위한 다중 선택 다이얼로그
+Future<void> _showTargetAreaSelectionDialog() async {
+  final List<String> selectedAreas = List.from(targetAreas); // 기존 선택 항목 복사
+  await showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder: (context, setState) {
+          return AlertDialog(
+            title: Text("운동 부위 선택"),
+            content: SingleChildScrollView(
+              child: Column(
+                children: _allTargetAreas.map((area) {
+                  return CheckboxListTile(
+                    title: Text(area),
+                    value: selectedAreas.contains(area),
+                    onChanged: (isChecked) {
+                      setState(() {
+                        if (isChecked ?? false) {
+                          selectedAreas.add(area);
+                        } else {
+                          selectedAreas.remove(area);
+                        }
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
             ),
-          ],
-        );
-      },
-    );
-  }
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(selectedAreas); // 선택 항목 반환
+                },
+                child: Text("확인"),
+              ),
+            ],
+          );
+        },
+      );
+    },
+  ).then((updatedAreas) {
+    if (updatedAreas != null) {
+      setState(() {
+        targetAreas = updatedAreas; // 선택 항목 반영
+      });
+    }
+  });
+}
 
   // 루틴의 상세 내용을 다이얼로그로 표시
   void _showWorkoutRoutineDetail(List<Map<String, String>> workoutRoutine) {
