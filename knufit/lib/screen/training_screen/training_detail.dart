@@ -2,25 +2,28 @@ import 'package:flutter/material.dart';
 import 'youtube_search_widget.dart';
 
 class TrainingDetail extends StatelessWidget {
-  final Map<String, String> exercise;
+  final Map<String, dynamic> exercise;
 
   TrainingDetail({required this.exercise});
 
   @override
   Widget build(BuildContext context) {
     // 운동의 기본 정보를 받음
-    String exerciseTitle = exercise['title']!;
-    String exerciseSubtitle = exercise['subtitle']!;
-    String exerciseGif = exercise['gif']!;
-    String exerciseTip = exercise['tip']!;
-    String exercisePreparation = exercise['preparation']!;
-    String exerciseMovement = exercise['movement']!;
-    String exerciseBreathing = exercise['breathing']!;
-    String exercisePrecautions = exercise['precautions']!;
+    int exerciseID = exercise['id'];
+    String exerciseTitle = exercise['name'] ?? '운동 이름';
+    String exerciseSubtitle = exercise['target'] ?? '타겟 부위';
+    String exerciseGif = exercise['gif'] ?? '';
+    String exerciseTip = exercise['tip'] ?? '';
+    String exercisePreparation = exercise['preparation'] ?? '';
+    String exerciseMovement = exercise['movement'] ?? '';
+    String exerciseBreathing = exercise['breathing'] ?? '';
+    String exercisePrecautions = exercise['precautions'] ?? '';
 
     // 준비, 움직임 부분을 리스트로 나누기
     List<String> preparationSteps = exercisePreparation.split("\n");
     List<String> movementSteps = exerciseMovement.split("\n");
+
+    print(exerciseID); //id값 출력
 
     return Scaffold(
       appBar: AppBar(
@@ -36,10 +39,17 @@ class TrainingDetail extends StatelessWidget {
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
+                  child: Image.network( // Image.asset에서 Image.network로 변경
                     exerciseGif,
                     height: 200,
                     fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(Icons.broken_image, size: 200, color: Colors.grey);
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(child: CircularProgressIndicator());
+                    },
                   ),
                 ),
               ),

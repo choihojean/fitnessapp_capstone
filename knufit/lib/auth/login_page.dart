@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         } catch (e) {
           print('에러 발생: $e');
         }
-      if (user != null) { // user 정보를 어떻게 넘겨서 화면을 바꿀건지??
+      if (user != null) {
         await AuthHelper.saveUserSession(user);
         
         ScaffoldMessenger.of(context).showSnackBar(
