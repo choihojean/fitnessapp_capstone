@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:knufit/screen/training_screen/training_detail.dart';
-//import 'package:knufit/screen/training_screen/training_list.dart';
 import '../../database/db_helper.dart'; // DBHelper 클래스를 import
-//import 'training_screen/training_list.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart'; // 환경 변수 로드
 import 'package:http/http.dart' as http;
+import '../exercise_model.dart';
 
 class ScreenTrainingList extends StatefulWidget {
   final Map<String, dynamic> user; // 사용자 정보를 받을 변수
@@ -20,7 +19,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   String searchQuery = ''; // 검색어를 저장할 변수
   TextEditingController searchController = TextEditingController();
   int selectedTabIndex = 0; // 선택된 탭의 인덱스를 저장
-  List<Map<String, dynamic>> items = [];
+  final String? serverIp = dotenv.env['SERVER_IP'];
 
   final List<String> categories = [
     '전체',
@@ -37,34 +36,45 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     '승모',
     '종아리'
   ]; // 탭에 표시할 카테고리 목록
-  void loadexercise() async{
-    final String? serverIp = dotenv.env['SERVER_IP'];
 
-    /// SERVER_IP가 설정되어 있지 않으면 예외를 던집니다.
+  // 상태 변수 추가
+  List<Exercise> _exercises = [];
+  bool _isLoading = true;
+  String _error = '';
+
+  Future<void> loadexercise() async {
     if (serverIp == null) {
-      throw Exception('SERVER_IP is not defined in .env file');
+      setState(() {
+        _error = 'SERVER_IP가 .env 파일에 정의되어 있지 않습니다.';
+        _isLoading = false;
+      });
+      return;
     }
-
-    final uri = Uri.parse('$serverIp/training/limit');
-    //print('Request URI: $uri'); // 디버깅을 위해 요청 URI 출력
+    final uri = Uri.parse('$serverIp/training');
     try {
       final response = await http.get(uri);
-
-    if (response.statusCode == 200) {
-      // items = jsonDecode(response.body);
-      final List<dynamic> jsonData = jsonDecode(response.body);
-      items.clear();  // 기존 데이터를 지우고 새로 할당
-      items.addAll(jsonData.map((item) => Map<String, dynamic>.from(item)));
-    } else {
-      print('Failed to load item: ${response.statusCode}');
-    }
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonData = jsonDecode(utf8.decode(response.bodyBytes));
+        setState(() {
+          _exercises = jsonData.map((json) => Exercise.fromJson(json)).toList();
+          _isLoading = false;
+        });
+      } else {
+        setState(() {
+          _error = '운동 데이터를 불러오지 못했습니다: ${response.statusCode}';
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      print('Error: $e');
+      setState(() {
+        _error = '에러 발생: $e';
+        _isLoading = false;
+      });
     }
   }
+
   @override
   void initState() {
-    print("1");
     super.initState();
     loadexercise();
   }
@@ -179,56 +189,65 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   }
 
   Widget buildListView(String category) {
-    List<Map<String, dynamic>> filteredItems;
-    if (category == '전체') {
-      filteredItems = items;
+    if (_isLoading) {
+      return Center(child: CircularProgressIndicator());
+    } else if (_error.isNotEmpty) {
+      return Center(child: Text(_error));
     } else {
-      filteredItems = items.where((item) => item['category'] == category).toList(); //카테고리를 누를때마다 보내기
-    }
+      List<Exercise> filteredExercises = _exercises;
 
-    // 검색어가 있을 경우 필터링
-    if (searchQuery.isNotEmpty) {
-      filteredItems = filteredItems
-          .where((item) => item['name']!.toLowerCase().contains(searchQuery)) //이름 바꾸기??
-          .toList();
-    }
+      // 카테고리 필터 적용
+      if (category != '전체') {
+        filteredExercises = filteredExercises.where((exercise) => exercise.category == category).toList();
+      }
 
-    return ListView.builder(
-      itemCount: filteredItems.length,
-      itemBuilder: (context, index) {
-        final item = filteredItems[index];
-        return ListTile(
-          leading: Image.asset(
-            item['img']!,
-            width: 50,
-            height: 50,
-            fit: BoxFit.contain,
-          ),
-          title: Text(item['name']!),
-          subtitle: Text(
-            item['tip']!,
-            style: TextStyle(
-              color: Colors.grey.withOpacity(0.9), // subtitle의 투명도 설정
-            ),
-          ),
-          trailing: IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              _showBottomSheet(context, item); // 선택된 운동 데이터를 함께 전달
-            },
-          ),
-          onTap: () {
-          // 운동 항목 클릭 시 상세 페이지로 이동
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TrainingDetail(exercise: item), //아이템 보내기 파일 import 없어도 데이터만 넘기기
+      // 검색어 필터 적용
+      if (searchQuery.isNotEmpty) {
+        filteredExercises = filteredExercises.where((exercise) => exercise.name.contains(searchQuery)).toList();
+      }
+
+      if (filteredExercises.isEmpty) {
+        return Center(child: Text('검색 결과가 없습니다.'));
+      }
+
+      return ListView.builder(
+        itemCount: filteredExercises.length,
+        itemBuilder: (context, index) {
+          final exercise = filteredExercises[index];
+          return Card(
+            elevation: 2,
+            margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+            child: ListTile(
+              leading: Image.network(
+                exercise.img,
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(Icons.broken_image);
+                },
               ),
-            );
-          },
-        );
-      },
-    );
+              title: Text(exercise.name),
+              subtitle: Text(exercise.target),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TrainingDetail(exercise: exercise.toJson()),
+                  ),
+                );
+              },
+              trailing: IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {
+                  _showBottomSheet(context, exercise.toJson());
+                },
+              ),
+            ),
+          );
+        },
+      );
+    }
   }
 
   void _showBottomSheet(BuildContext context, Map<String, dynamic> selectedExercise) {
@@ -242,7 +261,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
+              return Center(child: Text('에러 발생: ${snapshot.error}'));
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return Center(child: Text('저장된 루틴 테이블이 없습니다.'));
             } else {
@@ -368,6 +387,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     return true;
   }
 }
+
 
 
 // import 'package:flutter/material.dart';

@@ -1,4 +1,5 @@
 // exercise_model.dart
+
 class Exercise {
   final String name;
   final String tip;
@@ -40,5 +41,21 @@ class Exercise {
       breathing: json['breathing'] ?? '',
       img: json['img'] ?? '',
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'tip': tip,
+      'category': category,
+      'movement': movement,
+      'precautions': precautions,
+      'gif': gif,
+      'id': id,
+      'target': target,
+      'preparation': preparation,
+      'breathing': breathing,
+      'img': img,
+    };
   }
 }

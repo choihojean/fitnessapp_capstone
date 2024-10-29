@@ -43,7 +43,7 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
 
       // 요청이 성공적이라면(HTTP 200) 응답 데이터를 파싱
       if (res.statusCode == 200) {
-        final List<dynamic> memos = jsonDecode(res.body); // JSON 응답을 파싱하여 List<dynamic>으로 변환
+        final List<dynamic> memos = jsonDecode(utf8.decode(res.bodyBytes)); // JSON 응답을 파싱하여 List<dynamic>으로 변환
         print('응답 데이터: $memos'); 
         return memos; // 메모 목록을 반환합니다.
       } else {
