@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               'password':password
             }));
             if (res.statusCode == 200) {
-              final responseData = jsonDecode(res.body);
+              final responseData = jsonDecode(utf8.decode(res.bodyBytes));
               print('응답 데이터: $responseData');
               user = responseData;
             } else {

@@ -72,7 +72,7 @@ class _SignupPageState extends State<SignupPage> {
               'password':password
             }));
             if (res.statusCode == 200) {
-              final responseData = jsonDecode(res.body);
+              final responseData = jsonDecode(utf8.decode(res.bodyBytes));
               ScaffoldMessenger.of(context).showSnackBar( //에러 발생했을 때 다음을 실행하지 않게 하기 ex) 위의 if문 안에 넣어버리기
                 SnackBar(content: Text('회원가입을 환영합니다!')),
               );
