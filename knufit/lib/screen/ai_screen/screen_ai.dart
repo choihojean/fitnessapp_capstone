@@ -517,11 +517,23 @@ Future<void> _showTargetAreaSelectionDialog() async {
               children: [
                 Expanded(
                   child: ListView.builder(
+                    padding: const EdgeInsets.all(16),
                     itemCount: routines.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text('루틴 ${index + 1}'),
-                        onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                      return Card(
+                        key: ValueKey('루틴 ${index + 1}'),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        elevation: 4,
+                        child: ListTile(
+                          title: Text(
+                            '루틴 ${index + 1}',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                        ),
                       );
                     },
                   ),
