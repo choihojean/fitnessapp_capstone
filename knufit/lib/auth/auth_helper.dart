@@ -20,7 +20,7 @@ class AuthHelper {
   }
 
   // 사용자 세션 저장
-  static Future<void> saveUserSession(Map<String, dynamic> user) async {
+  static Future<void> saveUserSession(Map<String, dynamic> user) async {  //정보 저장
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
     // 사용자 정보 저장
@@ -35,7 +35,7 @@ class AuthHelper {
   }
 
   // 사용자 세션 조회
-  static Future<Map<String, dynamic>?> getUserSession() async {
+  static Future<Map<String, dynamic>?> getUserSession() async { // 로그인 정보를 자체적으로 저장해 두기
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
     if (!prefs.containsKey('user_id')) {

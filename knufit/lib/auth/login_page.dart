@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               'password':password
             }));
             if (res.statusCode == 200) {
-              final responseData = jsonDecode(res.body);
+              final responseData = jsonDecode(utf8.decode(res.bodyBytes));
               print('응답 데이터: $responseData');
               user = responseData;
             } else {
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         } catch (e) {
           print('에러 발생: $e');
         }
-      if (user != null) { // user 정보를 어떻게 넘겨서 화면을 바꿀건지??
+      if (user != null) {
         await AuthHelper.saveUserSession(user);
         
         ScaffoldMessenger.of(context).showSnackBar(

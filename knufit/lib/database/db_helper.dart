@@ -229,7 +229,7 @@ class DBHelper {
 
     if (maps.isNotEmpty) {
       var user = maps.first;
-      if (user['password'] != null && verifyPassword(password, user['password'])) {
+      if (user['password'] != null && verifyPassword(password, user['password'])) { // 해시화된 비밀번호랑 비교
       return user;
     }
   }

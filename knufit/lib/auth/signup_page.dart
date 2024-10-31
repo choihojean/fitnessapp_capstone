@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../database/db_helper.dart';
+//import '../database/db_helper.dart';
 import '../utils/utils.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +15,7 @@ class _SignupPageState extends State<SignupPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
-  final DBHelper _dbHelper = DBHelper();
+  //final DBHelper _dbHelper = DBHelper();
 
   bool _isPasswordValid = false;
   bool _isPasswordMatch = false;
@@ -47,13 +47,13 @@ class _SignupPageState extends State<SignupPage> {
       }
 
       // 이메일 중복 확인 로직 추가
-      var existingUser = await _dbHelper.getUserByEmail(email);
-      if (existingUser != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('이미 가입된 이메일 주소입니다.')),
-        );
-        return;
-      }
+      // var existingUser = await _dbHelper.getUserByEmail(email);
+      // if (existingUser != null) {
+      //   ScaffoldMessenger.of(context).showSnackBar(
+      //     SnackBar(content: Text('이미 가입된 이메일 주소입니다.')),
+      //   );
+      //   return;
+      // }
 
       if (password == confirmPassword) {
         // await _dbHelper.insertUser({
@@ -72,21 +72,21 @@ class _SignupPageState extends State<SignupPage> {
               'password':password
             }));
             if (res.statusCode == 200) {
-              final responseData = jsonDecode(res.body);
+              final responseData = jsonDecode(utf8.decode(res.bodyBytes));
+              ScaffoldMessenger.of(context).showSnackBar( //에러 발생했을 때 다음을 실행하지 않게 하기 ex) 위의 if문 안에 넣어버리기
+                SnackBar(content: Text('회원가입을 환영합니다!')),
+              );
+              Navigator.pop(context); // 로그인 페이지로 돌아가기
               print('응답 데이터: $responseData');
-            } else {
+            } else if(res.statusCode == 400){
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('이미 존재하는 이메일입니다')),);
+            }else {
               print('요청 실패: ${res.statusCode}');
               print('응답 내용: ${res.body}');
             }
         } catch (e) {
           print('에러 발생: $e');
         }
-
-        ScaffoldMessenger.of(context).showSnackBar( //에러 발생했을 때 다음을 실행하지 않게 하기 ex) 위의 if문 안에 넣어버리기
-          SnackBar(content: Text('회원가입을 환영합니다!')),
-        );
-
-        Navigator.pop(context); // 로그인 페이지로 돌아가기
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('비밀번호가 동일하지 않습니다.')),

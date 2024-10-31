@@ -37,6 +37,7 @@ class _ScreenMemoState extends State<ScreenMemo> {
 
   /// 메모를 저장하거나 업데이트하는 함수
   void _saveMemo(int userId) async {
+    print("2 : $userId");
     String title = _titleController.text.trim();
     String content = _contentController.text.trim();
     final String? serverIp = dotenv.env['SERVER_IP'];
@@ -124,6 +125,7 @@ class _ScreenMemoState extends State<ScreenMemo> {
     /// 삭제할 메모의 URI를 구성합니다.
     final int userId = widget.user['id'];
     final int memoId = widget.memo!['id'];
+    print("3 : $userId");
     final Uri deleteUri = Uri.parse('$serverIp/memo').replace(queryParameters: {
       'userid': '$userId',
       'id': '$memoId',
