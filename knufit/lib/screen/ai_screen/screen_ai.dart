@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../training_screen/training_list.dart';
+import '../training_screen/training_detail.dart';
 
 class WorkoutScreen extends StatefulWidget {
   @override
@@ -195,14 +196,6 @@ void _showUserInfoInputDialog() {
                   },
                   onChanged: (value) => age = value,
                 ),
-                ElevatedButton(
-                  onPressed: () async {
-                    await _showTargetAreaSelectionDialog();
-                    Navigator.of(context).pop(); // 기존 다이얼로그 닫기
-                    _showUserInfoInputDialog();  // 변경된 내용으로 다이얼로그 다시 열기
-                  },
-                  child: Text(targetAreas.isEmpty ? '운동 부위 선택' : '선택된 부위: ${targetAreas.join(", ")}'),
-                ),
                 DropdownButtonFormField<String>(
                   value: goal,
                   items: _goals.map((goalItem) {
@@ -216,6 +209,14 @@ void _showUserInfoInputDialog() {
                     goal = value;
                   },
                   validator: (value) => value == null ? '목표를 선택해주세요' : null,
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    await _showTargetAreaSelectionDialog();
+                    Navigator.of(context).pop(); // 기존 다이얼로그 닫기
+                    _showUserInfoInputDialog();  // 변경된 내용으로 다이얼로그 다시 열기
+                  },
+                  child: Text(targetAreas.isEmpty ? '운동 부위 선택' : '선택된 부위: ${targetAreas.join(", ")}'),
                 ),
               ],
             ),
@@ -289,79 +290,73 @@ Future<void> _showTargetAreaSelectionDialog() async {
 
   // 루틴의 상세 내용을 다이얼로그로 표시
   void _showWorkoutRoutineDetail(List<Map<String, String>> workoutRoutine) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: workoutRoutine.map((exercise) {
-                  List<String> preparationSteps = exercise['preparation']?.split("\n") ?? [];
-                  List<String> movementSteps = exercise['movement']?.split("\n") ?? [];
-                  List<String> precautions = exercise['precautions']?.split("\n") ?? [];
-
-                  return Column(
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: workoutRoutine.map((exercise) {
+                return GestureDetector(
+                  onTap: () {
+                    // 운동 항목 클릭 시 TrainingDetail 페이지로 이동
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => TrainingDetail(exercise: exercise),
+                      ),
+                    );
+                  },
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (exercise['image'] != null)
-                        Center(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              exercise['image']!,
-                              height: 200,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
+                      ListTile(
+                        leading: exercise['image'] != null
+                            ? Image.asset(
+                                exercise['image']!,
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.contain,
+                              )
+                            : Icon(Icons.fitness_center),
+                        title: Text(
+                          exercise['title'] ?? '운동 이름 없음',
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                      SizedBox(height: 16),
-                      Text(
-                        exercise['title'] ?? '',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              exercise['subtitle'] ?? '부위 정보 없음',
+                              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              '세트: ${exercise['sets']} 세트, 반복: ${exercise['reps']} 회',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black.withOpacity(0.8),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      SizedBox(height: 8),
-                      Text(
-                        exercise['subtitle'] ?? '',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                      ),
-                      SizedBox(height: 16),
-                      Text(
-                        '세트: ${exercise['sets']} 세트, 반복: ${exercise['reps']} 회',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 16),
-                      _buildCardSection(
-                        title: "운동 팁",
-                        content: exercise['tip'] ?? '',
-                        icon: Icons.lightbulb,
-                      ),
-                      SizedBox(height: 16),
-                      _buildExerciseDetailsSection(
-                        preparation: preparationSteps,
-                        movement: movementSteps,
-                        breathing: exercise['breathing'] ?? '',
-                      ),
-                      SizedBox(height: 16),
-                      _buildOrderedListSection(
-                        title: "주의사항",
-                        items: precautions,
-                        icon: Icons.warning,
-                      ),
-                      Divider(height: 32),
+                      Divider(), // 각 운동 항목 사이에 구분선 추가
                     ],
-                  );
-                }).toList(),
-              ),
+                  ),
+                );
+              }).toList(),
             ),
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
 
   // 재사용 가능한 UI 컴포넌트
   Widget _buildCardSection({required String title, required String content, required IconData icon}) {
