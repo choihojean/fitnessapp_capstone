@@ -27,6 +27,7 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
   // 특정 사용자 ID에 해당하는 메모 목록을 서버에서 가져오는 비동기 함수
   Future<List<dynamic>> _fetchMemos(int userId) async {
     final String? serverIp = dotenv.env['SERVER_IP']; // ? = null 값 처리
+    print("1 : $userId");
 
     // SERVER_IP가 정의되어 있지 않으면 예외처리
     if (serverIp == null) {
@@ -57,7 +58,6 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
       throw Exception('Failed to load memos');
     }
   }
-
   // 메모 목록을 다시 불러오는 함수
   void _reloadMemos() {
     setState(() {

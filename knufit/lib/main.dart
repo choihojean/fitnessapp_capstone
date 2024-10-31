@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _checkLoginStatus() async {
-    var user = await AuthHelper.getUserSession();
+    var user = await AuthHelper.getUserSession(); // auth_helper.dart
     if (user != null) {
       Navigator.pushReplacement(
         context,
