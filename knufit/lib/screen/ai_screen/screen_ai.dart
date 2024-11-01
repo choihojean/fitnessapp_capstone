@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../training_screen/training_list.dart';
 import '../training_screen/training_detail.dart';
+import '../../exercise_model.dart';
 
 class WorkoutScreen extends StatefulWidget {
   @override
@@ -300,13 +301,30 @@ Future<void> _showTargetAreaSelectionDialog() async {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: workoutRoutine.map((exercise) {
+              children: workoutRoutine.map((exerciseData) {
+                // `Exercise` 객체로 변환
+                final exercise = Exercise(
+                  name: exerciseData['title'] ?? '운동 이름 없음',
+                  tip: exerciseData['tip'] ?? '',
+                  category: exerciseData['category'] ?? '',
+                  movement: exerciseData['movement'] ?? '',
+                  precautions: exerciseData['precautions'] ?? '',
+                  gif: exerciseData['gif'] ?? '',
+                  id: int.tryParse(exerciseData['id'] ?? '0') ?? 0,
+                  target: exerciseData['subtitle'] ?? '', //target으로 하면 안나옴.
+                  preparation: exerciseData['preparation'] ?? '',
+                  breathing: exerciseData['breathing'] ?? '',
+                  img: exerciseData['image'] ?? '',
+                );
+
                 return GestureDetector(
                   onTap: () {
-                    // 운동 항목 클릭 시 TrainingDetail 페이지로 이동
+                    // `Exercise` 객체의 `toJson()`을 사용해 `TrainingDetail`로 전달
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => TrainingDetail(exercise: exercise),
+                        builder: (context) => TrainingDetail(
+                          exercise: exercise.toJson(),
+                        ),
                       ),
                     );
                   },
@@ -314,28 +332,28 @@ Future<void> _showTargetAreaSelectionDialog() async {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListTile(
-                        leading: exercise['image'] != null
+                        leading: exercise.img.isNotEmpty
                             ? Image.asset(
-                                exercise['image']!,
+                                exercise.img,
                                 width: 100,
                                 height: 100,
                                 fit: BoxFit.contain,
                               )
                             : Icon(Icons.fitness_center),
                         title: Text(
-                          exercise['title'] ?? '운동 이름 없음',
+                          exercise.name,
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              exercise['subtitle'] ?? '부위 정보 없음',
+                              exercise.target,
                               style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                             ),
                             SizedBox(height: 8),
                             Text(
-                              '세트: ${exercise['sets']} 세트, 반복: ${exercise['reps']} 회',
+                              '세트: ${exerciseData['sets'] ?? 'N/A'} 세트, 반복: ${exerciseData['reps'] ?? 'N/A'} 회',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -345,7 +363,7 @@ Future<void> _showTargetAreaSelectionDialog() async {
                           ],
                         ),
                       ),
-                      Divider(), // 각 운동 항목 사이에 구분선 추가
+                      Divider(),
                     ],
                   ),
                 );
