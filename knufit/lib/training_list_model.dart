@@ -1,4 +1,4 @@
-// models/training_list_item.dart
+// training_list_model.dart
 class TrainingListItem {
   final int id;
   final int userId;
