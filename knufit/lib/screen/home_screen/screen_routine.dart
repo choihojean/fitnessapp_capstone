@@ -176,6 +176,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
                           builder: (context) => ScreenRoutineTable(
                             tableName: item.name,
                             user: widget.user,
+                            trainingListId: item.id,
                           ),
                         ),
                       );
