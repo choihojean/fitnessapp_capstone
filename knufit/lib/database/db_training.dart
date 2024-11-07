@@ -1,3 +1,6 @@
+/*
+// DB에서 onCreate는 한 번만 가능 = db_helper에서 통합으로 실행해야함 = db_training 지금은 못씀
+// DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해DB 빨리 변경해
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -16,7 +19,7 @@ class DBTraining {
     return await openDatabase(
       path,
       version: 1,
-      onCreate: (db, version) async {
+      onCreate: (db,version) async {
         await db.execute('''
           CREATE TABLE training (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,21 +40,23 @@ class DBTraining {
   }
 
   // 테이블 데이터 create => (데이터 리턴)
-  Future<Map<String, dynamic>> createTraining(Map<String, dynamic> data) async {
+  Future<bool> createTraining(List<Map<String, dynamic>> dataList) async {
     final db = await database;
-    Map<String, dynamic> result;
+    bool result = false;
     try {
-      await db.insert("training", data, conflictAlgorithm: ConflictAlgorithm.replace);
-      result = {"message": "success"};
+      await Future.forEach(dataList,
+        (data) async {
+          await db.insert("training", data, conflictAlgorithm: ConflictAlgorithm.replace);
+        }
+      );
+      result = true;
     } catch (e) {
-      result = {"message": "failure", "error": e};
-    } finally {
-      await db.close();
+      result = false;
     }
     return result;
   }
 
-  // 테이블 전체 데이터 read => (성공, 실패 여부 리턴)
+  // 테이블 전체 데이터 read => (데이터, null 리턴)
   Future<List<Map<String, dynamic>>> readTrainingAll() async {
     final db = await database;
     List<Map<String, dynamic>> result = [];
@@ -61,9 +66,7 @@ class DBTraining {
         orderBy: 'id ASC',
       );
     } catch (e) {
-      print({"message": "failure", "error": e});
-    } finally {
-      await db.close();
+      print('error: $e');
     }
     return result;
   }
@@ -78,8 +81,6 @@ class DBTraining {
       result = Sqflite.firstIntValue(res) ?? 0;
     } catch (e) {
       print({"message": "failure", "error": e});
-    } finally {
-      await db.close();
     }
     return result;
   }
@@ -99,39 +100,36 @@ class DBTraining {
       result = res.isNotEmpty ? res.first : {"message": "failure"};
     } catch (e) {
       result = {"message": "failure", "error": e};
-    } finally {
-      await db.close();
     }
     return result;
   }
 
   // 테이블 데이터 update => (성공, 실패 여부 리턴)
-  Future<Map<String, dynamic>> updateTraining(Map<String, dynamic> data) async {
+  Future<bool> updateTraining(Map<String, dynamic> data) async {
     final db = await database;
-    Map<String, dynamic> result;
+    bool result;
     try {
       await db.update("training", data, conflictAlgorithm: ConflictAlgorithm.replace);
-      result = {"message": "success"};
+      result = true;
     } catch (e) {
-      result = {"message": "failure", "error": e};
-    } finally {
-      await db.close();
+      print('error: $e');
+      result = false;
     }
     return result;
   }
 
   // 테이블 데이터 delete => (성공, 실패 여부 리턴)
-  Future<Map<String, dynamic>> deleteTraining() async {
+  Future<bool> deleteTraining() async {
     final db = await database;
-    Map<String, dynamic> result;
+    bool result = false;
     try {
       await db.delete("training");
-      result = {"message": "success"};
+      result = true;
     } catch (e) {
-      result = {"message": "failure", "error": e};
-    } finally {
-      await db.close();
+      print('error: $e');
+      result = false;
     }
     return result;
   }
 }
+*/

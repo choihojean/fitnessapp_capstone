@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import '../exercise_model.dart';
 import 'training_screen/training_detail.dart'; // 필요에 따라 경로 조정
 import '../../training_list_model.dart'; // TrainingListItem 모델 임포트
+import '../database/db_helper.dart';
 
 class ScreenTrainingList extends StatefulWidget {
   final Map<String, dynamic> user; // 사용자 정보를 받을 변수
@@ -38,6 +39,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   ]; // 탭에 표시할 카테고리 목록
 
   // 상태 변수 추가
+  final DBHelper _dbTraining = DBHelper(); // DBTraining 인스턴스 생성
   List<Exercise> _exercises = [];
   bool _isLoading = true;
   String _error = '';
@@ -53,6 +55,47 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     loadExercises();
   }
 
+  // 내부DB에서 운동 개수 비교 (같으면 true // 다르면 false)
+  Future<bool> loadTrainingCount(int count) async {
+    final uri = Uri.parse('$serverIp/training/count');
+    var result = false;
+    try {
+      final response = await http.get(uri);
+      if(response.statusCode == 200) {
+        var temp = int.parse(response.body);
+        result = count == temp ? true : false;
+      }
+    } catch(e) {
+      print({"error": e});
+    }
+    return result;
+  }
+
+  // 서버에서 운동 로드
+  Future<bool> loadTrainingToServer() async {
+    final uri = Uri.parse('$serverIp/training');
+    try {
+      final response = await http.get(uri);
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonData = jsonDecode(utf8.decode(response.bodyBytes));
+        setState(() {
+          _exercises = jsonData.map((json) => Exercise.fromJson(json)).toList();
+        });
+        return true;
+      } else {
+        setState(() {
+          _error = '운동 데이터를 불러오지 못했습니다: ${response.statusCode}';
+        });
+        return false;
+      }
+    } catch (e) {
+      setState(() {
+        _error = '에러 발생: $e';
+      });
+      return false;
+    }
+  }
+
   // 운동 데이터 로드 메서드
   Future<void> loadExercises() async {
     if (serverIp == null) {
@@ -62,27 +105,27 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
       });
       return;
     }
-    final uri = Uri.parse('$serverIp/training');
-    try {
-      final response = await http.get(uri);
-      if (response.statusCode == 200) {
-        final List<dynamic> jsonData = jsonDecode(utf8.decode(response.bodyBytes));
-        setState(() {
-          _exercises = jsonData.map((json) => Exercise.fromJson(json)).toList();
-          _isLoading = false;
-        });
-      } else {
-        setState(() {
-          _error = '운동 데이터를 불러오지 못했습니다: ${response.statusCode}';
-          _isLoading = false;
-        });
-      }
-    } catch (e) {
-      setState(() {
-        _error = '에러 발생: $e';
+
+    final exerciseCount = await _dbTraining.readTrainingAllCount();
+    print('운동 개수 ======== $exerciseCount');
+    if(exerciseCount != 0) {
+      if(await loadTrainingCount(exerciseCount)) { // 내부db O, 크기 같음
+        List<Map<String, dynamic>> tempExercises1 = await _dbTraining.readTrainingAll();
+        _exercises = tempExercises1.map((exercise) => Exercise.fromJson(exercise)).toList();
         _isLoading = false;
-      });
+        return;
+      }
+      else { // 내부db O, 크기 다름
+        await _dbTraining.deleteTraining();
+      }
     }
+    if(await loadTrainingToServer()) { // 서버에서 데이터 로드 성공
+      List<Map<String, dynamic>> tempExercises2 = _exercises.map((exercise) => exercise.toJson()).toList();
+      await _dbTraining.createTraining(tempExercises2);
+      _isLoading = false;
+      return;
+    }
+    _isLoading = false;
   }
 
   // 루틴에 운동 추가 메서드 완성
