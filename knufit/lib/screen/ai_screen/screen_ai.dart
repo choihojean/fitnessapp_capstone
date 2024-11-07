@@ -94,15 +94,16 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       },
       body: jsonEncode({
         'model': 'gpt-3.5-turbo',
+        'n': 4,  // n파라미터 추가
         'messages': [
           {
             'role': 'system',
-            'content': 'You are a fitness expert. Please create 3 workout routines. Each routine should have at least 3 exercises in the following JSON format: [{"routine": 1, "exercises": [{"name": "exercise1", "sets": "3", "reps": "12"}, {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}]. Here is the list of exercises to include: $exerciseString.',
+            'content': 'You are a fitness expert. Please create 1 workout routine. Each routine should have 4-5 exercises in the following JSON format: [{"routine": 1, "exercises": [{"name": "exercise1", "sets": "3", "reps": "12"}, {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}]. Here is the list of exercises to include: $exerciseString.',
           },
           {
             'role': 'user',
             'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다. '
-                '운동 부위는 ${targetAreas.join(", ")}이며, 목표는 $goal입니다. 3개의 루틴을 JSON 형태로 추천해주세요.',
+              '운동 부위는 ${targetAreas.join(", ")}이며, 목표는 $goal입니다. 루틴을 JSON 형태로 추천해주세요.',
           },
         ],
       }),
@@ -115,32 +116,31 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
       if (data != null) {
-        List<dynamic> routinesData = jsonDecode(data['choices'][0]['message']['content']);
-        List<List<Map<String, String>>> workoutRoutines = routinesData.map((routine) {
-          List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
-            // 운동명에 따라 items에서 해당 운동의 세부 정보를 찾습니다.
-            Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
-              (item) => item['title'] == exercise['name'], 
-              orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
-            );
-            matchedExercise['sets'] = exercise['sets'];
-            matchedExercise['reps'] = exercise['reps'];
-            return matchedExercise;
-          }).toList();
+        List<List<Map<String, String>>> workoutRoutines = [];
 
-          if (exerciseList.length < 3) {
-            List<Map<String, String>> additionalExercises = exercisesForTargetAreas
-                .where((exercise) => !exerciseList.contains(exercise))
-                .take(3 - exerciseList.length)
-                .toList();
-            exerciseList.addAll(additionalExercises);
+        // 각 choice에서 루틴 정보를 파싱하여 workoutRoutines에 추가
+        for (var choice in data['choices']) {
+          List<dynamic> routinesData = jsonDecode(choice['message']['content']);
+        
+          for (var routine in routinesData) {
+            List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
+              // 운동명에 따라 items에서 해당 운동의 세부 정보를 탐색
+              Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
+                (item) => item['title'] == exercise['name'], 
+                orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
+              );
+              matchedExercise['sets'] = exercise['sets'];
+              matchedExercise['reps'] = exercise['reps'];
+              return matchedExercise;
+            }).toList();
+
+            // 최대 5개 운동
+            workoutRoutines.add(exerciseList.take(5).toList());
           }
-
-          return exerciseList;
-        }).toList();
+        }
 
         setState(() {
-          routines = workoutRoutines;
+          routines = workoutRoutines; // 각 루틴을 리스트로 저장
         });
         _saveRoutinesToPrefs(workoutRoutines);
       } else {
