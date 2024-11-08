@@ -98,11 +98,19 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         'messages': [
           {
             'role': 'system',
-            'content': 'You are a fitness expert. Please create 1 workout routine. Each routine should have 4-5 exercises in the following JSON format: [{"routine": 1, "exercises": [{"name": "exercise1", "sets": "3", "reps": "12"}, {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}]. Here is the list of exercises to include: $exerciseString.',
+            'content': '''You are a fitness expert. Please create 1 workout routine.
+            Each routine should have 4-5 exercises in the following JSON format: 
+            [
+              {"routine": 1, "exercises":
+                [
+                  {"name": "exercise1", "sets": "3", "reps": "12"},
+                  {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}
+                ]. 
+                Here is the list of exercises to include: $exerciseString.''',
           },
           {
             'role': 'user',
-            'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다. '
+            'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다.'
               '운동 부위는 ${targetAreas.join(", ")}이며, 목표는 $goal입니다. 루틴을 JSON 형태로 추천해주세요.',
           },
         ],
