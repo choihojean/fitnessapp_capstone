@@ -29,22 +29,27 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     _loadSavedRoutines();
   }
 
+  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
+  Future<void> _saveRoutinesToPrefs(List<List<Map<String, String>>> routines) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> routinesAsJsonString = routines.map((routine) => jsonEncode(routine)).toList();
+    await prefs.setStringList('saved_routines', routinesAsJsonString);
+  }
+
   // SharedPreferences에서 저장된 루틴을 불러오는 메서드
   Future<void> _loadSavedRoutines() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? savedRoutines = prefs.getStringList('saved_routines');
     if (savedRoutines != null) {
       setState(() {
-        routines = savedRoutines.map((routine) => routine.split(', ').map((e) => {'title': e}).toList()).toList();
+        routines = savedRoutines.map((routine) {
+          List<dynamic> decodedRoutine = jsonDecode(routine);
+          return decodedRoutine.map<Map<String, String>>((exercise) {
+            return Map<String, String>.from(exercise as Map);
+          }).toList();
+        }).toList();
       });
     }
-  }
-
-  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
-  Future<void> _saveRoutinesToPrefs(List<List<Map<String, String>>> routines) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> routinesAsString = routines.map((routine) => routine.map((e) => e['title']!).join(', ')).toList();
-    await prefs.setStringList('saved_routines', routinesAsString);
   }
 
   // 타겟 부위에 맞는 최소 3개의 운동 리스트를 가져오는 메서드
@@ -59,105 +64,115 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     return filteredItems;
   }
 
-  // OpenAI API 호출 메서드
-  Future<void> _sendDataToGPTAPI() async {
-    final apiKey = dotenv.env['OPENAI_API_KEY'];
+  // OpenAI API 호출 메서드 수정
+Future<void> _sendDataToGPTAPI() async {
+  final apiKey = dotenv.env['OPENAI_API_KEY'];
 
-    if (apiKey == null || apiKey.isEmpty) {
-      print('API 키가 없습니다.');
-      return;
+  if (apiKey == null || apiKey.isEmpty) {
+    print('API 키가 없습니다.');
+    return;
+  }
+
+  if (height == null || weight == null || age == null || targetAreas.isEmpty || goal == null) {
+    print('모든 필드를 입력해주세요.');
+    return;
+  }
+
+  final url = Uri.parse('https://api.openai.com/v1/chat/completions');
+
+  List<Map<String, String>> exercisesForTargetAreas = targetAreas
+      .expand((area) => _getExercisesForTargetArea(area))
+      .toList();
+
+  String exerciseString = exercisesForTargetAreas.map((exercise) => exercise['title']!).join(", ");
+
+  setState(() {
+    _isLoading = true;
+  });
+
+  final response = await http.post(
+    url,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $apiKey',
+    },
+    body: jsonEncode({
+      'model': 'gpt-3.5-turbo',
+      'n': 2, // n파라미터 추가
+      'messages': [
+        {
+          'role': 'system',
+          'content': '''You are a fitness expert. Make 3 workout routines.
+          You must include only the exercises listed below: $exerciseString.
+          Each routine should have a Korean title and a reason for recommendation,
+          And each title and reason should be specific and different for each routine
+          Each routine should have 4-5 exercises in the following JSON format:
+          [
+            {"routine": {"title": "Routine Title", "reason": "Reason for recommendation"}, 
+              "exercises": [
+                {"name": "exercise1", "sets": "3", "reps": "12"},
+                {"name": "exercise2", "sets": "4", "reps": "10"}
+              ]
+            }, {...}, {...}
+          ]''',
+        },
+        {
+          'role': 'user',
+          'content': '''I am $age years old, I am $height cm tall, and i weight $weight kg.
+              The exercise areas are the ${targetAreas.join(", ")}, and the goal is $goal.
+              Please recommend 3 workout routines in JSON format.''',
+        },
+      ],
+    }),
+  );
+
+  setState(() {
+    _isLoading = false;
+  });
+
+  if (response.statusCode == 200) {
+  final data = jsonDecode(utf8.decode(response.bodyBytes));
+  if (data != null) {
+    List<List<Map<String, String>>> workoutRoutines = [];
+
+    for (var choice in data['choices']) {
+      List<dynamic> routinesData = jsonDecode(choice['message']['content']);
+
+    for (var routine in routinesData) {
+      String routineTitle = routine['routine']['title'] ?? '$targetAreas 루틴';
+      String routineReason = routine['routine']['reason'] ?? '루틴 추천 이유';
+
+      List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
+        Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
+        (item) => item['title'] == exercise['name'],
+        orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
+      );
+      matchedExercise = {
+        ...matchedExercise,
+        'sets': exercise['sets'],
+        'reps': exercise['reps'],
+        'routinetitle': routineTitle,
+        'routinereason': routineReason,
+      };
+      return matchedExercise;
+    }).toList();
+
+    workoutRoutines.add(exerciseList.take(5).toList());
     }
-
-    if (height == null || weight == null || age == null || targetAreas.isEmpty || goal == null) {
-      print('모든 필드를 입력해주세요.');
-      return;
-    }
-
-    final url = Uri.parse('https://api.openai.com/v1/chat/completions');
-
-    // 여러 선택된 운동 부위의 운동을 가져옴
-    List<Map<String, String>> exercisesForTargetAreas = targetAreas
-        .expand((area) => _getExercisesForTargetArea(area))
-        .toList();
-
-    String exerciseString = exercisesForTargetAreas.map((exercise) => exercise['title']!).join(", ");
+  }
 
     setState(() {
-      _isLoading = true;
+      routines = workoutRoutines;
     });
-
-    final response = await http.post(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $apiKey',
-      },
-      body: jsonEncode({
-        'model': 'gpt-3.5-turbo',
-        'n': 4,  // n파라미터 추가
-        'messages': [
-          {
-            'role': 'system',
-            'content': '''You are a fitness expert. Please create 1 workout routine.
-            Each routine should have 4-5 exercises in the following JSON format: 
-            [
-              {"routine": 1, "exercises":
-                [
-                  {"name": "exercise1", "sets": "3", "reps": "12"},
-                  {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}
-                ]. 
-                Here is the list of exercises to include: $exerciseString.''',
-          },
-          {
-            'role': 'user',
-            'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다.'
-              '운동 부위는 ${targetAreas.join(", ")}이며, 목표는 $goal입니다. 루틴을 JSON 형태로 추천해주세요.',
-          },
-        ],
-      }),
-    );
-
-    setState(() {
-      _isLoading = false;
-    });
-
-    if (response.statusCode == 200) {
-      final data = jsonDecode(utf8.decode(response.bodyBytes));
-      if (data != null) {
-        List<List<Map<String, String>>> workoutRoutines = [];
-
-        // 각 choice에서 루틴 정보를 파싱하여 workoutRoutines에 추가
-        for (var choice in data['choices']) {
-          List<dynamic> routinesData = jsonDecode(choice['message']['content']);
-        
-          for (var routine in routinesData) {
-            List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
-              // 운동명에 따라 items에서 해당 운동의 세부 정보를 탐색
-              Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
-                (item) => item['title'] == exercise['name'], 
-                orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
-              );
-              matchedExercise['sets'] = exercise['sets'];
-              matchedExercise['reps'] = exercise['reps'];
-              return matchedExercise;
-            }).toList();
-
-            // 최대 5개 운동
-            workoutRoutines.add(exerciseList.take(5).toList());
-          }
-        }
-
-        setState(() {
-          routines = workoutRoutines; // 각 루틴을 리스트로 저장
-        });
-        _saveRoutinesToPrefs(workoutRoutines);
-      } else {
-        print('응답 데이터가 비어 있습니다.');
-      }
+    _saveRoutinesToPrefs(workoutRoutines);
+    } else {
+      print('응답 데이터가 비어 있습니다.');
+    }
     } else {
       print('추천 실패: ${response.body}');
     }
   }
+
 
   // 사용자 정보 입력 다이얼로그
 void _showUserInfoInputDialog() {
@@ -540,7 +555,11 @@ Future<void> _showTargetAreaSelectionDialog() async {
                   child: ListView.builder(
                     padding: const EdgeInsets.all(16),
                     itemCount: routines.length,
+                    // 루틴 제목 및 추천 이유 표시 부분 수정
                     itemBuilder: (context, index) {
+                      String routineTitle = routines[index][0]['routinetitle'] ?? '루틴 ${index + 1}';
+                      String routineReason = routines[index][0]['routinereason'] ?? '추천 이유 없음';
+
                       return Card(
                         key: ValueKey('루틴 ${index + 1}'),
                         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -549,11 +568,12 @@ Future<void> _showTargetAreaSelectionDialog() async {
                         ),
                         elevation: 4,
                         child: ListTile(
-                          title: Text(
-                            '루틴 ${index + 1}',
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                        title: Text(
+                          routineTitle,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        subtitle: Text(routineReason),
+                        onTap: () => _showWorkoutRoutineDetail(routines[index]),
                         ),
                       );
                     },
