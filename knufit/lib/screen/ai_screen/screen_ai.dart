@@ -101,8 +101,8 @@ Future<void> _sendDataToGPTAPI() async {
           'role': 'system',
           'content': '''You are a fitness expert. Make 3 workout routines.
           You must include only the exercises listed in $exerciseString.
-          Each routine should have a Korean title and a reason for recommendation,
-          And each title and reason should be specific and different for each routine
+          Each routine should have a title and a reason for recommendation written in Korean.
+          And each title and reason should be detailed and different for each routine.
           Each routine should have 4-5 exercises in the following JSON format:
           [
             {"routine": {"title": "Routine Title", "reason": "Reason for recommendation"}, 
