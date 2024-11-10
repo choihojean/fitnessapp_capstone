@@ -412,6 +412,23 @@ class DBHelper {
     return result;
   }
 
+  // 특정 카테고리에 맞는 운동 데이터를 가져오는 메서드
+  Future<List<Map<String, dynamic>>> getTrainingByCategory(String category) async {
+    final db = await database;
+    List<Map<String, dynamic>> result = [];
+    try {
+      result = await db.query(
+        "training",
+        where: "category = ?",
+        whereArgs: [category],
+        orderBy: 'id ASC',
+      );
+    } catch (e) {
+      print('error: $e');
+    }
+    return result;
+  }
+
   // 테이블 단일 데이터 read => (데이터 리턴)
   Future<Map<String, dynamic>> readTraining(int trainingId) async {
     final db = await database;

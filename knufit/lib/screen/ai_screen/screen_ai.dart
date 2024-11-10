@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../training_screen/training_list.dart';
 import '../training_screen/training_detail.dart';
 import '../../exercise_model.dart';
+import '../../database/db_helper.dart';
 
 class WorkoutScreen extends StatefulWidget {
   @override
@@ -20,6 +20,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   List<List<Map<String, String>>> routines = [];
   bool _isLoading = false;
 
+  final DBHelper _dbHelper = DBHelper();
+
   final List<String> _allTargetAreas = ['가슴', '어깨', '승모', '등', '복근', '이두', '삼두', '전완', '둔근', '대퇴사두', '햄스트링', '종아리'];
   final List<String> _goals = ['근력 증가', '다이어트', '유연성 향상'];
 
@@ -33,7 +35,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   Future<void> _saveRoutinesToPrefs(List<List<Map<String, String>>> routines) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> routinesAsJsonString = routines.map((routine) => jsonEncode(routine)).toList();
-    await prefs.setStringList('saved_routines', routinesAsJsonString);
+    await prefs.setStringList('saved_routines', routinesAsJsonString.take(6).toList());
   }
 
   // SharedPreferences에서 저장된 루틴을 불러오는 메서드
@@ -52,17 +54,15 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     }
   }
 
-  // 타겟 부위에 맞는 최소 3개의 운동 리스트를 가져오는 메서드
-  List<Map<String, String>> _getExercisesForTargetArea(String targetArea) {
-    if (targetArea.isEmpty) {
-      return [];
-    }
-    List<Map<String, String>> filteredItems = items
-        .where((item) => item['category'] == targetArea)
-        .toList();
-
-    return filteredItems;
+  // DB에서 타겟 부위에 맞는 운동 리스트 가져오는 메서드
+  Future<List<Exercise>> _getExercisesForTargetAreas() async {
+  List<Exercise> exercisesForTargetAreas = [];
+  for (String area in targetAreas) {
+    List<Map<String, dynamic>> exercisesFromDB = await _dbHelper.getTrainingByCategory(area);
+    exercisesForTargetAreas.addAll(exercisesFromDB.map((exercise) => Exercise.fromJson(exercise)).toList());
   }
+  return exercisesForTargetAreas;
+}
 
   // OpenAI API 호출 메서드 수정
 Future<void> _sendDataToGPTAPI() async {
@@ -78,18 +78,15 @@ Future<void> _sendDataToGPTAPI() async {
     return;
   }
 
-  final url = Uri.parse('https://api.openai.com/v1/chat/completions');
-
-  List<Map<String, String>> exercisesForTargetAreas = targetAreas
-      .expand((area) => _getExercisesForTargetArea(area))
-      .toList();
-
-  String exerciseString = exercisesForTargetAreas.map((exercise) => exercise['title']!).join(", ");
-
+  // DB에서 운동 데이터 가져오기 및 객체 변환
+  List<Exercise> exercisesForTargetAreas = await _getExercisesForTargetAreas();
+  String exerciseString = exercisesForTargetAreas.map((exercise) => exercise.name).join(", ");
+  
   setState(() {
     _isLoading = true;
   });
 
+  final url = Uri.parse('https://api.openai.com/v1/chat/completions');
   final response = await http.post(
     url,
     headers: {
@@ -103,7 +100,7 @@ Future<void> _sendDataToGPTAPI() async {
         {
           'role': 'system',
           'content': '''You are a fitness expert. Make 3 workout routines.
-          You must include only the exercises listed below: $exerciseString.
+          You must include only the exercises listed in $exerciseString.
           Each routine should have a Korean title and a reason for recommendation,
           And each title and reason should be specific and different for each routine
           Each routine should have 4-5 exercises in the following JSON format:
@@ -118,7 +115,7 @@ Future<void> _sendDataToGPTAPI() async {
         },
         {
           'role': 'user',
-          'content': '''I am $age years old, I am $height cm tall, and i weight $weight kg.
+          'content': '''I am $age years old, I am $height cm tall, and i weigh $weight kg.
               The exercise areas are the ${targetAreas.join(", ")}, and the goal is $goal.
               Please recommend 3 workout routines in JSON format.''',
         },
@@ -143,19 +140,39 @@ Future<void> _sendDataToGPTAPI() async {
       String routineReason = routine['routine']['reason'] ?? '루틴 추천 이유';
 
       List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
-        Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
-        (item) => item['title'] == exercise['name'],
-        orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
-      );
-      matchedExercise = {
-        ...matchedExercise,
-        'sets': exercise['sets'],
-        'reps': exercise['reps'],
-        'routinetitle': routineTitle,
-        'routinereason': routineReason,
-      };
-      return matchedExercise;
-    }).toList();
+            Exercise matchedExercise = exercisesForTargetAreas.firstWhere(
+              (item) => item.name == exercise['name'],
+              orElse: () => Exercise(
+                name: '운동 정보를 찾을 수 없습니다',
+                tip: '',
+                category: '',
+                movement: '',
+                precautions: '',
+                gif: '',
+                id: 0,
+                target: '',
+                preparation: '',
+                breathing: '',
+                img: '',
+              ),
+            );
+            return {
+              'name': matchedExercise.name,
+              'sets': exercise['sets'].toString(),
+              'reps': exercise['reps'].toString(),
+              'routinetitle': routineTitle,
+              'routinereason': routineReason,
+              'tip': matchedExercise.tip,
+              'category': matchedExercise.category,
+              'movement': matchedExercise.movement,
+              'precautions': matchedExercise.precautions,
+              'gif': matchedExercise.gif,
+              'target': matchedExercise.target,
+              'preparation': matchedExercise.preparation,
+              'breathing': matchedExercise.breathing,
+              'img': matchedExercise.img,
+            };
+          }).toList();
 
     workoutRoutines.add(exerciseList.take(5).toList());
     }
@@ -327,17 +344,17 @@ Future<void> _showTargetAreaSelectionDialog() async {
               children: workoutRoutine.map((exerciseData) {
                 // `Exercise` 객체로 변환
                 final exercise = Exercise(
-                  name: exerciseData['title'] ?? '운동 이름 없음',
+                  name: exerciseData['name'] ?? '운동 이름 없음',
                   tip: exerciseData['tip'] ?? '',
                   category: exerciseData['category'] ?? '',
                   movement: exerciseData['movement'] ?? '',
                   precautions: exerciseData['precautions'] ?? '',
                   gif: exerciseData['gif'] ?? '',
                   id: int.tryParse(exerciseData['id'] ?? '0') ?? 0,
-                  target: exerciseData['subtitle'] ?? '', //target으로 하면 안나옴.
+                  target: exerciseData['target'] ?? '',
                   preparation: exerciseData['preparation'] ?? '',
                   breathing: exerciseData['breathing'] ?? '',
-                  img: exerciseData['image'] ?? '',
+                  img: exerciseData['img'] ?? '',
                 );
 
                 return GestureDetector(
@@ -356,7 +373,7 @@ Future<void> _showTargetAreaSelectionDialog() async {
                     children: [
                       ListTile(
                         leading: exercise.img.isNotEmpty
-                            ? Image.asset(
+                            ? Image.network(
                                 exercise.img,
                                 width: 100,
                                 height: 100,
