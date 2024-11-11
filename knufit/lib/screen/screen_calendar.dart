@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:knufit/screen/calendar_screen/date_memo_func.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import '../database/db_helper.dart';
-import '../screen/calendar_screen/screen_date_memo.dart';
+import 'calendar_screen/screen_date_memo_create.dart';
+import 'calendar_screen/screen_date_memo_edit.dart';
 
 class ScreenCalendar extends StatefulWidget {
   @override
@@ -19,23 +20,21 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
   DateTime _lastDay = DateTime(DateTime.now().year + 1, DateTime.now().month, DateTime.now().day);
   DateTime? _selectedDay;
 
-  List<Map<String, dynamic>> _memos = [];
-  final DBHelper _dbHelper = DBHelper();
-  
+  List<Map<String, dynamic>> _datememos = [];
 
   @override
   void initState() {
     super.initState();
     initializeDateFormatting(); // Initialize date formatting for the locale
-
-    _loadAllMemos();
+    readDateMemosAllClient(widget.user["id"]);
   }
 
-  Future<void> _loadAllMemos() async {
-    final memos = await _dbHelper.getAllMemos(); // 모든 메모를 가져오는 함수 호출
+  Future<void> readDateMemosAllClient(int userId) async {
+    final tempDateMemos = await readDateMemosAllServer(userId);
     setState(() {
-      _memos = memos;
+      _datememos = tempDateMemos;
     });
+    print("datememos update!");
   }
 
   void _showBottomSheet(BuildContext context, DateTime selectedDay) {
@@ -55,27 +54,21 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
               SizedBox(height: 10),
               ListTile(
                 leading: Icon(Icons.note_add, color: Colors.orange),
-                title: Text('메모 작성', style: TextStyle(color: Colors.grey)),
+                title: Text(
+                  '메모 작성', style: TextStyle(color: Colors.grey)
+                ),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DateMemoPage(date: selectedDay),
+                      builder: (context) => DateMemoCreatePage(user: widget.user, date: selectedDay),
                     ),
                   ).then((_) {
-                    _loadAllMemos(); // 메모 작성 후 모든 메모 목록을 갱신합니다.
+                    readDateMemosAllClient(widget.user["id"]); // 메모 작성 후 모든 메모 목록을 갱신합니다.
                   });
                 },
-              ),
-              ListTile(
-                leading: Icon(Icons.fitness_center, color: Colors.orange),
-                title: Text('운동 기록', style: TextStyle(color: Colors.grey)),
-                onTap: () {
-                  Navigator.pop(context);
-                  // 운동 기록 페이지로 이동하는 코드 추가
-                },
-              ),
+              )
             ],
           ),
         );
@@ -106,18 +99,18 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
   Widget _buildMemoList() {
     return Expanded(
       child: ListView.builder(
-        itemCount: _memos.length,
+        itemCount: _datememos.length,
         itemBuilder: (context, index) {
-          final memo = _memos[index];
+          final datememo = _datememos[index];
           return GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DateMemoPage(date: DateTime.parse(memo['date'])),
+                  builder: (context) => DateMemoEditPage(datememo: datememo),
                 ),
               ).then((_) {
-                _loadAllMemos(); // 메모 작성 후 모든 메모 목록을 갱신합니다.
+                readDateMemosAllClient(widget.user["id"]); // 메모 작성 후 모든 메모 목록을 갱신합니다.
               });
             },
             child: Padding(
@@ -137,7 +130,7 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        memo['date'],
+                        datememo['datetime'],
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.white70,
@@ -146,7 +139,7 @@ class _ScreenCalendarState extends State<ScreenCalendar> {
                       SizedBox(height: 8),
                       Center(
                         child: Text(
-                          memo['title'],
+                          datememo['title'],
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.normal,
