@@ -53,8 +53,10 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _checkLoginStatus() async {
-    var user = await AuthHelper.getUserSession(); // auth_helper.dart
+    // 사용자 세션 정보 확인
+    var user = await AuthHelper.getUserSession();
     if (user != null) {
+      // 세션이 존재하면 HomeScreen으로 이동
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -62,6 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       );
     } else {
+      // 세션이 없으면 WelcomePage로 이동
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

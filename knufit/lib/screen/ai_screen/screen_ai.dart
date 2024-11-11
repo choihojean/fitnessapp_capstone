@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../training_screen/training_list.dart';
 import '../training_screen/training_detail.dart';
 import '../../exercise_model.dart';
+import '../../database/db_helper.dart';
 
 class WorkoutScreen extends StatefulWidget {
   @override
@@ -15,12 +15,27 @@ class WorkoutScreen extends StatefulWidget {
 class _WorkoutScreenState extends State<WorkoutScreen> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age;
-  List<String> targetAreas = []; // 여러 운동 부위를 저장할 리스트
+  List<String> targetAreas = []; //사용자가 선택한 운동 부위를 저장할 리스트
   String? goal;
-  List<List<Map<String, String>>> routines = [];
+  List<List<Map<String, String>>> routines = []; //AI가 추천한 운동 루틴 목록을 저장할 리스트
   bool _isLoading = false;
 
-  final List<String> _allTargetAreas = ['가슴', '어깨', '승모', '등', '복근', '이두', '삼두', '전완', '둔근', '대퇴사두', '햄스트링', '종아리'];
+  final DBHelper _dbHelper = DBHelper();
+
+  final List<String> _allTargetAreas = [
+    '가슴',
+    '어깨',
+    '승모',
+    '등',
+    '복근',
+    '이두',
+    '삼두',
+    '전완',
+    '둔근',
+    '대퇴사두',
+    '햄스트링',
+    '종아리'
+  ];
   final List<String> _goals = ['근력 증가', '다이어트', '유연성 향상'];
 
   @override
@@ -29,37 +44,46 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     _loadSavedRoutines();
   }
 
+  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
+  Future<void> _saveRoutinesToPrefs(
+      List<List<Map<String, String>>> routines) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> routinesAsJsonString =
+        routines.map((routine) => jsonEncode(routine)).toList();
+    await prefs.setStringList(
+        'saved_routines', routinesAsJsonString.take(6).toList());
+  }
+
   // SharedPreferences에서 저장된 루틴을 불러오는 메서드
   Future<void> _loadSavedRoutines() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? savedRoutines = prefs.getStringList('saved_routines');
     if (savedRoutines != null) {
       setState(() {
-        routines = savedRoutines.map((routine) => routine.split(', ').map((e) => {'title': e}).toList()).toList();
+        routines = savedRoutines.map((routine) {
+          List<dynamic> decodedRoutine = jsonDecode(routine);
+          return decodedRoutine.map<Map<String, String>>((exercise) {
+            return Map<String, String>.from(exercise as Map);
+          }).toList();
+        }).toList();
       });
     }
   }
 
-  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
-  Future<void> _saveRoutinesToPrefs(List<List<Map<String, String>>> routines) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> routinesAsString = routines.map((routine) => routine.map((e) => e['title']!).join(', ')).toList();
-    await prefs.setStringList('saved_routines', routinesAsString);
-  }
-
-  // 타겟 부위에 맞는 최소 3개의 운동 리스트를 가져오는 메서드
-  List<Map<String, String>> _getExercisesForTargetArea(String targetArea) {
-    if (targetArea.isEmpty) {
-      return [];
+  //DB에서 사용자가 선택한 운동 부위에 맞는 운동 리스트를 가져오는 메서드
+  Future<List<Exercise>> _getExercisesForTargetAreas() async {
+    List<Exercise> exercisesForTargetAreas = [];
+    for (String area in targetAreas) {
+      List<Map<String, dynamic>> exercisesFromDB =
+          await _dbHelper.getTrainingByCategory(area);
+      exercisesForTargetAreas.addAll(exercisesFromDB
+          .map((exercise) => Exercise.fromJson(exercise))
+          .toList());
     }
-    List<Map<String, String>> filteredItems = items
-        .where((item) => item['category'] == targetArea)
-        .toList();
-
-    return filteredItems;
+    return exercisesForTargetAreas;
   }
 
-  // OpenAI API 호출 메서드
+  //OpenAI API를 호출하여 운동 루틴을 추천받는 메서드
   Future<void> _sendDataToGPTAPI() async {
     final apiKey = dotenv.env['OPENAI_API_KEY'];
 
@@ -68,24 +92,26 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       return;
     }
 
-    if (height == null || weight == null || age == null || targetAreas.isEmpty || goal == null) {
+    if (height == null ||
+        weight == null ||
+        age == null ||
+        targetAreas.isEmpty ||
+        goal == null) {
       print('모든 필드를 입력해주세요.');
       return;
     }
 
-    final url = Uri.parse('https://api.openai.com/v1/chat/completions');
-
-    // 여러 선택된 운동 부위의 운동을 가져옴
-    List<Map<String, String>> exercisesForTargetAreas = targetAreas
-        .expand((area) => _getExercisesForTargetArea(area))
-        .toList();
-
-    String exerciseString = exercisesForTargetAreas.map((exercise) => exercise['title']!).join(", ");
+    //DB에서 운동 데이터를 가져와 문자열로 변환
+    List<Exercise> exercisesForTargetAreas =
+        await _getExercisesForTargetAreas();
+    String exerciseString =
+        exercisesForTargetAreas.map((exercise) => exercise.name).join(", ");
 
     setState(() {
       _isLoading = true;
     });
 
+    final url = Uri.parse('https://api.openai.com/v1/chat/completions');
     final response = await http.post(
       url,
       headers: {
@@ -94,15 +120,31 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       },
       body: jsonEncode({
         'model': 'gpt-3.5-turbo',
+        'n': 2, // n파라미터 추가
         'messages': [
           {
             'role': 'system',
-            'content': 'You are a fitness expert. Please create 3 workout routines. Each routine should have at least 3 exercises in the following JSON format: [{"routine": 1, "exercises": [{"name": "exercise1", "sets": "3", "reps": "12"}, {"name": "exercise2", "sets": "4", "reps": "10"}]}, {...}, {...}]. Here is the list of exercises to include: $exerciseString.',
+            'content': '''You are a fitness expert. Make 3 workout routines.
+            Only use the exercises listed in $exerciseString.
+            Each routine should have a descriptive and unique Korean title and a specific reason for recommendation written in Korean.
+            Titles should vary significantly from each other, avoiding simple names like '근력 증가 루틴1'.
+            Each title should be detailed and may include specifics such as the workout's intensity, a particular focus (e.g., upper back development or endurance), or who would benefit most from this routine.
+            Each routine should have 4-5 exercises in the following JSON format:
+            [
+              {"routine": {"title": "Unique and descriptive title", "reason": "Specific reason for recommendation"}, 
+                "exercises": [
+                  {"name": "exercise1", "sets": "3", "reps": "12"},
+                  {"name": "exercise2", "sets": "4", "reps": "10"}
+                ]
+              }, {...}, {...}
+            ]''',
           },
           {
             'role': 'user',
-            'content': '저는 $age살이고, 키는 $height cm이며, 몸무게는 $weight kg입니다. '
-                '운동 부위는 ${targetAreas.join(", ")}이며, 목표는 $goal입니다. 3개의 루틴을 JSON 형태로 추천해주세요.',
+            'content':
+                '''I am $age years old, I am $height cm tall, and i weigh $weight kg.
+                The exercise areas are the ${targetAreas.join(", ")}, and the goal is $goal.
+                Please recommend 3 workout routines in JSON format with unique and descriptive titles and reasons.''',
           },
         ],
       }),
@@ -114,35 +156,61 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
+
       if (data != null) {
-        List<dynamic> routinesData = jsonDecode(data['choices'][0]['message']['content']);
-        List<List<Map<String, String>>> workoutRoutines = routinesData.map((routine) {
-          List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
-            // 운동명에 따라 items에서 해당 운동의 세부 정보를 찾습니다.
-            Map<String, String> matchedExercise = exercisesForTargetAreas.firstWhere(
-              (item) => item['title'] == exercise['name'], 
-              orElse: () => {'title': '운동 정보를 찾을 수 없습니다'}
-            );
-            matchedExercise['sets'] = exercise['sets'];
-            matchedExercise['reps'] = exercise['reps'];
-            return matchedExercise;
-          }).toList();
+        List<List<Map<String, String>>> workoutRoutines = [];//추천 운동 루틴을 저장할 리스트
+        
+        for (var choice in data['choices']) {
+          List<dynamic> routinesData = jsonDecode(choice['message']['content']);
 
-          if (exerciseList.length < 3) {
-            List<Map<String, String>> additionalExercises = exercisesForTargetAreas
-                .where((exercise) => !exerciseList.contains(exercise))
-                .take(3 - exerciseList.length)
-                .toList();
-            exerciseList.addAll(additionalExercises);
+          for (var routine in routinesData) {
+            String routineTitle =
+                routine['routine']['title'] ?? '$targetAreas 루틴';
+            String routineReason = routine['routine']['reason'] ?? '루틴 추천 이유';
+
+            List<Map<String, String>> exerciseList =
+                (routine['exercises'] as List<dynamic>).map((exercise) {
+              Exercise matchedExercise = exercisesForTargetAreas.firstWhere(
+                (item) => item.name == exercise['name'],
+                orElse: () => Exercise(
+                  name: '운동 정보를 찾을 수 없습니다',
+                  tip: '',
+                  category: '',
+                  movement: '',
+                  precautions: '',
+                  gif: '',
+                  id: 0,
+                  target: '',
+                  preparation: '',
+                  breathing: '',
+                  img: '',
+                ),
+              );
+              return {
+                'name': matchedExercise.name,
+                'sets': exercise['sets'].toString(),
+                'reps': exercise['reps'].toString(),
+                'routinetitle': routineTitle,
+                'routinereason': routineReason,
+                'tip': matchedExercise.tip,
+                'category': matchedExercise.category,
+                'movement': matchedExercise.movement,
+                'precautions': matchedExercise.precautions,
+                'gif': matchedExercise.gif,
+                'target': matchedExercise.target,
+                'preparation': matchedExercise.preparation,
+                'breathing': matchedExercise.breathing,
+                'img': matchedExercise.img,
+              };
+            }).toList();
+            workoutRoutines.add(exerciseList.take(5).toList()); //각 루틴에 최대 5개의 운동만 추가
           }
-
-          return exerciseList;
-        }).toList();
+        }
 
         setState(() {
           routines = workoutRoutines;
         });
-        _saveRoutinesToPrefs(workoutRoutines);
+        _saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
       } else {
         print('응답 데이터가 비어 있습니다.');
       }
@@ -151,370 +219,233 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     }
   }
 
-  // 사용자 정보 입력 다이얼로그
-void _showUserInfoInputDialog() {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('사용자 정보 입력'),
-        content: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: '키 (cm)'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '키를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => height = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '몸무게 (kg)'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '몸무게를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => weight = value,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: '나이'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '나이를 입력해주세요';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) => age = value,
-                ),
-                DropdownButtonFormField<String>(
-                  value: goal,
-                  items: _goals.map((goalItem) {
-                    return DropdownMenuItem(
-                      value: goalItem,
-                      child: Text(goalItem),
-                    );
-                  }).toList(),
-                  decoration: InputDecoration(labelText: '목표'),
-                  onChanged: (value) {
-                    goal = value;
-                  },
-                  validator: (value) => value == null ? '목표를 선택해주세요' : null,
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    await _showTargetAreaSelectionDialog();
-                    Navigator.of(context).pop(); // 기존 다이얼로그 닫기
-                    _showUserInfoInputDialog();  // 변경된 내용으로 다이얼로그 다시 열기
-                  },
-                  child: Text(targetAreas.isEmpty ? '운동 부위 선택' : '선택된 부위: ${targetAreas.join(", ")}'),
-                ),
-              ],
+  //사용자 정보 입력 다이얼로그
+  void _showUserInfoInputDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('사용자 정보 입력'),
+          content: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '키 (cm)'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '키를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => height = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '몸무게 (kg)'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '몸무게를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => weight = value,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: '나이'),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '나이를 입력해주세요';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) => age = value,
+                  ),
+                  DropdownButtonFormField<String>(
+                    value: goal,
+                    items: _goals.map((goalItem) {
+                      return DropdownMenuItem(
+                        value: goalItem,
+                        child: Text(goalItem),
+                      );
+                    }).toList(),
+                    decoration: InputDecoration(labelText: '목표'),
+                    onChanged: (value) {
+                      goal = value;
+                    },
+                    validator: (value) => value == null ? '목표를 선택해주세요' : null,
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await _showTargetAreaSelectionDialog();
+                      Navigator.of(context).pop(); // 기존 다이얼로그 닫기
+                      _showUserInfoInputDialog(); // 변경된 내용으로 다이얼로그 다시 열기
+                    },
+                    child: Text(targetAreas.isEmpty
+                        ? '운동 부위 선택'
+                        : '선택된 부위: ${targetAreas.join(", ")}'),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () async {
-              if (_formKey.currentState!.validate()) {
-                Navigator.of(context).pop();
-                await _sendDataToGPTAPI();
-              }
-            },
-            child: Text('추천 받기'),
-          ),
-        ],
-      );
-    },
-  );
-}
+          actions: [
+            TextButton(
+              onPressed: () async {
+                if (_formKey.currentState!.validate()) {
+                  Navigator.of(context).pop();
+                  await _sendDataToGPTAPI();
+                }
+              },
+              child: Text('추천 받기'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-// 운동 부위 선택을 위한 다중 선택 다이얼로그
-Future<void> _showTargetAreaSelectionDialog() async {
-  final List<String> selectedAreas = List.from(targetAreas); // 기존 선택 항목 복사
-  await showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return StatefulBuilder(
-        builder: (context, setState) {
-          return AlertDialog(
-            title: Text("운동 부위 선택"),
-            content: SingleChildScrollView(
+  //사용자가 여러 운동 부위를 선택할 수 있는 다이얼로그 표시 메서드
+  Future<void> _showTargetAreaSelectionDialog() async {
+    final List<String> selectedAreas = List.from(targetAreas); // 기존 선택 항목 복사
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Text("운동 부위 선택"),
+              content: SingleChildScrollView(
+                child: Column(
+                  children: _allTargetAreas.map((area) {
+                    return CheckboxListTile(
+                      title: Text(area),
+                      value: selectedAreas.contains(area),
+                      onChanged: (isChecked) {
+                        setState(() {
+                          if (isChecked ?? false) {
+                            selectedAreas.add(area);
+                          } else {
+                            selectedAreas.remove(area);
+                          }
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(selectedAreas); //선택 항목 반환
+                  },
+                  child: Text("확인"),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    ).then((updatedAreas) {
+      if (updatedAreas != null) {
+        setState(() {
+          targetAreas = updatedAreas; //선택 항목 반영
+        });
+      }
+    });
+  }
+
+  //루틴의 상세 내용을 다이얼로그로 표시
+  void _showWorkoutRoutineDetail(List<Map<String, String>> workoutRoutine) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Column(
-                children: _allTargetAreas.map((area) {
-                  return CheckboxListTile(
-                    title: Text(area),
-                    value: selectedAreas.contains(area),
-                    onChanged: (isChecked) {
-                      setState(() {
-                        if (isChecked ?? false) {
-                          selectedAreas.add(area);
-                        } else {
-                          selectedAreas.remove(area);
-                        }
-                      });
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: workoutRoutine.map((exerciseData) {
+                  // `Exercise` 객체로 변환
+                  final exercise = Exercise(
+                    name: exerciseData['name'] ?? '운동 이름 없음',
+                    tip: exerciseData['tip'] ?? '',
+                    category: exerciseData['category'] ?? '',
+                    movement: exerciseData['movement'] ?? '',
+                    precautions: exerciseData['precautions'] ?? '',
+                    gif: exerciseData['gif'] ?? '',
+                    id: int.tryParse(exerciseData['id'] ?? '0') ?? 0,
+                    target: exerciseData['target'] ?? '',
+                    preparation: exerciseData['preparation'] ?? '',
+                    breathing: exerciseData['breathing'] ?? '',
+                    img: exerciseData['img'] ?? '',
+                  );
+
+                  return GestureDetector(
+                    onTap: () {
+                      // `Exercise` 객체의 `toJson()`을 사용해 `TrainingDetail`로 전달
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => TrainingDetail(
+                            exercise: exercise.toJson(),
+                          ),
+                        ),
+                      );
                     },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          leading: exercise.img.isNotEmpty
+                              ? Image.network(
+                                  exercise.img,
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.contain,
+                                )
+                              : Icon(Icons.fitness_center),
+                          title: Text(
+                            exercise.name,
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                exercise.target,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700]),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                '세트: ${exerciseData['sets'] ?? 'N/A'} 세트, 반복: ${exerciseData['reps'] ?? 'N/A'} 회',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black.withOpacity(0.8),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(),
+                      ],
+                    ),
                   );
                 }).toList(),
               ),
             ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(selectedAreas); // 선택 항목 반환
-                },
-                child: Text("확인"),
-              ),
-            ],
-          );
-        },
-      );
-    },
-  ).then((updatedAreas) {
-    if (updatedAreas != null) {
-      setState(() {
-        targetAreas = updatedAreas; // 선택 항목 반영
-      });
-    }
-  });
-}
-
-  // 루틴의 상세 내용을 다이얼로그로 표시
-  void _showWorkoutRoutineDetail(List<Map<String, String>> workoutRoutine) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: workoutRoutine.map((exerciseData) {
-                // `Exercise` 객체로 변환
-                final exercise = Exercise(
-                  name: exerciseData['title'] ?? '운동 이름 없음',
-                  tip: exerciseData['tip'] ?? '',
-                  category: exerciseData['category'] ?? '',
-                  movement: exerciseData['movement'] ?? '',
-                  precautions: exerciseData['precautions'] ?? '',
-                  gif: exerciseData['gif'] ?? '',
-                  id: int.tryParse(exerciseData['id'] ?? '0') ?? 0,
-                  target: exerciseData['subtitle'] ?? '', //target으로 하면 안나옴.
-                  preparation: exerciseData['preparation'] ?? '',
-                  breathing: exerciseData['breathing'] ?? '',
-                  img: exerciseData['image'] ?? '',
-                );
-
-                return GestureDetector(
-                  onTap: () {
-                    // `Exercise` 객체의 `toJson()`을 사용해 `TrainingDetail`로 전달
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => TrainingDetail(
-                          exercise: exercise.toJson(),
-                        ),
-                      ),
-                    );
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ListTile(
-                        leading: exercise.img.isNotEmpty
-                            ? Image.asset(
-                                exercise.img,
-                                width: 100,
-                                height: 100,
-                                fit: BoxFit.contain,
-                              )
-                            : Icon(Icons.fitness_center),
-                        title: Text(
-                          exercise.name,
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              exercise.target,
-                              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '세트: ${exerciseData['sets'] ?? 'N/A'} 세트, 반복: ${exerciseData['reps'] ?? 'N/A'} 회',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black.withOpacity(0.8),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
           ),
-        ),
-      );
-    },
-  );
-}
-
-  // 재사용 가능한 UI 컴포넌트
-  Widget _buildCardSection({required String title, required String content, required IconData icon}) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(icon, color: Colors.orange),
-                SizedBox(width: 8),
-                Text(
-                  title,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Text(
-              content,
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildExerciseDetailsSection({
-    required List<String> preparation,
-    required List<String> movement,
-    required String breathing,
-  }) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(Icons.description, color: Colors.orange),
-                SizedBox(width: 8),
-                Text(
-                  "운동 설명",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            _buildSectionTitle("준비"),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: List.generate(preparation.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    '${index + 1}. ${preparation[index]}',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: 16),
-            _buildSectionTitle("움직임"),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: List.generate(movement.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    '${index + 1}. ${movement[index]}',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: 16),
-            _buildSectionTitle("호흡법"),
-            Text(breathing, style: TextStyle(fontSize: 16)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Text(
-      '- $title',
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-    );
-  }
-
-  Widget _buildOrderedListSection({required String title, required List<String> items, required IconData icon}) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(icon, color: Colors.orange),
-                SizedBox(width: 8),
-                Text(
-                  title,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: List.generate(items.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    '${index + 1}. ${items[index]}',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                );
-              }),
-            ),
-          ],
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -532,7 +463,14 @@ Future<void> _showTargetAreaSelectionDialog() async {
                   child: ListView.builder(
                     padding: const EdgeInsets.all(16),
                     itemCount: routines.length,
+                    // 루틴 제목 및 추천 이유 표시 부분 수정
                     itemBuilder: (context, index) {
+                      String routineTitle = routines[index][0]
+                              ['routinetitle'] ??
+                          '루틴 ${index + 1}';
+                      String routineReason =
+                          routines[index][0]['routinereason'] ?? '추천 이유 없음';
+
                       return Card(
                         key: ValueKey('루틴 ${index + 1}'),
                         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -542,10 +480,12 @@ Future<void> _showTargetAreaSelectionDialog() async {
                         elevation: 4,
                         child: ListTile(
                           title: Text(
-                            '루틴 ${index + 1}',
+                            routineTitle,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
-                          onTap: () => _showWorkoutRoutineDetail(routines[index]),
+                          subtitle: Text(routineReason),
+                          onTap: () =>
+                              _showWorkoutRoutineDetail(routines[index]),
                         ),
                       );
                     },
