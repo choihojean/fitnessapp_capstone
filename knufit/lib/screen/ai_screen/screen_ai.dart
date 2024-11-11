@@ -15,9 +15,9 @@ class WorkoutScreen extends StatefulWidget {
 class _WorkoutScreenState extends State<WorkoutScreen> {
   final _formKey = GlobalKey<FormState>();
   String? height, weight, age;
-  List<String> targetAreas = []; // 여러 운동 부위를 저장할 리스트
+  List<String> targetAreas = []; //사용자가 선택한 운동 부위를 저장할 리스트
   String? goal;
-  List<List<Map<String, String>>> routines = [];
+  List<List<Map<String, String>>> routines = []; //AI가 추천한 운동 루틴 목록을 저장할 리스트
   bool _isLoading = false;
 
   final DBHelper _dbHelper = DBHelper();
@@ -70,7 +70,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     }
   }
 
-  // DB에서 타겟 부위에 맞는 운동 리스트 가져오는 메서드
+  //DB에서 사용자가 선택한 운동 부위에 맞는 운동 리스트를 가져오는 메서드
   Future<List<Exercise>> _getExercisesForTargetAreas() async {
     List<Exercise> exercisesForTargetAreas = [];
     for (String area in targetAreas) {
@@ -83,7 +83,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     return exercisesForTargetAreas;
   }
 
-  // OpenAI API 호출 메서드 수정
+  //OpenAI API를 호출하여 운동 루틴을 추천받는 메서드
   Future<void> _sendDataToGPTAPI() async {
     final apiKey = dotenv.env['OPENAI_API_KEY'];
 
@@ -101,7 +101,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       return;
     }
 
-    // DB에서 운동 데이터 가져오기 및 객체 변환
+    //DB에서 운동 데이터를 가져와 문자열로 변환
     List<Exercise> exercisesForTargetAreas =
         await _getExercisesForTargetAreas();
     String exerciseString =
@@ -157,8 +157,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       final data = jsonDecode(utf8.decode(response.bodyBytes));
 
       if (data != null) {
-        List<List<Map<String, String>>> workoutRoutines = [];
-
+        List<List<Map<String, String>>> workoutRoutines = [];//추천 운동 루틴을 저장할 리스트
+        
         for (var choice in data['choices']) {
           List<dynamic> routinesData = jsonDecode(choice['message']['content']);
 
@@ -202,14 +202,14 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 'img': matchedExercise.img,
               };
             }).toList();
-            workoutRoutines.add(exerciseList.take(5).toList());
+            workoutRoutines.add(exerciseList.take(5).toList()); //각 루틴에 최대 5개의 운동만 추가
           }
         }
 
         setState(() {
           routines = workoutRoutines;
         });
-        _saveRoutinesToPrefs(workoutRoutines);
+        _saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
       } else {
         print('응답 데이터가 비어 있습니다.');
       }
@@ -218,7 +218,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     }
   }
 
-  // 사용자 정보 입력 다이얼로그
+  //사용자 정보 입력 다이얼로그
   void _showUserInfoInputDialog() {
     showDialog(
       context: context,
@@ -308,7 +308,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     );
   }
 
-  // 운동 부위 선택을 위한 다중 선택 다이얼로그
+  //사용자가 여러 운동 부위를 선택할 수 있는 다이얼로그 표시 메서드
   Future<void> _showTargetAreaSelectionDialog() async {
     final List<String> selectedAreas = List.from(targetAreas); // 기존 선택 항목 복사
     await showDialog(
@@ -340,7 +340,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop(selectedAreas); // 선택 항목 반환
+                    Navigator.of(context).pop(selectedAreas); //선택 항목 반환
                   },
                   child: Text("확인"),
                 ),
@@ -352,13 +352,13 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     ).then((updatedAreas) {
       if (updatedAreas != null) {
         setState(() {
-          targetAreas = updatedAreas; // 선택 항목 반영
+          targetAreas = updatedAreas; //선택 항목 반영
         });
       }
     });
   }
 
-  // 루틴의 상세 내용을 다이얼로그로 표시
+  //루틴의 상세 내용을 다이얼로그로 표시
   void _showWorkoutRoutineDetail(List<Map<String, String>> workoutRoutine) {
     showDialog(
       context: context,
