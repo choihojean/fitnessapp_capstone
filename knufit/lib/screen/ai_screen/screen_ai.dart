@@ -125,12 +125,13 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           {
             'role': 'system',
             'content': '''You are a fitness expert. Make 3 workout routines.
-            You must include only the exercises listed in $exerciseString.
-            Each routine should have a title and a reason for recommendation written in Korean.
-            And each title and reason should be detailed and different for each routine.
+            Only use the exercises listed in $exerciseString.
+            Each routine should have a descriptive and unique Korean title and a specific reason for recommendation written in Korean.
+            Titles should vary significantly from each other, avoiding simple names like '근력 증가 루틴1'.
+            Each title should be detailed and may include specifics such as the workout's intensity, a particular focus (e.g., upper back development or endurance), or who would benefit most from this routine.
             Each routine should have 4-5 exercises in the following JSON format:
             [
-              {"routine": {"title": "Routine Title", "reason": "Reason for recommendation"}, 
+              {"routine": {"title": "Unique and descriptive title", "reason": "Specific reason for recommendation"}, 
                 "exercises": [
                   {"name": "exercise1", "sets": "3", "reps": "12"},
                   {"name": "exercise2", "sets": "4", "reps": "10"}
@@ -143,7 +144,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             'content':
                 '''I am $age years old, I am $height cm tall, and i weigh $weight kg.
                 The exercise areas are the ${targetAreas.join(", ")}, and the goal is $goal.
-                Please recommend 3 workout routines in JSON format.''',
+                Please recommend 3 workout routines in JSON format with unique and descriptive titles and reasons.''',
           },
         ],
       }),
