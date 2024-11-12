@@ -16,7 +16,7 @@ Future<String> typeDateToString(DateTime date) async{
 // datememo 전체 read
 Future<List<Map<String, dynamic>>> readDateMemosAllServer(int userId) async {
   List<Map<String, dynamic>> datememos = [];
-  final uri = Uri.http('13.208.207.68:80', '/datememo', {"userid" : userId.toString()});
+  final uri = Uri.http('$serverIP', '/datememo', {"userid" : userId.toString()});
   //final userIdStr = userId.toString();
   try {
     final response = await http.get(uri);
@@ -33,7 +33,7 @@ Future<List<Map<String, dynamic>>> readDateMemosAllServer(int userId) async {
 
 // datememo create
 Future<void> createDateMemo(int userId, DateTime date, String title, String content) async {
-  final uri = Uri.http('13.208.207.68:80', '/datememo');
+  final uri = Uri.http('$serverIP', '/datememo');
   //final uri = Uri.parse('$serverIP/datememo');
   final dateStr = await typeDateToString(date);
   print('$userId == $date == $title == $content');
@@ -57,7 +57,7 @@ Future<void> createDateMemo(int userId, DateTime date, String title, String cont
 
 // datememo update
 Future<void> updateDateMemo(Map<String, dynamic> dateMemo, String title, String content) async {
-  final uri = Uri.http('13.208.207.68:80', '/datememo');
+  final uri = Uri.http('$serverIP', '/datememo');
   //final uri = Uri.parse('$serverIP/datememo');
   if(title.isEmpty) title = dateMemo["datetime"];
   try {
@@ -79,7 +79,7 @@ Future<void> updateDateMemo(Map<String, dynamic> dateMemo, String title, String 
 
 // datememo delete
 Future<void> deleteDateMemo(int dateMemoId, int userId) async {
-  final uri = Uri.http('13.208.207.68:80', '/datememo', {"id" : dateMemoId.toString(), "userid" : userId.toString()});
+  final uri = Uri.http('$serverIP', '/datememo', {"id" : dateMemoId.toString(), "userid" : userId.toString()});
   //final uri = Uri.parse('$serverIP/datememo?id=$dateMemoId&userid=$userId');
   try {
     final response = await http.delete(uri);
