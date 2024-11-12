@@ -111,8 +111,10 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     if(exerciseCount != 0) {
       if(await loadTrainingCount(exerciseCount)) { // 내부db O, 크기 같음
         List<Map<String, dynamic>> tempExercises1 = await _dbTraining.readTrainingAll();
-        _exercises = tempExercises1.map((exercise) => Exercise.fromJson(exercise)).toList();
-        _isLoading = false;
+        setState(() {
+          _exercises = tempExercises1.map((exercise) => Exercise.fromJson(exercise)).toList();
+          _isLoading = false;
+        });
         return;
       }
       else { // 내부db O, 크기 다름
@@ -122,10 +124,14 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
     if(await loadTrainingToServer()) { // 서버에서 데이터 로드 성공
       List<Map<String, dynamic>> tempExercises2 = _exercises.map((exercise) => exercise.toJson()).toList();
       await _dbTraining.createTraining(tempExercises2);
-      _isLoading = false;
+      setState(() {
+        _isLoading = false;
+      });
       return;
     }
-    _isLoading = false;
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   // 루틴에 운동 추가 메서드 완성
