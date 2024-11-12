@@ -8,12 +8,7 @@ class AuthHelper {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // 사용자 인증 정보 삭제
-    await prefs.remove('user_id');
-    await prefs.remove('user_email');
-    await prefs.remove('user_password');
-    await prefs.remove('user_name');
-    await prefs.remove('user_profile_img');
-    await prefs.remove('user_updated_at');
+    await prefs.clear();
 
     // 로그아웃 후 초기 화면으로 이동
     Navigator.pushReplacement(

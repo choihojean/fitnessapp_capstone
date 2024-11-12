@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../training_screen/training_detail.dart';
@@ -40,6 +41,33 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   @override
   void initState() {
     super.initState();
+    _loadSavedRoutines();
+  }
+
+  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
+  Future<void> _saveRoutinesToPrefs(
+      List<List<Map<String, String>>> routines) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> routinesAsJsonString =
+        routines.map((routine) => jsonEncode(routine)).toList();
+    await prefs.setStringList(
+        'saved_routines', routinesAsJsonString.take(6).toList());
+  }
+
+  // SharedPreferences에서 저장된 루틴을 불러오는 메서드
+  Future<void> _loadSavedRoutines() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? savedRoutines = prefs.getStringList('saved_routines');
+    if (savedRoutines != null) {
+      setState(() {
+        routines = savedRoutines.map((routine) {
+          List<dynamic> decodedRoutine = jsonDecode(routine);
+          return decodedRoutine.map<Map<String, String>>((exercise) {
+            return Map<String, String>.from(exercise as Map);
+          }).toList();
+        }).toList();
+      });
+    }
   }
 
 
@@ -182,6 +210,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         setState(() {
           routines = workoutRoutines;
         });
+      _saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
       } else {
         print('응답 데이터가 비어 있습니다.');
       }
@@ -278,6 +307,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         );
       },
     );
+    
   }
 
   //사용자가 여러 운동 부위를 선택할 수 있는 다이얼로그 표시 메서드
@@ -478,36 +508,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
 
 
 
-  // // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
-  // Future<void> _saveRoutinesToPrefs(
-  //     List<List<Map<String, String>>> routines) async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   List<String> routinesAsJsonString =
-  //       routines.map((routine) => jsonEncode(routine)).toList();
-  //   await prefs.setStringList(
-  //       'saved_routines', routinesAsJsonString.take(6).toList());
-  // }
+  
 
-  // // SharedPreferences에서 저장된 루틴을 불러오는 메서드
-  // Future<void> _loadSavedRoutines() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   List<String>? savedRoutines = prefs.getStringList('saved_routines');
-  //   if (savedRoutines != null) {
-  //     setState(() {
-  //       routines = savedRoutines.map((routine) {
-  //         List<dynamic> decodedRoutine = jsonDecode(routine);
-  //         return decodedRoutine.map<Map<String, String>>((exercise) {
-  //           return Map<String, String>.from(exercise as Map);
-  //         }).toList();
-  //       }).toList();
-  //     });
-  //   }
-  // }
-
-  // //_saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
-  //     } else {
-  //       print('응답 데이터가 비어 있습니다.');
-  //     }
-  //   } else {
-  //     print('추천 실패: ${response.body}');
-  //   }
+  
