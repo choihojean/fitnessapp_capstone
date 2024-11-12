@@ -183,42 +183,42 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
       appBar: AppBar(
         title: Text('${widget.tableName}'),
         actions: [
-          IconButton(
-            icon: Icon(Icons.save),
-            onPressed: () {
-              // 저장 버튼의 기능을 구현하세요 (예: 전체 메모 저장 등)
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () async {
-              bool? confirmed = await showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text('루틴 삭제'),
-                    content: Text('이 루틴을 정말 삭제하시겠습니까?'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(false),
-                        child: Text('취소'),
-                      ),
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(true),
-                        child: Text('삭제'),
-                      ),
-                    ],
-                  );
-                },
-              );
+          // IconButton(
+          //   icon: Icon(Icons.save),
+          //   onPressed: () {
+          //     // 저장 버튼의 기능을 구현하세요 (예: 전체 메모 저장 등)
+          //   },
+          // ),
+          // IconButton(
+          //   icon: Icon(Icons.delete),
+          //   onPressed: () async {
+          //     bool? confirmed = await showDialog(
+          //       context: context,
+          //       builder: (context) {
+          //         return AlertDialog(
+          //           title: Text('루틴 삭제'),
+          //           content: Text('이 루틴을 정말 삭제하시겠습니까?'),
+          //           actions: [
+          //             TextButton(
+          //               onPressed: () => Navigator.of(context).pop(false),
+          //               child: Text('취소'),
+          //             ),
+          //             TextButton(
+          //               onPressed: () => Navigator.of(context).pop(true),
+          //               child: Text('삭제'),
+          //             ),
+          //           ],
+          //         );
+          //       },
+          //     );
 
-              if (confirmed == true) {
-                // 루틴 삭제 로직을 구현하세요
-                // 예: 별도의 delete 루틴 API 호출
-                Navigator.of(context).pop(true); // 삭제 후 true 반환
-              }
-            },
-          ),
+          //     if (confirmed == true) {
+          //       // 루틴 삭제 로직을 구현하세요
+          //       // 예: 별도의 delete 루틴 API 호출
+          //       Navigator.of(context).pop(true); // 삭제 후 true 반환
+          //     }
+          //   },
+          // ),
         ],
       ),
       body: _isLoading
