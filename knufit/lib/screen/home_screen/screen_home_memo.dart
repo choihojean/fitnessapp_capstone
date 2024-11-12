@@ -35,7 +35,7 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
     }
 
     // URI를 구성
-    final uri = Uri.parse('$serverIp/memo').replace(queryParameters: {'userid': '$userId'});
+    final uri = Uri.parse('http://$serverIp/memo').replace(queryParameters: {'userid': '$userId'});
     print('Request URI: $uri'); // 디버깅을 위해 요청 URI를 출력
 
     try {

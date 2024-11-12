@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   var user;
 
   if (email.isNotEmpty && password.isNotEmpty && serverIp != null) {
-    final url = Uri.parse('$serverIp/user/login');
+    final url = Uri.parse('http://$serverIp/user/login');
     try {
       final res = await http.post(
         url,

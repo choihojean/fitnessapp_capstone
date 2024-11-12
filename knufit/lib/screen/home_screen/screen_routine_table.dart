@@ -51,7 +51,7 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
       return;
     }
 
-    final Uri uri = Uri.parse('$serverIp/traininglistdetail').replace(queryParameters: {
+    final Uri uri = Uri.parse('http://$serverIp/traininglistdetail').replace(queryParameters: {
       'userid': '${widget.user['id']}',
       'traininglistid': '${widget.trainingListId}',
     });
@@ -100,7 +100,7 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
       return;
     }
 
-    final Uri uri = Uri.parse('$serverIp/traininglistdetail').replace(queryParameters: {
+    final Uri uri = Uri.parse('http://$serverIp/traininglistdetail').replace(queryParameters: {
       'id': '$id', // traininglistdetail id 값
       'userid': '${widget.user['id']}',
     });
@@ -141,7 +141,7 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
       return;
     }
 
-    final Uri uri = Uri.parse('$serverIp/traininglistdetail');
+    final Uri uri = Uri.parse('http://$serverIp/traininglistdetail');
 
     try {
       final response = await http.put(

@@ -26,7 +26,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
 
   // 루틴 목록 로드
   Future<void> _loadTrainingList(int userId) async {
-    final Uri uri = Uri.parse('$serverIp/traininglist').replace(queryParameters: {'userid': '$userId'});
+    final Uri uri = Uri.parse('http://$serverIp/traininglist').replace(queryParameters: {'userid': '$userId'});
 
     try {
       final response = await http.get(uri);
@@ -53,7 +53,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
 
   // 루틴 생성
   Future<void> _createTrainingList(int userId, String name) async {
-    final Uri uri = Uri.parse('$serverIp/traininglist');
+    final Uri uri = Uri.parse('http://$serverIp/traininglist');
 
     try {
       final response = await http.post(
@@ -87,7 +87,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
 
   // 루틴 삭제
   Future<void> _deleteTrainingList(int userId, int trainingId) async {
-    final Uri uri = Uri.parse('$serverIp/traininglist').replace(queryParameters: {
+    final Uri uri = Uri.parse('http://$serverIp/traininglist').replace(queryParameters: {
       'id': '$trainingId',
       'userid': '$userId',
     });

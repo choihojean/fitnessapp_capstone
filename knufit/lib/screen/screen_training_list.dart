@@ -57,7 +57,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
 
   // 내부DB에서 운동 개수 비교 (같으면 true // 다르면 false)
   Future<bool> loadTrainingCount(int count) async {
-    final uri = Uri.parse('$serverIp/training/count');
+    final uri = Uri.parse('http://$serverIp/training/count');
     var result = false;
     try {
       final response = await http.get(uri);
@@ -73,7 +73,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
 
   // 서버에서 운동 로드
   Future<bool> loadTrainingToServer() async {
-    final uri = Uri.parse('$serverIp/training');
+    final uri = Uri.parse('http://$serverIp/training');
     try {
       final response = await http.get(uri);
       if (response.statusCode == 200) {
@@ -144,7 +144,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
       _routinesError = '';
     });
 
-    final Uri uri = Uri.parse('$serverIp/traininglistdetail');
+    final Uri uri = Uri.parse('http://$serverIp/traininglistdetail');
 
     try {
       final response = await http.post(
@@ -202,7 +202,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
       _routinesError = '';
     });
 
-    final Uri uri = Uri.parse('$serverIp/traininglist').replace(queryParameters: {
+    final Uri uri = Uri.parse('http://$serverIp/traininglist').replace(queryParameters: {
       'userid': '${widget.user['id']}',
     });
 

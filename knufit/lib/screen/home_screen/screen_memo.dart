@@ -48,7 +48,7 @@ class _ScreenMemoState extends State<ScreenMemo> {
     }
 
     /// 요청할 URI를 구성합니다.
-    final uri = Uri.parse('$serverIp/memo');
+    final uri = Uri.parse('http://$serverIp/memo');
     print('Request URI: $uri'); // 디버깅을 위해 요청 URI 출력
 
     /// 제목이나 내용이 비어있을 경우 사용자에게 알림
@@ -77,7 +77,7 @@ class _ScreenMemoState extends State<ScreenMemo> {
       } else {
         // 기존 메모 수정
         final int memoId = widget.memo!['id'];
-        final Uri updateUri = Uri.parse('$serverIp/memo');
+        final Uri updateUri = Uri.parse('http://$serverIp/memo');
         response = await http.put(
           updateUri,
           headers: {'Content-Type': 'application/json'},
@@ -126,7 +126,7 @@ class _ScreenMemoState extends State<ScreenMemo> {
     final int userId = widget.user['id'];
     final int memoId = widget.memo!['id'];
     print("3 : $userId");
-    final Uri deleteUri = Uri.parse('$serverIp/memo').replace(queryParameters: {
+    final Uri deleteUri = Uri.parse('http://$serverIp/memo').replace(queryParameters: {
       'userid': '$userId',
       'id': '$memoId',
     });

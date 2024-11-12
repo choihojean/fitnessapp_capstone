@@ -61,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
         //   'name': name,
         //   'password':password,
         // });
-        final url = Uri.parse('${FastAPI}/user/register');
+        final url = Uri.parse('http://${FastAPI}/user/register');
         try {
           final res = await http.post(
             url,
