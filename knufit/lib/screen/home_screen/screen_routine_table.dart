@@ -179,6 +179,7 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
 
   @override
   Widget build(BuildContext context) {
+    final maintheme = Theme.of(context).colorScheme.primary;
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.tableName}'),
@@ -252,7 +253,7 @@ class _ScreenRoutineTableState extends State<ScreenRoutineTable> {
                             title: Text(item.training.name),
                             subtitle: Text(item.trainingListDetail.content),
                             trailing: IconButton(
-                              icon: Icon(Icons.delete, color: Colors.red),
+                              icon: Icon(Icons.delete, color: maintheme),
                               onPressed: () async {
                                 bool? confirmed = await showDialog(
                                   context: context,
