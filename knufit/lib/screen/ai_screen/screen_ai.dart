@@ -127,8 +127,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             'role': 'system',
             'content': '''You are a fitness expert. Create 3 workout routines using only the exercises listed in $exerciseString.
             Each routine should have a unique title in Korean and include reasons for the recommendations, targeting a specific muscle group or workout area.
-            Avoid simple titles like '근력 증가 루틴.'
-            Each routine should contain 4-6 exercises in the following JSON format:
+            Avoid simple titles like '근력 강화 루틴1, 근육 강화 루틴2'
+            Each routine should contain 6-8 exercises in the following JSON format:
             [
               {"routine": {"title": "Title with specific exercise objectives", "reason": "Explanation for recommending this routine, including target area or workout benefits"}, 
                 "exercises": [
@@ -164,16 +164,14 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           List<dynamic> routinesData = jsonDecode(choice['message']['content']);
 
           for (var routine in routinesData) {
-            String routineTitle =
-                routine['routine']['title'] ?? '$targetAreas 루틴';
+            String routineTitle = routine['routine']['title'] ?? '$targetAreas 루틴';
             String routineReason = routine['routine']['reason'] ?? '루틴 추천 이유';
 
-            List<Map<String, String>> exerciseList =
-                (routine['exercises'] as List<dynamic>).map((exercise) {
-              Exercise matchedExercise = exercisesForTargetAreas.firstWhere(
+            List<Map<String, String>> exerciseList = (routine['exercises'] as List<dynamic>).map((exercise) {
+              final matchedExercise = exercisesForTargetAreas.firstWhere(
                 (item) => item.name == exercise['name'],
                 orElse: () => Exercise(
-                  name: '운동 정보를 찾을 수 없습니다',
+                  name: '', // 이름을 빈 문자열로 설정하여 필터링에 사용
                   tip: '',
                   category: '',
                   movement: '',
@@ -186,24 +184,33 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                   img: '',
                 ),
               );
-              return {
-                'name': matchedExercise.name,
-                'sets': exercise['sets'].toString(),
-                'reps': exercise['reps'].toString(),
-                'routinetitle': routineTitle,
-                'routinereason': routineReason,
-                'tip': matchedExercise.tip,
-                'category': matchedExercise.category,
-                'movement': matchedExercise.movement,
-                'precautions': matchedExercise.precautions,
-                'gif': matchedExercise.gif,
-                'target': matchedExercise.target,
-                'preparation': matchedExercise.preparation,
-                'breathing': matchedExercise.breathing,
-                'img': matchedExercise.img,
-              };
-            }).toList();
-            workoutRoutines.add(exerciseList.take(6).toList()); //각 루틴에 최대 6개의 운동만 추가
+
+              // 유효한 이름이 있는 운동만 추가
+              if (matchedExercise.name.isNotEmpty) {
+                return {
+                  'name': matchedExercise.name,
+                  'sets': exercise['sets'].toString(),
+                  'reps': exercise['reps'].toString(),
+                  'routinetitle': routineTitle,
+                  'routinereason': routineReason,
+                  'tip': matchedExercise.tip,
+                  'category': matchedExercise.category,
+                  'movement': matchedExercise.movement,
+                  'precautions': matchedExercise.precautions,
+                  'gif': matchedExercise.gif,
+                  'target': matchedExercise.target,
+                  'preparation': matchedExercise.preparation,
+                  'breathing': matchedExercise.breathing,
+                  'img': matchedExercise.img,
+                };
+              } else {
+                return null; // 일치하지 않는 운동은 null을 반환하여 제외
+              }
+            })
+            .where((exercise) => exercise != null) // null 값을 필터링하여 제외
+            .cast<Map<String, String>>()
+            .toList();
+            workoutRoutines.add(exerciseList.take(8).toList()); //각 루틴에 최대 8개의 운동만 추가
           }
         }
 
