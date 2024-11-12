@@ -100,7 +100,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             'content': '''You are a fitness expert. Create 3 workout routines using only the exercises listed in $exerciseString.
             Each routine should have a unique title in Korean and include reasons for the recommendations, targeting a specific muscle group or workout area.
             Avoid simple titles like '근력 증가 루틴.'
-            Each routine should contain 4-5 exercises in the following JSON format:
+            Each routine should contain 4-6 exercises in the following JSON format:
             [
               {"routine": {"title": "Title with specific exercise objectives", "reason": "Explanation for recommending this routine, including target area or workout benefits"}, 
                 "exercises": [
@@ -175,7 +175,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 'img': matchedExercise.img,
               };
             }).toList();
-            workoutRoutines.add(exerciseList.take(5).toList()); //각 루틴에 최대 5개의 운동만 추가
+            workoutRoutines.add(exerciseList.take(6).toList()); //각 루틴에 최대 6개의 운동만 추가
           }
         }
 
