@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../training_screen/training_detail.dart';
 import '../../exercise_model.dart';
 import '../../database/db_helper.dart';
@@ -41,34 +40,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSavedRoutines();
   }
 
-  // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
-  Future<void> _saveRoutinesToPrefs(
-      List<List<Map<String, String>>> routines) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> routinesAsJsonString =
-        routines.map((routine) => jsonEncode(routine)).toList();
-    await prefs.setStringList(
-        'saved_routines', routinesAsJsonString.take(6).toList());
-  }
-
-  // SharedPreferences에서 저장된 루틴을 불러오는 메서드
-  Future<void> _loadSavedRoutines() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String>? savedRoutines = prefs.getStringList('saved_routines');
-    if (savedRoutines != null) {
-      setState(() {
-        routines = savedRoutines.map((routine) {
-          List<dynamic> decodedRoutine = jsonDecode(routine);
-          return decodedRoutine.map<Map<String, String>>((exercise) {
-            return Map<String, String>.from(exercise as Map);
-          }).toList();
-        }).toList();
-      });
-    }
-  }
 
   //DB에서 사용자가 선택한 운동 부위에 맞는 운동 리스트를 가져오는 메서드
   Future<List<Exercise>> _getExercisesForTargetAreas() async {
@@ -124,14 +97,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         'messages': [
           {
             'role': 'system',
-            'content': '''You are a fitness expert. Make 3 workout routines.
-            Only use the exercises listed in $exerciseString.
-            Each routine should have a descriptive and unique Korean title and a specific reason for recommendation written in Korean.
-            Titles should vary significantly from each other, avoiding simple names like '근력 증가 루틴1'.
-            Each title should be detailed and may include specifics such as the workout's intensity, a particular focus (e.g., upper back development or endurance), or who would benefit most from this routine.
-            Each routine should have 4-5 exercises in the following JSON format:
+            'content': '''You are a fitness expert. Create 3 workout routines using only the exercises listed in $exerciseString.
+            Each routine should have a unique title in Korean and include reasons for the recommendations, targeting a specific muscle group or workout area.
+            Avoid simple titles like '근력 증가 루틴.'
+            Each routine should contain 4-5 exercises in the following JSON format:
             [
-              {"routine": {"title": "Unique and descriptive title", "reason": "Specific reason for recommendation"}, 
+              {"routine": {"title": "Title with specific exercise objectives", "reason": "Explanation for recommending this routine, including target area or workout benefits"}, 
                 "exercises": [
                   {"name": "exercise1", "sets": "3", "reps": "12"},
                   {"name": "exercise2", "sets": "4", "reps": "10"}
@@ -144,7 +115,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             'content':
                 '''I am $age years old, I am $height cm tall, and i weigh $weight kg.
                 The exercise areas are the ${targetAreas.join(", ")}, and the goal is $goal.
-                Please recommend 3 workout routines in JSON format with unique and descriptive titles and reasons.''',
+                Please recommend 3 workout routines in JSON format, each containing Korean titles and reasons, with exercises included from $exerciseString.
+                ''',
           },
         ],
       }),
@@ -210,7 +182,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         setState(() {
           routines = workoutRoutines;
         });
-        _saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
       } else {
         print('응답 데이터가 비어 있습니다.');
       }
@@ -503,3 +474,40 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     );
   }
 }
+
+
+
+
+  // // 추천받은 루틴을 SharedPreferences에 저장하는 메서드
+  // Future<void> _saveRoutinesToPrefs(
+  //     List<List<Map<String, String>>> routines) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   List<String> routinesAsJsonString =
+  //       routines.map((routine) => jsonEncode(routine)).toList();
+  //   await prefs.setStringList(
+  //       'saved_routines', routinesAsJsonString.take(6).toList());
+  // }
+
+  // // SharedPreferences에서 저장된 루틴을 불러오는 메서드
+  // Future<void> _loadSavedRoutines() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   List<String>? savedRoutines = prefs.getStringList('saved_routines');
+  //   if (savedRoutines != null) {
+  //     setState(() {
+  //       routines = savedRoutines.map((routine) {
+  //         List<dynamic> decodedRoutine = jsonDecode(routine);
+  //         return decodedRoutine.map<Map<String, String>>((exercise) {
+  //           return Map<String, String>.from(exercise as Map);
+  //         }).toList();
+  //       }).toList();
+  //     });
+  //   }
+  // }
+
+  // //_saveRoutinesToPrefs(workoutRoutines); //추천된 운동 루틴을 SharedPreferences에 저장
+  //     } else {
+  //       print('응답 데이터가 비어 있습니다.');
+  //     }
+  //   } else {
+  //     print('추천 실패: ${response.body}');
+  //   }
