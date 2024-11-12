@@ -120,6 +120,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
 
   @override
   Widget build(BuildContext context) {
+    final maintheme = Theme.of(context).colorScheme.primary;
     return Scaffold(
       body: trainingList.isEmpty
           ? const Center(child: Text('루틴이 없습니다.'))
@@ -141,7 +142,7 @@ class _ScreenRoutineState extends State<ScreenRoutine> {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
+                      icon: Icon(Icons.delete, color: maintheme),
                       tooltip: '루틴 삭제',
                       onPressed: () async {
                         bool? confirmed = await showDialog(

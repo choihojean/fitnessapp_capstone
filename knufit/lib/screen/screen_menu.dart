@@ -11,6 +11,8 @@ class ScreenMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final maintheme = Theme.of(context).colorScheme.primary;
+    final subtheme = Theme.of(context).colorScheme.onSurfaceVariant;
     // Null 값을 기본값으로 처리
     final String profileImg = user['profile_img'] ?? 'assets/profile_default.jpg';
     final String userName = user['name'] ?? 'Unknown User';
@@ -57,14 +59,14 @@ class ScreenMenu extends StatelessWidget {
           Divider(),
           // 다크 모드 토글 기능 추가
           SwitchListTile(
-            title: Text("다크 모드", style: TextStyle(color: Colors.orange)),
+            title: Text("다크 모드", style: TextStyle(color: maintheme)),
             value: Provider.of<ThemeNotifier>(context).isDarkMode,
             onChanged: (value) {
               Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
             },
-            secondary: Icon(Icons.brightness_6, color: Colors.orange),
-            activeColor: Colors.deepOrangeAccent,
-            activeTrackColor: Colors.orange,
+            secondary: Icon(Icons.brightness_6, color: maintheme),
+            activeColor: maintheme,
+            activeTrackColor: maintheme,
           ),
         ],
       ),

@@ -43,7 +43,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                   child: Text(
                     'Home Memo',
                     style: TextStyle(
-                      color: _selectedTabIndex == 0 ? Colors.blue : const Color.fromARGB(179, 41, 41, 41),
+                      //color: _selectedTabIndex == 0 ? Colors.blue : const Color.fromARGB(179, 41, 41, 41),
                       fontWeight: _selectedTabIndex == 0 ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
@@ -55,7 +55,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                   child: Text(
                     'Routine',
                     style: TextStyle(
-                      color: _selectedTabIndex == 1 ? Colors.blue : const Color.fromARGB(179, 41, 41, 41),
+                      //color: _selectedTabIndex == 1 ? Colors.blue : const Color.fromARGB(179, 41, 41, 41),
                       fontWeight: _selectedTabIndex == 1 ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),

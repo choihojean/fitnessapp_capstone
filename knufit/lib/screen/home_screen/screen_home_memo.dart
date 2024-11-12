@@ -76,43 +76,52 @@ class _ScreenHomeMemoState extends State<ScreenHomeMemo> {
         builder: (context, snapshot) {
           // 데이터 로딩 중일 때 로딩 스피너를 표시
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
-          else if (snapshot.hasError) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
-          }
-          else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('저장된 메모가 없습니다.'));
-          }
-          // 데이터가 성공적으로 로드되었을 때 메모 목록을 표시합니다.
-          else {
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('저장된 메모가 없습니다.'));
+          } else {
+            // 데이터가 성공적으로 로드되었을 때 메모 목록을 카드로 표시합니다.
             final memos = snapshot.data!;
             return ListView.separated(
-              itemCount: memos.length, // 메모 개수만큼 ListTile을 생성
-              separatorBuilder: (context, index) => Divider(), // 메모 간 구분선을 추가
+              padding: const EdgeInsets.all(16),
+              itemCount: memos.length, // 메모 개수만큼 Card를 생성
+              separatorBuilder: (context, index) => const SizedBox(height: 8), // 카드 간 간격 추가
               itemBuilder: (context, index) {
                 final memo = memos[index];
-                return ListTile(
-                  title: Text(memo['title']), // 메모의 제목을 표시
-                  subtitle: Text(
-                    memo['content'], // 메모의 내용을 한 줄로 표시
-                    maxLines: 1, // 최대 1줄까지만 표시
-                    overflow: TextOverflow.ellipsis, // 넘치는 텍스트는 말줄임표로 표시
-                  ),
-                  onTap: () async {
-                    /// 메모를 탭하면 상세 화면으로 이동
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ScreenMemo(
-                          user: widget.user,
-                          memo: memo,
+                return Card(
+                  key: ValueKey(memo['id']),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16), // 카드의 모서리를 둥글게 설정
+                    ),
+                  elevation: 4, // 카드의 그림자 효과
+                  margin: const EdgeInsets.symmetric(vertical: 4), // 카드 간 여백 추가
+                  child: ListTile(
+                    title: Text(
+                      memo['title'], // 메모의 제목 표시
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    subtitle: Text(
+                      memo['content'], // 메모의 내용 표시 (한 줄로)
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis, // 넘치는 텍스트는 말줄임표로 표시
+                    ),
+                    onTap: () async {
+                      // 메모를 탭하면 상세 화면으로 이동
+                      final result = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ScreenMemo(
+                            user: widget.user,
+                            memo: memo,
+                          ),
                         ),
-                      ),
-                    );
-                    /// 상세 화면에서 메모가 수정되었다면 목록을 다시 불러옴
-                    if (result == true) _reloadMemos();
-                  },
+                      );
+                      // 상세 화면에서 메모가 수정되었다면 목록을 다시 불러옴
+                      if (result == true) _reloadMemos();
+                    },
+                  ),
                 );
               },
             );

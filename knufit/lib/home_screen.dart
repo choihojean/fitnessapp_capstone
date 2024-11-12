@@ -32,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final selectedColor = Theme.of(context).colorScheme.primary;
+    final unselectedColor = Theme.of(context).colorScheme.onSurfaceVariant;
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
@@ -52,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.orange,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: selectedColor,
+        unselectedItemColor: unselectedColor,
         onTap: _onItemTapped,
       ),
     );

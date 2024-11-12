@@ -277,6 +277,9 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
 
   @override
   Widget build(BuildContext context) {
+    final maintheme = Theme.of(context).colorScheme.primary;
+    final subtheme = Theme.of(context).colorScheme.onSurfaceVariant;
+    final sectheme = Theme.of(context).colorScheme.secondary;
     return Scaffold(
       appBar: AppBar(
         title: Text('운동 목록'),
@@ -304,19 +307,19 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                       : null,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.orange), // 테두리 색상 설정
+                    borderSide: BorderSide(color: maintheme), // 테두리 색상 설정
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.orange), // 포커스 시 테두리 색상 설정
+                    borderSide: BorderSide(color: maintheme), // 포커스 시 테두리 색상 설정
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.orange), // 활성화된 상태의 테두리 색상 설정
+                    borderSide: BorderSide(color: maintheme), // 활성화된 상태의 테두리 색상 설정
                   ),
                   contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0), // 텍스트 위치 조정
                   hintStyle: TextStyle(
-                    color: Colors.grey, // 힌트 텍스트 색상 설정
+                    color: subtheme, // 힌트 텍스트 색상 설정
                   ),
                 ),
                 onChanged: (value) {
@@ -350,8 +353,8 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                     margin: EdgeInsets.symmetric(horizontal: 4.0),
                     decoration: BoxDecoration(
                       color: selectedTabIndex == index
-                          ? Colors.orange
-                          : Colors.grey.shade300,
+                          ? maintheme
+                          : sectheme,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -359,7 +362,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
                       style: TextStyle(
                         color: selectedTabIndex == index
                             ? Colors.white
-                            : Colors.black,
+                            : Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -379,6 +382,8 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
   }
 
   Widget buildListView(String category) {
+    final maintheme = Theme.of(context).colorScheme.primary;
+    //final subtheme = Theme.of(context).colorScheme.onSurfaceVariant;
     if (_isLoading) {
       return Center(child: CircularProgressIndicator());
     } else if (_error.isNotEmpty) {
@@ -420,7 +425,7 @@ class _ScreenTrainingListState extends State<ScreenTrainingList> {
               title: Text(exercise.name),
               subtitle: Text(exercise.target),
               trailing: IconButton(
-                icon: Icon(Icons.add, color: Colors.orange),
+                icon: Icon(Icons.add, color: maintheme),
                 onPressed: () {
                   _showRoutinesBottomSheet(exercise.id);
                 },
