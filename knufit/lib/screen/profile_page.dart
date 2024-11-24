@@ -1,9 +1,44 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   final Map<String, dynamic> user;
 
   const ProfilePage({required this.user, Key? key}) : super(key: key);
+
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool _isEditing = false; // 수정 모드 여부
+  late TextEditingController _nameController;
+  late TextEditingController _emailController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.user['name']);
+    _emailController = TextEditingController(text: widget.user['email']);
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  void _toggleEditMode() {
+    setState(() {
+      if (_isEditing) {
+        // 완료 버튼을 눌렀을 때 수행할 기능 구현
+        // 예: 서버에 데이터 저장
+        print('저장된 이름: ${_nameController.text}');
+        print('저장된 이메일: ${_emailController.text}');
+      }
+      _isEditing = !_isEditing;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +47,59 @@ class ProfilePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽 정렬 설정
           children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: user['profile_img'] != null
-                  ? NetworkImage(user['profile_img'])
-                  : AssetImage('assets/profile_default.jpg') as ImageProvider,
+            Center(
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: widget.user['profile_img'] != null
+                    ? NetworkImage(widget.user['profile_img'])
+                    : AssetImage('assets/profile_default.jpg') as ImageProvider,
+              ),
             ),
             SizedBox(height: 20),
-            Text('이름: ${user['name']}', style: TextStyle(fontSize: 20)),
-            Text('이메일: ${user['email']}', style: TextStyle(fontSize: 16)),
-            Text('업데이트 날짜: ${user['updated_at']}', style: TextStyle(fontSize: 16)),
+            Text('이름', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 5),
+            _isEditing
+                ? TextField(
+                    controller: _nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: '이름을 입력하세요',
+                    ),
+                  )
+                : Text(widget.user['name'], style: TextStyle(fontSize: 16)),
+            SizedBox(height: 20),
+            Text('이메일', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 5),
+            _isEditing
+                ? TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: '이메일을 입력하세요',
+                    ),
+                  )
+                : Text(widget.user['email'], style: TextStyle(fontSize: 16)),
+            SizedBox(height: 20),
+            Text('업데이트 날짜', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 5),
+            Text(widget.user['updated_at'], style: TextStyle(fontSize: 16)),
           ],
         ),
+      ),
+      floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton.icon(
+            onPressed: _toggleEditMode,
+            icon: Icon(_isEditing ? Icons.check : Icons.edit),
+            label: Text(_isEditing ? '완료' : '수정'),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            ),
+          ),
+        ],
       ),
     );
   }
