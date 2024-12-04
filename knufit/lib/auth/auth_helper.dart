@@ -1,6 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 import '../main.dart';
+
+final String? serverIP = dotenv.env['SERVER_IP'];
 
 class AuthHelper {
   // 로그아웃 처리
@@ -28,6 +33,7 @@ class AuthHelper {
     await prefs.setString('user_name', user['name'] ?? '');
     await prefs.setString('user_profile_img', user['profile_img'] ?? '');
     await prefs.setString('user_updated_at', user['updated_at'] ?? '');
+    print("success!!!!");
   }
 
   // 사용자 세션 조회 (모든 사용자 정보 불러오기)
@@ -38,15 +44,32 @@ class AuthHelper {
       return null;
     }
 
+    final uri = Uri.http('$serverIP', '/user/login');
+    try {
+      final response = await http.post(
+        uri,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          "email": prefs.getString('user_email'),
+          "password": prefs.getString('user_password')
+        })
+      );
+      final Map<String, dynamic> resData = Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)));
+      print('res ========== $resData');
+      
+    } catch(e) {
+      print({"error": e});
+    }
+
     // 세션에서 모든 사용자 정보 불러오기
-    return {
+    return({
       'id': prefs.getInt('user_id'),
       'email': prefs.getString('user_email') ?? '',
       'password': prefs.getString('user_password') ?? '',
       'name': prefs.getString('user_name') ?? '',
       'profile_img': prefs.getString('user_profile_img') ?? '',
-      'updated_at': prefs.getString('user_updated_at') ?? '',
-    };
+      'updated_at': prefs.getString('user_updated_at') ?? ''
+    });
   }
 
   // 로그아웃 확인 다이얼로그
