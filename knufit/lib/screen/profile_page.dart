@@ -70,6 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       appBar: AppBar(title: Text('내 정보')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
