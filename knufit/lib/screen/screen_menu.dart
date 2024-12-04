@@ -4,19 +4,31 @@ import '../screen/profile_page.dart';
 import '../auth/auth_helper.dart';
 import '../theme_notifier.dart';
 
-class ScreenMenu extends StatelessWidget {
+class ScreenMenu extends StatefulWidget {
   final Map<String, dynamic> user;
 
   const ScreenMenu({required this.user, Key? key}) : super(key: key);
 
   @override
+  _ScreenMenuState createState() => _ScreenMenuState();
+}
+
+class _ScreenMenuState extends State<ScreenMenu> {
+  late String profileImg;
+  late String userName;
+  late String userEmail;
+
+  @override
+  void initState() {
+    super.initState();
+    profileImg = widget.user['profile_img'] ?? 'assets/profile_default.jpg';
+    userName = widget.user['name'] ?? 'Unknown User';
+    userEmail = widget.user['email'] ?? 'No Email';
+  }
+
+  @override
   Widget build(BuildContext context) {
     final maintheme = Theme.of(context).colorScheme.primary;
-    //final subtheme = Theme.of(context).colorScheme.onSurfaceVariant;
-    // Null 값을 기본값으로 처리
-    final String profileImg = user['profile_img'] ?? 'assets/profile_default.jpg';
-    final String userName = user['name'] ?? 'Unknown User';
-    final String userEmail = user['email'] ?? 'No Email';
 
     return Scaffold(
       appBar: AppBar(title: Text('메뉴')),
@@ -27,9 +39,17 @@ class ScreenMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProfilePage(user: user),
+                  builder: (context) => ProfilePage(user: widget.user),
                 ),
-              );
+              ).then((result) {
+                if (result != null) {
+                  setState(() {
+                    userName = result['name'] ?? userName;
+                    profileImg = result['profile_img'] ?? profileImg;
+                    userEmail = result['email'] ?? userEmail;
+                  });
+                }
+              });
             },
             child: Row(
               children: [
@@ -57,7 +77,6 @@ class ScreenMenu extends StatelessWidget {
             onTap: () => AuthHelper.confirmLogout(context),
           ),
           Divider(),
-          // 다크 모드 토글 기능 추가
           SwitchListTile(
             title: Text("다크 모드", style: TextStyle(color: maintheme)),
             value: Provider.of<ThemeNotifier>(context).isDarkMode,
@@ -73,7 +92,6 @@ class ScreenMenu extends StatelessWidget {
     );
   }
 }
-
 
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';

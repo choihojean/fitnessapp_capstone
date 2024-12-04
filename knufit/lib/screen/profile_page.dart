@@ -1,4 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
+import '../auth/auth_helper.dart';
 
 class ProfilePage extends StatefulWidget {
   final Map<String, dynamic> user;
@@ -13,12 +17,17 @@ class _ProfilePageState extends State<ProfilePage> {
   bool _isEditing = false; // 수정 모드 여부
   late TextEditingController _nameController;
   late TextEditingController _emailController;
+  late String _tempName;
+  late String _tempEmail;
+  final String? serverIP = dotenv.env['SERVER_IP'];
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.user['name']);
     _emailController = TextEditingController(text: widget.user['email']);
+    _tempName = widget.user['name'];
+    _tempEmail = widget.user['email'];
   }
 
   @override
@@ -28,14 +37,32 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
-  void _toggleEditMode() {
-    setState(() {
-      if (_isEditing) {
-        // 완료 버튼을 눌렀을 때 수행할 기능 구현
-        // 예: 서버에 데이터 저장
-        print('저장된 이름: ${_nameController.text}');
-        print('저장된 이메일: ${_emailController.text}');
+  void _toggleEditMode() async {
+    if (_isEditing) {
+      if(_nameController.text != _tempName || _emailController.text != _tempEmail) {
+        final uri = Uri.http('$serverIP', '/user/profile');
+        var request = http.MultipartRequest('PUT', uri);
+        request.fields.addAll({
+          "id": widget.user['id'].toString(),
+          "email": _emailController.text,
+          "name": _nameController.text
+        });
+        try {
+          final response = await request.send();
+          final responseData = jsonDecode(await response.stream.bytesToString());
+          await AuthHelper.saveUserSession(responseData);
+          setState(() {
+            widget.user['name'] = responseData['name'];
+            widget.user['email'] = responseData['email'];
+            _isEditing = !_isEditing;
+          });
+          Navigator.pop(context, responseData);
+        } catch(e) {
+          print({"error": e});
+        }
       }
+    }
+    setState(() {
       _isEditing = !_isEditing;
     });
   }
